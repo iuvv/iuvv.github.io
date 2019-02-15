@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mariadb Galera Cluster Install Faq Base Centos - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="mysql系列之集群 MariaDB-Galera-cluster 报错 报错1, /etc/my.cnf.d/下 有一个 不应该存在的 .cnf 错误原因： mysql 加载了 /etc/my.cnf.d/下的所有 *.cnf" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/mariadb-galera-cluster-install-faq-base-centos/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="Mariadb Galera Cluster Install Faq Base Centos" />
+<meta property="og:description" content="mysql系列之集群 MariaDB-Galera-cluster 报错 报错1, /etc/my.cnf.d/下 有一个 不应该存在的 .cnf 错误原因： mysql 加载了 /etc/my.cnf.d/下的所有 *.cnf" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/mariadb-galera-cluster-install-faq-base-centos/" />
+
+
+
+<meta property="article:published_time" content="2018-03-02T12:44:14&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-03-02T12:44:14&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Mariadb Galera Cluster Install Faq Base Centos">
+<meta itemprop="description" content="mysql系列之集群 MariaDB-Galera-cluster 报错 报错1, /etc/my.cnf.d/下 有一个 不应该存在的 .cnf 错误原因： mysql 加载了 /etc/my.cnf.d/下的所有 *.cnf">
+
+
+<meta itemprop="datePublished" content="2018-03-02T12:44:14&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-02T12:44:14&#43;08:00" />
+<meta itemprop="wordCount" content="5109">
+
+
+
+<meta itemprop="keywords" content="mariadb,galera," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mariadb Galera Cluster Install Faq Base Centos"/>
+<meta name="twitter:description" content="mysql系列之集群 MariaDB-Galera-cluster 报错 报错1, /etc/my.cnf.d/下 有一个 不应该存在的 .cnf 错误原因： mysql 加载了 /etc/my.cnf.d/下的所有 *.cnf"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Mariadb Galera Cluster Install Faq Base Centos</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-03-02" class="post-time">
+          2018-03-02
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/mariadb/"> mariadb </a>
+            
+          </div>
+        <span class="more-meta"> 约 5109 字 </span>
+          <span class="more-meta"> 预计阅读 11 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#报错1-etc-my-cnf-d-下-有一个-不应该存在的-cnf">报错1, /etc/my.cnf.d/下 有一个 不应该存在的 .cnf</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>mysql系列之集群 MariaDB-Galera-cluster 报错</p>
+
+<h2 id="报错1-etc-my-cnf-d-下-有一个-不应该存在的-cnf">报错1, /etc/my.cnf.d/下 有一个 不应该存在的 .cnf</h2>
+
+<p>错误原因：</p>
+
+<p>mysql 加载了 /etc/my.cnf.d/下的所有 <code>*.cnf</code> 文件，其中又有一个之前的不应该存在的 <code>*.cnf</code>。</p>
+
+<p>正确情况下，应该只有4个<code>.cnf</code>文件。
+    [spa@s11 ~]$ ls /etc/my.cnf.d/
+    client.cnf  mysql-clients.cnf  server.cnf  tokudb.cnf
+    [spa@s11 ~]$</p>
+
+<p>错误情况：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo /etc/init.d/mysql start --wsrep-new-cluster
+Starting MySQL.161116 17:44:54 mysqld_safe Logging to &#39;/data/mariadb/mysql/kube-node-13.err&#39;.
+. SUCCESS!
+[tom@kube-node-13 ~]$ mysql -u root -p -e &#34;show status like &#39;wsrep%&#39;&#34;
+Enter password:
++--------------------------+----------------------+
+| Variable_name            | Value                |
++--------------------------+----------------------+
+| wsrep_cluster_conf_id    | 18446744073709551615 |
+| wsrep_cluster_size       | 0                    |
+| wsrep_cluster_state_uuid |                      |
+| wsrep_cluster_status     | Disconnected         |
+| wsrep_connected          | OFF                  |
+| wsrep_local_bf_aborts    | 0                    |
+| wsrep_local_index        | 18446744073709551615 |
+| wsrep_provider_name      |                      |
+| wsrep_provider_vendor    |                      |
+| wsrep_provider_version   |                      |
+| wsrep_ready              | ON                   |
+| wsrep_thread_count       | 0                    |
++--------------------------+----------------------+
+[tom@kube-node-13 ~]$</pre></td></tr></table>
+</div>
+</div>
+<p>解决过程：</p>
+
+<p>怎么办呢？</p>
+
+<p>先看状态</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo service mysql status -l
+ SUCCESS! MySQL running (11946)</pre></td></tr></table>
+</div>
+</div>
+<p>关闭掉，我们来手动启动查原因。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo service mysql stop
+Shutting down MySQL... SUCCESS!
+[tom@kube-node-13 ~]$</pre></td></tr></table>
+</div>
+</div>
+<p>查一下，如何手动启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[spa@s11 ~]$ which mysqld
+/usr/sbin/mysqld
+[cdn@test_240 OpenPicker]$ mysqld --help
+mysqld  Ver 10.0.28-MariaDB-wsrep for Linux on x86_64 (MariaDB Server, wsrep_25.16.rc3fc46e)
+Copyright (c) 2000, 2016, Oracle, MariaDB Corporation Ab and others.
+
+Starts the MariaDB database server.
+
+Usage: mysqld [OPTIONS]
+
+For more help options (several pages), use mysqld --verbose --help.
+[cdn@test_240 OpenPicker]$ use mysqld --verbose --help
+...
+一大串
+...</pre></td></tr></table>
+</div>
+</div>
+<p>手动启动</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ mysqld --verbose
+161116 18:30:01 [Note] mysqld (mysqld 10.0.28-MariaDB-wsrep) starting as process 12713 ...
+161116 18:30:01 [Warning] Can&#39;t create test file /data/mariadb/mysql/kube-node-13.lower-test
+161116 18:30:01 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 18:30:01 [Note] WSREP: wsrep_load(): loading provider library &#39;/usr/lib/galera/libgalera_smm.so&#39;
+161116 18:30:01 [ERROR] WSREP: wsrep_load(): dlopen(): /usr/lib/galera/libgalera_smm.so: cannot open shared object file: No such file or directory
+161116 18:30:01 [ERROR] WSREP: wsrep_load(/usr/lib/galera/libgalera_smm.so) failed: Invalid argument (22). Reverting to no provider.
+161116 18:30:01 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 18:30:01 [Note] WSREP: wsrep_load(): loading provider library &#39;none&#39;
+2016-11-16 18:30:01 7f1069f42880 InnoDB: Warning: Using innodb_locks_unsafe_for_binlog is DEPRECATED. This option may be removed in future releases. Please use READ COMMITTED transaction isolation level instead, see http://dev.mysql.com/doc/refman/5.6/en/set-transaction.html.
+161116 18:30:01 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+161116 18:30:01 [Note] InnoDB: The InnoDB memory heap is disabled
+161116 18:30:01 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+161116 18:30:01 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+161116 18:30:01 [Note] InnoDB: Compressed tables use zlib 1.2.7
+161116 18:30:01 [Note] InnoDB: Using Linux native AIO
+161116 18:30:01 [Note] InnoDB: Using CPU crc32 instructions
+161116 18:30:01 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+161116 18:30:01 [Note] InnoDB: Completed initialization of buffer pool
+161116 18:30:01 [ERROR] InnoDB: ./ibdata1 can&#39;t be opened in read-write mode
+161116 18:30:01 [ERROR] InnoDB: The system tablespace must be writable!
+161116 18:30:01 [ERROR] Plugin &#39;InnoDB&#39; init function returned error.
+161116 18:30:01 [ERROR] Plugin &#39;InnoDB&#39; registration as a STORAGE ENGINE failed.
+161116 18:30:01 [ERROR] mysqld: File &#39;/data/mariadb/mysql/aria_log_control&#39; not found (Errcode: 13 &#34;Permission denied&#34;)
+161116 18:30:01 [ERROR] mysqld: Got error &#39;Can&#39;t open file&#39; when trying to use aria control file &#39;/data/mariadb/mysql/aria_log_control&#39;
+161116 18:30:01 [ERROR] Plugin &#39;Aria&#39; init function returned error.
+161116 18:30:01 [ERROR] Plugin &#39;Aria&#39; registration as a STORAGE ENGINE failed.
+161116 18:30:01 [Note] Plugin &#39;FEEDBACK&#39; is disabled.
+161116 18:30:01 [ERROR] Can&#39;t open the mysql.plugin table. Please run mysql_upgrade to create it.
+161116 18:30:01 [ERROR] Unknown/unsupported storage engine: innodb
+161116 18:30:01 [ERROR] Aborting
+
+161116 18:30:01 [Note] WSREP: Service disconnected.
+161116 18:30:02 [Note] WSREP: Some threads may fail to exit.
+161116 18:30:02 [Note] mysqld: Shutdown complete</pre></td></tr></table>
+</div>
+</div>
+<p>看到了吧，上面有一行</p>
+
+<p><code>161116 18:30:01 [ERROR] WSREP: wsrep_load(): dlopen(): /usr/lib/galera/libgalera_smm.so: cannot open shared object file: No such file or directory</code></p>
+
+<p>说明有问题了吧。
+先这样，我们确保一下，启动程序的用户是mysql,来吧。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo --help
+sudo: invalid option -- &#39;-&#39;
+usage: sudo [-D level] -h | -K | -k | -V
+usage: sudo -v [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid]
+usage: sudo -l[l] [-AknS] [-D level] [-g groupname|#gid] [-p prompt] [-U user name] [-u user name|#uid] [-g groupname|#gid] [command]
+usage: sudo [-AbEHknPS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] [-g groupname|#gid] [VAR=value] [-i|-s] [&lt;command&gt;]
+usage: sudo -e [-AknS] [-r role] [-t type] [-C fd] [-D level] [-g groupname|#gid] [-p prompt] [-u user name|#uid] file ...
+[tom@kube-node-13 ~]$</pre></td></tr></table>
+</div>
+</div>
+<p>好了，知道了，用sudo -u ,那这个 -u 后面接什么用户呢？mysql ,还是 mysqld？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ ll /var/lib/mysql/
+total 217128
+-rw-rw----. 1 mysql mysql     16384 11月 16 18:18 aria_log.00000001
+-rw-rw----. 1 mysql mysql        52 11月 16 18:18 aria_log_control
+-rw-rw----. 1 mysql mysql  12582912 11月 16 18:18 ibdata1
+-rw-rw----. 1 mysql mysql 104857600 11月 16 18:18 ib_logfile0
+-rw-rw----. 1 mysql mysql 104857600 11月 16 18:18 ib_logfile1
+-rw-r-----. 1 mysql root       5489 11月 16 18:18 kube-node-13.err
+-rw-rw----. 1 mysql mysql         0 11月 16 13:34 multi-master.info
+drwx--x--x. 2 mysql mysql      4096 11月 16 12:51 mysql
+srwxrwxrwx. 1 mysql mysql         0 11月 17 10:28 mysql.sock
+drwx------. 2 mysql mysql      4096 11月 16 12:51 performance_schema
+-rw-------. 1 mysql root       2538 11月 16 18:18 wsrep_recovery.N15shv
+[tom@kube-node-13 ~]$</pre></td></tr></table>
+</div>
+</div>
+<p>好了，现在知道了，这些文件都是 <code>mysql</code>用户的，那自然，我们应该是 <code>sudo -u mysql</code> .
+来吧。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo -u mysql mysqld --verbose
+161116 18:32:38 [Note] mysqld (mysqld 10.0.28-MariaDB-wsrep) starting as process 12963 ...
+161116 18:32:38 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 18:32:38 [Note] WSREP: wsrep_load(): loading provider library &#39;/usr/lib/galera/libgalera_smm.so&#39;
+161116 18:32:38 [ERROR] WSREP: wsrep_load(): dlopen(): /usr/lib/galera/libgalera_smm.so: cannot open shared object file: No such file or directory
+161116 18:32:38 [ERROR] WSREP: wsrep_load(/usr/lib/galera/libgalera_smm.so) failed: Invalid argument (22). Reverting to no provider.
+161116 18:32:38 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 18:32:38 [Note] WSREP: wsrep_load(): loading provider library &#39;none&#39;
+2016-11-16 18:32:38 7f71c04dd880 InnoDB: Warning: Using innodb_locks_unsafe_for_binlog is DEPRECATED. This option may be removed in future releases. Please use READ COMMITTED transaction isolation level instead, see http://dev.mysql.com/doc/refman/5.6/en/set-transaction.html.
+161116 18:32:38 [Note] InnoDB: Using mutexes to ref count buffer pool pages
+161116 18:32:38 [Note] InnoDB: The InnoDB memory heap is disabled
+161116 18:32:38 [Note] InnoDB: Mutexes and rw_locks use GCC atomic builtins
+161116 18:32:38 [Note] InnoDB: GCC builtin __atomic_thread_fence() is used for memory barrier
+161116 18:32:38 [Note] InnoDB: Compressed tables use zlib 1.2.7
+161116 18:32:38 [Note] InnoDB: Using Linux native AIO
+161116 18:32:38 [Note] InnoDB: Using CPU crc32 instructions
+161116 18:32:38 [Note] InnoDB: Initializing buffer pool, size = 128.0M
+161116 18:32:38 [Note] InnoDB: Completed initialization of buffer pool
+161116 18:32:38 [Note] InnoDB: Highest supported file format is Barracuda.
+161116 18:32:38 [Note] InnoDB: 128 rollback segment(s) are active.
+161116 18:32:38 [Note] InnoDB: Waiting for purge to start
+161116 18:32:38 [Note] InnoDB:  Percona XtraDB (http://www.percona.com) 5.6.32-79.0 started; log sequence number 1624176
+161116 18:32:38 [Note] Plugin &#39;FEEDBACK&#39; is disabled.
+161116 18:32:38 [Note] Server socket created on IP: &#39;0.0.0.0&#39;.
+161116 18:32:38 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 18:32:38 [Note] WSREP: wsrep_load(): loading provider library &#39;none&#39;
+161116 18:32:38 [Note] mysqld: ready for connections.
+Version: &#39;10.0.28-MariaDB-wsrep&#39;  socket: &#39;/var/lib/mysql/mysql.sock&#39;  port: 3306  MariaDB Server, wsrep_25.16.rc3fc46e
+^C^C^C^C^C^CKilled
+[tom@kube-node-13 ~]$</pre></td></tr></table>
+</div>
+</div>
+<p>看到了。错误</p>
+
+<p><code>161116 18:32:38 [ERROR] WSREP: wsrep_load(): dlopen(): /usr/lib/galera/libgalera_smm.so: cannot open shared object file: No such file or directory</code></p>
+
+<p>还在。</p>
+
+<p>找一下，看这个文件在不在了？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo ls -l /usr/lib/galera/libgalera_smm.so
+ls: cannot access /usr/lib/galera/libgalera_smm.so: No such file or directory</pre></td></tr></table>
+</div>
+</div>
+<p>好了，这个文件真的不存在。
+那试一下 /usr/lib64/ 下有没有这个文件呢？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo ls  /usr/lib64/galera/libgalera_smm.so
+/usr/lib64/galera/libgalera_smm.so</pre></td></tr></table>
+</div>
+</div>
+<p>哈哈。有呀。
+那看一下，我们配置里面的是哪个？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 ~]$ sudo cat /etc/my.cnf.d/server.cnf
+...
+binlog_format=ROW
+default-storage-engine=innodb
+innodb_autoinc_lock_mode=2
+innodb_locks_unsafe_for_binlog=1
+query_cache_size=0
+query_cache_type=0
+bind-address=0.0.0.0
+datadir=/data/mariadb/mysql
+#datadir=/var/lib/mysql
+innodb_log_file_size=100M
+innodb_file_per_table
+innodb_flush_log_at_trx_commit=2
+wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+wsrep_cluster_address=&#34;gcomm://10.10.13.110,192.168.31.240,10.10.12.13&#34;
+wsrep_cluster_name=&#39;galera_cluster&#39;
+wsrep_node_address=&#39;10.10.12.13&#39;
+wsrep_node_name=&#39;db3&#39;
+wsrep_sst_method=rsync
+wsrep_sst_auth=sst_user:dbpass</pre></td></tr></table>
+</div>
+</div>
+<p>看到了吧，是<code>wsrep_provider=/usr/lib64/galera/libgalera_smm.so</code>。是<code>/usr/lib64/</code>。那说明了，程序没有成功加载我们的配置文件呀。</p>
+
+<p>无论怎样，我们先做一个软链接，看下，能不能成功。</p>
+
+<p>注意哈，这里是直接把整个文件夹做成软链接，不要写错了。不是<code>sudo ln -s /usr/lib64/galera/ /usr/lib/galera/</code>， 更不是<code>sudo ln -s /usr/lib64/galera/ /usr/lib/galera/</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 galera]$ sudo ln -s /usr/lib64/galera /usr/lib/galera
+[tom@kube-node-13 galera]$ cd /usr/lib/galera/
+[tom@kube-node-13 galera]$ ls
+libgalera_smm.so
+[tom@kube-node-13 galera]$</pre></td></tr></table>
+</div>
+</div>
+<p>做好了。再来一次。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 galera]$ sudo -u mysql mysqld --verbose
+161116 18:46:07 [Note] mysqld (mysqld 10.0.28-MariaDB-wsrep) starting as process 14216 ...
+161116 18:46:07 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 18:46:07 [Note] WSREP: wsrep_load(): loading provider library &#39;/usr/lib/galera/libgalera_smm.so&#39;
+161116 18:46:07 [Note] WSREP: wsrep_load(): Galera 25.3.18(r3632) by Codership Oy &lt;info@codership.com&gt; loaded successfully.
+161116 18:46:07 [Note] WSREP: CRC-32C: using hardware acceleration.
+161116 18:46:07 [Warning] WSREP: Could not open state file for reading: &#39;/data/mariadb/mysql//grastate.dat&#39;
+161116 18:46:07 [Note] WSREP: Found saved state: 00000000-0000-0000-0000-000000000000:-1
+161116 18:46:07 [Note] WSREP: Passing config to GCS: base_dir = /data/mariadb/mysql/; base_host = 10.10.12.13; base_port = 4567; cert.log_conflicts = no; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 4; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 2; evs.view_forget_timeout = PT24H; gcache.dir = /data/mariadb/mysql/; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /data/mariadb/mysql//galera.cache; gcache.page_size = 128M; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1.0; gcs.fc_limit = 16; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0; pc.announce_timeout = PT3S; pc.checksum = false; pc.ignore_q
+161116 18:46:07 [Note] WSREP: Service thread queue flushed.
+161116 18:46:07 [Note] WSREP: Assign initial position for certification: -1, protocol version: -1
+161116 18:46:07 [Note] WSREP: wsrep_sst_grab()
+161116 18:46:07 [Note] WSREP: Start replication
+161116 18:46:07 [Note] WSREP: Setting initial position to 00000000-0000-0000-0000-000000000000:-1
+161116 18:46:07 [Note] WSREP: protonet asio version 0
+161116 18:46:07 [Note] WSREP: Using CRC-32C for message checksums.
+161116 18:46:07 [Note] WSREP: backend: asio
+161116 18:46:07 [Note] WSREP: gcomm thread scheduling priority set to other:0
+161116 18:46:07 [Warning] WSREP: access file(/data/mariadb/mysql//gvwstate.dat) failed(No such file or directory)
+161116 18:46:07 [Note] WSREP: restore pc from disk failed
+161116 18:46:07 [Note] WSREP: GMCast version 0
+161116 18:46:07 [Note] WSREP: (e0f5cb2a, &#39;tcp://0.0.0.0:4567&#39;) listening at tcp://0.0.0.0:4567
+161116 18:46:07 [Note] WSREP: (e0f5cb2a, &#39;tcp://0.0.0.0:4567&#39;) multicast: , ttl: 1
+161116 18:46:07 [Note] WSREP: EVS version 0
+161116 18:46:07 [Note] WSREP: gcomm: connecting to group &#39;my_wsrep_cluster&#39;, peer &#39;10.10.13.110:&#39;
+161116 18:46:10 [Warning] WSREP: no nodes coming from prim view, prim not possible
+161116 18:46:10 [Note] WSREP: view(view_id(NON_PRIM,e0f5cb2a,1) memb {
+    e0f5cb2a,0
+} joined {
+} left {
+} partitioned {
+})
+161116 18:46:10 [Warning] WSREP: last inactive check more than PT1.5S ago (PT3.50279S), skipping check
+161116 18:46:40 [Note] WSREP: view((empty))
+161116 18:46:40 [ERROR] WSREP: failed to open gcomm backend connection: 110: failed to reach primary view: 110 (Connection timed out)
+     at gcomm/src/pc.cpp:connect():162
+161116 18:46:40 [ERROR] WSREP: gcs/src/gcs_core.cpp:gcs_core_open():208: Failed to open backend connection: -110 (Connection timed out)
+161116 18:46:40 [ERROR] WSREP: gcs/src/gcs.cpp:gcs_open():1380: Failed to open channel &#39;my_wsrep_cluster&#39; at &#39;gcomm://10.10.13.110&#39;: -110 (Connection timed out)
+161116 18:46:40 [ERROR] WSREP: gcs connect failed: Connection timed out
+161116 18:46:40 [ERROR] WSREP: wsrep::connect(gcomm://10.10.13.110) failed: 7
+161116 18:46:40 [ERROR] Aborting
+
+161116 18:46:40 [Note] WSREP: Service disconnected.
+161116 18:46:41 [Note] WSREP: Some threads may fail to exit.
+161116 18:46:41 [Note] mysqld: Shutdown complete
+
+[tom@kube-node-13 galera]$</pre></td></tr></table>
+</div>
+</div>
+<p>哈哈，看 <code>161116 18:46:07 [Note] WSREP: wsrep_load(): loading provider library '/usr/lib/galera/libgalera_smm.so'</code> 知道，这个错误，确实是跳过去了。
+现在来找第一个 [Warning] 。找到了。<code>161116 18:46:07 [Warning] WSREP: Could not open state file for reading: '/data/mariadb/mysql//grastate.dat'</code>
+那看下，这个文件有没有？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 galera]$ cd /data/mariadb/mysql
+[tom@kube-node-13 mysql]$ ls -lZ
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 aria_log.00000001
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 aria_log_control
+-rw-------. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 galera.cache
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 grastate.dat
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 ibdata1
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 ib_logfile0
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 ib_logfile1
+-rw-r-----. mysql root  unconfined_u:object_r:mysqld_db_t:s0 kube-node-13.err
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 kube-node-13.pid
+-rw-rw----. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 multi-master.info
+drwx--x--x. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 mysql
+drwx------. mysql mysql unconfined_u:object_r:mysqld_db_t:s0 performance_schema
+-rw-rw-rw-. root  root  unconfined_u:object_r:mysqld_db_t:s0 slow_query_log.log</pre></td></tr></table>
+</div>
+</div>
+<p>有<code>/data/mariadb/mysql//grastate.dat</code>呀。什么鬼？
+不要手动启动了。用sudo service 启动一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 mysql]$ sudo service mysql start
+Starting MySQL SUCCESS!
+[tom@kube-node-13 mysql]$ 161116 18:50:43 mysqld_safe Logging to &#39;/data/mariadb/mysql/kube-node-13.err&#39;.
+^C
+[tom@kube-node-13 mysql]$</pre></td></tr></table>
+</div>
+</div>
+<p>好了，再把现有的 mysqld 关闭了去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 mysql]$ sudo service mysql stop
+Shutting down MySQL161116 18:54:00 [Note] mysqld: Normal shutdown
+
+.161116 18:54:00 [Note] WSREP: Stop replication
+161116 18:54:00 [Note] Event Scheduler: Purging the queue. 0 events
+161116 18:54:00 [Note] InnoDB: FTS optimize thread exiting.
+161116 18:54:00 [Note] InnoDB: Starting shutdown...
+161116 18:54:01 [Note] InnoDB: Waiting for page_cleaner to finish flushing of buffer pool
+..161116 18:54:02 [Note] InnoDB: Shutdown completed; log sequence number 1624196
+161116 18:54:02 [Note] mysqld: Shutdown complete
+
+ SUCCESS!
+[tom@kube-node-13 mysql]$ ps -ef | grep mysql
+tom      15073 36010  0 18:54 pts/1    00:00:00 grep --color=auto mysql
+
+[tom@kube-node-13 mysql]$ sudo service mysql start
+Starting MySQL.161116 18:54:29 mysqld_safe Logging to &#39;/data/mariadb/mysql/kube-node-13.err&#39;.
+..
+................................ ERROR!
+[tom@kube-node-13 mysql]$</pre></td></tr></table>
+</div>
+</div>
+<p>有错误日志了。看去。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 mysql]$ sudo cat /data/mariadb/mysql/kube-node-13.err
+...
+...
+...
+161116 18:19:18 [Note] WSREP: wsrep_load(): loading provider library &#39;none&#39;
+161116 18:19:18 [Note] /usr/sbin/mysqld: ready for connections.
+Version: &#39;10.0.28-MariaDB-wsrep&#39;  socket: &#39;/var/lib/mysql/mysql.sock&#39;  port: 3306  MariaDB Server, wsrep_25.16.rc3fc46e
+161116 18:29:53 [Note] /usr/sbin/mysqld: Normal shutdown
+
+161116 18:29:53 [Note] WSREP: Stop replication
+161116 18:29:53 [Note] Event Scheduler: Purging the queue. 0 events
+161116 18:29:53 [Note] InnoDB: FTS optimize thread exiting.
+161116 18:29:53 [Note] InnoDB: Starting shutdown...
+161116 18:29:54 [Note] InnoDB: Waiting for page_cleaner to finish flushing of buffer pool
+161116 18:29:56 [Note] InnoDB: Shutdown completed; log sequence number 1624176
+161116 18:29:56 [Note] /usr/sbin/mysqld: Shutdown complete
+
+161116 18:29:56 mysqld_safe mysqld from pid file /data/mariadb/mysql/kube-node-13.pid ended
+161116 18:54:29 mysqld_safe Starting mysqld daemon with databases from /data/mariadb/mysql
+161116 18:54:29 mysqld_safe WSREP: Running position recovery with --log_error=&#39;/data/mariadb/mysql/wsrep_recovery.N6pzuB&#39; --pid-file=&#39;/data/mariadb/mysql/kube-node-13-recover.pid&#39;
+161116 18:54:29 [Note] /usr/sbin/mysqld (mysqld 10.0.28-MariaDB-wsrep) starting as process 15313 ...
+161116 18:54:32 mysqld_safe WSREP: Recovered position 00000000-0000-0000-0000-000000000000:-1
+161116 18:54:32 [Note] /usr/sbin/mysqld (mysqld 10.0.28-MariaDB-wsrep) starting as process 15379 ...
+161116 18:54:32 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 18:54:32 [Note] WSREP: wsrep_load(): loading provider library &#39;/usr/lib/galera/libgalera_smm.so&#39;
+161116 18:54:32 [Note] WSREP: wsrep_load(): Galera 25.3.18(r3632) by Codership Oy &lt;info@codership.com&gt; loaded successfully.
+161116 18:54:32 [Note] WSREP: CRC-32C: using hardware acceleration.
+161116 18:54:32 [Note] WSREP: Found saved state: 00000000-0000-0000-0000-000000000000:-1
+161116 18:54:32 [Note] WSREP: Passing config to GCS: base_dir = /data/mariadb/mysql/; base_host = 10.10.12.13; base_port = 4567; cert.log_conflicts = no; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 4; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 2; evs.view_forget_timeout = PT24H; gcache.dir = /data/mariadb/mysql/; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /data/mariadb/mysql//galera.cache; gcache.page_size = 128M; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1.0; gcs.fc_limit = 16; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0; pc.announce_timeout = PT3S; pc.checksum = false; pc.ignore_q
+161116 18:54:32 [Note] WSREP: Service thread queue flushed.
+161116 18:54:32 [Note] WSREP: Assign initial position for certification: -1, protocol version: -1
+161116 18:54:32 [Note] WSREP: wsrep_sst_grab()
+161116 18:54:32 [Note] WSREP: Start replication
+161116 18:54:32 [Note] WSREP: Setting initial position to 00000000-0000-0000-0000-000000000000:-1
+161116 18:54:32 [Note] WSREP: protonet asio version 0
+161116 18:54:32 [Note] WSREP: Using CRC-32C for message checksums.
+161116 18:54:32 [Note] WSREP: backend: asio
+161116 18:54:32 [Note] WSREP: gcomm thread scheduling priority set to other:0
+161116 18:54:32 [Warning] WSREP: access file(/data/mariadb/mysql//gvwstate.dat) failed(No such file or directory)
+161116 18:54:32 [Note] WSREP: restore pc from disk failed
+161116 18:54:32 [Note] WSREP: GMCast version 0
+161116 18:54:32 [Note] WSREP: (0e6fea53, &#39;tcp://0.0.0.0:4567&#39;) listening at tcp://0.0.0.0:4567
+161116 18:54:32 [Note] WSREP: (0e6fea53, &#39;tcp://0.0.0.0:4567&#39;) multicast: , ttl: 1
+161116 18:54:32 [Note] WSREP: EVS version 0
+161116 18:54:32 [Note] WSREP: gcomm: connecting to group &#39;my_wsrep_cluster&#39;, peer &#39;10.10.13.110:&#39;
+161116 18:54:35 [Warning] WSREP: no nodes coming from prim view, prim not possible
+161116 18:54:35 [Note] WSREP: view(view_id(NON_PRIM,0e6fea53,1) memb {
+    0e6fea53,0
+} joined {
+} left {
+} partitioned {
+})
+161116 18:54:36 [Warning] WSREP: last inactive check more than PT1.5S ago (PT3.50217S), skipping check
+161116 18:55:05 [Note] WSREP: view((empty))
+161116 18:55:05 [ERROR] WSREP: failed to open gcomm backend connection: 110: failed to reach primary view: 110 (Connection timed out)
+     at gcomm/src/pc.cpp:connect():162
+161116 18:55:05 [ERROR] WSREP: gcs/src/gcs_core.cpp:gcs_core_open():208: Failed to open backend connection: -110 (Connection timed out)
+161116 18:55:05 [ERROR] WSREP: gcs/src/gcs.cpp:gcs_open():1380: Failed to open channel &#39;my_wsrep_cluster&#39; at &#39;gcomm://10.10.13.110&#39;: -110 (Connection timed out)
+161116 18:55:05 [ERROR] WSREP: gcs connect failed: Connection timed out
+161116 18:55:05 [ERROR] WSREP: wsrep::connect(gcomm://10.10.13.110) failed: 7
+161116 18:55:05 [ERROR] Aborting
+
+161116 18:55:05 [Note] WSREP: Service disconnected.
+161116 18:55:06 [Note] WSREP: Some threads may fail to exit.
+161116 18:55:06 [Note] /usr/sbin/mysqld: Shutdown complete
+
+161116 18:55:06 mysqld_safe mysqld from pid file /data/mariadb/mysql/kube-node-13.pid ended
+[tom@kube-node-13 mysql]$ date
+2016年 11月 16日 星期三 18:55:16 CST
+[tom@kube-node-13 mysql]$</pre></td></tr></table>
+</div>
+</div>
+<p>嗯，确实是现在的日志。
+来看一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">161116 18:54:32 [Warning] WSREP: access file(/data/mariadb/mysql//gvwstate.dat) failed(No such file or directory)
+161116 18:54:32 [Note] WSREP: restore pc from disk failed
+161116 18:54:32 [Note] WSREP: GMCast version 0
+161116 18:54:32 [Note] WSREP: (0e6fea53, &#39;tcp://0.0.0.0:4567&#39;) listening at tcp://0.0.0.0:4567
+161116 18:54:32 [Note] WSREP: (0e6fea53, &#39;tcp://0.0.0.0:4567&#39;) multicast: , ttl: 1
+161116 18:54:32 [Note] WSREP: EVS version 0
+161116 18:54:32 [Note] WSREP: gcomm: connecting to group &#39;my_wsrep_cluster&#39;, peer &#39;10.10.13.110:&#39;</pre></td></tr></table>
+</div>
+</div>
+<p>哈。有问题呀。我们在配置文件中的 <code>wsrep_cluster_address=&quot;gcomm://10.10.13.110,192.168.31.240,10.10.12.13&quot;
+wsrep_cluster_name='galera_cluster'</code> 到这里怎么是这样的啦！！！</p>
+
+<p>好吧。快回忆，是哪里配置过 <code>my_wsrep_cluster</code>.</p>
+
+<p>想到了。
+之前在 <code>/etc/my.cnf.d/wsrep.cnf</code> 里面配置过这个。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 mysql]$ cd /etc/my.cnf.d/
+[tom@kube-node-13 my.cnf.d]$ ls -la
+total 40
+drwxr-xr-x.   2 root root 4096 11月 16 19:09 .
+drwxr-xr-x. 141 root root 8192 11月 16 16:45 ..
+-rw-r--r--.   1 root root  295 10月 28 01:16 client.cnf
+-rw-r--r--.   1 root root  232 10月 28 01:16 mysql-clients.cnf
+-rw-r--r--.   1 root root 1772 11月 16 18:59 server.cnf
+-rw-r--r--.   1 root root 1007 11月 16 14:10 server.cnf_original
+-rw-r--r--.   1 root root  285 11月  3 09:14 tokudb.cnf
+-rw-r--r--.   1 root root 3611 11月 16 15:10 wsrep.cnf
+[tom@kube-node-13 my.cnf.d]$ vi wsrep.cnf</pre></td></tr></table>
+</div>
+</div>
+<p>查了一下，里面确实就是有呀。哭了。原来是这个文件的
+那把这个文件移出去，再试一下吧。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 my.cnf.d]$ sudo mv wsrep.cnf ~/wsrep.cnf.bak
+[tom@kube-node-13 my.cnf.d]$ ls
+client.cnf  mysql-clients.cnf  server.cnf  server.cnf_original  tokudb.cnf
+[tom@kube-node-13 my.cnf.d]$ sudo service mysql status
+ ERROR! MySQL is not running, but lock file (/var/lock/subsys/mysql) exists
+[tom@kube-node-13 my.cnf.d]$ sudo service mysql stop
+ ERROR! MySQL server PID file could not be found!
+[tom@kube-node-13 my.cnf.d]$ sudo service mysql start
+Starting MySQL.161116 19:12:20 mysqld_safe Logging to &#39;/data/mariadb/mysql/kube-node-13.err&#39;.
+............a...................... ERROR!
+[tom@kube-node-13 my.cnf.d]$</pre></td></tr></table>
+</div>
+</div>
+<p>崩溃，看日志。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 my.cnf.d]$ sudo cat /data/mariadb/mysql/kube-node-13.err
+...
+...
+...
+161116 19:02:19 mysqld_safe mysqld from pid file /data/mariadb/mysql/kube-node-13.pid ended
+161116 19:12:20 mysqld_safe Starting mysqld daemon with databases from /data/mariadb/mysql
+161116 19:12:20 mysqld_safe WSREP: Running position recovery with --log_error=&#39;/data/mariadb/mysql/wsrep_recovery.3kyk74&#39; --pid-file=&#39;/data/mariadb/mysql/kube-node-13-recover.pid&#39;
+161116 19:12:20 [Note] /usr/sbin/mysqld (mysqld 10.0.28-MariaDB-wsrep) starting as process 17474 ...
+161116 19:12:23 mysqld_safe WSREP: Recovered position 00000000-0000-0000-0000-000000000000:-1
+161116 19:12:23 [Note] /usr/sbin/mysqld (mysqld 10.0.28-MariaDB-wsrep) starting as process 17514 ...
+161116 19:12:23 [Note] WSREP: Read nil XID from storage engines, skipping position init
+161116 19:12:23 [Note] WSREP: wsrep_load(): loading provider library &#39;/usr/lib64/galera/libgalera_smm.so&#39;
+161116 19:12:23 [Note] WSREP: wsrep_load(): Galera 25.3.18(r3632) by Codership Oy &lt;info@codership.com&gt; loaded successfully.
+161116 19:12:23 [Note] WSREP: CRC-32C: using hardware acceleration.
+161116 19:12:23 [Note] WSREP: Found saved state: 00000000-0000-0000-0000-000000000000:-1
+161116 19:12:23 [Note] WSREP: Passing config to GCS: base_dir = /data/mariadb/mysql/; base_host = 10.10.12.13; base_port = 4567; cert.log_conflicts = no; debug = no; evs.auto_evict = 0; evs.delay_margin = PT1S; evs.delayed_keep_period = PT30S; evs.inactive_check_period = PT0.5S; evs.inactive_timeout = PT15S; evs.join_retrans_period = PT1S; evs.max_install_timeouts = 3; evs.send_window = 4; evs.stats_report_period = PT1M; evs.suspect_timeout = PT5S; evs.user_send_window = 2; evs.view_forget_timeout = PT24H; gcache.dir = /data/mariadb/mysql/; gcache.keep_pages_size = 0; gcache.mem_size = 0; gcache.name = /data/mariadb/mysql//galera.cache; gcache.page_size = 128M; gcache.size = 128M; gcomm.thread_prio = ; gcs.fc_debug = 0; gcs.fc_factor = 1.0; gcs.fc_limit = 16; gcs.fc_master_slave = no; gcs.max_packet_size = 64500; gcs.max_throttle = 0.25; gcs.recv_q_hard_limit = 9223372036854775807; gcs.recv_q_soft_limit = 0.25; gcs.sync_donor = no; gmcast.segment = 0; gmcast.version = 0; pc.announce_timeout = PT3S; pc.checksum = false; pc.ignore_q
+161116 19:12:23 [Note] WSREP: Service thread queue flushed.
+161116 19:12:23 [Note] WSREP: Assign initial position for certification: -1, protocol version: -1
+161116 19:12:23 [Note] WSREP: wsrep_sst_grab()
+161116 19:12:23 [Note] WSREP: Start replication
+161116 19:12:23 [Note] WSREP: Setting initial position to 00000000-0000-0000-0000-000000000000:-1
+161116 19:12:23 [Note] WSREP: protonet asio version 0
+161116 19:12:23 [Note] WSREP: Using CRC-32C for message checksums.
+161116 19:12:23 [Note] WSREP: backend: asio
+161116 19:12:23 [Note] WSREP: gcomm thread scheduling priority set to other:0
+161116 19:12:23 [Warning] WSREP: access file(/data/mariadb/mysql//gvwstate.dat) failed(No such file or directory)
+161116 19:12:23 [Note] WSREP: restore pc from disk failed
+161116 19:12:23 [Note] WSREP: GMCast version 0
+161116 19:12:23 [Note] WSREP: (8c84d2c7, &#39;tcp://0.0.0.0:4567&#39;) listening at tcp://0.0.0.0:4567
+161116 19:12:23 [Note] WSREP: (8c84d2c7, &#39;tcp://0.0.0.0:4567&#39;) multicast: , ttl: 1
+161116 19:12:23 [Note] WSREP: EVS version 0
+161116 19:12:23 [Note] WSREP: gcomm: connecting to group &#39;galera_cluster&#39;, peer &#39;10.10.12.13:,10.10.13.110:,192.168.31.240:&#39;
+161116 19:12:23 [Note] WSREP: (8c84d2c7, &#39;tcp://0.0.0.0:4567&#39;) connection established to 8c84d2c7 tcp://10.10.12.13:4567
+161116 19:12:23 [Warning] WSREP: (8c84d2c7, &#39;tcp://0.0.0.0:4567&#39;) address &#39;tcp://10.10.12.13:4567&#39; points to own listening address, blacklisting
+161116 19:12:23 [Note] WSREP: (8c84d2c7, &#39;tcp://0.0.0.0:4567&#39;) connection established to 8c84d2c7 tcp://10.10.12.13:4567
+161116 19:12:26 [Warning] WSREP: no nodes coming from prim view, prim not possible
+161116 19:12:26 [Note] WSREP: view(view_id(NON_PRIM,8c84d2c7,1) memb {
+    8c84d2c7,0
+} joined {
+} left {
+} partitioned {
+})
+161116 19:12:26 [Warning] WSREP: last inactive check more than PT1.5S ago (PT3.50305S), skipping check
+161116 19:12:56 [Note] WSREP: view((empty))
+161116 19:12:56 [ERROR] WSREP: failed to open gcomm backend connection: 110: failed to reach primary view: 110 (Connection timed out)
+     at gcomm/src/pc.cpp:connect():162
+161116 19:12:56 [ERROR] WSREP: gcs/src/gcs_core.cpp:gcs_core_open():208: Failed to open backend connection: -110 (Connection timed out)
+161116 19:12:56 [ERROR] WSREP: gcs/src/gcs.cpp:gcs_open():1380: Failed to open channel &#39;galera_cluster&#39; at &#39;gcomm://10.10.12.13,10.10.13.110,192.168.31.240&#39;: -110 (Connection timed out)
+161116 19:12:56 [ERROR] WSREP: gcs connect failed: Connection timed out
+161116 19:12:56 [ERROR] WSREP: wsrep::connect(gcomm://10.10.12.13,10.10.13.110,192.168.31.240) failed: 7
+161116 19:12:56 [ERROR] Aborting
+
+161116 19:12:56 [Note] WSREP: Service disconnected.
+161116 19:12:57 [Note] WSREP: Some threads may fail to exit.
+161116 19:12:57 [Note] /usr/sbin/mysqld: Shutdown complete
+
+161116 19:12:57 mysqld_safe mysqld from pid file /data/mariadb/mysql/kube-node-13.pid ended
+[tom@kube-node-13 my.cnf.d]$</pre></td></tr></table>
+</div>
+</div>
+<p>好事情。
+<code>161116 19:12:23 [Note] WSREP: wsrep_load(): loading provider library '/usr/lib64/galera/libgalera_smm.so'</code>
+<code>161116 19:12:23 [Note] WSREP: gcomm: connecting to group 'galera_cluster', peer '10.10.12.13:,10.10.13.110:,192.168.31.240:'</code>
+<code>161116 19:12:23 [Note] WSREP: (8c84d2c7, 'tcp://0.0.0.0:4567') connection established to 8c84d2c7 tcp://10.10.12.13:4567</code>
+这几个关键的点，都正常了。</p>
+
+<p>但是为什么还出错了呢。崩溃了吧。</p>
+
+<p>清醒一下，让我想想，为什么？</p>
+
+<p>叮咚。</p>
+
+<p>明白了。刚刚是，只启动cluster的第一台机器，命令错了哈。应该用 <code>sudo /etc/init.d/mysql start --wsrep-new-cluster</code>，下回要注意呀。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[tom@kube-node-13 my.cnf.d]$ sudo /etc/init.d/mysql start --wsrep-new-cluster
+Starting MySQL.161116 19:17:28 mysqld_safe Logging to &#39;/data/mariadb/mysql/kube-node-13.err&#39;.
+. SUCCESS!
+[tom@kube-node-13 my.cnf.d]$ mysql -u root -p -e &#34;show status like &#39;wsrep%&#39;&#34;;
+Enter password:
++------------------------------+---------------------------------------------+
+| Variable_name                | Value                                       |
++------------------------------+---------------------------------------------+
+| wsrep_local_state_uuid       | 440fe21c-abee-11e6-b1c1-9bfbe1e4335d        |
+| wsrep_protocol_version       | 7                                           |
+| wsrep_last_committed         | 0                                           |
+| wsrep_replicated             | 0                                           |
+| wsrep_replicated_bytes       | 0                                           |
+| wsrep_repl_keys              | 0                                           |
+| wsrep_repl_keys_bytes        | 0                                           |
+| wsrep_repl_data_bytes        | 0                                           |
+| wsrep_repl_other_bytes       | 0                                           |
+| wsrep_received               | 2                                           |
+| wsrep_received_bytes         | 138                                         |
+| wsrep_local_commits          | 0                                           |
+| wsrep_local_cert_failures    | 0                                           |
+| wsrep_local_replays          | 0                                           |
+| wsrep_local_send_queue       | 0                                           |
+| wsrep_local_send_queue_max   | 1                                           |
+| wsrep_local_send_queue_min   | 0                                           |
+| wsrep_local_send_queue_avg   | 0.000000                                    |
+| wsrep_local_recv_queue       | 0                                           |
+| wsrep_local_recv_queue_max   | 2                                           |
+| wsrep_local_recv_queue_min   | 0                                           |
+| wsrep_local_recv_queue_avg   | 0.500000                                    |
+| wsrep_local_cached_downto    | 18446744073709551615                        |
+| wsrep_flow_control_paused_ns | 0                                           |
+| wsrep_flow_control_paused    | 0.000000                                    |
+| wsrep_flow_control_sent      | 0                                           |
+| wsrep_flow_control_recv      | 0                                           |
+| wsrep_cert_deps_distance     | 0.000000                                    |
+| wsrep_apply_oooe             | 0.000000                                    |
+| wsrep_apply_oool             | 0.000000                                    |
+| wsrep_apply_window           | 0.000000                                    |
+| wsrep_commit_oooe            | 0.000000                                    |
+| wsrep_commit_oool            | 0.000000                                    |
+| wsrep_commit_window          | 0.000000                                    |
+| wsrep_local_state            | 4                                           |
+| wsrep_local_state_comment    | Synced                                      |
+| wsrep_cert_index_size        | 0                                           |
+| wsrep_causal_reads           | 0                                           |
+| wsrep_cert_interval          | 0.000000                                    |
+| wsrep_incoming_addresses     | 10.10.12.13:3306                            |
+| wsrep_desync_count           | 0                                           |
+| wsrep_evs_delayed            |                                             |
+| wsrep_evs_evict_list         |                                             |
+| wsrep_evs_repl_latency       | 4.903e-06/9.301e-06/1.892e-05/5.26662e-06/5 |
+| wsrep_evs_state              | OPERATIONAL                                 |
+| wsrep_gcomm_uuid             | 440ea66b-abee-11e6-9185-f7b2a306dbf2        |
+| wsrep_cluster_conf_id        | 1                                           |
+| wsrep_cluster_size           | 1                                           |
+| wsrep_cluster_state_uuid     | 440fe21c-abee-11e6-b1c1-9bfbe1e4335d        |
+| wsrep_cluster_status         | Primary                                     |
+| wsrep_connected              | ON                                          |
+| wsrep_local_bf_aborts        | 0                                           |
+| wsrep_local_index            | 0                                           |
+| wsrep_provider_name          | Galera                                      |
+| wsrep_provider_vendor        | Codership Oy &lt;info@codership.com&gt;           |
+| wsrep_provider_version       | 25.3.18(r3632)                              |
+| wsrep_ready                  | ON                                          |
+| wsrep_thread_count           | 2                                           |
++------------------------------+---------------------------------------------+
+[tom@kube-node-13 my.cnf.d]$</pre></td></tr></table>
+</div>
+</div>
+<p>终于是成功了!
+终于是成功了!
+终于是成功了!</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-03-02</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/mariadb/">mariadb</a>
+          <a href="https://b.qqbb.app/tags/galera/">galera</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/mariadb-cluster-install-base-centos/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Mariadb Cluster Install Base Centos</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/mariadb-galera-cluster-install-base-centos/">
+            <span class="next-text nav-default">Mariadb Galera Cluster Install Base Centos</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

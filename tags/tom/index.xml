@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tom on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/tom/</link>
+    <description>Recent content in Tom on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 14 Jun 2018 00:33:56 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/tom/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Participate in the Competition</title>
+      <link>https://b.qqbb.app/tomt/participate-in-the-competition/</link>
+      <pubDate>Thu, 14 Jun 2018 00:33:56 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/tomt/participate-in-the-competition/</guid>
+      <description>参赛(Participate in the competition) 很有幸，随公司，去参加2018第二届中国区块链开发大赛！ 第二届中国区块链开发大赛 http://www.cbdforum.cn/bcweb/index/cbd-project.html http://www.cbdforum.cn/bcweb/index/article/im-28.html 作用 通过比赛确实可以&amp;</description>
+    </item>
+    
+    <item>
+      <title>Blog Tom Hugo Init</title>
+      <link>https://b.qqbb.app/blog/blog-tom-hugo-init/</link>
+      <pubDate>Tue, 12 Jun 2018 00:19:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-tom-hugo-init/</guid>
+      <description>在新机器上初始化tomtsang-rootsongjc-hugo项目 Env os: macOS hugo: Step git clone git clone idrsa 因为这里的public涉及多个仓库，所以，这里我就拉</description>
+    </item>
+    
+    <item>
+      <title>Mac Install Software</title>
+      <link>https://b.qqbb.app/post/mac-install-software/</link>
+      <pubDate>Mon, 11 Jun 2018 19:54:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-install-software/</guid>
+      <description>记录mac-pro安装软件 安装截图 安装 git (直接输入git version) 这个时候，会自动安装Xcode的组件，请保持网络稳定且快速。 搜狗五笔拼音 homebrew [telnet]() brew install telnet</description>
+    </item>
+    
+  </channel>
+</rss>

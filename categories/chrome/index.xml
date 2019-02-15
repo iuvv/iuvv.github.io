@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Chrome on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/chrome/</link>
+    <description>Recent content in Chrome on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 14 Jun 2018 20:53:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/chrome/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Google Chrome Setup</title>
+      <link>https://b.qqbb.app/post/google-chrome-setup/</link>
+      <pubDate>Thu, 14 Jun 2018 20:53:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/google-chrome-setup/</guid>
+      <description>通过这个小小的设置，能让我的mac不再那么热，不再那么响，说明优化chrome是一件值得做的事情。 11 Chrome Settings You Should Change Now! 看视频吧 设置已不存在。 打开c</description>
+    </item>
+    
+    <item>
+      <title>Google Chrome Helper</title>
+      <link>https://b.qqbb.app/post/google-chrome-helper/</link>
+      <pubDate>Thu, 14 Jun 2018 20:17:09 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/google-chrome-helper/</guid>
+      <description>google chrome helper占用超多CPU资源 Env os: mac 看视频的同学要先做到科学上网 Step 2014年前的chrome 如果能看视频的朋友，点这里 有一篇文章提过这个</description>
+    </item>
+    
+  </channel>
+</rss>

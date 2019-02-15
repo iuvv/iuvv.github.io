@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tortoisesvn on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/tortoisesvn/</link>
+    <description>Recent content in Tortoisesvn on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 28 Jun 2018 18:33:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/tortoisesvn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Svn Remove User Name Passwd</title>
+      <link>https://b.qqbb.app/post/svn-remove-user-name-passwd/</link>
+      <pubDate>Thu, 28 Jun 2018 18:33:41 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/svn-remove-user-name-passwd/</guid>
+      <description>TortoiseSVN如何去掉记住的用户名密码 Env svn: 1.9.7 os: win10 Step 直接看 https://jingyan.baidu.com/article/a17d5285cc80cf8099c8f25a.html Ref https://jingyan.baidu.com/article/a17d5285cc80cf8099c8f25a.html</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Channel on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/channel/</link>
+    <description>Recent content in Channel on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 03 Dec 2018 21:33:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/channel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>golang channel</title>
+      <link>https://b.qqbb.app/post/golang-channel-learning-a/</link>
+      <pubDate>Mon, 03 Dec 2018 21:33:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/golang-channel-learning-a/</guid>
+      <description>goroutine 首先我们来看线程,在golang里面也叫goroutine 在读这篇文章之前，我们需要了解一下并发与并行。golang的线程是一种并发机制，</description>
+    </item>
+    
+  </channel>
+</rss>

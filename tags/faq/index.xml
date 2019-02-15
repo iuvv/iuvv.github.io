@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Faq on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/faq/</link>
+    <description>Recent content in Faq on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 31 Jan 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/faq/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>pipenv install 报错</title>
+      <link>https://b.qqbb.app/post/pipenv-install-failed/</link>
+      <pubDate>Thu, 31 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/pipenv-install-failed/</guid>
+      <description>在某个项目中遇到了出错，如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 (saleor) ➜ saleor git:(master) pipenv install --dev Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for</description>
+    </item>
+    
+    <item>
+      <title>docker build时运行 COPY 时报no such file or directory 错误</title>
+      <link>https://b.qqbb.app/post/docker-build-copy-failed-no-such-file-or-directory/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-build-copy-failed-no-such-file-or-directory/</guid>
+      <description>env Expected behavior COPY command to copy a file from local to image Actual behavior doing a simple COPY command in Dockerfile is throwing this error when the file is in a folder (not same level as Dockerfile file) Description I have a Dockerfile that has the line: COPY MyAgSourceAPI/conf/php/testsql.php var/www But it causes the error: COPY failed: stat /var/lib/docker/tmp/docker-builder918577595/MyAgSourceAPI/conf/php/testsql.php: no such file or directory step 有一些解</description>
+    </item>
+    
+    <item>
+      <title>kubeadm-kubelet-cni</title>
+      <link>https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/</link>
+      <pubDate>Sun, 25 Nov 2018 13:34:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/</guid>
+      <description>问题1 kubelet 没有初始化 cni 现场 1 2 3 4 5 6 7 8 9 10 root@km:~# cat k8.export.sh sudo cp /etc/kubernetes/admin.conf $HOME/ sudo chown $(id -u):$(id -g) $HOME/admin.conf export KUBECONFIG=$HOME/admin.conf root@km:~# export KUBECONFIG=$HOME/admin.conf root@km:~# k get nodes NAME STATUS ROLES AGE VERSION km NotReady master 18h v1.8.4 kn1 Ready &amp;lt;none&amp;gt; 29s v1.8.4 kn2 Ready &amp;lt;none&amp;gt; 29s v1.8.4 出错了。 descibe 1</description>
+    </item>
+    
+    <item>
+      <title>flannel网络模式下ping出错</title>
+      <link>https://b.qqbb.app/post/kubeadm-flannel-ping-wrong/</link>
+      <pubDate>Sun, 25 Nov 2018 16:53:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-flannel-ping-wrong/</guid>
+      <description>Environment 所有节点都要安装 kubeadm, kubelet, kubectl 安装时，全使用 root 用户。直到 kubeadm join 成功后，全使用 非root用户 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node 问题 网络出了问题了，ping 不了 kn1,</description>
+    </item>
+    
+    <item>
+      <title>ceph安装FAQ</title>
+      <link>https://b.qqbb.app/post/ceph-install-base-ubuntu-faq/</link>
+      <pubDate>Fri, 30 Nov 2018 17:19:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ceph-install-base-ubuntu-faq/</guid>
+      <description>Q1 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 ceph-deploy install ceph-admin ceph-osd1 ceph-osd2 mon1 ... [ceph-osd1][DEBUG ] Get:40 https://download.ceph.com/debian-jewel xenial/main amd64 python-rbd amd64 10.2.10-1xenial [1,449 kB] [ceph-osd1][DEBUG ] Get:41 https://download.ceph.com/debian-jewel xenial/main amd64 ceph-common amd64 10.2.10-1xenial [15.5 MB] [ceph-osd1][DEBUG ] Get:42 https://download.ceph.com/debian-jewel xenial/main amd64 ceph-base amd64 10.2.10-1xenial [50.5 MB] [ceph-osd1][WARNIN] No</description>
+    </item>
+    
+    <item>
+      <title>kubernetes中cephfs的deployment的FAQ</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-deployment-faq/</link>
+      <pubDate>Sun, 25 Nov 2018 17:41:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-deployment-faq/</guid>
+      <description>k8s cephfs 在 deployment.yaml 中的使用 Environment 1 2 3 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 配置 deployment.yaml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43</description>
+    </item>
+    
+    <item>
+      <title>k8s 与 cephfs 相关的FAQ</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-faq/</link>
+      <pubDate>Sun, 25 Nov 2018 17:58:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-faq/</guid>
+      <description>Input/output error 1 2 3 4 5 6 cephu@ceph-client:/mnt/mycephfs/volumes/kubernetes$ ll kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148/ ls: reading directory &amp;#39;kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148/&amp;#39;: Input/output error total 0 drwxr-xr-x 1 root root 0 Nov 24 11:36 ./ drwxr-xr-x 1 root root 0 Nov 24 11:29 ../ cephu@ceph-client:/mnt/mycephfs/volumes/kubernetes$ 这个问题，看了一下，https://github.com/kub</description>
+    </item>
+    
+    <item>
+      <title>Python Faq Openssl</title>
+      <link>https://b.qqbb.app/post/python-faq-openssl/</link>
+      <pubDate>Wed, 13 Jun 2018 13:00:01 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/python-faq-openssl/</guid>
+      <description>Env os: ubuntu16 出错 1 2 3 4 5 6 7 8 /alg -Iscrypt-1.2.1/libcperciva/util -Iscrypt-1.2.1/libcperciva/crypto -I/usr/local/include -I/usr/include -I/usr/include/python2.7 -c scrypt-1.2.1/libcperciva/crypto/crypto_aes.c -o build/temp.linux-x86_64-2.7/scrypt-1.2.1/libcperciva/crypto/crypto_aes.o -O2 scrypt-1.2.1/libcperciva/crypto/crypto_aes.c:6:25: fatal error: openssl/aes.h: No such file or directory compilation terminated. error: command &amp;#39;x86_64-linux-gnu-gcc&amp;#39; failed with exit status 1 ---------------------------------------- Command &amp;#34;/usr/bin/python -u -c &amp;#34;import setuptools, tokenize;__file__=&amp;#39;/tmp/pip-install-qN0XHo/scrypt/setup.py&amp;#39;;f=getattr(tokenize, &amp;#39;open&amp;#39;, open)(__file__);code=f.read().replace(&amp;#39;\r\n&amp;#39;, &amp;#39;\n&amp;#39;);f.close();exec(compile(code, __file__, &amp;#39;exec&amp;#39;))&amp;#34; install --record /tmp/pip-record-8LxwEK/install-record.txt --single-version-externally-managed --compile&amp;#34; failed with error code 1 in /tmp/pip-install-qN0XHo/scrypt/ root@ip-172-31-23-102:/home/ubuntu/rpc# Step</description>
+    </item>
+    
+    <item>
+      <title>Mac Faq</title>
+      <link>https://b.qqbb.app/post/mac-faq/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-faq/</guid>
+      <description>how-to-open-app-from-unidentified-developer-in-mac-os-x how-to-open-app-from-unidentified-developer-in-mac-os-x
+https://zhidao.baidu.com/question/466554299.html</description>
+    </item>
+    
+    <item>
+      <title>Mac Faq</title>
+      <link>https://b.qqbb.app/post/test/ok/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/test/ok/</guid>
+      <description>how-to-open-app-from-unidentified-developer-in-mac-os-x how-to-open-app-from-unidentified-developer-in-mac-os-x
+https://zhidao.baidu.com/question/466554299.html</description>
+    </item>
+    
+    <item>
+      <title>Mac Faq</title>
+      <link>https://b.qqbb.app/post/test/test/ok/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/test/test/ok/</guid>
+      <description>how-to-open-app-from-unidentified-developer-in-mac-os-x how-to-open-app-from-unidentified-developer-in-mac-os-x
+https://zhidao.baidu.com/question/466554299.html</description>
+    </item>
+    
+    <item>
+      <title>Nodejs Npm Faq 1</title>
+      <link>https://b.qqbb.app/post/nodejs-npm-faq-1/</link>
+      <pubDate>Fri, 02 Mar 2018 15:06:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/nodejs-npm-faq-1/</guid>
+      <description>nodejs系列之npm报错 报错 报错1，permission denied, open &#39;/usr/local/lib/node_modules/npm/lib/ 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37</description>
+    </item>
+    
+    <item>
+      <title>Gem Install Faq</title>
+      <link>https://b.qqbb.app/post/gem-install-faq/</link>
+      <pubDate>Mon, 26 Feb 2018 09:23:11 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gem-install-faq/</guid>
+      <description>faq, ruby.h not found 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 ubuntu@VM-0-12-ubuntu:~/registry/tomtsang-rootsongjc-cheatsheet$ bundle install ... ... To see why this extension failed to compile, please check the mkmf.log which can be found here: /tmp/bundler20180226-1352-qwjujmnokogiri-1.8.0/extensions/x86_64-linux/2.3.0/nokogiri-1.8.0/mkmf.log extconf failed, exit code 1 Gem files will remain installed in /tmp/bundler20180226-1352-qwjujmnokogiri-1.8.0/gems/nokogiri-1.8.0 for inspection. Results logged to /tmp/bundler20180226-1352-qwjujmnokogiri-1.8.0/extensions/x86_64-linux/2.3.0/nokogiri-1.8.0/gem_make.out An error occurred while</description>
+    </item>
+    
+    <item>
+      <title>Nodejs Faq Unexpected Token Function</title>
+      <link>https://b.qqbb.app/post/nodejs-faq-unexpected-token-function/</link>
+      <pubDate>Fri, 23 Feb 2018 15:42:10 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/nodejs-faq-unexpected-token-function/</guid>
+      <description>env 在 hugo-algolia -s命令运行时, 出现了 Unexpected token function 报错 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ➜ tomtsang-rootsongjc-hugo git:(master) ✗ hugo-algolia -s /usr/local/lib/node_modules/hugo-algolia/lib/utils.js:11 async function copySynonyms(fromIndex, toIndex) { ^^^^^^^^ SyntaxError: Unexpected token function at Object.exports.runInThisContext (vm.js:78:16) at Module._compile (module.js:543:28) at Object.Module._extensions..js (module.js:580:10) at Module.load (module.js:488:32) at tryModuleLoad (module.js:447:12) at Function.Module._load (module.js:439:3)</description>
+    </item>
+    
+  </channel>
+</rss>

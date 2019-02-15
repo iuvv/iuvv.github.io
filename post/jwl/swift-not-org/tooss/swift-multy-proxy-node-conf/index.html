@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Openstack存储swift多代理节点安装配置 - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="Openstack存储swift多代理节点安装配置 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 Proxy 192.168.0.51 代理节点, controller" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/jwl/swift-not-org/tooss/swift-multy-proxy-node-conf/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="Openstack存储swift多代理节点安装配置" />
+<meta property="og:description" content="Openstack存储swift多代理节点安装配置 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 Proxy 192.168.0.51 代理节点, controller" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/jwl/swift-not-org/tooss/swift-multy-proxy-node-conf/" />
+
+
+
+<meta property="article:published_time" content="2019-01-23T00:00:00-08:00"/>
+
+<meta property="article:modified_time" content="2019-01-23T19:00:11-08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Openstack存储swift多代理节点安装配置">
+<meta itemprop="description" content="Openstack存储swift多代理节点安装配置 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 Proxy 192.168.0.51 代理节点, controller">
+
+
+<meta itemprop="datePublished" content="2019-01-23T00:00:00-08:00" />
+<meta itemprop="dateModified" content="2019-01-23T00:00:00-08:00" />
+<meta itemprop="wordCount" content="978">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Openstack存储swift多代理节点安装配置"/>
+<meta name="twitter:description" content="Openstack存储swift多代理节点安装配置 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 Proxy 192.168.0.51 代理节点, controller"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Openstack存储swift多代理节点安装配置</h1>
+      
+      <div class="post-meta">
+        <time datetime="2019-01-23" class="post-time">
+          2019-01-23
+        </time>
+        
+        <span class="more-meta"> 约 978 字 </span>
+          <span class="more-meta"> 预计阅读 2 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#注意">注意</a></li>
+<li><a href="#step">step</a>
+<ul>
+<li><a href="#swift-环境">swift 环境</a></li>
+<li><a href="#增加代理节点从这里开始">增加代理节点从这里开始</a>
+<ul>
+<li><a href="#proxy-node">proxy node</a></li>
+<li><a href="#proxybak-node">proxybak node</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ref">ref</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>Openstack存储swift多代理节点安装配置</p>
+
+<p><img src="https://res.cloudinary.com/dmtixvmgt/image/upload/v1548240314/swift-multy-proxy-node-architecture_cjcb3m.jpg" alt="swift-multy-proxy-node-architecture" /></p>
+
+<h2 id="env">env</h2>
+
+<ul>
+<li>系统：Ubuntu Server 16.04×64</li>
+<li>存储设置：4T</li>
+<li>架构部署:</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th align="center">IP</th>
+<th align="right">作用</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Proxy</td>
+<td align="center">192.168.0.51</td>
+<td align="right">代理节点, controller node</td>
+</tr>
+
+<tr>
+<td>object1</td>
+<td align="center">192.168.0.127</td>
+<td align="right">存储节点1(zone1)</td>
+</tr>
+
+<tr>
+<td>object2</td>
+<td align="center">192.168.0.134</td>
+<td align="right">存储节点2(zone1)</td>
+</tr>
+
+<tr>
+<td>object3</td>
+<td align="center">192.168.0.135</td>
+<td align="right">存储节点3(zone1)</td>
+</tr>
+
+<tr>
+<td>object4</td>
+<td align="center">192.168.0.180</td>
+<td align="right">存储节点4(zone1)</td>
+</tr>
+
+<tr>
+<td>object5</td>
+<td align="center">192.168.0.189</td>
+<td align="right">存储节点5(zone1)</td>
+</tr>
+</tbody>
+</table>
+
+<p>增加代理节点</p>
+
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th align="center">IP</th>
+<th align="right">作用</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>Proxybak</td>
+<td align="center">192.168.0.141</td>
+<td align="right">代理节点, 做冗余备份</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="注意">注意</h2>
+
+<ul>
+<li>/etc/swift/proxy-swift.conf 中 关于auth的部分,IP 一定要指向 keystone IP。</li>
+<li>在使用时，OS_AUTH_URL 中体现的 IP 一定要指向 keystone。如：<code>OS_AUTH_URL=http://controller:5000/v3</code> 中的controller 的IP要指向 keystone IP。</li>
+<li>swift服务endpoint的IP要指向 swift proxy 的IP。如：本环境中，指向 192.168.0.51或者192.168.0.141。</li>
+<li>新增节点的python请一定要能<code>import memcache</code>。</li>
+</ul>
+
+<h2 id="step">step</h2>
+
+<h3 id="swift-环境">swift 环境</h3>
+
+<p>之前已经正常安装好了proxy node与 object1-object5. 具体步骤, 参考前文，这里省略。</p>
+
+<p>下面讲一下，新增 proxybak 节点的部分。</p>
+
+<h3 id="增加代理节点从这里开始">增加代理节点从这里开始</h3>
+
+<h4 id="proxy-node">proxy node</h4>
+
+<p>准备一些文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# cp  -a /etc/swift/ /tmp/swift/
+root@controller:~# cp /etc/hosts /tmp/
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="proxybak-node">proxybak node</h4>
+
+<p>安装依赖</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">apt-get install swift swift-proxy python-swiftclient <span class="se">\
+</span><span class="se"></span>  python-keystoneclient python-keystonemiddleware <span class="se">\
+</span><span class="se"></span>  memcached</code></pre></td></tr></table>
+</div>
+</div>
+<p>拿文件</p>
+
+<p><code>/etc/hosts</code> 文件请与proxy node保持一致。<code>ping controller</code> 保证连接到 controller node。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@ubuntu:~# scp -r ubuntu@192.168.0.51:/tmp/swift/ .
+root@ubuntu:~# scp -r ubuntu@192.168.0.51:/tmp/hosts .
+root@ubuntu:~# tail -10 hosts &gt;&gt; /etc/hosts
+root@ubuntu:~# cat /etc/hosts
+root@ubuntu:~# ping controller
+PING controller <span class="o">(</span><span class="m">192</span>.168.0.51<span class="o">)</span> <span class="m">56</span><span class="o">(</span><span class="m">84</span><span class="o">)</span> bytes of data.
+<span class="m">64</span> bytes from controller <span class="o">(</span><span class="m">192</span>.168.0.51<span class="o">)</span>: <span class="nv">icmp_seq</span><span class="o">=</span><span class="m">1</span> <span class="nv">ttl</span><span class="o">=</span><span class="m">64</span> <span class="nv">time</span><span class="o">=</span><span class="m">45</span>.1 ms
+^C
+--- controller ping statistics ---
+<span class="m">1</span> packets transmitted, <span class="m">1</span> received, <span class="m">0</span>% packet loss, <span class="nb">time</span> 0ms
+rtt min/avg/max/mdev <span class="o">=</span> <span class="m">45</span>.145/45.145/45.145/0.000 ms
+root@ubuntu:~# </code></pre></td></tr></table>
+</div>
+</div>
+<p>准备配置</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@ubuntu:~# mv swift/ /etc/swift/
+root@ubuntu:~# ls /etc/swift/</code></pre></td></tr></table>
+</div>
+</div>
+<p>什么也不要修改。如果说你有需求要修改配置，请注意：</p>
+
+<ul>
+<li>swift.conf配置文件的hash值不要修改，请保持一致。</li>
+<li>修改proxy-server.conf 中的IP 设置为Proxybak的IP</li>
+</ul>
+
+<p>比如，这里就是把bind_ip设置为 192.168.0.141。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@ubuntu:/etc/swift# head proxy-server.conf 
+<span class="o">[</span>DEFAULT<span class="o">]</span>
+<span class="nv">bind_ip</span> <span class="o">=</span> <span class="m">192</span>.168.0.141 
+<span class="nv">bind_port</span> <span class="o">=</span> <span class="m">8080</span>
+root@ubuntu:/etc/swift# </code></pre></td></tr></table>
+</div>
+</div>
+<p>开启swift-proxy</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@ubuntu:/etc/swift# chown -R root:swift /etc/swift
+root@ubuntu:/etc/swift# service memcached restart
+root@ubuntu:/etc/swift# service swift-proxy restart
+root@ubuntu:/etc/swift# service memcached status 
+root@ubuntu:/etc/swift# service swift-proxy status </code></pre></td></tr></table>
+</div>
+</div>
+<p>开启 swift-proxy 后，会在本地启动 8080 端口</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@ubuntu:/etc/swift# netstat -ntlp
+Active Internet connections <span class="o">(</span>only servers<span class="o">)</span>
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">127</span>.0.0.1:11211         <span class="m">0</span>.0.0.0:*               LISTEN      <span class="m">7517</span>/memcached  
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">0</span>.0.0.0:8080            <span class="m">0</span>.0.0.0:*               LISTEN      <span class="m">7818</span>/python     
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">0</span>.0.0.0:22              <span class="m">0</span>.0.0.0:*               LISTEN      <span class="m">3415</span>/sshd       
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">127</span>.0.0.1:6010          <span class="m">0</span>.0.0.0:*               LISTEN      <span class="m">3572</span>/0          
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">127</span>.0.0.1:6011          <span class="m">0</span>.0.0.0:*               LISTEN      <span class="m">6366</span>/1          
+tcp6       <span class="m">0</span>      <span class="m">0</span> :::22                   :::*                    LISTEN      <span class="m">3415</span>/sshd       
+tcp6       <span class="m">0</span>      <span class="m">0</span> ::1:6010                :::*                    LISTEN      <span class="m">3572</span>/0          
+tcp6       <span class="m">0</span>      <span class="m">0</span> ::1:6011                :::*                    LISTEN      <span class="m">6366</span>/1          
+root@ubuntu:/etc/swift# </code></pre></td></tr></table>
+</div>
+</div>
+<p>在 proxybak node 上访问 swift 服务。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@ubuntu:/etc/swift# cat demo-openrc 
+<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>demo
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span>demo
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span>openstack
+<span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span>http://controller:5000/v3
+<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_IMAGE_API_VERSION</span><span class="o">=</span><span class="m">2</span>
+root@ubuntu:/etc/swift# . demo-openrc 
+root@ubuntu:/etc/swift# swift list
+container1
+container2
+root@ubuntu:/etc/swift# </code></pre></td></tr></table>
+</div>
+</div>
+<p>结果正常。说明proxybak node 可用。
+增加代理节点成功，操作结束。</p>
+
+<h2 id="ref">ref</h2>
+
+<ul>
+<li><a href="https://docs.openstack.org/swift/latest/install/controller-install-ubuntu.html#install-and-configure-components">https://docs.openstack.org/swift/latest/install/controller-install-ubuntu.html#install-and-configure-components</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2019-01-23</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/jwl/swift-not-org/tooss/swift-account-quota-outcome/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">swift使用ResellerAdmin角色来设置account的限额</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/jwl/jinweilai-not-org/mkfs-xfs-command-not-found/">
+            <span class="next-text nav-default">mkfs.xfs command not found</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubernetes on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/kubernetes/</link>
+    <description>Recent content in Kubernetes on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 29 Nov 2018 12:17:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jd.com从openstack转到kubernetes</title>
+      <link>https://b.qqbb.app/post/jd-kubernetes-openstack/</link>
+      <pubDate>Thu, 29 Nov 2018 12:17:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jd-kubernetes-openstack/</guid>
+      <description>http://www.infoq.com/cn/news/2017/03/jd-kubernetes-openstack
+http://blog.kubernetes.io/2017/02/inside-jd-com-shift-to-kubernetes-from-openstack.html</description>
+    </item>
+    
+    <item>
+      <title>kubernetes 使用 nfs 存储</title>
+      <link>https://b.qqbb.app/post/kubernetes-nfs-yaml/</link>
+      <pubDate>Sun, 25 Nov 2018 18:11:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-nfs-yaml/</guid>
+      <description>test-claim.yaml 1 2 3 4 5 6 7 8 9 10 11 12 13  root@km:~/kubernetes.io/TUTORIALS/Stateful-Applications/StatefulSet-Basics/v# cat test-claim.yaml kind: PersistentVolumeClaim apiVersion: v1 metadata: name: test-claim annotations: volume.beta.kubernetes.io/storage-class: &amp;#34;managed-nfs-storage&amp;#34; spec: accessModes: - ReadWriteMany resources: requests: storage: 1Mi   class.yaml 1 2 3 4 5 6  root@km:~/kubernetes.io/TUTORIALS/Stateful-Applications/StatefulSet-Basics/v# cat class.yaml apiVersion: storage.k8s.io/v1beta1 kind: StorageClass metadata: name: managed-nfs-storage provisioner: fuseim.pri/ifs # or choose another name, must match deployment&amp;#39;s env PROVISIONER_NAME&amp;#39;   deployment.</description>
+    </item>
+    
+    <item>
+      <title>kubernetes cephfs intro</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-intro/</link>
+      <pubDate>Sun, 25 Nov 2018 17:31:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-intro/</guid>
+      <description>REAEME cephfs-stateful cephfs-k8s-make-by-go-get cephfs-k8s-deployment-faq cephfs-k8s-yaml cephfs-k8s-make cephfs-k8s-faq</description>
+    </item>
+    
+    <item>
+      <title>kubernetes storage</title>
+      <link>https://b.qqbb.app/post/kubernetes-storage-practise/</link>
+      <pubDate>Sun, 25 Nov 2018 17:19:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-storage-practise/</guid>
+      <description>nfs 环境：192.168.31.232 成功 cephfs http://tonybai.com/2017/05/08/mount-cephfs-acrossing-nodes-in-kubernetes-cluster/ 成功 ceph rbd Glusterfs rook 存储 http://dockone.io/article/2156</description>
+    </item>
+    
+    <item>
+      <title>更新kubeadm clusters 从v1.7.3至v1.8.3</title>
+      <link>https://b.qqbb.app/post/kubeadm-clusters-upgrade-from-v173-to-v183/</link>
+      <pubDate>Sun, 25 Nov 2018 17:05:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-clusters-upgrade-from-v173-to-v183/</guid>
+      <description>Upgrading kubeadm clusters from 1.7 to 1.8 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/ env 1 2 3 192.168.31.120 km, master 192.168.31.119 kn1 192.168.31.118 kn2 下载 kubeadm https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm 1 2 3 4 root@km:~# sudo chmod a+rx /usr/bin/kubeadm root@km:~# kubeadm version kubeadm version: &amp;amp;version.Info{Major:&amp;#34;1&amp;#34;, Minor:&amp;#34;8&amp;#34;, GitVersion:&amp;#34;v1.8.2&amp;#34;, GitCommit:&amp;#34;bdaeafa71f6c7c04636251031f93464384d54963&amp;#34;, GitTreeState:&amp;#34;clean&amp;#34;, BuildDate:&amp;#34;2017-10-24T19:38:10Z&amp;#34;, GoVersion:&amp;#34;go1.8.3&amp;#34;, Compiler:&amp;#34;gc&amp;#34;, Platform:&amp;#34;linux/amd64&amp;#34;} root@km:~# 上传 1 2 root@km:~# kubeadm config upload from-file --config ./admin.conf unable to decode config from &amp;#34;./admin.conf&amp;#34; [no kind &amp;#34;Config&amp;#34; is registered for</description>
+    </item>
+    
+    <item>
+      <title>kubeadm-kubelet-cni</title>
+      <link>https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/</link>
+      <pubDate>Sun, 25 Nov 2018 13:34:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/</guid>
+      <description>问题1 kubelet 没有初始化 cni 现场 1 2 3 4 5 6 7 8 9 10 root@km:~# cat k8.export.sh sudo cp /etc/kubernetes/admin.conf $HOME/ sudo chown $(id -u):$(id -g) $HOME/admin.conf export KUBECONFIG=$HOME/admin.conf root@km:~# export KUBECONFIG=$HOME/admin.conf root@km:~# k get nodes NAME STATUS ROLES AGE VERSION km NotReady master 18h v1.8.4 kn1 Ready &amp;lt;none&amp;gt; 29s v1.8.4 kn2 Ready &amp;lt;none&amp;gt; 29s v1.8.4 出错了。 descibe 1</description>
+    </item>
+    
+    <item>
+      <title>k8s安装系列</title>
+      <link>https://b.qqbb.app/post/kubernetes-install-intro/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-install-intro/</guid>
+      <description>env  kubeadm: v1.8.4 os: ubuntu 16.04  step kubernetes-before-install kubeadm-init-before-v1.8.3 kubeadm-install-ubuntu-v1.8.4 kubeadm-join upgrade-v1.8.3-failure-install-v1.8.3 kubeadm-install-v1.8.3 kubeadm-init-use-local-image kubeadm-build delete-node kubeadm-install-FAQ</description>
+    </item>
+    
+    <item>
+      <title>kubernetes系列</title>
+      <link>https://b.qqbb.app/post/kubernetes/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes/</guid>
+      <description>Contents:
+install/index upgrade/index storage cephfs/index nfs-k8s source</description>
+    </item>
+    
+    <item>
+      <title>awesome cloud-native</title>
+      <link>https://b.qqbb.app/post/awesome-cloud-native/</link>
+      <pubDate>Sun, 25 Nov 2018 18:08:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/awesome-cloud-native/</guid>
+      <description>https://jimmysong.io/awesome-cloud-native/</description>
+    </item>
+    
+    <item>
+      <title>kubernetes cephfs README</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-readme/</link>
+      <pubDate>Sun, 25 Nov 2018 17:28:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-readme/</guid>
+      <description>本次, k8s cephfs 结合, 前前后后, 花了差不多1个月的时间, 终于是有结果了. 主要大过程是: 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30</description>
+    </item>
+    
+    <item>
+      <title>flannel网络模式下ping出错</title>
+      <link>https://b.qqbb.app/post/kubeadm-flannel-ping-wrong/</link>
+      <pubDate>Sun, 25 Nov 2018 16:53:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-flannel-ping-wrong/</guid>
+      <description>Environment 所有节点都要安装 kubeadm, kubelet, kubectl 安装时，全使用 root 用户。直到 kubeadm join 成功后，全使用 非root用户 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node 问题 网络出了问题了，ping 不了 kn1,</description>
+    </item>
+    
+    <item>
+      <title>使用 cephfs 完成 statefulset 的练习</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-stateful/</link>
+      <pubDate>Sun, 25 Nov 2018 17:32:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-stateful/</guid>
+      <description>环境 1 2 3 4 5 6 7 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 cephfs-admin 192.168.31.115 cephfs-monitor 192.168.31.114 cephfs-client 192.168.31.172 各 k8s-node 安装完 ceph-common(sudo apt install ceph-common -y) 准备 在进行操作前，请完成下面的操作： 1）阅读 http://www.cnblogs.com/iiiiher/p/7159810.html https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client 注意： https://github.com/kubernetes-incubator/external-storage 这个仓库，</description>
+    </item>
+    
+    <item>
+      <title>运行 kubeadm init 之前</title>
+      <link>https://b.qqbb.app/post/kubeadm-init-before-v1_8_3/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-init-before-v1_8_3/</guid>
+      <description>在运行 kubeadm init 之前的动作 kubelet 服务检查 后来发现，在这里应该测试一下 kubelet.service。 原来，虽然我 apt install kubelet , 但是， 遗留了之前 kubeadm 的一些配置.</description>
+    </item>
+    
+    <item>
+      <title>kubernetes-cephfs-make-by-go-get</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-make-by-go-get/</link>
+      <pubDate>Sun, 25 Nov 2018 17:35:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-make-by-go-get/</guid>
+      <description>ENV 1 2 3 4 5 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 ceph-client 192.168.31.172 ceph-mon1 192.168.31.114 这次的make, 可以在任何地方完成，只要满足：golang 1.7 以上的版本 我在 km,ceph-client,ceph-mon1 上都完成过 安装gol</description>
+    </item>
+    
+    <item>
+      <title>ubuntu中安装kubeadm</title>
+      <link>https://b.qqbb.app/post/kubeadm-install-base-ubuntu/</link>
+      <pubDate>Fri, 23 Nov 2018 17:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-install-base-ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu中安装kubeadm v1.8.4</title>
+      <link>https://b.qqbb.app/post/kubeadm-v184-install-base-ubuntu/</link>
+      <pubDate>Fri, 23 Nov 2018 17:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-v184-install-base-ubuntu/</guid>
+      <description>Environment kubeadm: v1.8.4 所有节点都要安装 kubeadm, kubelet, kubectl 安装时，全使用 root 用户。直到 kubeadm join 成功后，全使用 非root用户 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node 加代理 准备FQ网络 命令行 加代理</description>
+    </item>
+    
+    <item>
+      <title>kubernetes中cephfs的deployment的FAQ</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-deployment-faq/</link>
+      <pubDate>Sun, 25 Nov 2018 17:41:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-deployment-faq/</guid>
+      <description>k8s cephfs 在 deployment.yaml 中的使用 Environment 1 2 3 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 配置 deployment.yaml 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43</description>
+    </item>
+    
+    <item>
+      <title>kubeadm join</title>
+      <link>https://b.qqbb.app/post/kubeadm-join/</link>
+      <pubDate>Fri, 23 Nov 2018 17:17:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-join/</guid>
+      <description>Environment 已安装 kubeadm, kubelet, kubectl 安装时，全使用 root 用户。直到 kubeadm join 成功后，全使用 非root用户 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node kubeadm join /etc/kubernetes/pki/ca.crt already exists 1 sudo kubeadm join --token ce4253.8322cc2590378260 192.168.31.120:6443 --discovery-token-ca-cert-hash sha256:bb0b9ef27e5ffef06776ca10a87ed548cefedc703ddaf904316c87d4a7f3655d 这个来自于 mas</description>
+    </item>
+    
+    <item>
+      <title>k8s 中 cephfs 成功的 yaml 文件</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-yaml/</link>
+      <pubDate>Sun, 25 Nov 2018 17:47:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-yaml/</guid>
+      <description>https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs 对 我们好不容易成功安装的 k8s-cephfs 进行一个记录呀！ 环境 1 2 3 4 5 6 7 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 cephfs-admin 192.168.31.115 cephfs-monitor 192.168.31.114 cephfs-client 192.168.31.172 git remote 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 jlch@km:~/cephfs$ git remote -v</description>
+    </item>
+    
+    <item>
+      <title>kubeadm从v1.8.3更新至v1.8.4失败</title>
+      <link>https://b.qqbb.app/post/kubeadm-upgrade-failure-from-v183-to-v184/</link>
+      <pubDate>Sat, 24 Nov 2018 09:32:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-upgrade-failure-from-v183-to-v184/</guid>
+      <description>Installing Docker 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 root@km:~# cat /etc/apt/sources.list.d/docker.list deb https://apt.dockerproject.org/repo ubuntu-xenial main root@km:~# cat /etc/docker/daemon.json { &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://0d6wdn2y.mirror.aliyuncs.com&amp;#34;] } root@km:~# vi /etc/docker/daemon.json root@km:~# cat /etc/docker/daemon.json { &amp;#34;exec-opts&amp;#34;: [&amp;#34;native.cgroupdriver=systemd&amp;#34;], &amp;#34;registry-mirrors&amp;#34;: [&amp;#34;https://0d6wdn2y.mirror.aliyuncs.com&amp;#34;] } root@km:~# apt-get install -y curl apt-transport-https Reading package lists... Done Building dependency tree Reading</description>
+    </item>
+    
+  </channel>
+</rss>

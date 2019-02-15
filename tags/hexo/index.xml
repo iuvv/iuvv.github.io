@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hexo on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/hexo/</link>
+    <description>Recent content in Hexo on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 15:28:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog Hexo</title>
+      <link>https://b.qqbb.app/blog/blog-hexo/</link>
+      <pubDate>Fri, 02 Mar 2018 15:28:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-hexo/</guid>
+      <description>hexo创建个人博客 hexo + bitbucket 创建个人博客 此项目内容, 已合并至 hugo + bitbucket 中, 具体见工程 bitbucket 1 2 3 ➜ tomtsang git:(master) ✗ git remote -v originbit git@bitbucket.org:tomtsang/blogs.git (fetch) originbit git@bitbucket.org:tomtsang/blogs.git (push) hexo + github 创建个人博客(已废弃)</description>
+    </item>
+    
+    <item>
+      <title>Hexo Tomtsang</title>
+      <link>https://b.qqbb.app/post/hexo-tomtsang/</link>
+      <pubDate>Fri, 02 Mar 2018 15:11:32 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hexo-tomtsang/</guid>
+      <description>hexo tomtsang&amp;rsquo;s blogs 1 2 3 4 5 6 7 8 9 10 11 --- layout: photo title: tomtsang53535ere date: 2016-11-01 16:38:42 tags: description: 你对本页的描述 photos: - http://bruce.u.qiniudn.com/2013/11/27/reading/photos-0.jpg - http://bruce.u.qiniudn.com/2013/11/27/reading/photos-1.jpg --- Welcome to [Hexo](https://hexo.io/)! This is your very first post. Check [documentation](https://hexo.io/docs/) for more info. If you get any problems when using Hexo, you can find the answer in [troubleshooting](https://hexo.io/docs/troubleshooting.html) or you can ask</description>
+    </item>
+    
+    <item>
+      <title>Hexo Command</title>
+      <link>https://b.qqbb.app/post/command/hexo/</link>
+      <pubDate>Fri, 02 Mar 2018 11:45:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/command/hexo/</guid>
+      <description>hexo系列之使用1 hexo下新建页面下如何放多个文章？ https://www.zhihu.com/question/33324071 hexo分类与tags配置 Hexo中如何给一篇文章加多个tags？ 下面2种方式： tags:</description>
+    </item>
+    
+    <item>
+      <title>Hexo Hello World</title>
+      <link>https://b.qqbb.app/post/hexo-hello-world/</link>
+      <pubDate>Fri, 02 Mar 2018 11:44:17 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hexo-hello-world/</guid>
+      <description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick Start Create a new post 1  $ hexo new &amp;#34;My New Post&amp;#34;   More info: Writing
+Run server 1  $ hexo server   More info: Server
+Generate static files 1  $ hexo generate   More info: Generating</description>
+    </item>
+    
+  </channel>
+</rss>

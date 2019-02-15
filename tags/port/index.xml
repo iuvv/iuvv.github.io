@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Port on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/port/</link>
+    <description>Recent content in Port on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 11:47:57 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/port/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Port Process</title>
+      <link>https://b.qqbb.app/post/linux-port-process/</link>
+      <pubDate>Fri, 02 Mar 2018 11:47:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/linux-port-process/</guid>
+      <description>linux系列之端口与进程 linux如何查看端口被哪个进程占用 使用netstat 和lsof命令，并用grep来过滤你需要查看的端口。 例如查看</description>
+    </item>
+    
+  </channel>
+</rss>

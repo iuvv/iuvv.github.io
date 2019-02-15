@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Make on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/make/</link>
+    <description>Recent content in Make on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 25 Nov 2018 17:35:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/make/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kubernetes-cephfs-make-by-go-get</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-make-by-go-get/</link>
+      <pubDate>Sun, 25 Nov 2018 17:35:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-make-by-go-get/</guid>
+      <description>ENV 1 2 3 4 5 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 ceph-client 192.168.31.172 ceph-mon1 192.168.31.114 这次的make, 可以在任何地方完成，只要满足：golang 1.7 以上的版本 我在 km,ceph-client,ceph-mon1 上都完成过 安装gol</description>
+    </item>
+    
+    <item>
+      <title>cephfs-k8s 中的 make</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-make/</link>
+      <pubDate>Sun, 25 Nov 2018 17:52:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-make/</guid>
+      <description>下载 make ，报错了。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 root@km:~/kubernetes.io/TUTORIALS/Stateful-Applications/cephfs-stateful# cd external-storage/ceph/cephfs/ root@km:~/kubernetes.io/TUTORIALS/Stateful-Applications/cephfs-stateful/external-storage/ceph/cephfs# ls cephfs_provisioner cephfs-provisioner.go ceph-secret-admin.yaml CHANGELOG.md claim.yaml class.yaml configmap.yaml deployment.yaml Dockerfile local-start.sh Makefile OWNERS README.md test-pod.yaml root@km:~/kubernetes.io/TUTORIALS/Stateful-Applications/cephfs-stateful/external-storage/ceph/cephfs# make CGO_ENABLED=0 GOOS=linux go</description>
+    </item>
+    
+  </channel>
+</rss>

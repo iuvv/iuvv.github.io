@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Image on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/image/</link>
+    <description>Recent content in Image on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 24 Nov 2018 09:48:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/image/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用本地镜像进行kubeadm init</title>
+      <link>https://b.qqbb.app/post/kubeadm-init-use-local-image/</link>
+      <pubDate>Sat, 24 Nov 2018 09:48:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-init-use-local-image/</guid>
+      <description>因为 kubeadm 安装 要提前下载好docker images, 并使用 这些个 docker images. 但是，我们公司的网络FQ的下载速度太慢，时不时会断了。所以，我们考虑使用本地下载好的这些</description>
+    </item>
+    
+  </channel>
+</rss>

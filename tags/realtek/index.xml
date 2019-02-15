@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Realtek on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/realtek/</link>
+    <description>Recent content in Realtek on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 07 Jun 2018 16:03:04 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/realtek/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Realtek Shengyin</title>
+      <link>https://b.qqbb.app/post/realtek-shengyin/</link>
+      <pubDate>Thu, 07 Jun 2018 16:03:04 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/realtek-shengyin/</guid>
+      <description>Realtek高清晰音频管理器使耳机能听到声音 env os: win10 step 总以为是声卡类驱动没有安装成功，哈哈！～～ 直接看图操作吧</description>
+    </item>
+    
+  </channel>
+</rss>

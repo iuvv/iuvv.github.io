@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Images on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/images/</link>
+    <description>Recent content in Images on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 27 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/images/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>批量删除docker images</title>
+      <link>https://b.qqbb.app/post/docker-remove-images-multy/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-remove-images-multy/</guid>
+      <description> 1 2 3  docker ps -a | grep &amp;#34;Exited&amp;#34; | awk &amp;#39;{print $1 }&amp;#39;|xargs docker stop docker ps -a | grep &amp;#34;Exited&amp;#34; | awk &amp;#39;{print $1 }&amp;#39;|xargs docker rm docker images|grep none|awk &amp;#39;{print $3 }&amp;#39;|xargs docker rmi   Ref  https://blog.csdn.net/p656456564545/article/details/50097145  </description>
+    </item>
+    
+  </channel>
+</rss>

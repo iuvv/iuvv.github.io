@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Easy Hugo on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/easy-hugo/</link>
+    <description>Recent content in Easy Hugo on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 12 Nov 2018 10:20:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/easy-hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于 hugo, easy-hugo, ox-hugo, spacemacs 集成相关的问题</title>
+      <link>https://b.qqbb.app/post/easy-hugo-and-ox-hugo-qa/</link>
+      <pubDate>Mon, 12 Nov 2018 10:20:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/easy-hugo-and-ox-hugo-qa/</guid>
+      <description>ox-hugo，easy-hugo, spacemacs的集成 ox-hugo 写文档 这里，在写文档的时候，配置好就可以了,无需修改 spacemacs的配置。</description>
+    </item>
+    
+    <item>
+      <title>使用org-mode和ox-hugo写文档</title>
+      <link>https://b.qqbb.app/post/blogging-with-org-mode-and-ox-hugo/</link>
+      <pubDate>Mon, 12 Nov 2018 09:20:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blogging-with-org-mode-and-ox-hugo/</guid>
+      <description>Env os: mac Emacs: 26.1 Spacemacs: 0.300.0 Org: 9.1.2 Hugo: v0.41 ox-hugo: 20181106.2350 prodigy: 20180511.938 Step Part 1: Blog Setup Download Hugo 1 pacman -S hugo Initialize Project 1 2 3 hugo new site test-blog cd test-blog git init Download a Theme (YMMV) This seems like a clean, simple theme. You can use a submodule like this: 1 git submodule add https://github.com/goodroot/hugo-classic.git themes/hugo-classic Or you can just clone it 1</description>
+    </item>
+    
+  </channel>
+</rss>

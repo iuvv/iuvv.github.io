@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Curl on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/curl/</link>
+    <description>Recent content in Curl on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 08 Mar 2018 17:47:28 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/curl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Curl</title>
+      <link>https://b.qqbb.app/post/curl/</link>
+      <pubDate>Thu, 08 Mar 2018 17:47:28 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/curl/</guid>
+      <description>获取header env 要求发送get请求，只看服务器返回的头信息 curl --head xxxx.com 这样可以看服务器返回的头信息，但是，发送的是head请求 请问，怎么做？ step 1</description>
+    </item>
+    
+  </channel>
+</rss>

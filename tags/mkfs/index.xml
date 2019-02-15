@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mkfs on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/mkfs/</link>
+    <description>Recent content in Mkfs on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 20 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/mkfs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mkfs.xfs command not found</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/mkfs-xfs-command-not-found/</link>
+      <pubDate>Sun, 20 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/mkfs-xfs-command-not-found/</guid>
+      <description>如果 mkfs.xfs /dev/sdb1 出现 mkfs.xfs command not found , 则运行下面命令安装 mkfs.xfs 1 apt-get install xfsprogs ref http://blog.51cto.com/yangzhiming/2117942</description>
+    </item>
+    
+  </channel>
+</rss>

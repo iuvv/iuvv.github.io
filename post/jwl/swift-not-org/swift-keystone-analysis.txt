@@ -1,0 +1,220 @@
+
+
+
+admin
+
+
+/v1/AUTH_f04ec0abf3d1460dad82608bb03af589
+
+
+root@controller:~# cat admin-openrc 
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_NAME=admin
+export OS_USERNAME=admin
+export OS_PASSWORD=openstack
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+root@controller:~# 
+
+
+
+{
+	"auth": {
+		"identity": {
+			"methods": [
+				"password"
+			],
+			"password": {
+				"user": {
+					"name": "admin",
+					"domain": {
+						"name": "Default"
+					},
+					"password": "openstack"
+				}
+			}
+		}
+	}
+}
+
+```
+➜  swift curl -d '{ "auth": { "identity": {"methods": ["password"],"password": {"user": {"name": "admin","domain": {"name": "Default
+"}, "password": "openstack"}}}}}' -H "Content-type: application/json" http://192.168.0.50:5000/v3/auth/tokens | python -mjson.tool
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+100   458  100   312  100   146    514    240 --:--:-- --:--:-- --:--:--   514
+{
+    "token": {
+        "audit_ids": [
+            "ivntv0mDTQ6lRLbS_cXOTw"
+        ],
+        "expires_at": "2019-01-17T11:11:30.000000Z",
+        "issued_at": "2019-01-17T10:11:30.000000Z",
+        "methods": [
+            "password"
+        ],
+        "user": {
+            "domain": {
+                "id": "default",
+                "name": "Default"
+            },
+            "id": "8533cb3873974fa29f03832aef7007ca",
+            "name": "admin",
+            "password_expires_at": null
+        }
+    }
+}
+➜  swift 
+```
+
+
+
+```shell
+root@controller:~# openstack --os-identity-api-version=3 --os-auth-url=http://127.0.0.1:5000/     --os-username=admin --os-user-domain-id=default     --os-project-name=admin --os-project-domain-id=default     --os-password=openstack catalog show object-store
++-----------+-----------------------------------------------------------------------------+
+| Field     | Value                                                                       |
++-----------+-----------------------------------------------------------------------------+
+| endpoints | RegionOne                                                                   |
+|           |   public: http://controller:8080/v1/AUTH_f04ec0abf3d1460dad82608bb03af589   |
+|           | RegionOne                                                                   |
+|           |   admin: http://controller:8080/v1                                          |
+|           | RegionOne                                                                   |
+|           |   internal: http://controller:8080/v1/AUTH_f04ec0abf3d1460dad82608bb03af589 |
+|           |                                                                             |
+| id        | e929673efa1a4acb9adc4a06e4f56a31                                            |
+| name      | swift                                                                       |
+| type      | object-store                                                                |
++-----------+-----------------------------------------------------------------------------+
+root@controller:~# 
+```
+
+
+curl -i http://192.168.0.50:8080/v1/AUTH_f04ec0abf3d1460dad82608bb03af589?format=json -X GET -H "X-Auth-Token: gAAAAABcQEpPvt-j0ZY_-Wdvp3"
+-----------------------------------------------------------------------------------------------------------------------
+
+demo
+
+/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3
+
+
+root@controller:~# cat demo-openrc 
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_NAME=demo
+export OS_USERNAME=demo
+export OS_PASSWORD=openstack
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+
+{
+	"auth": {
+		"identity": {
+			"methods": [
+				"password"
+			],
+			"password": {
+				"user": {
+					"name": "demo",
+					"domain": {
+						"name": "Default"
+					},
+					"password": "openstack"
+				}
+			}
+		}
+	}
+}
+
+response.body:
+```json
+{
+    "token": {
+        "issued_at": "2019-01-17T08:24:16.000000Z",
+        "audit_ids": [
+            "EGEojI4HQrysOX9x9-ghnw"
+        ],
+        "methods": [
+            "password"
+        ],
+        "expires_at": "2019-01-17T09:24:16.000000Z",
+        "user": {
+            "password_expires_at": null,
+            "domain": {
+                "id": "default",
+                "name": "Default"
+            },
+            "id": "d84ddffc7de94a68a5f37c6f00c403b1",
+            "name": "demo"
+        }
+    }
+}
+```
+
+
+
+```shell
+. demo-openrc
+swift list
+```
+
+keystone log:
+
+```
+2019-01-17 16:39:42.981 21278 INFO keystone.common.wsgi [req-1016d74e-62af-4441-9885-7ec12dab486d - - - - -] POST http://controller:5000/v3/auth/tokens
+2019-01-17 16:39:43.392 21276 INFO keystone.common.wsgi [req-f0fa1fb7-91e5-46ed-9ce8-f221e41881b4 a0e8450b823748c9b31d5a2577706b53 a640c74e595c44c4902d1c5ebc3afa8a - default default] GET http://controller:5000/v3/auth/tokens?nocatalog
+```
+
+swift-proxy log:
+
+```
+Jan 17 16:39:43 controller proxy-server: - - 17/Jan/2019/08/39/43 HEAD /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Fformat%3Djson HTTP/1.0 204 - Swift - - - - tx6d999f69ef24424e81426-005c403f4f - 0.0054 RL - 1547714383.329308033 1547714383.334717035 -
+Jan 17 16:39:43 controller proxy-server: 127.0.0.1 127.0.0.1 17/Jan/2019/08/39/43 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Fformat%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcQD9PypmA... - 271 - tx6d999f69ef24424e81426-005c403f4f - 0.1321 - - 1547714383.328664064 1547714383.460742950 -
+Jan 17 16:39:43 controller proxy-server: 127.0.0.1 127.0.0.1 17/Jan/2019/08/39/43 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Fmarker%3Dtest3%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcQD9PypmA... - 2 - tx26d4a65f1995495f90fae-005c403f4f - 0.0065 - - 1547714383.462318897 1547714383.468863010 -
+```
+
+curl -i $publicURL?format=json -X GET -H "X-Auth-Token: $token"
+curl -i http://192.168.0.50:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3?format=json -X GET -H "X-Auth-Token: gAAAAABcQFexnMtRH_tE8XQBfA5bNi5egDaeJupSAwXEeSbvfMFMcXCas2t5z0PVWrEW7fEQ3zWyWf_dsrZedLOiqv1LONUxH1Z3HNeg-Ne17LtygLU6HXuZs_fXw0KrSFqxHloqMIwK0N8zpjsDi0hxyL5Jthp28PH_YDYrxSudFeM9f47PhJ8"
+
+
+```shell
+root@controller:~# openstack --os-identity-api-version=3 --os-auth-url=http://127.0.0.1:5000/     --os-username=demo --os-user-domain-id=default     --os-project-name=demo --os-project-domain-id=default     --os-password=openstack catalog show object-store
++-----------+-----------------------------------------------------------------------------+
+| Field     | Value                                                                       |
++-----------+-----------------------------------------------------------------------------+
+| endpoints | RegionOne                                                                   |
+|           |   public: http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3   |
+|           | RegionOne                                                                   |
+|           |   admin: http://controller:8080/v1                                          |
+|           | RegionOne                                                                   |
+|           |   internal: http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3 |
+|           |                                                                             |
+| id        | e929673efa1a4acb9adc4a06e4f56a31                                            |
+| name      | swift                                                                       |
+| type      | object-store                                                                |
++-----------+-----------------------------------------------------------------------------+
+root@controller:~# 
+``` 
+------------------------------------------------------------------------------------------------------------------------
+swift 
+
+```shell
+root@controller:~# openstack --os-identity-api-version=3 --os-auth-url=http://keystonehost:5000/     --os-username=swift --os-user-domain-id=default     --os-project-name=service --os-project-domain-id=default     --os-password=openstack catalog show object-store
++-----------+-----------------------------------------------------------------------------+
+| Field     | Value                                                                       |
++-----------+-----------------------------------------------------------------------------+
+| endpoints | RegionOne                                                                   |
+|           |   public: http://controller:8080/v1/AUTH_a640c74e595c44c4902d1c5ebc3afa8a   |
+|           | RegionOne                                                                   |
+|           |   admin: http://controller:8080/v1                                          |
+|           | RegionOne                                                                   |
+|           |   internal: http://controller:8080/v1/AUTH_a640c74e595c44c4902d1c5ebc3afa8a |
+|           |                                                                             |
+| id        | e929673efa1a4acb9adc4a06e4f56a31                                            |
+| name      | swift                                                                       |
+| type      | object-store                                                                |
++-----------+-----------------------------------------------------------------------------+
+root@controller:~# 
+```

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Links on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/links/</link>
+    <description>Recent content in Links on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 01 Dec 2018 11:31:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/links/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mac 系统中文件的软链接、硬链接</title>
+      <link>https://b.qqbb.app/post/mac-hard-links-soft-links/</link>
+      <pubDate>Sat, 01 Dec 2018 11:31:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-hard-links-soft-links/</guid>
+      <description>最近有这么个需求，由于我在多台设备上使用 Surge ，因此我想把 Surge 的配置文件使用 Dropbox 进行同步，但是 Dropbox 的路径在 ~/User/slark/Dropbox/surge.conf 下，而 Surge 的配置文件位于 ~/.surge.c</description>
+    </item>
+    
+  </channel>
+</rss>

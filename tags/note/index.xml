@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Note on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/note/</link>
+    <description>Recent content in Note on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 15 Feb 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/note/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gitbook（笔记）</title>
+      <link>https://b.qqbb.app/post/note-about-gitbook/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-gitbook/</guid>
+      <description>入门 https://www.jianshu.com/p/fa38ef97431d https://segmentfault.com/a/1190000011440899 https://www.jianshu.com/p/b0a11b9b8725 https://www.jianshu.com/p/09a1cac0a0d0 初步 http://www.ituring.com.cn/article/127744 进阶 http://www.chengweiyang.cn/gitbook/github-pages/README.html Ref https://www.imooc.com/article/details/id/30528</description>
+    </item>
+    
+    <item>
+      <title>tmux（笔记）</title>
+      <link>https://b.qqbb.app/post/note-about-tmux/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-tmux/</guid>
+      <description>基础 http://blog.jobbole.com/87584/ 高效的结对编程 在Tmux 中使用 Tmate 在文本间快速移动光标，复制文本 将复制下来的文本发送到系统的剪贴板中 Select and copy text 调整 Tmux 以增强其同 Vim 的集成度 调</description>
+    </item>
+    
+    <item>
+      <title>django-oscar(笔记)</title>
+      <link>https://b.qqbb.app/post/note-about-django-oscar/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-django-oscar/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44  (oscar) ➜ django-oscar git:(master) make sandbox pip install -r requirements.txt Collecting Werkzeug==0.14.1 (from -r requirements.txt (line 4)) Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (322kB) 100% |████████████████████████████████| 327kB 8.8MB/s Collecting django-debug-toolbar==1.</description>
+    </item>
+    
+    <item>
+      <title>saleor 测试（笔记）</title>
+      <link>https://b.qqbb.app/post/saleor-customization-tests/</link>
+      <pubDate>Thu, 31 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/saleor-customization-tests/</guid>
+      <description>https://docs.getsaleor.com/en/latest/customization/tests.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 (saleor) ➜ saleor git:(master) pipenv install --dev Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS =1 to force pipenv to</description>
+    </item>
+    
+    <item>
+      <title>tmuxinator（笔记）</title>
+      <link>https://b.qqbb.app/post/note-about-tmuxinator/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-tmuxinator/</guid>
+      <description>tmux进阶之tmuxinator 在Tmuxinator中配置layout https://blog.suisuijiang.com/tmux-course-terminal-manage/ 我们可能会需要指定窗格的排班规则，tmuxinator支持设置t</description>
+    </item>
+    
+  </channel>
+</rss>

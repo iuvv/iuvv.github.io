@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Update Kernel Base Centos - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="如何在 CentOS 7 中安装或升级最新的内核 请直接看 https://linux.cn/article-8310-1.html 下文只是记录 Env os: centos7 Step 虽然有些人使用 Linux 来表示整个操作系统，但要注意的是，严格地来说，Linux 只是个" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/update-kernel-base-centos/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="Update Kernel Base Centos" />
+<meta property="og:description" content="如何在 CentOS 7 中安装或升级最新的内核 请直接看 https://linux.cn/article-8310-1.html 下文只是记录 Env os: centos7 Step 虽然有些人使用 Linux 来表示整个操作系统，但要注意的是，严格地来说，Linux 只是个" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/update-kernel-base-centos/" />
+
+
+
+<meta property="article:published_time" content="2018-06-22T11:34:39&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-22T11:34:39&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Update Kernel Base Centos">
+<meta itemprop="description" content="如何在 CentOS 7 中安装或升级最新的内核 请直接看 https://linux.cn/article-8310-1.html 下文只是记录 Env os: centos7 Step 虽然有些人使用 Linux 来表示整个操作系统，但要注意的是，严格地来说，Linux 只是个">
+
+
+<meta itemprop="datePublished" content="2018-06-22T11:34:39&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-22T11:34:39&#43;08:00" />
+<meta itemprop="wordCount" content="1260">
+
+
+
+<meta itemprop="keywords" content="centos,kernel," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Update Kernel Base Centos"/>
+<meta name="twitter:description" content="如何在 CentOS 7 中安装或升级最新的内核 请直接看 https://linux.cn/article-8310-1.html 下文只是记录 Env os: centos7 Step 虽然有些人使用 Linux 来表示整个操作系统，但要注意的是，严格地来说，Linux 只是个"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Update Kernel Base Centos</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-06-22" class="post-time">
+          2018-06-22
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/centos/"> centos </a>
+            
+          </div>
+        <span class="more-meta"> 约 1260 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">Env</a></li>
+<li><a href="#step">Step</a>
+<ul>
+<li><a href="#步骤-1-检查已安装的内核版本">步骤 1：检查已安装的内核版本</a></li>
+<li><a href="#步骤-2-在-centos-7-中升级内核">步骤 2：在 CentOS 7 中升级内核</a></li>
+<li><a href="#步骤-3-设置-grub-默认的内核版本">步骤 3：设置 GRUB 默认的内核版本</a></li>
+<li><a href="#总结">总结</a></li>
+</ul></li>
+<li><a href="#ref">Ref</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>如何在 CentOS 7 中安装或升级最新的内核</p>
+
+<p>请直接看 <a href="https://linux.cn/article-8310-1.html">https://linux.cn/article-8310-1.html</a></p>
+
+<p>下文只是记录</p>
+
+<h2 id="env">Env</h2>
+
+<ul>
+<li>os: centos7</li>
+</ul>
+
+<h2 id="step">Step</h2>
+
+<p>虽然有些人使用 Linux 来表示整个操作系统，但要注意的是，严格地来说，Linux 只是个内核。另一方面，发行版是一个完整功能的系统，它建立在内核之上，具有各种各样的应用程序工具和库。</p>
+
+<p>在正常操作期间，内核负责执行两个重要任务：</p>
+
+<ul>
+<li>作为硬件和系统上运行的软件之间的接口。</li>
+<li>尽可能高效地管理系统资源。</li>
+</ul>
+
+<p>为此，内核通过内置的驱动程序或以后可作为模块安装的驱动程序与硬件通信。</p>
+
+<p>例如，当你计算机上运行的程序想要连接到无线网络时，它会将该请求提交给内核，后者又会使用正确的驱动程序连接到网络。</p>
+
+<p>建议阅读： <a href="https://linux.cn/article-8284-1.html">如何在 Ubuntu 中升级内核</a></p>
+
+<p>随着新的设备和技术定期出来，如果我们想充分利用它们，保持最新的内核就很重要。此外，更新内核将帮助我们利用新的内核函数，并保护自己免受先前版本中发现的漏洞的攻击。</p>
+
+<p>准备好了在 CentOS 7 或其衍生产品（如 RHEL 7和 Fedora）上更新内核了么？如果是这样，请继续阅读！</p>
+
+<h3 id="步骤-1-检查已安装的内核版本">步骤 1：检查已安装的内核版本</h3>
+
+<p>让我们安装了一个发行版，它包含了一个特定版本的内核。为了展示当前系统中已安装的版本，我们可以：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"># uname -sr</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果我们现在进入 <a href="https://www.kernel.org/，在撰写本文时，我们看到最新的内核版本是4.10.1（其他版本可以从同一网站获得）。">https://www.kernel.org/，在撰写本文时，我们看到最新的内核版本是4.10.1（其他版本可以从同一网站获得）。</a></p>
+
+<p>还要考虑的一个重要的事情是内核版本的生命周期 - 如果你当前使用的版本接近它的生命周期结束，那么在该日期后将不会提供更多的 bug 修复。关于更多信息，请参阅内核发布页。</p>
+
+<h3 id="步骤-2-在-centos-7-中升级内核">步骤 2：在 CentOS 7 中升级内核</h3>
+
+<p>大多数现代发行版提供了一种使用 yum 等包管理系统和官方支持的仓库升级内核的方法。</p>
+
+<p>但是，这只会升级内核到仓库中可用的最新版本 - 而不是在 <a href="https://www.kernel.org/">https://www.kernel.org/</a> 中可用的最新版本。不幸的是，Red Hat 只允许使用前者升级内核。</p>
+
+<p>与 Red Hat 不同，CentOS 允许使用 ELRepo，这是一个第三方仓库，可以将内核升级到最新版本。</p>
+
+<p>要在 CentOS 7 上启用 ELRepo 仓库，请运行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># rpm --import https://www.elrepo.org/RPM-GPG-KEY-elrepo.org
+</span><span class="c1"></span># rpm -Uvh http://www.elrepo.org/elrepo-release-7.0-2.el7.elrepo.noarch.rpm</code></pre></td></tr></table>
+</div>
+</div>
+<p>仓库启用后，你可以使用下面的命令列出可用的内核相关包：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"># yum --disablerepo<span class="o">=</span><span class="s2">&#34;*&#34;</span> --enablerepo<span class="o">=</span><span class="s2">&#34;elrepo-kernel&#34;</span> list available</code></pre></td></tr></table>
+</div>
+</div>
+<p>接下来，安装最新的主线稳定内核：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"># yum --enablerepo<span class="o">=</span>elrepo-kernel install kernel-ml</code></pre></td></tr></table>
+</div>
+</div>
+<p>最后，重启机器并应用最新内核，接着运行下面的命令检查最新内核版本：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">uname -sr</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="步骤-3-设置-grub-默认的内核版本">步骤 3：设置 GRUB 默认的内核版本</h3>
+
+<p>为了让新安装的内核成为默认启动选项，你需要如下修改 GRUB 配置：</p>
+
+<p>打开并编辑 <code>/etc/default/grub</code> 并设置 <code>GRUB_DEFAULT=0</code>。意思是 GRUB 初始化页面的第一个内核将作为默认内核。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">GRUB_TIMEOUT</span><span class="o">=</span><span class="m">5</span>
+<span class="nv">GRUB_DEFAULT</span><span class="o">=</span><span class="m">0</span>
+<span class="nv">GRUB_DISABLE_SUBMENU</span><span class="o">=</span><span class="nb">true</span>
+<span class="nv">GRUB_TERMINAL_OUTPUT</span><span class="o">=</span><span class="s2">&#34;console&#34;</span>
+<span class="nv">GRUB_CMDLINE_LINUX</span><span class="o">=</span><span class="s2">&#34;rd.lvm.lv=centos/root rd.lvm.lv=centos/swap crashkernel=auto rhgb quiet&#34;</span>
+<span class="nv">GRUB_DISABLE_RECOVERY</span><span class="o">=</span><span class="s2">&#34;true&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>接下来运行下面的命令来重新创建内核配置。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"># grub2-mkconfig -o /boot/grub2/grub.cfg</code></pre></td></tr></table>
+</div>
+</div>
+<p>重启并验证最新的内核已作为默认内核。</p>
+
+<p>恭喜你！你已经在 CentOS 7 中升级内核了！</p>
+
+<h3 id="总结">总结</h3>
+
+<p>在本文中，我们解释了如何轻松升级系统上的 Linux 内核。我们还没讲到另外一个方法，因为它涉及从源代码编译内核，这可以写成一本书，并且不推荐在生产系统上这么做。</p>
+
+<p>虽然它是最好的学习体验之一，并且允许细粒度配置内核，但是你可能会让你的系统不可用，并且可能必须从头重新安装它。</p>
+
+<p>如果你仍然有兴趣构建内核作为学习经验，你可以在 <a href="https://kernelnewbies.org/KernelBuild">Kernel Newbies</a>页面中获得指导。</p>
+
+<p>一如既往，如果你对本文有任何问题或意见，请随时使用下面的评论栏。</p>
+
+<h2 id="ref">Ref</h2>
+
+<ul>
+<li><a href="http://www.tecmint.com/install-upgrade-kernel-version-in-centos-7/">http://www.tecmint.com/install-upgrade-kernel-version-in-centos-7/</a></li>
+<li><a href="https://linux.cn/article-8310-1.html">https://linux.cn/article-8310-1.html</a></li>
+<li><a href="https://linux.cn/article-8284-1.html">https://linux.cn/article-8284-1.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-06-22</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/centos/">centos</a>
+          <a href="https://b.qqbb.app/tags/kernel/">kernel</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/docker-registry-mirrors-base-ubuntu/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Docker Registry Mirrors Base Ubuntu</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/how-to-install-certificates-for-command-line/">
+            <span class="next-text nav-default">How to Install Certificates for Command Line</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,121 @@
+
+swift 通过 keystone 认证，并实现调用swift接口
+
+## 总体
+
+1. 安装 keystone 认证 
+2. 调用swift接口
+	1. 向keystone发送请求。得到X-Auth-Token
+	2. 带X-Auth-Token向swift服务发出请求
+
+## 安装 keystone 认证
+
+
+ swift --os-auth-url https://api.example.com/v3 --auth-version 3\
+      --os-project-name project1 --os-project-domain-name domain1 \
+      --os-username user --os-user-domain-name domain1 \
+      --os-password password list
+	  
+	  
+```shell
+root@controller:~# cat demo-openrc 
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_NAME=demo
+export OS_USERNAME=demo
+export OS_PASSWORD=openstack
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+root@controller:~# 
+```
+
+下面的正确
+
+ swift --os-auth-url http://controller:5000/v3 --auth-version 3\
+      --os-project-name demo --os-project-domain-name Default \
+      --os-username demo --os-user-domain-name Default \
+      --os-password openstack list
+	  
+```shell
+ubuntu@controller:~$  swift --os-auth-url http://controller:5000/v3 --auth-version 3\
+>       --os-project-name demo --os-project-domain-name Default \
+>       --os-username demo --os-user-domain-name Default \
+>       --os-password openstack list
+container1
+container1_segments
+container2
+jinweilai-work
+pub1
+test3
+ubuntu@controller:~$ 
+```
+
+下面的会报错
+
+ swift --os-auth-url http://controller:5000/v3 --auth-version 3\
+      --os-username demo --os-user-domain-name Default \
+      --os-password openstack list
+	  
+```shell
+ubuntu@controller:~$  swift --os-auth-url http://controller:5000/v3 --auth-version 3\
+>       --os-username demo --os-user-domain-name Default \
+>       --os-password openstack list
+No project name or project id specified.
+ubuntu@controller:~$ 
+```
+说明每一个地方的设置，都要加到请求参数中去。
+
+
+```shell
+root@controller:~# cat demo-openrc 
+export OS_PROJECT_DOMAIN_NAME=Default
+export OS_USER_DOMAIN_NAME=Default
+export OS_PROJECT_NAME=demo
+export OS_USERNAME=demo
+export OS_PASSWORD=openstack
+export OS_AUTH_URL=http://controller:5000/v3
+export OS_IDENTITY_API_VERSION=3
+export OS_IMAGE_API_VERSION=2
+root@controller:~# 
+```
+
+根据下面文档
+https://developer.openstack.org/api-ref/identity/v3/index.html?expanded=password-authentication-with-scoped-authorization-detail#identity-api-operations
+
+生成JSON格式请求body:
+
+```json
+{
+    "auth": {
+        "identity": {
+            "methods": [
+                "password"
+            ],
+            "password": {
+                "user": {
+					"name": "demo",
+					"domain": {
+						"name": "Default"
+					},
+					"password": "openstack"
+				}
+            }
+        },
+        "scope": {
+            "project": {
+                "domain": {
+                    "name": "Default"
+                },
+                "name": "demo"
+            }
+        }
+    }
+}
+```
+
+发送请求。得到response
+
+
+
+https://developer.openstack.org/api-ref/object-store/index.html?expanded=show-account-details-and-list-containers-detail#show-container-details-and-list-objects

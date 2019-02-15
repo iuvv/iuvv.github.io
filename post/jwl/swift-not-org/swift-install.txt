@@ -1,0 +1,1 @@
+scp *.ring.gz swift.conf ubuntu@192.168.100.106:/home/ubuntu/

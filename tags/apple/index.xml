@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apple on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/apple/</link>
+    <description>Recent content in Apple on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 24 Jun 2018 10:42:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/apple/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Apple Id Register Hongkong</title>
+      <link>https://b.qqbb.app/post/apple-id-register-hongkong/</link>
+      <pubDate>Sun, 24 Jun 2018 10:42:55 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/apple-id-register-hongkong/</guid>
+      <description>因为苹果ios系统升级的原因，之前的注册香港苹果ID的方法不再有效。本教程介绍一种新的注册香港苹果ID的方法。 Env 电脑 iphone 香港信用卡虚拟卡 适应人</description>
+    </item>
+    
+    <item>
+      <title>Macos Apple Id America</title>
+      <link>https://b.qqbb.app/post/macos-apple-id-america/</link>
+      <pubDate>Mon, 11 Jun 2018 20:02:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/macos-apple-id-america/</guid>
+      <description>申请美国apple id Env os: macOS cloud: aws Step Ref https://zhuanlan.zhihu.com/p/36574047 https://www.zhihu.com/question/20422874/answer/413390698 https://blog.csdn.net/amoscn/article/details/79364599 https://zhuanlan.zhihu.com/p/33150135</description>
+    </item>
+    
+  </channel>
+</rss>

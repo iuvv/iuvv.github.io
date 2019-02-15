@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Grep on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/grep/</link>
+    <description>Recent content in Grep on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 03 Jul 2018 11:20:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/grep/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Grep Exclude Many File</title>
+      <link>https://b.qqbb.app/post/grep-exclude-many-file/</link>
+      <pubDate>Tue, 03 Jul 2018 11:20:35 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/grep-exclude-many-file/</guid>
+      <description>grep 同时排除多个关键字,多个文件 Step grep -v 排除文件 | grep -v 排除文件 1 2 3 4 5 tom@tom-w10vbud16:~$ ifconfig | grep inet | grep -v inet6 | grep -v 127.0.0.1 inet addr:172.17.0.1 Bcast:0.0.0.0 Mask:255.255.0.0 inet addr:10.88.88.130 Bcast:10.88.88.255 Mask:255.255.255.0 inet addr:10.42.0.0 Bcast:0.0.0.0 Mask:255.255.255.255 tom@tom-w10vbud16:~$ Ref https://blog.csdn.net/qq70945934/article/details/77573870</description>
+    </item>
+    
+  </channel>
+</rss>

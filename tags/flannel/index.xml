@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Flannel on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/flannel/</link>
+    <description>Recent content in Flannel on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 25 Nov 2018 16:53:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/flannel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>flannel网络模式下ping出错</title>
+      <link>https://b.qqbb.app/post/kubeadm-flannel-ping-wrong/</link>
+      <pubDate>Sun, 25 Nov 2018 16:53:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-flannel-ping-wrong/</guid>
+      <description>Environment 所有节点都要安装 kubeadm, kubelet, kubectl 安装时，全使用 root 用户。直到 kubeadm join 成功后，全使用 非root用户 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node 问题 网络出了问题了，ping 不了 kn1,</description>
+    </item>
+    
+  </channel>
+</rss>

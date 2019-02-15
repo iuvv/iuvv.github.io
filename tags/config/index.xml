@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Config on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/config/</link>
+    <description>Recent content in Config on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 26 Feb 2018 17:25:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/config/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql Config Server.conf</title>
+      <link>https://b.qqbb.app/post/mysql-config-server.conf/</link>
+      <pubDate>Mon, 26 Feb 2018 17:25:30 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-config-server.conf/</guid>
+      <description>压缩binlog空间 在运行前, 先去数据目录文件夹下查看一下, mysql.000001的文件有多少,并看一下各文件的创建时间.也就是确认一下要</description>
+    </item>
+    
+    <item>
+      <title>Mysql Config</title>
+      <link>https://b.qqbb.app/post/mysql-config/</link>
+      <pubDate>Mon, 12 Feb 2018 10:05:24 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-config/</guid>
+      <description>MySQL5.7初始密码查看及重置 1 2 3 [root@localhost jlch]# grep &amp;#39;temporary password&amp;#39; /var/log/mysqld.log 2018-02-12T07:28:21.362804Z 1 [Note] A temporary password is generated for root@localhost: Ngu97xLjPL(S [root@localhost jlch]# MySQL源码安装、配置、初始化及启动 1 mysql_secure_installation 配置mysql允许远</description>
+    </item>
+    
+  </channel>
+</rss>

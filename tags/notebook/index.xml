@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Notebook on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/notebook/</link>
+    <description>Recent content in Notebook on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 21 Dec 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/notebook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Emacs与Jupyter notebook之间的集成</title>
+      <link>https://b.qqbb.app/post/jupyter-notebook-with-emacs/</link>
+      <pubDate>Fri, 21 Dec 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jupyter-notebook-with-emacs/</guid>
+      <description>emacs配置ein包 具体配置可以参考我的个人配置 启动notebook服务器 连接notebook服务器 M-x ein:notebooklist-open 选择 New Notebook , 然后输入 token 使用 使用的时候</description>
+    </item>
+    
+    <item>
+      <title>jupyter-notebook 密码查询</title>
+      <link>https://b.qqbb.app/post/jupyter-notebook-login-with-token/</link>
+      <pubDate>Fri, 21 Dec 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jupyter-notebook-login-with-token/</guid>
+      <description>有一些场景，需要连接jupyter-notebook, 这时，需要提供登陆密码. 这个密码就是 token. 1 2 3 4 (py3) ➜ learn-python3 git:(master) ✗ /Users/tomtsang/Downloads/.ana/bin/jupyter-notebook list Currently running servers: http://localhost:8888/?token=b488be28e8f4bdf6f11b3e863ee92896d99c50ed70e67bde :: /Users/tomtsang (py3) ➜ learn-python3 git:(master) ✗ 如果</description>
+    </item>
+    
+  </channel>
+</rss>

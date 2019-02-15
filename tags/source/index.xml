@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Source on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/source/</link>
+    <description>Recent content in Source on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 25 Nov 2018 18:08:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/source/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>awesome cloud-native</title>
+      <link>https://b.qqbb.app/post/awesome-cloud-native/</link>
+      <pubDate>Sun, 25 Nov 2018 18:08:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/awesome-cloud-native/</guid>
+      <description>https://jimmysong.io/awesome-cloud-native/</description>
+    </item>
+    
+  </channel>
+</rss>

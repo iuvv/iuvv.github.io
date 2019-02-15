@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>使用 cephfs 完成 statefulset 的练习 - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="环境 1 2 3 4 5 6 7 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 cephfs-admin 192.168.31.115 cephfs-monitor 192.168.31.114 cephfs-client 192.168.31.172 各 k8s-node 安装完 ceph-common(sudo apt install ceph-common -y) 准备 在进行操作前，请完成下面的操作： 1）阅读 http://www.cnblogs.com/iiiiher/p/7159810.html https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client 注意： https://github.com/kubernetes-incubator/external-storage 这个仓库，" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/kubernetes-cephfs-stateful/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="使用 cephfs 完成 statefulset 的练习" />
+<meta property="og:description" content="环境 1 2 3 4 5 6 7 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 cephfs-admin 192.168.31.115 cephfs-monitor 192.168.31.114 cephfs-client 192.168.31.172 各 k8s-node 安装完 ceph-common(sudo apt install ceph-common -y) 准备 在进行操作前，请完成下面的操作： 1）阅读 http://www.cnblogs.com/iiiiher/p/7159810.html https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client 注意： https://github.com/kubernetes-incubator/external-storage 这个仓库，" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/kubernetes-cephfs-stateful/" />
+
+
+
+<meta property="article:published_time" content="2018-11-25T17:32:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-11-25T17:34:07&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="使用 cephfs 完成 statefulset 的练习">
+<meta itemprop="description" content="环境 1 2 3 4 5 6 7 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 cephfs-admin 192.168.31.115 cephfs-monitor 192.168.31.114 cephfs-client 192.168.31.172 各 k8s-node 安装完 ceph-common(sudo apt install ceph-common -y) 准备 在进行操作前，请完成下面的操作： 1）阅读 http://www.cnblogs.com/iiiiher/p/7159810.html https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client 注意： https://github.com/kubernetes-incubator/external-storage 这个仓库，">
+
+
+<meta itemprop="datePublished" content="2018-11-25T17:32:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-25T17:32:00&#43;08:00" />
+<meta itemprop="wordCount" content="2393">
+
+
+
+<meta itemprop="keywords" content="kubernetes,ceph,cephfs,statefulset," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="使用 cephfs 完成 statefulset 的练习"/>
+<meta name="twitter:description" content="环境 1 2 3 4 5 6 7 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 cephfs-admin 192.168.31.115 cephfs-monitor 192.168.31.114 cephfs-client 192.168.31.172 各 k8s-node 安装完 ceph-common(sudo apt install ceph-common -y) 准备 在进行操作前，请完成下面的操作： 1）阅读 http://www.cnblogs.com/iiiiher/p/7159810.html https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client 注意： https://github.com/kubernetes-incubator/external-storage 这个仓库，"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">使用 cephfs 完成 statefulset 的练习</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-11-25" class="post-time">
+          2018-11-25
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/kubernetes/"> kubernetes </a>
+            
+          </div>
+        <span class="more-meta"> 约 2393 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#环境">环境</a></li>
+<li><a href="#准备">准备</a></li>
+<li><a href="#step">step</a>
+<ul>
+<li><a href="#compile-the-provisioner">Compile the provisioner</a></li>
+<li><a href="#make-the-container-image-and-push-to-the-registry">Make the container image and push to the registry</a></li>
+<li><a href="#start-kubernetes-local-cluster">Start Kubernetes local cluster</a></li>
+<li><a href="#配置-configmap">配置 configmap</a></li>
+<li><a href="#create-a-ceph-admin-secret">Create a Ceph admin secret</a></li>
+<li><a href="#start-cephfs-provisioner">Start CephFS provisioner</a>
+<ul>
+<li><a href="#方法1-deployment.yaml">方法1 deployment.yaml</a></li>
+<li><a href="#方法2-docker">方法2 docker</a></li>
+<li><a href="#方法1-deployment.yaml-与-方法2-docker-的对应关系">方法1 deployment.yaml 与 方法2 docker 的对应关系</a></li>
+</ul></li>
+<li><a href="#create-a-cephfs-storage-class">Create a CephFS Storage Class</a></li>
+<li><a href="#create-a-claim">Create a claim</a></li>
+<li><a href="#create-a-pod-using-the-claim">Create a Pod using the claim</a></li>
+<li><a href="#确认-cephfs-数据">确认 cephfs 数据</a>
+<ul>
+<li><a href="#cephfs-client-内核版本4.4验证">cephfs-client （内核版本4.4）验证</a></li>
+<li><a href="#kn1-内核版本4.12.0验证">kn1 （内核版本4.12.0）验证</a></li>
+</ul></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="环境">环境</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">k8s-master 192.168.31.120 km master
+k8s-node1 192.168.31.119 kn1 node1
+k8s-node2 192.168.31.118 kn2 node2
+
+cephfs-admin 192.168.31.115
+cephfs-monitor 192.168.31.114
+cephfs-client 192.168.31.172</code></pre></td></tr></table>
+</div>
+</div>
+<p>各 k8s-node 安装完 ceph-common(sudo apt install ceph-common -y)</p>
+
+<h2 id="准备">准备</h2>
+
+<p>在进行操作前，请完成下面的操作：</p>
+
+<p>1）阅读</p>
+
+<p><a href="http://www.cnblogs.com/iiiiher/p/7159810.html">http://www.cnblogs.com/iiiiher/p/7159810.html</a></p>
+
+<p><a href="https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client">https://github.com/kubernetes-incubator/external-storage/tree/master/nfs-client</a></p>
+
+<p>注意：</p>
+
+<p><a href="https://github.com/kubernetes-incubator/external-storage">https://github.com/kubernetes-incubator/external-storage</a>
+这个仓库，是官方提供之外的 External storage plugins, provisioners, and
+helper libraries ，因为我们在<a href="https://kubernetes.io/docs/concepts/storage/persistent-volumes/#provisioner">官方文档 中看到了 nfs 是不支持
+provisioners
+</a>的，所以要来这里了哟&gt;。</p>
+
+<p>2）git clone</p>
+
+<blockquote>
+<p>git clone <a href="https://github.com/kubernetes-incubator/external-storage">https://github.com/kubernetes-incubator/external-storage</a></p>
+
+<p>cd external-storage/nfs-client/deploy/</p>
+</blockquote>
+
+<p>3）按步骤来进行。</p>
+
+<p>现在打开
+<a href="https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs">https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs</a></p>
+
+<p>开始动手了</p>
+
+<h2 id="step">step</h2>
+
+<h3 id="compile-the-provisioner">Compile the provisioner</h3>
+
+<p>见 cephfs-k8s-make-by-go-get.rst</p>
+
+<p>这个地方，请参看
+<a href="http://blogtt.readthedocs.io/en/latest/k8s/cephfs/cephfs-k8s-make-by-go-get.html">http://blogtt.readthedocs.io/en/latest/k8s/cephfs/cephfs-k8s-make-by-go-get.html</a></p>
+
+<h3 id="make-the-container-image-and-push-to-the-registry">Make the container image and push to the registry</h3>
+
+<p>这个地方，看公司情况。主要是 把 docker image 放到仓库去，然后让
+k8s各个节点机，docker pull 这个make 后的 image.</p>
+
+<h3 id="start-kubernetes-local-cluster">Start Kubernetes local cluster</h3>
+
+<p>略</p>
+
+<h3 id="配置-configmap">配置 configmap</h3>
+
+<p>这个小步骤，<a href="https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs">https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs</a>
+并没有写。但是确实是要走的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@km:~/cephfs$ ls
+cephfs_provisioner  cephfs-provisioner.go  ceph-secret-admin.yaml  CHANGELOG.md  claim.yaml  class.yaml  configmap.yaml  deployment.yaml  Dockerfile  local-start.sh  Makefile  OWNERS  README.md  test-pod.yaml
+jlch@km:~/cephfs$ k apply -f configmap.yaml
+jlch@km:~/cephfs$ k get cm
+NAME                 DATA      AGE
+cephfs-provisioner   1         23h
+jlch@km:~/cephfs$</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="create-a-ceph-admin-secret">Create a Ceph admin secret</h3>
+
+<p>在 cephfs-admin 下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">ceph auth get client.admin 2&gt;&amp;1 |grep &#34;key = &#34; |awk &#39;{print  $3&#39;} |xargs echo -n &gt; /tmp/secret</code></pre></td></tr></table>
+</div>
+</div>
+<p>把这个/tmp/secret 弄到 k8s-master 的 /tmp/secret</p>
+
+<p>在 k8s-master 下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">kubectl create secret generic ceph-secret-admin --from-file=/tmp/secret --namespace=kube-system</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="start-cephfs-provisioner">Start CephFS provisioner</h3>
+
+<h4 id="方法1-deployment.yaml">方法1 deployment.yaml</h4>
+
+<p>此方法的具体细节见
+<a href="http://blogtt.readthedocs.io/en/latest/k8s/cephfs/cephfs-k8s-deployment-faq.html">cephfs-k8s-deployment-faq.rst</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">kubectl create -f deployment.yaml</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="方法2-docker">方法2 docker</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">docker run -ti -v /root/.kube:/kube -v /var/run/kubernetes:/var/run/kubernetes --privileged --net=host  cephfs-provisioner /usr/local/bin/cephfs-provisioner -master=http://127.0.0.1:8080 -kubeconfig=/kube/config -id=cephfs-provisioner-1</code></pre></td></tr></table>
+</div>
+</div>
+<p>这个官方的配置肯定与我们的实际不同，修改一下配置哟。</p>
+
+<ol>
+<li>kube配置文件</li>
+</ol>
+
+<p>因为我们的机器是 /root/admin.conf 了哈, 所以直接修改名字成 config</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# cat k8.export.sh
+sudo cp /etc/kubernetes/admin.conf $HOME/
+sudo chown $(id -u):$(id -g) $HOME/admin.conf
+export KUBECONFIG=$HOME/admin.conf
+root@km:~# cp admin.conf config
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<ol>
+<li>image</li>
+</ol>
+
+<p>我们 make 后的 image 是
+quay.io/external_storage/cephfs-provisioner:latest</p>
+
+<ol>
+<li>ceph参数 -master</li>
+</ol>
+
+<p>看一下service</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~/cephfs# k get svc --all-namespaces | grep default | grep kubernetes
+default       kubernetes             10.96.0.1        &lt;none&gt;        443/TCP                        71d
+root@km:~/cephfs#</code></pre></td></tr></table>
+</div>
+</div>
+<p>所以我们这里是 -master=<a href="https://10.96.0.1/">https://10.96.0.1/</a> 或者
+-master=<a href="https://10.96.0.1:443/">https://10.96.0.1:443/</a></p>
+
+<p>综合一下，我们的操作应该是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# docker run -ti -v  /root/:/kube -v /var/run/kubernetes:/var/run/kubernetes --privileged --net=host  quay.io/external_storage/cephfs-provisioner /usr/local/bin/cephfs-provisioner -master=https://10.96.0.1/  -kubeconfig=/kube/config -id=cephfs-provisioner-1</code></pre></td></tr></table>
+</div>
+</div>
+<p>好了，基于 docker 方式的 pv 应该是跑起来了。</p>
+
+<h4 id="方法1-deployment.yaml-与-方法2-docker-的对应关系">方法1 deployment.yaml 与 方法2 docker 的对应关系</h4>
+
+<p>方法2 docker</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">docker run -ti -v  /home/jlch:/kube -v /var/run/kubernetes:/var/run/kubernetes --privileged --net=host  quay.io/external_storage/cephfs-provisioner /usr/local/bin/cephfs-provisioner -master=https://10.96.0.1/  -kubeconfig=/kube/admin.conf -id=cephfs-provisioner-1</code></pre></td></tr></table>
+</div>
+</div>
+<p>对应于 方法1 deployment.yaml</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+    name: cephfs-provisioner
+spec:
+    replicas: 1
+    strategy:
+        type: Recreate
+    template:
+        metadata:
+            labels:
+                app: cephfs-provisioner
+        spec:
+            containers:
+            - name: cephfs-provisioner
+                image: &#34;quay.io/external_storage/cephfs-provisioner:latest&#34; # 对应 镜像
+                imagePullPolicy: IfNotPresent
+                env:
+                - name: PROVISIONER_NAME
+                    valueFrom:
+                        configMapKeyRef:
+                            key: provisioner.name
+                            name: cephfs-provisioner
+                command: # 这里对应 命令
+                    - &#34;/usr/local/bin/cephfs-provisioner&#34;
+                args: # 这里对应三个参数
+                    - &#34;-id=cephfs-provisioner-1&#34;
+                    - &#34;-master=https://10.96.0.1/&#34;
+                    - &#34;-kubeconfig=/kube/admin.conf&#34;
+                volumeMounts: # 对应 -v
+                    - mountPath: /kube
+                        name: kube-config
+                    - mountPath: /var/run/kubernetes
+                        name: kube-run-env
+            volumes:
+            - name: kube-config
+                hostPath:
+                    # directory location on host
+                    path: /home/jlch
+                    # this field is optional
+                    type: Directory
+            - name: kube-run-env
+                hostPath:
+                    # directory location on host
+                    path: /var/run/kubernetes
+                    # this field is optional
+                    type: Directory</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="create-a-cephfs-storage-class">Create a CephFS Storage Class</h3>
+
+<p>Replace Ceph monitor&rsquo;s IP in class.yaml with your own and create storage
+class:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">kubectl create -f class.yaml</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="create-a-claim">Create a claim</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">kubectl create -f claim.yaml</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="create-a-pod-using-the-claim">Create a Pod using the claim</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">kubectl create -f test-pod.yaml</code></pre></td></tr></table>
+</div>
+</div>
+<p>因为我之前安装过 flannel 的缘故，所以部署在 kn2 上的时候，报出 Failed
+create pod sandbox. 错误来了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@km:~/cephfs$ k describe  pod test-pod
+Name:         test-pod
+Namespace:    default
+Node:         kn2/192.168.31.118
+Start Time:   Fri, 24 Nov 2017 11:29:18 +0800
+Labels:       &lt;none&gt;
+Annotations:  kubectl.kubernetes.io/last-applied-configuration={&#34;apiVersion&#34;:&#34;v1&#34;,&#34;kind&#34;:&#34;Pod&#34;,&#34;metadata&#34;:{&#34;annotations&#34;:{},&#34;name&#34;:&#34;test-pod&#34;,&#34;namespace&#34;:&#34;default&#34;},&#34;spec&#34;:{&#34;containers&#34;:[{&#34;args&#34;:[&#34;-c&#34;,&#34;touch /mnt/S...
+Status:       Pending
+IP:
+Containers:
+    test-pod:
+        Container ID:
+        Image:         gcr.io/google_containers/busybox:v1.1.1
+        Image ID:
+        Port:          &lt;none&gt;
+        Command:
+            /bin/sh
+        Args:
+            -c
+            touch /mnt/SUCCESS &amp;&amp; exit 0 || exit 1
+        State:          Waiting
+            Reason:       ContainerCreating
+        Ready:          False
+        Restart Count:  0
+        Environment:    &lt;none&gt;
+        Mounts:
+            /mnt from pvc (rw)
+            /var/run/secrets/kubernetes.io/serviceaccount from default-token-np6qz (ro)
+Conditions:
+    Type           Status
+    Initialized    True
+    Ready          False
+    PodScheduled   True
+Volumes:
+    pvc:
+        Type:       PersistentVolumeClaim (a reference to a PersistentVolumeClaim in the same namespace)
+        ClaimName:  claim1
+        ReadOnly:   false
+    default-token-np6qz:
+        Type:        Secret (a volume populated by a Secret)
+        SecretName:  default-token-np6qz
+        Optional:    false
+QoS Class:       BestEffort
+Node-Selectors:  &lt;none&gt;
+Tolerations:     node.alpha.kubernetes.io/notReady:NoExecute for 300s
+                                node.alpha.kubernetes.io/unreachable:NoExecute for 300s
+Events:
+    Type     Reason                  Age                From               Message
+    ----     ------                  ----               ----               -------
+    Normal   Scheduled               39s                default-scheduler  Successfully assigned test-pod to kn2
+    Normal   SuccessfulMountVolume   39s                kubelet, kn2       MountVolume.SetUp succeeded for volume &#34;default-token-np6qz&#34;
+    Normal   SuccessfulMountVolume   38s                kubelet, kn2       MountVolume.SetUp succeeded for volume &#34;pvc-a2bdd1d1-d0c7-11e7-85d4-000c299a346f&#34;
+    Warning  FailedCreatePodSandBox  31s (x8 over 38s)  kubelet, kn2       Failed create pod sandbox.
+    Warning  FailedSync              31s (x8 over 38s)  kubelet, kn2       Error syncing pod
+    Normal   SandboxChanged          31s (x7 over 38s)  kubelet, kn2       Pod sandbox changed, it will be killed and re-created.
+jlch@km:~/cephfs$</code></pre></td></tr></table>
+</div>
+</div>
+<p>这里同样地，参考一下 cephfs-k8s-deployment-faq.rst 就可以了。</p>
+
+<p>查看一下pod</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@km:~/cephfs$ k get pod
+NAME                                READY     STATUS    RESTARTS   AGE
+cephfs-provisioner-cff8d95c-6tgcs   1/1       Running   1          22m
+jlch@km:~/cephfs$</code></pre></td></tr></table>
+</div>
+</div>
+<p>我的pod 去哪里了？？？ 噢。因为我的 pod
+是一次性的任务，它直接Completed了。所以要 带 -a 参数。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@km:~/cephfs$ k get pod -a
+NAME                                READY     STATUS      RESTARTS   AGE
+cephfs-provisioner-cff8d95c-6tgcs   1/1       Running     1          23m
+test-pod                            0/1       Completed   0          2m
+jlch@km:~/cephfs$</code></pre></td></tr></table>
+</div>
+</div>
+<p>好了，确实是pod执行完了。</p>
+
+<h3 id="确认-cephfs-数据">确认 cephfs 数据</h3>
+
+<p>那怎么看我的效果呢？</p>
+
+<h4 id="cephfs-client-内核版本4.4验证">cephfs-client （内核版本4.4）验证</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~/mycephfs$ sudo mount -t ceph 192.168.31.114:6789:/ /mnt/mycephfs -o name=admin,secretfile=admin.secret
+unable to read secretfile: No such file or directory
+error reading secret file
+failed to parse ceph_options
+cephu@ceph-client:~/mycephfs$ cd  # 这个目录不对，没有 admin.secret 文件
+cephu@ceph-client:~$ ls
+admin.secret  mycephfs  release.asc
+cephu@ceph-client:~$ cat admin.secret # 看到了吧，这个密码，就是 cephfs 的密码呀。重要
+AQCtj+****************IQZJnaJSPEz4jdGw==
+cephu@ceph-client:~$
+cephu@ceph-client:~$ sudo mount -t ceph 192.168.31.114:6789:/ /mnt/mycephfs -o name=admin,secretfile=admin.secret  # mount 成功
+cephu@ceph-client:~$ ls /mnt/mycephfs/
+a.txt  b.txt  c.txt  h.txt  volumes
+cephu@ceph-client:~$ cd /mnt/mycephfs/
+cephu@ceph-client:/mnt/mycephfs$ ls
+a.txt  b.txt  c.txt  h.txt  volumes
+cephu@ceph-client:/mnt/mycephfs$ cd volumes/
+cephu@ceph-client:/mnt/mycephfs/volumes$ ls
+_deleting  k8s  kubernetes  _kubernetes:kubernetes-dynamic-pvc-5467e02a-c132-11e7-bda7-000c299a346f.meta  _kubernetes:kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148.meta
+cephu@ceph-client:/mnt/mycephfs/volumes$ cd kubernetes/
+cephu@ceph-client:/mnt/mycephfs/volumes/kubernetes$ ls
+haha  hahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa  hahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb  kubernetes-dynamic-pvc-5467e02a-c132-11e7-bda7-000c299a346f  kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148
+cephu@ceph-client:/mnt/mycephfs/volumes/kubernetes$ ll
+total 0
+drwxr-xr-x 1 root root 0 Nov 24 11:29 ./
+drwxr-xr-x 1 root root 0 Nov 24 11:29 ../
+drwxr-xr-x 1 root root 0 Nov  1 14:35 haha/
+drwxr-xr-x 1 root root 0 Nov  1 14:36 hahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/
+drwxr-xr-x 1 root root 0 Nov  1 14:38 hahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/
+drwxr-xr-x 1 root root 0 Nov  4 15:37 kubernetes-dynamic-pvc-5467e02a-c132-11e7-bda7-000c299a346f/
+drwxr-xr-x 1 root root 0 Nov 24 11:36 kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148/  # 哈哈，从时间上看，这个就是我们要的文件夹。
+cephu@ceph-client:/mnt/mycephfs/volumes/kubernetes$ ll kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148/
+ls: reading directory &#39;kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148/&#39;: Input/output error  # what? 又是这个问题。升级内核去吧。我们这里不升级了哈。见 cephfs-k8s-faq.rst
+total 0
+drwxr-xr-x 1 root root 0 Nov 24 11:36 ./
+drwxr-xr-x 1 root root 0 Nov 24 11:29 ../
+cephu@ceph-client:/mnt/mycephfs/volumes/kubernetes$ cd</code></pre></td></tr></table>
+</div>
+</div>
+<p>好了，这里没用，换一个内核版本 4.10.0 以上的机器来吧。先umount 吧。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:/mnt/mycephfs/volumes/kubernetes$ cd
+cephu@ceph-client:~$ umount /mnt/mycephfs/
+cephu@ceph-client:~$ ls /mnt/mycephfs/
+cephu@ceph-client:~$ mount
+sysfs on /sys type sysfs (rw,nosuid,nodev,noexec,relatime)
+proc on /proc type proc (rw,nosuid,nodev,noexec,relatime)
+udev on /dev type devtmpfs (rw,nosuid,relatime,size=4067060k,nr_inodes=1016765,mode=755)
+devpts on /dev/pts type devpts (rw,nosuid,noexec,relatime,gid=5,mode=620,ptmxmode=000)
+tmpfs on /run type tmpfs (rw,nosuid,noexec,relatime,size=817444k,mode=755)
+/dev/mapper/ubuntu--vg-root on / type ext4 (rw,relatime,errors=remount-ro,data=ordered)
+securityfs on /sys/kernel/security type securityfs (rw,nosuid,nodev,noexec,relatime)
+tmpfs on /dev/shm type tmpfs (rw,nosuid,nodev)
+tmpfs on /run/lock type tmpfs (rw,nosuid,nodev,noexec,relatime,size=5120k)
+tmpfs on /sys/fs/cgroup type tmpfs (ro,nosuid,nodev,noexec,mode=755)
+cgroup on /sys/fs/cgroup/systemd type cgroup (rw,nosuid,nodev,noexec,relatime,xattr,release_agent=/lib/systemd/systemd-cgroups-agent,name=systemd)
+pstore on /sys/fs/pstore type pstore (rw,nosuid,nodev,noexec,relatime)
+cgroup on /sys/fs/cgroup/freezer type cgroup (rw,nosuid,nodev,noexec,relatime,freezer)
+cgroup on /sys/fs/cgroup/memory type cgroup (rw,nosuid,nodev,noexec,relatime,memory)
+cgroup on /sys/fs/cgroup/hugetlb type cgroup (rw,nosuid,nodev,noexec,relatime,hugetlb)
+cgroup on /sys/fs/cgroup/perf_event type cgroup (rw,nosuid,nodev,noexec,relatime,perf_event)
+cgroup on /sys/fs/cgroup/blkio type cgroup (rw,nosuid,nodev,noexec,relatime,blkio)
+cgroup on /sys/fs/cgroup/devices type cgroup (rw,nosuid,nodev,noexec,relatime,devices)
+cgroup on /sys/fs/cgroup/cpu,cpuacct type cgroup (rw,nosuid,nodev,noexec,relatime,cpu,cpuacct)
+cgroup on /sys/fs/cgroup/net_cls,net_prio type cgroup (rw,nosuid,nodev,noexec,relatime,net_cls,net_prio)
+cgroup on /sys/fs/cgroup/pids type cgroup (rw,nosuid,nodev,noexec,relatime,pids)
+cgroup on /sys/fs/cgroup/cpuset type cgroup (rw,nosuid,nodev,noexec,relatime,cpuset)
+systemd-1 on /proc/sys/fs/binfmt_misc type autofs (rw,relatime,fd=32,pgrp=1,timeout=0,minproto=5,maxproto=5,direct)
+hugetlbfs on /dev/hugepages type hugetlbfs (rw,relatime)
+debugfs on /sys/kernel/debug type debugfs (rw,relatime)
+mqueue on /dev/mqueue type mqueue (rw,relatime)
+fusectl on /sys/fs/fuse/connections type fusectl (rw,relatime)
+/dev/sda1 on /boot type ext2 (rw,relatime,block_validity,barrier,user_xattr,acl)
+lxcfs on /var/lib/lxcfs type fuse.lxcfs (rw,nosuid,nodev,relatime,user_id=0,group_id=0,allow_other)
+/dev/mapper/ubuntu--vg-root on /var/lib/docker/aufs type ext4 (rw,relatime,errors=remount-ro,data=ordered)
+none on /var/lib/docker/aufs/mnt/3ebf0690df4cb6798be2be8c6bee8a77eacfa7e89c42acacc2a97ea2bc3af09a type aufs (rw,relatime,si=781e745ed7325e3c,dio,dirperm1)
+nsfs on /run/docker/netns/default type nsfs (rw)
+shm on /var/lib/docker/containers/9e4d9c65734a4e566b4303071ec85f0ea1a18efb2f077e51d09d8457039b725d/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,size=65536k)
+none on /var/lib/docker/aufs/mnt/1a10a53a1baa1de36489cc6f35562790a3659b0dfa08331ee3521d5b89f4f848 type aufs (rw,relatime,si=781e745c1d80ee3c,dio,dirperm1)
+shm on /var/lib/docker/containers/9ceeadb3b8184a36d946bd1aeb98a50a0682b75de141c2195373faa3786bbe66/shm type tmpfs (rw,nosuid,nodev,noexec,relatime,size=65536k)
+tmpfs on /run/user/113 type tmpfs (rw,nosuid,nodev,relatime,size=817444k,mode=700,uid=113,gid=120)
+tmpfs on /run/user/1003 type tmpfs (rw,nosuid,nodev,relatime,size=817444k,mode=700,uid=1003,gid=1003)
+tmpfs on /run/user/1000 type tmpfs (rw,nosuid,nodev,relatime,size=817444k,mode=700,uid=1000,gid=1000)
+cephu@ceph-client:~$ ls /mnt/mycephfs/
+cephu@ceph-client:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>可以了。</p>
+
+<h4 id="kn1-内核版本4.12.0验证">kn1 （内核版本4.12.0）验证</h4>
+
+<p>查内核版本</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@kn1:~$ uname -a
+Linux kn1 4.12.0-041200-generic #201707022031 SMP Mon Jul 3 00:32:52 UTC 2017 x86_64 x86_64 x86_64 GNU/Linux
+jlch@kn1:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>查一下mount下已有的ceph</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@kn1:~$ mount | grep ceph
+jlch@kn1:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>把密码文件admin.secret搞过来</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@kn1:~$ ls
+10-kubeadm.conf  apt.conf                     etc.kubernetes     hpa-example.sh  k3-dockerlibraryk8s.sh  linux-image-4.12.0-041200-generic_4.12.0-041200.201707022031_amd64.deb  nginx-dockerlibraryk8s.sh  redis.sh
+admin.conf       busybox-dockerlibraryk8s.sh  hello-frontend.sh  image           k8                      liveness-dockerlibraryk8s.sh                                            node-hello.sh              registry.crt
+admin.secret     docker                       hello-go-gke.sh    job-wq-2        k8.export.sh            mydockersimages.tar                                                     proxy.sh                   xtrabackup-dockerlibraryk8s.sh</code></pre></td></tr></table>
+</div>
+</div>
+<p>mount</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@kn1:~$ sudo mount -t ceph 192.168.31.114:6789:/ /mnt/mycephfs -o name=admin,secretfile=admin.secret
+jlch@kn1:~$ mount | grep ceph
+192.168.31.114:6789:/ on /mnt/mycephfs type ceph (rw,relatime,name=admin,secret=&lt;hidden&gt;,acl)
+jlch@kn1:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>成功了，查一下文件</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@kn1:~$ ls /mnt/mycephfs/
+a.txt    b.txt    c.txt    h.txt    volumes/
+jlch@kn1:~$ cd /mnt/mycephfs/volumes/
+jlch@kn1:/mnt/mycephfs/volumes$ ls
+_deleting  k8s  kubernetes  _kubernetes:kubernetes-dynamic-pvc-5467e02a-c132-11e7-bda7-000c299a346f.meta  _kubernetes:kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148.meta
+jlch@kn1:/mnt/mycephfs/volumes$ cd kubernetes/
+jlch@kn1:/mnt/mycephfs/volumes/kubernetes$ ll
+total 0
+drwxr-xr-x 1 root root 5 Nov 24 11:29 ./
+drwxr-xr-x 1 root root 5 Nov 24 11:29 ../
+drwxr-xr-x 1 root root 0 Nov  1 14:35 haha/
+drwxr-xr-x 1 root root 0 Nov  1 14:36 hahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa/
+drwxr-xr-x 1 root root 0 Nov  1 14:38 hahaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb/
+drwxr-xr-x 1 root root 1 Nov  4 15:37 kubernetes-dynamic-pvc-5467e02a-c132-11e7-bda7-000c299a346f/
+drwxr-xr-x 1 root root 1 Nov 24 11:36 kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148/  # 哈哈，从时间上看，这个就是我们要的文件夹。
+jlch@kn1:/mnt/mycephfs/volumes/kubernetes$ cd kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148/
+jlch@kn1:/mnt/mycephfs/volumes/kubernetes/kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148$ ls
+SUCCESS
+jlch@kn1:/mnt/mycephfs/volumes/kubernetes/kubernetes-dynamic-pvc-a2c667ad-d0c7-11e7-b656-0a580af40148$</code></pre></td></tr></table>
+</div>
+</div>
+<p>哈哈，找到了之前由 test-pod 创建的文件 SUCCESS。</p>
+
+<p>到此，<a href="https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs">https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs</a>
+的几个步骤已全走完了。</p>
+
+<p>game over!</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-11-25</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/kubernetes/">kubernetes</a>
+          <a href="https://b.qqbb.app/tags/ceph/">ceph</a>
+          <a href="https://b.qqbb.app/tags/cephfs/">cephfs</a>
+          <a href="https://b.qqbb.app/tags/statefulset/">statefulset</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/ceph-install-base-ubuntu-quick-start-preflight/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">ceph-install-base-ubuntu quick-start-preflight</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/docker-registry-push-pull/">
+            <span class="next-text nav-default">docker-registry-push-pull</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Seo on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/seo/</link>
+    <description>Recent content in Seo on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 27 Feb 2018 11:08:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/seo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Nginx Seo</title>
+      <link>https://b.qqbb.app/post/nginx-seo/</link>
+      <pubDate>Tue, 27 Feb 2018 11:08:59 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/nginx-seo/</guid>
+      <description>seo 优化去掉html 页面的后缀 .html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 ubuntu@VM-0-12-ubuntu:/etc/nginx/conf.d$ cat 8766.conf server { listen 8766; server_name localhost; #charset koi8-r; #access_log /var/log/nginx/host.access.log main; # seo 优化去掉html 页面的后缀 .html if (!-f $request_filename){</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Git Workflow - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="gitlab系列之workflow 本文是 官方 workflow 的中文翻译 参考 https://docs.gitlab.com/ee/workflow/gitlab_flow.html 中文 介绍 使用git进行版本管理使得分支和合并比旧版本系统（如SVN）容易得多。" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/git-workflow/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="Git Workflow" />
+<meta property="og:description" content="gitlab系列之workflow 本文是 官方 workflow 的中文翻译 参考 https://docs.gitlab.com/ee/workflow/gitlab_flow.html 中文 介绍 使用git进行版本管理使得分支和合并比旧版本系统（如SVN）容易得多。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/git-workflow/" />
+
+
+
+<meta property="article:published_time" content="2018-03-02T11:42:26&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-03-02T11:42:26&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Git Workflow">
+<meta itemprop="description" content="gitlab系列之workflow 本文是 官方 workflow 的中文翻译 参考 https://docs.gitlab.com/ee/workflow/gitlab_flow.html 中文 介绍 使用git进行版本管理使得分支和合并比旧版本系统（如SVN）容易得多。">
+
+
+<meta itemprop="datePublished" content="2018-03-02T11:42:26&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-02T11:42:26&#43;08:00" />
+<meta itemprop="wordCount" content="5287">
+
+
+
+<meta itemprop="keywords" content="gitlab,workflow," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Git Workflow"/>
+<meta name="twitter:description" content="gitlab系列之workflow 本文是 官方 workflow 的中文翻译 参考 https://docs.gitlab.com/ee/workflow/gitlab_flow.html 中文 介绍 使用git进行版本管理使得分支和合并比旧版本系统（如SVN）容易得多。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Git Workflow</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-03-02" class="post-time">
+          2018-03-02
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/gitlab/"> gitlab </a>
+            
+          </div>
+        <span class="more-meta"> 约 5287 字 </span>
+          <span class="more-meta"> 预计阅读 11 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#参考">参考</a></li>
+<li><a href="#中文">中文</a>
+<ul>
+<li>
+<ul>
+<li><a href="#介绍">介绍</a></li>
+<li><a href="#git-flow-and-its-problems">Git flow and its problems</a></li>
+<li><a href="#github-flow-as-a-simpler-alternative">GitHub flow as a simpler alternative</a></li>
+<li><a href="#production-branch-with-gitlab-flow">Production branch with GitLab flow</a></li>
+<li><a href="#environment-branches-with-gitlab-flow">Environment branches with GitLab flow</a></li>
+<li><a href="#release-branches-with-gitlab-flow">Release branches with GitLab flow</a></li>
+<li><a href="#merge-pull-requests-with-gitlab-flow">Merge/pull requests with GitLab flow</a></li>
+<li><a href="#issues-with-gitlab-flow">Issues with GitLab flow</a></li>
+<li><a href="#linking-and-closing-issues-from-merge-requests">Linking and closing issues from merge requests</a></li>
+<li><a href="#squashing-commits-with-rebase">Squashing commits with rebase</a></li>
+<li><a href="#do-not-order-commits-with-rebase">Do not order commits with rebase</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#end">END</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>gitlab系列之workflow</p>
+
+<p>本文是 官方 workflow 的中文翻译</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="https://docs.gitlab.com/ee/workflow/gitlab_flow.html">https://docs.gitlab.com/ee/workflow/gitlab_flow.html</a></p>
+
+<h2 id="中文">中文</h2>
+
+<h4 id="介绍">介绍</h4>
+
+<p>使用git进行版本管理使得分支和合并比旧版本系统（如SVN）容易得多。 这允许多种分支策略和工作流程。 几乎所有这些都是对git之前使用的方法的改进。 但是许多组织最终没有明确定义，过于复杂或没有与问题跟踪系统（issue tracking systems）集成的，工作流。 因此，我们建议<code>GitLab flow</code>作为明确定义的一套最佳实践。 它结合了<code>功能驱动开发</code>和<code>功能分支</code>的问题跟踪。</p>
+
+<p>来自其他版本控制系统的组织经常发现很难开发有效的工作流。 本文介绍“将git工作流与问题跟踪系统集成”的GitLab流程。 它提供了一个简单，透明和有效的方式使用git。</p>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/four_stages.png" alt="这里是个图片" /></p>
+
+<p>当转换到git时，你必须习惯于在与同事共享提交之前有三个步骤。 大多数版本控制系统只有一个步骤，从工作副本提交到共享服务器。 在git中，您可以将文件从工作副本添加到暂存区域。 之后，你提交他们到本地回购。 第三步是推送到共享远程存储库。 在习惯了这三个步骤之后，分支模型成为挑战。</p>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/messy_flow.png" alt="这里是个图片" /></p>
+
+<p>因为许多组织，对于git是新认识，没有公约如何使用它，那么很快git变成一团糟。 他们遇到的最大的问题是，许多长期运行的分支，每个包含了一部分的变化。 人们很难确定他们应该开发或部署到生产的是哪个分支。 通常对这个问题的反应是采用标准化模式，例如git流和GitHub流。 我们认为仍有改进的余地，并将详细介绍一组我们称为GitLab流程的做法。</p>
+
+<h4 id="git-flow-and-its-problems">Git flow and its problems</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/gitdashflow.png" alt="这里是个图片" /></p>
+
+<p>Git流是一个第一建议使用git分支的vcs，它得到了很多的关注。它主张一个主分支、一个单独开发分支以及支持特性功能开发，发布版本和修补程序的其它分支。开发发生在开发分支上，移动到发布分支，并最终合并到主分支。 Git流是有一个定义良好的标准，但它的复杂性引入了两个问题。第一个问题是开发人员必须使用develop分支而不是master，master是保留给用于发布生产版本的代码。这是一个约定，称默认分支为master，并主要从此master分支，合并到此master。由于大多数工具自动使master分支成为默认分支，并在默认情况下显示该分支，因此必须切换到另一个分支。git流的第二个问题是修补程序和发布分支引入的复杂性。这些分支对于一些组织来说可能是一个好主意，但对于绝大多数组织来说是过分了。现在大多数组织实施持续交付，这意味着可以部署您的默认master分支。这意味着要prevented修补程序和发布分支，包括它们引入的所有仪式（ceremony）。这个仪式的一个例子是合并发布分支。虽然存在专门的工具来解决这个问题，但它们需要文档并增加复杂性。开发人员经常犯错误，例如更改只会合并到master中，而不会合并到develop分支中。这些错误的根本原因是git流对于大多数用例来说太复杂了。并且发布并不自动意味着也做修补程序。</p>
+
+<h4 id="github-flow-as-a-simpler-alternative">GitHub flow as a simpler alternative</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/github_flow.png" alt="这里是个图片" /></p>
+
+<p>在对git流的应对中，一个更简单的选择是，详细的GitHub流。 此流仅具有特征分支和master分支。 这是非常简单和干净，许多组织已经采用它与巨大的成功。 Atlassian推荐一个类似的策略，虽然他们rebase特征分支。 将所有内容合并到主分支并经常部署,意味着您最小化“库存”中的代码量，这符合精益和持续交付最佳实践。 但是这个流程仍然有许多关于部署，环境，发布和问题集成的问题。 使用GitLab流程，我们为这些问题提供额外的指导。</p>
+
+<h4 id="production-branch-with-gitlab-flow">Production branch with GitLab flow</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/production_branch.png" alt="这里是个图片" /></p>
+
+<p>GitHub流假设你能够在每次合并特性分支时都部署到生产环境。这对于SaaS应用程序是可能的，但在许多情况下，这是不可能的。一种情况是，你不能控制确切的发布时刻，例如需要通过App Store验证的iOS应用程序。另一个例子是，当您有部署窗口时间（工作日从上午10点到下午4点，当操作团队满员时），但您也可以在其他时间合并代码。在这些情况下，您可以创建一个反映部署代码的生产分支。您可以通过将master合并到生产（production）分支来部署新版本。如果你需要知道在生产分支中是什么代码，你可以只是checkout到生产分支看看。部署的大致时间，很容易显示为版本控制系统中的合并提交时间。如果您自动部署生产分支，这一时间是相当准确的。如果您需要更准确的时间，您可以让部署脚本在每个部署中创建一个tag。此流防止了，git流的发布，标记和合并的开销。</p>
+
+<h4 id="environment-branches-with-gitlab-flow">Environment branches with GitLab flow</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/environment_branches.png" alt="这里是个图片" /></p>
+
+<p>建立一个自动更新到master分支的环境可能是个好主意。只有在这种情况下，此环境的名称可能与分支名称不同。假设您有一个暂存环境（staging environment），一个预生产环境和一个生产环境。在这种情况下，主分支将部署在暂存环境。当有人想要部署到预生产时，他们创建从主分支到预生产分支的合并请求。并且通过合并预生产分支到生产分支。此工作流只提交下游流确保一切都已在所有环境中测试过。如果您需要使用修补程序选择一个提交，通常在特性分支上进行开发，并将其与合并请求合并到master中，不要删除特性分支。如果master是好的（它应该是好的，如果你是连续交付的），然后将它合并到其他分支（也就是合并到预生产环境和生产环境）。如果这是不可能的（因为可能需要更多的手动测试），您可以将功能分支的合并请求发送到下游分支。 环境分支的一个“极端”版本，就是，正在为Teatro所做的，每个功能分支设置一个环境。</p>
+
+<h4 id="release-branches-with-gitlab-flow">Release branches with GitLab flow</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/release_branches.png" alt="这里是个图片" /></p>
+
+<p>只有在需要将软件发布到外部世界的情况下，您才需要使用版本发布分支。在这种情况下，每个分支包含次要版本（2-3稳定版，2-4稳定版等）。稳定分支使用master作为起点，并尽可能晚地创建。通过尽可能晚的提交分支，您必须将错误修复应用到多个分支的时间最小化。在发布了一个发布分支后，只有严重的错误修复包括在发布分支中。如果可能的话，这些错误修复首先合并到master中，然后进入发布分支。这种方式下，你不能忘记cherry-picked他们进 master 和 遇到相同的bug的后续版本。这称为“上游第一”策略，也是由Google和Red Hat实施的。每次在发布分支中包括错误修复时，通过设置新标签来提高补丁版本（以符合语义版本控制）。一些项目也有一个稳定的分支，指向与最新发布的分支相同的提交。在这个流程中，有一个生产分支（或git flow master分支）是不常见的。</p>
+
+<h4 id="merge-pull-requests-with-gitlab-flow">Merge/pull requests with GitLab flow</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/mr_inline_comments.png" alt="这里是个图片" /></p>
+
+<p>合并或拉取请求在git管理应用程序中创建，并要求分配任务的人合并两个分支。诸如GitHub和Bitbucket之类的工具选择名称为拉动请求（pull request），因为第一个手动动作将是拉取pull特征分支。诸如GitLab和其他工具之类的工具选择名称为合并请求（merge request），因为最终动作是请求代理人的动作。在本文中，我们将它们称为合并请求。</p>
+
+<p>如果你在一个功能分支上工作超过几个小时，最好与团队的其他成员分享中间结果。这可以通过创建合并请求（而不是将任务分配给任何人，相应地，你在（描述或注释中）提醒其他人），来完成。这意味着它还没有准备好被合并，但欢迎反馈。您的团队成员可以对一般的合并请求或具有行注释的特定行，发表评论。合并请求作为代码审查工具，不需要单独的工具，如Gerrit和reviewboard。如果审查揭示了缺点（shortcomings），任何人可以提交和推动修复。通常，这样做的人，是合并/拉取请求的创建者。当在分支上推送新提交时，merge / pull请求中的diff会自动更新。</p>
+
+<p>当你觉得合并它的时候，你可以把它分配给那些最了解你正在改变的代码库的人，并提及 你希望从任何其他人那里得到反馈的人员名单。有更多的反馈空间，在分配的人员后，进行分支合并的结果，会让人感到舒适。如果被分配的人不舒服，他们可以关闭合并请求而不合并。</p>
+
+<p>在GitLab中，通常保护长期分支（例如master分支），以便正常的开发人员不能修改这些受保护的分支。所以如果你想把它合并到一个受保护的分支，你可以将它分配给有master权限的人。</p>
+
+<h4 id="issues-with-gitlab-flow">Issues with GitLab flow</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/merge_request.png" alt="这里是个图片" /></p>
+
+<p>GitLab流是一种使代码和问题跟踪之间的关系更透明的方式。</p>
+
+<p>代码的任何重大更改应从描述目标的问题（issue）开始。每个代码更改的原因是重要的通知团队中的每个人，并帮助人们保持功能分支的范围小。在GitLab中，对代码库的每个更改都从问题跟踪系统中的问题开始。如果有重大的工作被涉及（超过1小时），即使没有issue，那也应该首先创建issue。对于许多组织，这将是自然的，因为问题（issue）将必须被估计。问题标题应该描述系统的期望状态，例如“作为管理员，我要删除用户, 而不是收到一个error”，而不是“管理员无法删除用户”。</p>
+
+<p>当您准备好编码时，从master分支启动一个问题分支。此分支的名称应以问题编号开头，例如&rsquo;15 -require-a-password-to-change-it&rsquo;。</p>
+
+<p>当你完成代码了或者当你想讨论代码时，你要打开一个合并请求。这是一个在线的地方，用于讨论这次更改，并且审查代码。打开合并请求是手动操作，因为您不是总想合并您推送的新分支，它可能是长期运行的环境或发布分支。如果打开合并请求，但没有将其分配给任何人，则它是一个处于“正在进行（Work In Progress）”状态的合并请求。这些用于讨论某些建议的实现，但尚未准备好纳入master分支中。专家提示：合并请求的标题使用[WIP]或WIP作为开始，以防止合并请求在准备就绪之前被合并了。</p>
+
+<p>当作者认为代码就绪时，合并请求将分配给审阅者（reviewer）。当审阅者认为代码准备放进在master分支中时，就按下合并按钮。在这种情况下，代码被合并，并生成合并提交，使此事件后来很容易可见。合并请求总是创建一个合并提交，即使当commit可以被添加(added)，但是没有一个提交。这个合并策略在git中称为“no fast-forward”。合并后，特征分支被删除，因为它不再需要。在GitLab中，这种删除动作在合并时，是可选的。</p>
+
+<p>假设分支被合并，但是在这合并后又发现一个新问题，那就重新打开这个问题。在这种情况下，重用相同的分支名称是没有问题的，因为当合并分支时它被删除。任何时候，每个问题最多只有一个分支。一个特征分支可能解决多个问题。</p>
+
+<h4 id="linking-and-closing-issues-from-merge-requests">Linking and closing issues from merge requests</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/close_issue_mr.png" alt="这里是个图片" /></p>
+
+<p>链接到问题（issue）会在下面这个情况下发生：在提交消息（修复＃14，关闭＃67等）中提及，或从合并请求描述中提及。 合并请求提及问题（issue）的情况，在GitLab中，会在这个issue中，创建一个注解。 并且合并请求会显示这个linked issues。 一旦代码合并到默认分支中，这些问题就会关闭。</p>
+
+<p>如果你只想参考没有关闭的issue，你也可以提到它：“Duck typing是首选。＃12”。</p>
+
+<p>如果您有跨多个存储库的问题，最好的办法是为每个存储库创建一个问题，并将所有问题链接到父问题(parent issue)。</p>
+
+<h4 id="squashing-commits-with-rebase">Squashing commits with rebase</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/rebase.png" alt="这里是个图片" /></p>
+
+<p>使用git，您可以使用交互式rebase（rebase -i）将多个提交压缩成一个并重新排序。在GitLab EE和.com中，您还可以在Web界面合并之前进行rebase。如果您在开发过程中进行了一些小的更改，并希望用单个提交替换它们，或者想要使顺序更具逻辑性，则此功能非常有用。然而，你不应该rebase提交推送到远程服务器。有人可以参考提交或樱桃选择他们。当你rebase时，你改变提交的标识符（SHA-1），这是令人困惑的。如果你这样做，相同的更改将在多个标识符下，这可能会导致很多混乱。如果人们已经审查你的代码，他们将很难仅仅审查自那时以来由你所做的改进，如果你已经rebased 一切修改为一个提交。不要rebase的另一个原因是，你失去了作者信息，也许有人创建了一个合并请求，另一个人推送一个提交，以改善它，第三个合并它。在这种情况下，将所有提交重新映射为一个，以防止其他作者，被正确归因和共享一部分git blame。</p>
+
+<p>鼓励人们经常提交，并经常推送到远程存储库，以便其他人知道每个人都在做什么。这将导致每个更改的许多提交，这使得历史更难以理解。但是具有稳定的标识符（stable identifiers）的优点胜过这个缺点。为了理解上下文中的变化，可以总是去看合并提交，因为当代码合并到master分支时会将所有提交被分组在一起。</p>
+
+<p>将特性分支的多个提交合并到主分支后，这更难撤消。如果你将所有的提交压缩成一个你可以刚刚恢复这个提交，但正如我们所指出的，你不应该在提交后重做提交。幸运的是，还原在一段时间以前的合并，是可以用git完成的。但是，这需要对您要恢复的提交，进行一个特定合并提交（specific merge commits）。如果你还原合并，你又改变主意，那么你要恢复这次还原（而不是再次合并），因为git将不允许你再次合并代码。</p>
+
+<p>能够还原合并（revert a merge）是一个很好的原因，当您手动用&ndash;no-ff选项合并时，始终创建合并提交。当您接受合并请求时，Git管理软件将始终创建合并提交。</p>
+
+<h4 id="do-not-order-commits-with-rebase">Do not order commits with rebase</h4>
+
+<p><img src="https://docs.gitlab.com/ee/workflow/merge_commits.png" alt="这里是个图片" /></p>
+
+<h2 id="end">END</h2>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-03-02</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/gitlab/">gitlab</a>
+          <a href="https://b.qqbb.app/tags/workflow/">workflow</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/hexo-hello-world/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Hexo Hello World</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/command/git/">
+            <span class="next-text nav-default">Git Command</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

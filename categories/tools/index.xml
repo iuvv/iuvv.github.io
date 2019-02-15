@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tools on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/tools/</link>
+    <description>Recent content in Tools on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 07 Feb 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/tools/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tools</title>
+      <link>https://b.qqbb.app/post/tools/</link>
+      <pubDate>Thu, 07 Feb 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/tools/</guid>
+      <description>What are the best https://www.slant.co Learn to code egghead 通过一些短小视频，学习一系列实用技术 https://egghead.io/ github issue https://issuehunt.io/ babel https://babeljs.io/ https://babeljs.io/repl</description>
+    </item>
+    
+    <item>
+      <title>Windows下效率必备软件</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/windows-tools/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/windows-tools/</guid>
+      <description>Windows下效率必备软件 env os: win10 step 工欲善其事，必先利其器！ 工欲善其事，必先利其器！ 工欲善其事，必先利其器！重而说三。 AutoHotKey: 神器！神器！神器！当</description>
+    </item>
+    
+  </channel>
+</rss>

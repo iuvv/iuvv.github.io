@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysqldump on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/mysqldump/</link>
+    <description>Recent content in Mysqldump on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 28 Feb 2018 14:31:43 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/mysqldump/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysqldump Faq</title>
+      <link>https://b.qqbb.app/post/mysqldump-faq/</link>
+      <pubDate>Wed, 28 Feb 2018 14:31:43 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysqldump-faq/</guid>
+      <description>mysqldump中断的常见错误和解决措施</description>
+    </item>
+    
+  </channel>
+</rss>

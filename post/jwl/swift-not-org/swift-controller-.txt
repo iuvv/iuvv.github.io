@@ -1,0 +1,66 @@
+root@controller:~# service swift-proxy status
+бё swift-proxy.service - LSB: Swift proxy server
+   Loaded: loaded (/etc/init.d/swift-proxy; bad; vendor preset: enabled)
+   Active: active (running) since Tue 2019-01-08 14:26:58 CST; 3s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 8886 ExecStop=/etc/init.d/swift-proxy stop (code=exited, status=0/SUCCESS)
+  Process: 8897 ExecStart=/etc/init.d/swift-proxy start (code=exited, status=0/SUCCESS)
+    Tasks: 5
+   Memory: 84.2M
+      CPU: 962ms
+   CGroup: /system.slice/swift-proxy.service
+           й└йд8909 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й└йд8918 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й└йд8919 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й└йд8920 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й╕йд8921 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+
+Jan 08 14:26:55 controller proxy-server[8918]: Starting Keystone auth_token middleware
+Jan 08 14:26:55 controller proxy-server[8918]: AuthToken middleware is set with keystone_authtoken.service_token_roles_required set 
+Jan 08 14:26:55 controller proxy-server[8920]: Starting Keystone auth_token middleware
+Jan 08 14:26:55 controller proxy-server[8920]: AuthToken middleware is set with keystone_authtoken.service_token_roles_required set 
+Jan 08 14:26:55 controller proxy-server[8921]: Starting Keystone auth_token middleware
+Jan 08 14:26:55 controller proxy-server[8921]: AuthToken middleware is set with keystone_authtoken.service_token_roles_required set 
+Jan 08 14:26:58 controller swift-proxy[8897]: Starting proxy-server...(/etc/swift/proxy-server.conf)
+Jan 08 14:26:58 controller swift-proxy[8897]: No handlers could be found for logger "keystonemiddleware._common.config"
+Jan 08 14:26:58 controller swift-proxy[8897]:    ...done.
+Jan 08 14:26:58 controller systemd[1]: Started LSB: Swift proxy server.
+root@controller:~# service memcached restart
+root@controller:~# swift stat
+               Account: AUTH_7d6eaa90d74a4f239963933c3a744df3
+            Containers: 0
+               Objects: 0
+                 Bytes: 0
+       X-Put-Timestamp: 1546928857.44744
+           X-Timestamp: 1546928857.44744
+            X-Trans-Id: tx6635a30393114e2bb13fc-005c3442d9
+          Content-Type: text/plain; charset=utf-8
+X-Openstack-Request-Id: tx6635a30393114e2bb13fc-005c3442d9
+root@controller:~# service swift-proxy status
+бё swift-proxy.service - LSB: Swift proxy server
+   Loaded: loaded (/etc/init.d/swift-proxy; bad; vendor preset: enabled)
+   Active: active (running) since Tue 2019-01-08 14:26:58 CST; 2min 35s ago
+     Docs: man:systemd-sysv-generator(8)
+  Process: 8886 ExecStop=/etc/init.d/swift-proxy stop (code=exited, status=0/SUCCESS)
+  Process: 8897 ExecStart=/etc/init.d/swift-proxy start (code=exited, status=0/SUCCESS)
+    Tasks: 5
+   Memory: 98.6M
+      CPU: 2.876s
+   CGroup: /system.slice/swift-proxy.service
+           й└йд8909 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й└йд8918 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й└йд8919 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й└йд8920 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+           й╕йд8921 /usr/bin/python /usr/bin/swift-proxy-server /etc/swift/proxy-server.conf
+
+Jan 08 14:29:12 controller proxy-server[8921]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/12 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test3%3Fmarker%3Dhosts.txt%26delimiter%3D%252F%26limit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-
+Jan 08 14:29:13 controller proxy-server[8919]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /info HTTP/1.0 200 - python-swiftclient-3.5.0 - - 1069 - tx77b2277a932b4f3aa3128-005c344339 - 0.0007 - - 1546928953.281814098 1546928953.282496929 -
+Jan 08 14:29:13 controller proxy-server[8918]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Flimit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcNEMtiJpy... - 45 - txd13d99966d28
+Jan 08 14:29:13 controller proxy-server[8918]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Fmarker%3Dtest3%26limit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcNEMtiJpy... - 2 
+Jan 08 14:29:13 controller proxy-server[8919]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Flimit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcNEMtiJpy... - 45 - txf06582203507
+Jan 08 14:29:13 controller proxy-server[8919]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Fmarker%3Dtest3%26limit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcNEMtiJpy... - 2 
+Jan 08 14:29:13 controller proxy-server[8919]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Flimit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcNEMtiJpy... - 45 - txb0cb72681467
+Jan 08 14:29:13 controller proxy-server[8919]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Fmarker%3Dtest3%26limit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcNEMtiJpy... - 2 
+Jan 08 14:29:13 controller proxy-server[8920]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test3%3Fdelimiter%3D%252F%26limit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-3.5.0 gAAAAABcNEMtiJp
+Jan 08 14:29:13 controller proxy-server[8920]: 127.0.0.1 127.0.0.1 08/Jan/2019/06/29/13 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test3%3Fmarker%3Dhosts.txt%26delimiter%3D%252F%26limit%3D1001%26format%3Djson HTTP/1.0 200 - python-swiftclient-
+root@controller:~# 

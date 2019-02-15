@@ -1,0 +1,1293 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="swift使用ResellerAdmin角色来设置account的quota env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/jwl/swift-not-org/swift-account-quota-process/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="swift使用ResellerAdmin角色来设置account的quota env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/jwl/swift-not-org/swift-account-quota-process/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="swift使用ResellerAdmin角色来设置account的quota env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主">
+
+
+
+<meta itemprop="wordCount" content="1962">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="swift使用ResellerAdmin角色来设置account的quota env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        <span class="more-meta"> 约 1962 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#注意">注意</a></li>
+<li><a href="#step">step</a>
+<ul>
+<li><a href="#配置-proxy-swift-conf">配置 proxy-swift.conf</a></li>
+<li><a href="#创建新环境">创建新环境</a></li>
+<li><a href="#check">check</a></li>
+<li><a href="#问题解决了">问题解决了</a>
+<ul>
+<li><a href="#可不看-之前的错误尝试">(可不看)之前的错误尝试</a></li>
+</ul></li>
+<li><a href="#把-admin-用户赋予-reselleradmin">把 admin 用户赋予 ResellerAdmin</a>
+<ul>
+<li><a href="#check-1">check</a></li>
+</ul></li>
+<li><a href="#去除-quota-bytes">去除 quota-bytes</a>
+<ul>
+<li><a href="#check-2">check</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ref">ref</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>swift使用ResellerAdmin角色来设置account的quota</p>
+
+<h2 id="env">env</h2>
+
+<ul>
+<li>系统：Ubuntu Server 16.04×64</li>
+<li>存储设置：4T</li>
+<li>架构部署:</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th align="center">IP</th>
+<th align="right">作用</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>keystone</td>
+<td align="center">192.168.100.50</td>
+<td align="right">keystone node</td>
+</tr>
+
+<tr>
+<td>Proxy</td>
+<td align="center">192.168.100.<sup>50</sup>&frasl;<sub>192</sub>.168.0.50</td>
+<td align="right">代理节点</td>
+</tr>
+
+<tr>
+<td>object1</td>
+<td align="center">192.168.100.105</td>
+<td align="right">存储节点1(zone1)</td>
+</tr>
+
+<tr>
+<td>object2</td>
+<td align="center">192.168.100.106</td>
+<td align="right">存储节点2(zone1)</td>
+</tr>
+
+<tr>
+<td>object3</td>
+<td align="center">192.168.100.107</td>
+<td align="right">存储节点3(zone1)</td>
+</tr>
+
+<tr>
+<td>object4</td>
+<td align="center">192.168.100.107</td>
+<td align="right">存储节点4(zone1)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="注意">注意</h2>
+
+<p>无</p>
+
+<h2 id="step">step</h2>
+
+<h3 id="配置-proxy-swift-conf">配置 proxy-swift.conf</h3>
+
+<p>要把 swift proxy 节点的 reseller_admin_role = ResellerAdmin 打开注释，重启服务</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# grep ResellerAdmin -rn /etc/swift/proxy-server.conf  
+<span class="m">417</span>:reseller_admin_role <span class="o">=</span> ResellerAdmin
+root@controller:~# service swift-proxy restart
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="创建新环境">创建新环境</h3>
+
+<p>创建新的project, user, role 来实验</p>
+
+<p>准备语句：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">openstack project create --description &#34;testTenant&#34; testreseller --domain default    
+openstack user create --project testreseller --password openstack testreseller 
+openstack role create reseller
+openstack role add --user testreseller --project testreseller reseller
+openstack role add --user testreseller --project testreseller ResellerAdmin</pre></td></tr></table>
+</div>
+</div>
+<p>开始吧</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# openstack project create   --description <span class="s2">&#34;testTenant&#34;</span> testreseller <span class="se">\
+</span><span class="se"></span>&gt;   --domain default
++-------------+----------------------------------+
+<span class="p">|</span> Field       <span class="p">|</span> Value                            <span class="p">|</span>
++-------------+----------------------------------+
+<span class="p">|</span> description <span class="p">|</span> testTenant                       <span class="p">|</span>
+<span class="p">|</span> domain_id   <span class="p">|</span> default                          <span class="p">|</span>
+<span class="p">|</span> enabled     <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id          <span class="p">|</span> 3320a273a7094d789f99756b0e9d0f4f <span class="p">|</span>
+<span class="p">|</span> is_domain   <span class="p">|</span> False                            <span class="p">|</span>
+<span class="p">|</span> name        <span class="p">|</span> testreseller                     <span class="p">|</span>
+<span class="p">|</span> parent_id   <span class="p">|</span> default                          <span class="p">|</span>
+<span class="p">|</span> tags        <span class="p">|</span> <span class="o">[]</span>                               <span class="p">|</span>
++-------------+----------------------------------+
+root@controller:~# openstack project list
++----------------------------------+--------------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name         <span class="p">|</span>
++----------------------------------+--------------+
+<span class="p">|</span> 3320a273a7094d789f99756b0e9d0f4f <span class="p">|</span> testreseller <span class="p">|</span>
+<span class="p">|</span> 7d6eaa90d74a4f239963933c3a744df3 <span class="p">|</span> demo         <span class="p">|</span>
+<span class="p">|</span> a640c74e595c44c4902d1c5ebc3afa8a <span class="p">|</span> service      <span class="p">|</span>
+<span class="p">|</span> f04ec0abf3d1460dad82608bb03af589 <span class="p">|</span> admin        <span class="p">|</span>
++----------------------------------+--------------+ 
+root@controller:~# openstack user create --project testreseller --password openstack testreseller
++---------------------+----------------------------------+
+<span class="p">|</span> Field               <span class="p">|</span> Value                            <span class="p">|</span>
++---------------------+----------------------------------+
+<span class="p">|</span> default_project_id  <span class="p">|</span> 3320a273a7094d789f99756b0e9d0f4f <span class="p">|</span>
+<span class="p">|</span> domain_id           <span class="p">|</span> default                          <span class="p">|</span>
+<span class="p">|</span> enabled             <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id                  <span class="p">|</span> c83158ab5c3348ab9d148673c23903be <span class="p">|</span>
+<span class="p">|</span> name                <span class="p">|</span> testreseller                     <span class="p">|</span>
+<span class="p">|</span> options             <span class="p">|</span> <span class="o">{}</span>                               <span class="p">|</span>
+<span class="p">|</span> password_expires_at <span class="p">|</span> None                             <span class="p">|</span>
++---------------------+----------------------------------+ 
+root@controller:~# openstack role create reseller
++-----------+----------------------------------+
+<span class="p">|</span> Field     <span class="p">|</span> Value                            <span class="p">|</span>
++-----------+----------------------------------+
+<span class="p">|</span> domain_id <span class="p">|</span> None                             <span class="p">|</span>
+<span class="p">|</span> id        <span class="p">|</span> 09d4fdc0e9544f509c599cd62ab40e6c <span class="p">|</span>
+<span class="p">|</span> name      <span class="p">|</span> reseller                         <span class="p">|</span>
++-----------+----------------------------------+ 
+root@controller:~# openstack role add --user testreseller --project testreseller reseller
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<p>创建 ResellerAdmin ，把新用户 testreseller 赋予这个role</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# openstack role create ResellerAdmin
++-----------+----------------------------------+
+<span class="p">|</span> Field     <span class="p">|</span> Value                            <span class="p">|</span>
++-----------+----------------------------------+
+<span class="p">|</span> domain_id <span class="p">|</span> None                             <span class="p">|</span>
+<span class="p">|</span> id        <span class="p">|</span> 1671364ac7a945e5ae164e100de2c366 <span class="p">|</span>
+<span class="p">|</span> name      <span class="p">|</span> ResellerAdmin                    <span class="p">|</span>
++-----------+----------------------------------+
+root@controller:~# openstack role add --user testreseller --project testreseller ResellerAdmin
+root@controller:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>验证一下，是否 ResellerAdmin 加上了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# cat admin-openrc 
+<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>admin
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span>admin
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span>openstack
+<span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span>http://controller:5000/v3
+<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_IMAGE_API_VERSION</span><span class="o">=</span><span class="m">2</span>
+root@controller:~# 
+root@controller:~# . admin-openrc 
+root@controller:~# openstack role assignment list --role ResellerAdmin
++----------------------------------+----------------------------------+-------+----------------------------------+--------+-----------+
+<span class="p">|</span> Role                             <span class="p">|</span> User                             <span class="p">|</span> Group <span class="p">|</span> Project                          <span class="p">|</span> Domain <span class="p">|</span> Inherited <span class="p">|</span>
++----------------------------------+----------------------------------+-------+----------------------------------+--------+-----------+
+<span class="p">|</span> 1671364ac7a945e5ae164e100de2c366 <span class="p">|</span> c83158ab5c3348ab9d148673c23903be <span class="p">|</span>       <span class="p">|</span> 3320a273a7094d789f99756b0e9d0f4f <span class="p">|</span>        <span class="p">|</span> False     <span class="p">|</span>
++----------------------------------+----------------------------------+-------+----------------------------------+--------+-----------+
+root@controller:~# openstack user show  c83158ab5c3348ab9d148673c23903be
++---------------------+----------------------------------+
+<span class="p">|</span> Field               <span class="p">|</span> Value                            <span class="p">|</span>
++---------------------+----------------------------------+
+<span class="p">|</span> default_project_id  <span class="p">|</span> 3320a273a7094d789f99756b0e9d0f4f <span class="p">|</span>
+<span class="p">|</span> domain_id           <span class="p">|</span> default                          <span class="p">|</span>
+<span class="p">|</span> enabled             <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id                  <span class="p">|</span> c83158ab5c3348ab9d148673c23903be <span class="p">|</span>
+<span class="p">|</span> name                <span class="p">|</span> testreseller                     <span class="p">|</span>
+<span class="p">|</span> options             <span class="p">|</span> <span class="o">{}</span>                               <span class="p">|</span>
+<span class="p">|</span> password_expires_at <span class="p">|</span> None                             <span class="p">|</span>
++---------------------+----------------------------------+
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<p>确实是加上了。</p>
+
+<p>给 testreseller 这个 accout 限制 大小</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# swift --os-auth-url http://controller:5000/v3  --auth-version <span class="m">3</span><span class="se">\
+</span><span class="se"></span>&gt;       --os-project-name testreseller --os-project-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;       --os-username testreseller --os-user-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;       --os-password openstack post -m quota-bytes:10000 
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<p>查看一下用户 admin 与 testreseller 的区别。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# cat admin-openrc 
+<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>admin
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span>admin
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span>openstack
+<span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span>http://controller:5000/v3
+<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_IMAGE_API_VERSION</span><span class="o">=</span><span class="m">2</span>
+root@controller:~# . admin-openrc 
+root@controller:~# swift stat -v
+                     StorageURL: http://controller:8080/v1/AUTH_f04ec0abf3d1460dad82608bb03af589
+                     Auth Token: gAAAAABcSZpeeHt6OUARCkWhJaVQ-1lOWxqxscVYMl1eAnrmfwXk40injCPY7V0ZjQOv7wReLgjv4Z4qM_ZzDlNK-KRz2AQFLTVxe4PdQJk7dEazzzQ-MTpMtD2WEqrYfgxdtbEXLE3Iw9Tthhbn-XHnc2OM3sJdIsTVBnvhDc4Tf4NBnItIQ2c
+                        Account: AUTH_f04ec0abf3d1460dad82608bb03af589
+                     Containers: <span class="m">1</span>
+                        Objects: <span class="m">1</span>
+                          Bytes: <span class="m">26262280</span>
+Containers in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">1</span>
+   Objects in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">1</span>
+     Bytes in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">26262280</span>
+    X-Account-Project-Domain-Id: default
+         X-Openstack-Request-Id: txc6f0ed7792c546bfbd160-005c499a5e
+                    X-Timestamp: <span class="m">1547641627</span>.86782
+                     X-Trans-Id: txc6f0ed7792c546bfbd160-005c499a5e
+                   Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+                  Accept-Ranges: bytes
+root@controller:~# 
+root@controller:~# cat testreseller-openrc 
+<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>testreseller
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span>testreseller
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span>openstack
+<span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span>http://controller:5000/v3
+<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_IMAGE_API_VERSION</span><span class="o">=</span><span class="m">2</span>
+root@controller:~# . testreseller-openrc 
+root@controller:~# swift stat -v
+                 StorageURL: http://controller:8080/v1/AUTH_3320a273a7094d789f99756b0e9d0f4f
+                 Auth Token: gAAAAABcSY0Uyh27qJWIkueCQZ6ZWhXP-NJbGj4dJ6qRefiYEqBoT_9SfR86cyucBRPxL3dxOlwy-5mHtZ0M8lE-TveWKbLijW3rJDNolFEQria_tn9rdE4q5SK5a5Rl6LhF7XxBaTBb5cXFRozFcivAi8RKbfgqCX6mLpFnupEWfc_Dh5JwDCA
+                    Account: AUTH_3320a273a7094d789f99756b0e9d0f4f
+                 Containers: <span class="m">0</span>
+                    Objects: <span class="m">0</span>
+                      Bytes: <span class="m">0</span>
+           Meta Quota-Bytes: <span class="m">10000</span>
+X-Account-Project-Domain-Id: default
+     X-Openstack-Request-Id: txa424375b986a4b82a61e4-005c498d14
+                X-Timestamp: <span class="m">1548323944</span>.28538
+                 X-Trans-Id: txa424375b986a4b82a61e4-005c498d14
+               Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+              Accept-Ranges: bytes
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<p>观察到：</p>
+
+<ul>
+<li>admin 用户不受影响</li>
+<li>testreseller 用户有多一行<code>Meta Quota-Bytes: 10000</code> 也就是说，限制testreseller 用户的存储大小为 10000 bytes</li>
+</ul>
+
+<h3 id="check">check</h3>
+
+<p>chrome打开： <a href="http://192.168.0.50/horizon/project/containers/container/lt10000">http://192.168.0.50/horizon/project/containers/container/lt10000</a></p>
+
+<p>但是，发现，上传了 4M, 30M, 70M, 112M 的文件，都可以。为什么？？？</p>
+
+<h3 id="问题解决了">问题解决了</h3>
+
+<p>从 <a href="https://blog.csdn.net/my_vips/article/details/17919167">https://blog.csdn.net/my_vips/article/details/17919167</a> 看到下面这一句话：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">使用admin为test租户设置限额,test租户的url地址为:http://192.168.26.69:8080/v1/AUTH_3e2a0a2df18b4f86a52e2dc6ad3cb989
+swift -V 2 -A http://192.168.26.69:5000/v2.0 -U admin:admin -K ADMIN_PASS --os-storage-url=http://192.168.26.69:8080/v1/AUTH_3e2a0a2df18b4f86a52e2dc6ad3cb989 post -m quota-bytes:100000000</pre></td></tr></table>
+</div>
+</div>
+<p>原来，不是自己给自己配置，而是通过具体 ResellerAdmin 角色的用户给 其它用户 配置 quota-bytes.</p>
+
+<h4 id="可不看-之前的错误尝试">(可不看)之前的错误尝试</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# swift --os-auth-url http://controller:5000/v3  --auth-version <span class="m">3</span><span class="se">\
+</span><span class="se"></span>&gt;   --os-project-name demo --os-project-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-username demo --os-user-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-password openstack post -m quota-bytes:100
+Account POST failed: http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3 <span class="m">403</span> Forbidden  <span class="o">[</span>first <span class="m">60</span> chars of response<span class="o">]</span> &lt;html&gt;&lt;h1&gt;Forbidden&lt;/h1&gt;&lt;p&gt;Access was denied to this resourc
+Failed Transaction ID: txfa9b8b212b504f10af48c-005c49a542
+root@controller:~# . admin-openrc 
+root@controller:~# swift --os-auth-url http://controller:5000/v3  --auth-version <span class="m">3</span>  --os-project-name demo --os-project-domain-name default   --os-username demo --os-user-domain-name default   --os-password openstack post -m quota-bytes:100
+Account POST failed: http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3 <span class="m">403</span> Forbidden  <span class="o">[</span>first <span class="m">60</span> chars of response<span class="o">]</span> &lt;html&gt;&lt;h1&gt;Forbidden&lt;/h1&gt;&lt;p&gt;Access was denied to this resourc
+Failed Transaction ID: tx2814b6402eba42e39c8a1-005c49a55b
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="把-admin-用户赋予-reselleradmin">把 admin 用户赋予 ResellerAdmin</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# openstack role add --user admin --project admin ResellerAdmin
+root@controller:~# openstack project list
++----------------------------------+--------------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name         <span class="p">|</span>
++----------------------------------+--------------+
+<span class="p">|</span> 3320a273a7094d789f99756b0e9d0f4f <span class="p">|</span> testreseller <span class="p">|</span>
+<span class="p">|</span> 7d6eaa90d74a4f239963933c3a744df3 <span class="p">|</span> demo         <span class="p">|</span>
+<span class="p">|</span> a640c74e595c44c4902d1c5ebc3afa8a <span class="p">|</span> service      <span class="p">|</span>
+<span class="p">|</span> f04ec0abf3d1460dad82608bb03af589 <span class="p">|</span> admin        <span class="p">|</span>
++----------------------------------+--------------+
+root@controller:~# openstack role add --user admin ResellerAdmin
+Must specify either system, domain, or project
+root@controller:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>demo租户的url地址为: <a href="http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3(这个地址可以有多种方式拿到，最简单的，就是访问：http://192.168.0.50/horizon/project/api_access/">http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3(这个地址可以有多种方式拿到，最简单的，就是访问：http://192.168.0.50/horizon/project/api_access/</a>)</p>
+
+<p>那么使用admin为demo租户设置限额200bytes, 则设置如下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# swift --os-auth-url http://controller:5000/v3  --auth-version <span class="m">3</span><span class="se">\
+</span><span class="se"></span>&gt;   --os-project-name demo --os-project-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-username demo --os-user-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-password openstack stat
+                        Account: AUTH_7d6eaa90d74a4f239963933c3a744df3
+                     Containers: <span class="m">8</span>
+                        Objects: <span class="m">51</span>
+                          Bytes: <span class="m">8239369253</span>
+Containers in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">8</span>
+   Objects in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">51</span>
+     Bytes in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">8239369253</span>
+    X-Account-Project-Domain-Id: default
+         X-Openstack-Request-Id: txd1e045cb10584e7da8e5f-005c49a53b
+                    X-Timestamp: <span class="m">1546928904</span>.74292
+                     X-Trans-Id: txd1e045cb10584e7da8e5f-005c49a53b
+                   Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+                  Accept-Ranges: bytes
+root@controller:~# 
+root@controller:~# swift -V <span class="m">3</span> -A http://controller:5000/v3 -U admin:admin -K openstack --os-storage-url<span class="o">=</span>http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3 post -m quota-bytes:200
+root@controller:~# swift --os-auth-url http://controller:5000/v3  --auth-version <span class="m">3</span><span class="se">\
+</span><span class="se"></span>&gt;   --os-project-name demo --os-project-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-username demo --os-user-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-password openstack stat
+                        Account: AUTH_7d6eaa90d74a4f239963933c3a744df3
+                     Containers: <span class="m">8</span>
+                        Objects: <span class="m">51</span>
+                          Bytes: <span class="m">8239369253</span>
+Containers in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">8</span>
+   Objects in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">51</span>
+     Bytes in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">8239369253</span>
+               Meta Quota-Bytes: <span class="m">200</span>
+    X-Account-Project-Domain-Id: default
+         X-Openstack-Request-Id: tx1baa9f71649a4f5f9a5e0-005c49a63a
+                    X-Timestamp: <span class="m">1546928904</span>.74292
+                     X-Trans-Id: tx1baa9f71649a4f5f9a5e0-005c49a63a
+                   Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+                  Accept-Ranges: bytes
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<p>成功了。</p>
+
+<h4 id="check-1">check</h4>
+
+<p><a href="http://192.168.0.50/horizon/project/containers/container/lt200">http://192.168.0.50/horizon/project/containers/container/lt200</a></p>
+
+<p>因为之前的account 的总大小已经大于200，所以，哈哈，现在连4K的文件都上传不了。</p>
+
+<h3 id="去除-quota-bytes">去除 quota-bytes</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:~# swift --os-auth-url http://controller:5000/v3  --auth-version <span class="m">3</span><span class="se">\
+</span><span class="se"></span>&gt;   --os-project-name demo --os-project-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-username demo --os-user-domain-name default <span class="se">\
+</span><span class="se"></span>&gt;   --os-password openstack stat
+                        Account: AUTH_7d6eaa90d74a4f239963933c3a744df3
+                     Containers: <span class="m">8</span>
+                        Objects: <span class="m">51</span>
+                          Bytes: <span class="m">8239369253</span>
+Containers in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">8</span>
+   Objects in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">51</span>
+     Bytes in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">8239369253</span>
+               Meta Quota-Bytes: <span class="m">200</span>
+    X-Account-Project-Domain-Id: default
+         X-Openstack-Request-Id: tx1baa9f71649a4f5f9a5e0-005c49a63a
+                    X-Timestamp: <span class="m">1546928904</span>.74292
+                     X-Trans-Id: tx1baa9f71649a4f5f9a5e0-005c49a63a
+                   Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+                  Accept-Ranges: bytes
+root@controller:~# swift -V <span class="m">3</span> -A http://controller:5000/v3 -U admin:admin -K openstack --os-storage-url<span class="o">=</span>http://controller:8080/v1/AUTH_7d6eaa90d74a4f239963933c3a744df3 post -m quota-bytes:
+root@controller:~# swift --os-auth-url http://controller:5000/v3  --auth-version <span class="m">3</span>  --os-project-name demo --os-project-domain-name default   --os-username demo --os-user-domain-name default   --os-password openstack stat
+                        Account: AUTH_7d6eaa90d74a4f239963933c3a744df3
+                     Containers: <span class="m">9</span>
+                        Objects: <span class="m">51</span>
+                          Bytes: <span class="m">8239369253</span>
+Containers in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">9</span>
+   Objects in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">51</span>
+     Bytes in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">8239369253</span>
+    X-Account-Project-Domain-Id: default
+         X-Openstack-Request-Id: tx39a80777df094e57800d4-005c49a6c2
+                    X-Timestamp: <span class="m">1546928904</span>.74292
+                     X-Trans-Id: tx39a80777df094e57800d4-005c49a6c2
+                   Content-Type: application/json<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+                  Accept-Ranges: bytes
+root@controller:~# </code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="check-2">check</h4>
+
+<p><a href="http://192.168.0.50/horizon/project/containers/container/lt200">http://192.168.0.50/horizon/project/containers/container/lt200</a></p>
+
+<p>上传成功。</p>
+
+<h2 id="ref">ref</h2>
+
+<ul>
+<li><a href="https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72">https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72</a></li>
+<li><a href="https://docs.openstack.org/swift/latest/middleware.html#module-swift.common.middleware.account_quotas">https://docs.openstack.org/swift/latest/middleware.html#module-swift.common.middleware.account_quotas</a></li>
+<li><a href="https://docs.openstack.org/swift/latest/middleware.html#module-swift.common.middleware.container_quotas">https://docs.openstack.org/swift/latest/middleware.html#module-swift.common.middleware.container_quotas</a></li>
+<li><a href="https://docs.openstack.org/swift/latest/#common-configuration">https://docs.openstack.org/swift/latest/#common-configuration</a></li>
+<li><a href="https://docs.openstack.org/keystone/rocky/admin/cli-manage-projects-users-and-roles.html">https://docs.openstack.org/keystone/rocky/admin/cli-manage-projects-users-and-roles.html</a></li>
+<li><a href="https://blog.csdn.net/my_vips/article/details/17919167">https://blog.csdn.net/my_vips/article/details/17919167</a></li>
+<li><a href="https://blog.csdn.net/dysj4099/article/details/8941465">https://blog.csdn.net/dysj4099/article/details/8941465</a></li>
+<li><a href="https://blog.csdn.net/my_vips/article/details/25878751">https://blog.csdn.net/my_vips/article/details/25878751</a></li>
+<li><a href="https://developer.openstack.org/api-ref/object-store/?expanded=#create-update-or-delete-container-metadata">https://developer.openstack.org/api-ref/object-store/?expanded=#create-update-or-delete-container-metadata</a></li>
+<li><a href="https://docs.openstack.org/swift/latest/api/container_quotas.html">https://docs.openstack.org/swift/latest/api/container_quotas.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/jwl/swift-not-org/swift-account-quota-outcome/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/jwl/swift-not-org/swift-controller-node-add-a-new-storage-node/">
+            <span class="next-text nav-default"></span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

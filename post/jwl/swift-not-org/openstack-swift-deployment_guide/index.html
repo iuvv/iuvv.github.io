@@ -1,0 +1,3552 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="OpenStack Docs: Deployment Guide https://docs.openstack.org/swift/latest/deployment_guide.html Deployment Guide this page last updated: 2018-10-29 14:49:48 Deployment Guide¶ Hardware Considerations¶ Swift is designed to run on commodity hardware. At Rackspace, our storage servers are currently running fairly generic 4U servers with 24 2T SATA drives and 8 cores of processing power. RAID on the" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-deployment_guide/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="OpenStack Docs: Deployment Guide https://docs.openstack.org/swift/latest/deployment_guide.html Deployment Guide this page last updated: 2018-10-29 14:49:48 Deployment Guide¶ Hardware Considerations¶ Swift is designed to run on commodity hardware. At Rackspace, our storage servers are currently running fairly generic 4U servers with 24 2T SATA drives and 8 cores of processing power. RAID on the" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-deployment_guide/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="OpenStack Docs: Deployment Guide https://docs.openstack.org/swift/latest/deployment_guide.html Deployment Guide this page last updated: 2018-10-29 14:49:48 Deployment Guide¶ Hardware Considerations¶ Swift is designed to run on commodity hardware. At Rackspace, our storage servers are currently running fairly generic 4U servers with 24 2T SATA drives and 8 cores of processing power. RAID on the">
+
+
+
+<meta itemprop="wordCount" content="13484">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="OpenStack Docs: Deployment Guide https://docs.openstack.org/swift/latest/deployment_guide.html Deployment Guide this page last updated: 2018-10-29 14:49:48 Deployment Guide¶ Hardware Considerations¶ Swift is designed to run on commodity hardware. At Rackspace, our storage servers are currently running fairly generic 4U servers with 24 2T SATA drives and 8 cores of processing power. RAID on the"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        <span class="more-meta"> 约 13484 字 </span>
+          <span class="more-meta"> 预计阅读 27 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#deployment-guide">Deployment Guide</a></li>
+</ul></li>
+<li><a href="#deployment-guide-deployment-guide-permalink-to-this-headline">Deployment Guide<a href="#deployment-guide" title="Permalink to this headline">¶</a></a>
+<ul>
+<li><a href="#hardware-considerations-hardware-considerations-permalink-to-this-headline">Hardware Considerations<a href="#hardware-considerations" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#deployment-options-deployment-options-permalink-to-this-headline">Deployment Options<a href="#deployment-options" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#web-front-end-options-web-front-end-options-permalink-to-this-headline">Web Front End Options<a href="#web-front-end-options" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#preparing-the-ring-preparing-the-ring-permalink-to-this-headline">Preparing the Ring<a href="#preparing-the-ring" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#running-object-servers-per-disk-running-object-servers-per-disk-permalink-to-this-headline">Running object-servers Per Disk<a href="#running-object-servers-per-disk" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#general-service-configuration-general-service-configuration-permalink-to-this-headline">General Service Configuration<a href="#general-service-configuration" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#general-server-configuration-general-server-configuration-permalink-to-this-headline">General Server Configuration<a href="#general-server-configuration" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#common-configuration-common-configuration-permalink-to-this-headline">Common configuration<a href="#common-configuration" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#object-server-configuration-object-server-configuration-permalink-to-this-headline">Object Server Configuration<a href="#object-server-configuration" title="Permalink to this headline">¶</a></a>
+<ul>
+<li><a href="#default-default-permalink-to-this-headline">[DEFAULT]<a href="#default" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#object-server-object-server-permalink-to-this-headline">[object-server]<a href="#object-server" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#object-replicator-object-replicator-permalink-to-this-headline">[object-replicator]<a href="#object-replicator" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#object-reconstructor-object-reconstructor-permalink-to-this-headline">[object-reconstructor]<a href="#object-reconstructor" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#object-updater-object-updater-permalink-to-this-headline">[object-updater]<a href="#object-updater" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#object-auditor-object-auditor-permalink-to-this-headline">[object-auditor]<a href="#object-auditor" title="Permalink to this headline">¶</a></a></li>
+</ul></li>
+<li><a href="#container-server-configuration-container-server-configuration-permalink-to-this-headline">Container Server Configuration<a href="#container-server-configuration" title="Permalink to this headline">¶</a></a>
+<ul>
+<li><a href="#default-container-server-default-options-permalink-to-this-headline">[DEFAULT]<a href="#container-server-default-options" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#container-server-container-server-permalink-to-this-headline">[container-server]<a href="#container-server" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#container-replicator-container-replicator-permalink-to-this-headline">[container-replicator]<a href="#container-replicator" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#container-updater-container-updater-permalink-to-this-headline">[container-updater]<a href="#container-updater" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#container-auditor-container-auditor-permalink-to-this-headline">[container-auditor]<a href="#container-auditor" title="Permalink to this headline">¶</a></a></li>
+</ul></li>
+<li><a href="#account-server-configuration-account-server-configuration-permalink-to-this-headline">Account Server Configuration<a href="#account-server-configuration" title="Permalink to this headline">¶</a></a>
+<ul>
+<li><a href="#default-account-server-default-options-permalink-to-this-headline">[DEFAULT]<a href="#account-server-default-options" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#account-server-account-server-permalink-to-this-headline">[account-server]<a href="#account-server" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#account-replicator-account-replicator-permalink-to-this-headline">[account-replicator]<a href="#account-replicator" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#account-auditor-account-auditor-permalink-to-this-headline">[account-auditor]<a href="#account-auditor" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#account-reaper-account-reaper-permalink-to-this-headline">[account-reaper]<a href="#account-reaper" title="Permalink to this headline">¶</a></a></li>
+</ul></li>
+<li><a href="#proxy-server-configuration-proxy-server-configuration-permalink-to-this-headline">Proxy Server Configuration<a href="#proxy-server-configuration" title="Permalink to this headline">¶</a></a>
+<ul>
+<li><a href="#default-proxy-server-default-options-permalink-to-this-headline">[DEFAULT]<a href="#proxy-server-default-options" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#proxy-server-proxy-server-permalink-to-this-headline">[proxy-server]<a href="#proxy-server" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#per-policy-configuration-per-policy-configuration-permalink-to-this-headline">Per policy configuration<a href="#per-policy-configuration" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#proxy-middlewares-proxy-middlewares-permalink-to-this-headline">Proxy Middlewares<a href="#proxy-middlewares" title="Permalink to this headline">¶</a></a></li>
+</ul></li>
+<li><a href="#memcached-considerations-memcached-considerations-permalink-to-this-headline">Memcached Considerations<a href="#memcached-considerations" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#system-time-system-time-permalink-to-this-headline">System Time<a href="#system-time" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#general-service-tuning-general-service-tuning-permalink-to-this-headline">General Service Tuning<a href="#general-service-tuning" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#filesystem-considerations-filesystem-considerations-permalink-to-this-headline">Filesystem Considerations<a href="#filesystem-considerations" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#general-system-tuning-general-system-tuning-permalink-to-this-headline">General System Tuning<a href="#general-system-tuning" title="Permalink to this headline">¶</a></a></li>
+<li><a href="#logging-considerations-logging-considerations-permalink-to-this-headline">Logging Considerations<a href="#logging-considerations" title="Permalink to this headline">¶</a></a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>OpenStack Docs: Deployment Guide</p>
+
+<p><a href="https://docs.openstack.org/swift/latest/deployment_guide.html">https://docs.openstack.org/swift/latest/deployment_guide.html</a></p>
+
+<h2 id="deployment-guide">Deployment Guide</h2>
+
+<p>this page last updated: 2018-10-29 14:49:48</p>
+
+<h1 id="deployment-guide-deployment-guide-permalink-to-this-headline">Deployment Guide<a href="#deployment-guide" title="Permalink to this headline">¶</a></h1>
+
+<h2 id="hardware-considerations-hardware-considerations-permalink-to-this-headline">Hardware Considerations<a href="#hardware-considerations" title="Permalink to this headline">¶</a></h2>
+
+<p>Swift is designed to run on commodity hardware. At Rackspace, our storage servers are currently running fairly generic 4U servers with 24 2T SATA drives and 8 cores of processing power. RAID on the storage drives is not required and not recommended. Swift’s disk usage pattern is the worst case possible for RAID, and performance degrades very quickly using RAID 5 or 6.</p>
+
+<h2 id="deployment-options-deployment-options-permalink-to-this-headline">Deployment Options<a href="#deployment-options" title="Permalink to this headline">¶</a></h2>
+
+<p>The Swift services run completely autonomously, which provides for a lot of flexibility when architecting the hardware deployment for Swift. The 4 main services are:</p>
+
+<ol>
+<li>Proxy Services</li>
+<li>Object Services</li>
+<li>Container Services</li>
+<li>Account Services</li>
+</ol>
+
+<p>The Proxy Services are more CPU and network I/O intensive. If you are using 10g networking to the proxy, or are terminating SSL traffic at the proxy, greater CPU power will be required.</p>
+
+<p>The Object, Container, and Account Services (Storage Services) are more disk and network I/O intensive.</p>
+
+<p>The easiest deployment is to install all services on each server. There is nothing wrong with doing this, as it scales each service out horizontally.</p>
+
+<p>At Rackspace, we put the Proxy Services on their own servers and all of the Storage Services on the same server. This allows us to send 10g networking to the proxy and 1g to the storage servers, and keep load balancing to the proxies more manageable. Storage Services scale out horizontally as storage servers are added, and we can scale overall API throughput by adding more Proxies.</p>
+
+<p>If you need more throughput to either Account or Container Services, they may each be deployed to their own servers. For example you might use faster (but more expensive) SAS or even SSD drives to get faster disk I/O to the databases.</p>
+
+<p>A high-availability (HA) deployment of Swift requires that multiple proxy servers are deployed and requests are load-balanced between them. Each proxy server instance is stateless and able to respond to requests for the entire cluster.</p>
+
+<p>Load balancing and network design is left as an exercise to the reader, but this is a very important part of the cluster, so time should be spent designing the network for a Swift cluster.</p>
+
+<h2 id="web-front-end-options-web-front-end-options-permalink-to-this-headline">Web Front End Options<a href="#web-front-end-options" title="Permalink to this headline">¶</a></h2>
+
+<p>Swift comes with an integral web front end. However, it can also be deployed as a request processor of an Apache2 using mod_wsgi as described in <a href="apache_deployment_guide.html">Apache Deployment Guide</a>.</p>
+
+<h2 id="preparing-the-ring-preparing-the-ring-permalink-to-this-headline">Preparing the Ring<a href="#preparing-the-ring" title="Permalink to this headline">¶</a></h2>
+
+<p>第一步是确定将在环中的分区数。我们建议每个驱动器至少有100个分区，以确保在驱动器上均匀分布。一个好的起点可能是找出群集将包含的最大驱动器数，然后乘以100，然后向上舍入到最接近的2的幂。</p>
+
+<p>例如，假设我们正在构建一个不超过5,000个驱动器的集群。这意味着我们将拥有总共500,000个分区，这非常接近2^19，向上舍入。</p>
+
+<p>保持分区数量较小（相对）也是一个好主意。分区越多，复制器和其他后端作业必须完成的工作越多，并且环在进程中消耗的内存越多。目标是在最小rings和最大cluster sizes之间找到良好的平衡。</p>
+
+<p>下一步是确定要存储数据的副本数。目前建议使用3（因为这是唯一经过测试的值）。数字越大，使用的存储空间越多，但丢失数据的可能性就越小。</p>
+
+<p>确定群集应具有的zones也很重要。建议至少从5个zones开始。您可以从更少的开始，但我们的测试表明，当发生故障时，至少有五个zones是最佳的。我们还建议尝试将zones配置为尽可能高的级别，以尽可能多地创建隔离。需要考虑的一些事情包括：物理位置，电源可用性和网络连接。例如，在小型集群中，您可能决定按机柜分割zones，每个机柜都有自己的电源和网络连接。zone概念非常抽象，因此可以随意使用它以最佳方式将数据与故障隔离开来。每个zone都存在于一个region中。</p>
+
+<p>region也是一个抽象概念，可用于区分地理上分离的区域，也用于同一数据中心内。Regions and zones需要是正整数。</p>
+
+<p>您现在可以开始构建环：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">swift-ring-builder &lt;builder_file&gt; create &lt;part_power&gt; &lt;replicas&gt; &lt;min_part_hours&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<p>这将启动环构建过程，创建带有2^<part_power>分区的<builder_file>。<min_part_hours>是特定分区可以连续移动之前的小时数（24是一个很好的值）。</p>
+
+<p>可以将设备添加到环中：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">swift-ring-builder &lt;builder_file&gt; add r&lt;region&gt;z&lt;zone&gt;-&lt;ip&gt;:&lt;port&gt;/&lt;device_name&gt;_&lt;meta&gt; &lt;weight&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<p>这将向环添加设备，其中<builder_file>是先前创建的构建器文件的名称，<region>是zone所在region的编号，<zone>是此设备所在zone的编号，<ip>是设备所在服务器的IP地址，<port>是运行服务器的端口号，<device_name>是服务器上设备的名称（例如：sdb1）， <meta>是设备的元数据串（可选），<weight>是浮点权重，用于确定设备相对于群集中其余设备的分区数量的相对值（一个好的起点是100.0 x 设备上的 TB 数）。在群集中的添加进的每个设备将初始化。</p>
+
+<p>将所有设备添加到环中后，运行：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">swift-ring-builder &lt;builder_file&gt; rebalance</code></pre></td></tr></table>
+</div>
+</div>
+<p>这将partitions分配到环中的设备。在进行rebalance之前，每当对环进行更改时，进行所有必需的更改，这一点非常重要。这将确保环保持尽可能平衡，并尽可能少地移动分区。</p>
+
+<p>应该执行上述过程，为每个存储服务（帐户，容器和对象）创建一个ring。在将来对环进行更改时将需要builder文件，因此保留和备份这些文件非常重要。应将生成的.tar.gz环文件推送到群集中的所有服务器。有关构建环的更多信息，运行不带选项的<code>swift-ring-builder</code>将显示帮助文本，包含可用命令和可选项。有关环内部工作原理的更多信息，请参阅<a href="https://docs.openstack.org/swift/latest/overview_ring.html">Ring Overview</a>。</p>
+
+<h2 id="running-object-servers-per-disk-running-object-servers-per-disk-permalink-to-this-headline">Running object-servers Per Disk<a href="#running-object-servers-per-disk" title="Permalink to this headline">¶</a></h2>
+
+<p>The lack of true asynchronous file I/O on Linux leaves the object-server workers vulnerable to misbehaving disks. Because any object-server worker can service a request for any disk, and a slow I/O request blocks the eventlet hub, a single slow disk can impair an entire storage node. This also prevents object servers from fully utilizing all their disks during heavy load.</p>
+
+<p>Another way to get full I/O isolation is to give each disk on a storage node a different port in the storage policy rings. Then set the <a href="#object-server-default-options">servers_per_port</a> option in the object-server config. NOTE: while the purpose of this config setting is to run one or more object-server worker processes per <em>disk</em>, the implementation just runs object-servers per unique port of local devices in the rings. The deployer must combine this option with appropriately-configured rings to benefit from this feature.</p>
+
+<p>Here’s an example (abbreviated) old-style ring (2 node cluster with 2 disks each):</p>
+
+<p>Devices:    id  region  zone      ip address  port  replication ip  replication port      name
+             0       1     1       1.1.0.1    6200       1.1.0.1                6200      d1
+             1       1     1       1.1.0.1    6200       1.1.0.1                6200      d2
+             2       1     2       1.1.0.2    6200       1.1.0.2                6200      d3
+             3       1     2       1.1.0.2    6200       1.1.0.2                6200      d4</p>
+
+<p>And here’s the same ring set up for servers_per_port:</p>
+
+<p>Devices:    id  region  zone      ip address  port  replication ip  replication port      name
+             0       1     1       1.1.0.1    6200       1.1.0.1                6200      d1
+             1       1     1       1.1.0.1    6201       1.1.0.1                6201      d2
+             2       1     2       1.1.0.2    6200       1.1.0.2                6200      d3
+             3       1     2       1.1.0.2    6201       1.1.0.2                6201      d4</p>
+
+<p>When migrating from normal to servers_per_port, perform these steps in order:</p>
+
+<blockquote>
+<ol>
+<li>Upgrade Swift code to a version capable of doing servers_per_port.</li>
+<li>Enable servers_per_port with a &gt; 0 value</li>
+<li>Restart swift-object-server processes with a SIGHUP. At this point, you will have the servers_per_port number of swift-object-server processes serving all requests for all disks on each node. This preserves availability, but you should perform the next step as quickly as possible.</li>
+<li>Push out new rings that actually have different ports per disk on each server. One of the ports in the new ring should be the same as the port used in the old ring (“6200” in the example above). This will cover existing proxy-server processes who haven’t loaded the new ring yet. They can still talk to any storage node regardless of whether or not that storage node has loaded the ring and started object-server processes on the new ports.</li>
+</ol>
+</blockquote>
+
+<p>If you do not run a separate object-server for replication, then this setting must be available to the object-replicator and object-reconstructor (i.e. appear in the [DEFAULT] config section).</p>
+
+<h2 id="general-service-configuration-general-service-configuration-permalink-to-this-headline">General Service Configuration<a href="#general-service-configuration" title="Permalink to this headline">¶</a></h2>
+
+<p>Most Swift services fall into two categories. Swift’s wsgi servers and background daemons.</p>
+
+<p>For more information specific to the configuration of Swift’s wsgi servers with paste deploy see <a href="#general-server-configuration">General Server Configuration</a>.</p>
+
+<p>Configuration for servers and daemons can be expressed together in the same file for each type of server, or separately. If a required section for the service trying to start is missing there will be an error. The sections not used by the service are ignored.</p>
+
+<p>Consider the example of an object storage node. By convention, configuration for the object-server, object-updater, object-replicator, object-auditor, and object-reconstructor exist in a single file <code>/etc/swift/object-server.conf</code>:</p>
+
+<p>[DEFAULT]
+reclaim_age \= 604800</p>
+
+<p>[pipeline:main]
+pipeline \= object-server</p>
+
+<p>[app:object-server]
+use \= egg:swift#object</p>
+
+<p>[object-replicator]</p>
+
+<p>[object-updater]</p>
+
+<p>[object-auditor]</p>
+
+<p>Swift services expect a configuration path as the first argument:</p>
+
+<p>$ swift-object-auditor
+Usage: swift-object-auditor CONFIG [options]</p>
+
+<p>Error: missing config path argument</p>
+
+<p>If you omit the object-auditor section this file could not be used as the configuration path when starting the <code>swift-object-auditor</code> daemon:</p>
+
+<p>$ swift-object-auditor /etc/swift/object-server.conf
+Unable to find object-auditor config section in /etc/swift/object-server.conf</p>
+
+<p>If the configuration path is a directory instead of a file all of the files in the directory with the file extension “.conf” will be combined to generate the configuration object which is delivered to the Swift service. This is referred to generally as “directory based configuration”.</p>
+
+<p>Directory based configuration leverages ConfigParser’s native multi-file support. Files ending in “.conf” in the given directory are parsed in lexicographical order. Filenames starting with ‘.’ are ignored. A mixture of file and directory configuration paths is not supported - if the configuration path is a file only that file will be parsed.</p>
+
+<p>The Swift service management tool <code>swift-init</code> has adopted the convention of looking for <code>/etc/swift/{type}-server.conf.d/</code> if the file <code>/etc/swift/{type}-server.conf</code> file does not exist.</p>
+
+<p>When using directory based configuration, if the same option under the same section appears more than once in different files, the last value parsed is said to override previous occurrences. You can ensure proper override precedence by prefixing the files in the configuration directory with numerical values.:</p>
+
+<p>/etc/swift/
+    default.base
+    object-server.conf.d/
+        000_default.conf -&gt; ../default.base
+        001_default-override.conf
+        010_server.conf
+        020_replicator.conf
+        030_updater.conf
+        040_auditor.conf</p>
+
+<p>You can inspect the resulting combined configuration object using the <code>swift-config</code> command line tool</p>
+
+<h2 id="general-server-configuration-general-server-configuration-permalink-to-this-headline">General Server Configuration<a href="#general-server-configuration" title="Permalink to this headline">¶</a></h2>
+
+<p>Swift uses paste.deploy (<a href="http://pythonpaste.org/deploy/">http://pythonpaste.org/deploy/</a>) to manage server configurations.</p>
+
+<p>Default configuration options are set in the [DEFAULT] section, and any options specified there can be overridden in any of the other sections BUT ONLY BY USING THE SYNTAX <code>set option_name = value</code>. This is the unfortunate way paste.deploy works and I’ll try to explain it in full.</p>
+
+<p>First, here’s an example paste.deploy configuration file:</p>
+
+<p>[DEFAULT]
+name1 \= globalvalue
+name2 \= globalvalue
+name3 \= globalvalue
+set name4 \= globalvalue</p>
+
+<p>[pipeline:main]
+pipeline \= myapp</p>
+
+<p>[app:myapp]
+use \= egg:mypkg#myapp
+name2 \= localvalue
+set name3 \= localvalue
+set name5 \= localvalue
+name6 \= localvalue</p>
+
+<p>The resulting configuration that myapp receives is:</p>
+
+<p>global {&rsquo;__file__&lsquo;: &lsquo;/etc/mypkg/wsgi.conf&rsquo;, &lsquo;here&rsquo;: &lsquo;/etc/mypkg&rsquo;,
+        &lsquo;name1&rsquo;: &lsquo;globalvalue&rsquo;,
+        &lsquo;name2&rsquo;: &lsquo;globalvalue&rsquo;,
+        &lsquo;name3&rsquo;: &lsquo;localvalue&rsquo;,
+        &lsquo;name4&rsquo;: &lsquo;globalvalue&rsquo;,
+        &lsquo;name5&rsquo;: &lsquo;localvalue&rsquo;,
+        &lsquo;set name4&rsquo;: &lsquo;globalvalue&rsquo;}
+local {&lsquo;name6&rsquo;: &lsquo;localvalue&rsquo;}</p>
+
+<p>So, name1 got the global value which is fine since it’s only in the DEFAULT section anyway.</p>
+
+<p>name2 got the global value from DEFAULT even though it appears to be overridden in the app:myapp subsection. This is just the unfortunate way paste.deploy works (at least at the time of this writing.)</p>
+
+<p>name3 got the local value from the app:myapp subsection because it is using the special paste.deploy syntax of <code>set option_name = value</code>. So, if you want a default value for most app/filters but want to override it in one subsection, this is how you do it.</p>
+
+<p>name4 got the global value from DEFAULT since it’s only in that section anyway. But, since we used the <code>set</code> syntax in the DEFAULT section even though we shouldn’t, notice we also got a <code>set name4</code> variable. Weird, but probably not harmful.</p>
+
+<p>name5 got the local value from the app:myapp subsection since it’s only there anyway, but notice that it is in the global configuration and not the local configuration. This is because we used the <code>set</code> syntax to set the value. Again, weird, but not harmful since Swift just treats the two sets of configuration values as one set anyway.</p>
+
+<p>name6 got the local value from app:myapp subsection since it’s only there, and since we didn’t use the <code>set</code> syntax, it’s only in the local configuration and not the global one. Though, as indicated above, there is no special distinction with Swift.</p>
+
+<p>That’s quite an explanation for something that should be so much simpler, but it might be important to know how paste.deploy interprets configuration files. The main rule to remember when working with Swift configuration files is:</p>
+
+<p>Note</p>
+
+<p>Use the <code>set option_name = value</code> syntax in subsections if the option is also set in the <code>[DEFAULT]</code> section. Don’t get in the habit of always using the <code>set</code> syntax or you’ll probably mess up your non-paste.deploy configuration files.</p>
+
+<h2 id="common-configuration-common-configuration-permalink-to-this-headline">Common configuration<a href="#common-configuration" title="Permalink to this headline">¶</a></h2>
+
+<p>An example of common configuration file can be found at etc/swift.conf-sample</p>
+
+<p>The following configuration options are available:</p>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>max_header_size</p>
+
+<p>8192</p>
+
+<p>max_header_size is the max number of bytes in the utf8 encoding of each header. Using 8192 as default because eventlet use 8192 as max size of header line. This value may need to be increased when using identity v3 API tokens including more than 7 catalog entries. See also include_service_catalog in proxy-server.conf-sample (documented in overview_auth.rst).</p>
+
+<p>extra_header_count</p>
+
+<p>0</p>
+
+<p>By default the maximum number of allowed headers depends on the number of max allowed metadata settings plus a default value of 32 for regular http headers. If for some reason this is not enough (custom middleware for example) it can be increased with the extra_header_count constraint.</p>
+
+<h2 id="object-server-configuration-object-server-configuration-permalink-to-this-headline">Object Server Configuration<a href="#object-server-configuration" title="Permalink to this headline">¶</a></h2>
+
+<p>An Example Object Server configuration can be found at etc/object-server.conf-sample in the source code repository.</p>
+
+<p>The following configuration sections are available:</p>
+
+<ul>
+<li><a href="#object-server-default-options">[DEFAULT]</a></li>
+<li><a href="#object-server">[object-server]</a></li>
+<li><a href="#object-replicator">[object-replicator]</a></li>
+<li><a href="#object-reconstructor">[object-reconstructor]</a></li>
+<li><a href="#object-updater">[object-updater]</a></li>
+<li><a href="#object-auditor">[object-auditor]</a></li>
+</ul>
+
+<h3 id="default-default-permalink-to-this-headline">[DEFAULT]<a href="#default" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>swift_dir</p>
+
+<p>/etc/swift</p>
+
+<p>Swift configuration directory</p>
+
+<p>devices</p>
+
+<p>/srv/node</p>
+
+<p>Parent directory of where devices are mounted</p>
+
+<p>mount_check</p>
+
+<p>true</p>
+
+<p>Whether or not check if the devices are mounted to prevent accidentally writing to the root device</p>
+
+<p>bind_ip</p>
+
+<p>0.0.0.0</p>
+
+<p>IP Address for server to bind to</p>
+
+<p>bind_port</p>
+
+<p>6200</p>
+
+<p>Port for server to bind to</p>
+
+<p>keep_idle</p>
+
+<p>600</p>
+
+<p>Value to set for socket TCP_KEEPIDLE</p>
+
+<p>bind_timeout</p>
+
+<p>30</p>
+
+<p>Seconds to attempt bind before giving up</p>
+
+<p>backlog</p>
+
+<p>4096</p>
+
+<p>Maximum number of allowed pending connections</p>
+
+<p>workers</p>
+
+<p>auto</p>
+
+<p>Override the number of pre-forked workers that will accept connections. If set it should be an integer, zero means no fork. If unset, it will try to default to the number of effective cpu cores and fallback to one. Increasing the number of workers helps slow filesystem operations in one request from negatively impacting other requests, but only the <a href="#server-per-port-configuration">servers_per_port</a> option provides complete I/O isolation with no measurable overhead.</p>
+
+<p>servers_per_port</p>
+
+<p>0</p>
+
+<p>If each disk in each storage policy ring has unique port numbers for its “ip” value, you can use this setting to have each object-server worker only service requests for the single disk matching the port in the ring. The value of this setting determines how many worker processes run for each port (disk) in the ring. If you have 24 disks per server, and this setting is 4, then each storage node will have 1 + (24 * 4) = 97 total object-server processes running. This gives complete I/O isolation, drastically reducing the impact of slow disks on storage node performance. The object-replicator and object-reconstructor need to see this setting too, so it must be in the [DEFAULT] section. See <a href="#server-per-port-configuration">Running object-servers Per Disk</a>.</p>
+
+<p>max_clients</p>
+
+<p>1024</p>
+
+<p>Maximum number of clients one worker can process simultaneously (it will actually accept(2) N + 1). Setting this to one (1) will only handle one request at a time, without accepting another request concurrently.</p>
+
+<p>disable_fallocate</p>
+
+<p>false</p>
+
+<p>Disable “fast fail” fallocate checks if the underlying filesystem does not support it.</p>
+
+<p>log_name</p>
+
+<p>swift</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>log_max_line_length</p>
+
+<p>0</p>
+
+<p>Caps the length of log lines to the value given; no limit if set to 0, the default.</p>
+
+<p>log_custom_handlers</p>
+
+<p>None</p>
+
+<p>Comma-separated list of functions to call to setup custom log handlers.</p>
+
+<p>log_udp_host</p>
+
+<p> </p>
+
+<p>Override log_address</p>
+
+<p>log_udp_port</p>
+
+<p>514</p>
+
+<p>UDP log port</p>
+
+<p>log_statsd_host</p>
+
+<p>None</p>
+
+<p>Enables StatsD logging; IPv4/IPv6 address or a hostname. If a hostname resolves to an IPv4 and IPv6 address, the IPv4 address will be used.</p>
+
+<p>log_statsd_port</p>
+
+<p>8125</p>
+
+<p> </p>
+
+<p>log_statsd_default_sample_rate</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_sample_rate_factor</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_metric_prefix</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>eventlet_debug</p>
+
+<p>false</p>
+
+<p>If true, turn on debug logging for eventlet</p>
+
+<p>fallocate_reserve</p>
+
+<p>1%</p>
+
+<p>You can set fallocate_reserve to the number of bytes or percentage of disk space you’d like fallocate to reserve, whether there is space for the given file size or not. Percentage will be used if the value ends with a ‘%’. This is useful for systems that behave badly when they completely run out of space; you can make the services pretend they’re out of space early.</p>
+
+<p>conn_timeout</p>
+
+<p>0.5</p>
+
+<p>Time to wait while attempting to connect to another backend node.</p>
+
+<p>node_timeout</p>
+
+<p>3</p>
+
+<p>Time to wait while sending each chunk of data to another backend node.</p>
+
+<p>client_timeout</p>
+
+<p>60</p>
+
+<p>Time to wait while receiving each chunk of data from a client or another backend node</p>
+
+<p>network_chunk_size</p>
+
+<p>65536</p>
+
+<p>Size of chunks to read/write over the network</p>
+
+<p>disk_chunk_size</p>
+
+<p>65536</p>
+
+<p>Size of chunks to read/write to disk</p>
+
+<p>container_update_timeout</p>
+
+<p>1</p>
+
+<p>Time to wait while sending a container update on object update.</p>
+
+<p>reclaim_age</p>
+
+<p>604800</p>
+
+<p>Time elapsed in seconds before the tombstone file representing a deleted object can be reclaimed. This is the maximum window for your consistency engine. If a node that was disconnected from the cluster because of a fault is reintroduced into the cluster after this window without having its data purged it will result in dark data. This setting should be consistent across all object services.</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="object-server-object-server-permalink-to-this-headline">[object-server]<a href="#object-server" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>use</p>
+
+<p> </p>
+
+<p>paste.deploy entry point for the object server. For most cases, this should be egg:swift#object.</p>
+
+<p>set log_name</p>
+
+<p>object-server</p>
+
+<p>Label used when logging</p>
+
+<p>set log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>set log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>set log_requests</p>
+
+<p>True</p>
+
+<p>Whether or not to log each request</p>
+
+<p>set log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>user</p>
+
+<p>swift</p>
+
+<p>User to run as</p>
+
+<p>max_upload_time</p>
+
+<p>86400</p>
+
+<p>Maximum time allowed to upload an object</p>
+
+<p>slow</p>
+
+<p>0</p>
+
+<p>If &gt; 0, Minimum time in seconds for a PUT or DELETE request to complete. This is only useful to simulate slow devices during testing and development.</p>
+
+<p>mb_per_sync</p>
+
+<p>512</p>
+
+<p>On PUT requests, sync file every n MB</p>
+
+<p>keep_cache_size</p>
+
+<p>5242880</p>
+
+<p>Largest object size to keep in buffer cache</p>
+
+<p>keep_cache_private</p>
+
+<p>false</p>
+
+<p>Allow non-public objects to stay in kernel’s buffer cache</p>
+
+<p>allowed_headers</p>
+
+<p>Content-Disposition, Content-Encoding, X-Delete-At, X-Object-Manifest, X-Static-Large-Object Cache-Control, Content-Language, Expires, X-Robots-Tag</p>
+
+<p>Comma separated list of headers that can be set in metadata on an object. This list is in addition to X-Object-Meta-* headers and cannot include Content-Type, etag, Content-Length, or deleted</p>
+
+<p>auto_create_account_prefix</p>
+
+<p>.</p>
+
+<p>Prefix used when automatically creating accounts.</p>
+
+<p>replication_server</p>
+
+<p> </p>
+
+<p>Configure parameter for creating specific server. To handle all verbs, including replication verbs, do not specify “replication_server” (this is the default). To only handle replication, set to a True value (e.g. “True” or “1”). To handle only non-replication verbs, set to “False”. Unless you have a separate replication network, you should not specify any value for “replication_server”.</p>
+
+<p>replication_concurrency</p>
+
+<p>4</p>
+
+<p>Set to restrict the number of concurrent incoming SSYNC requests; set to 0 for unlimited</p>
+
+<p>replication_concurrency_per_device</p>
+
+<p>1</p>
+
+<p>Set to restrict the number of concurrent incoming SSYNC requests per device; set to 0 for unlimited requests per devices. This can help control I/O to each device. This does not override replication_concurrency described above, so you may need to adjust both parameters depending on your hardware or network capacity.</p>
+
+<p>replication_lock_timeout</p>
+
+<p>15</p>
+
+<p>Number of seconds to wait for an existing replication device lock before giving up.</p>
+
+<p>replication_failure_threshold</p>
+
+<p>100</p>
+
+<p>The number of subrequest failures before the replication_failure_ratio is checked</p>
+
+<p>replication_failure_ratio</p>
+
+<p>1.0</p>
+
+<p>If the value of failures / successes of SSYNC subrequests exceeds this ratio, the overall SSYNC request will be aborted</p>
+
+<p>splice</p>
+
+<p>no</p>
+
+<p>Use splice() for zero-copy object GETs. This requires Linux kernel version 3.0 or greater. If you set “splice = yes” but the kernel does not support it, error messages will appear in the object server logs at startup, but your object servers should continue to function.</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<p>eventlet_tpool_num_threads</p>
+
+<p>auto</p>
+
+<p>The number of threads in eventlet’s thread pool. Most IO will occur in the object server’s main thread, but certain “heavy” IO operations will occur in separate IO threads, managed by eventlet. The default value is auto, whose actual value is dependent on the servers_per_port value. If servers_per_port is zero then it uses eventlet’s default (currently 20 threads). If the servers_per_port is nonzero then it’ll only use 1 thread per process. This value can be overridden with an integer value.</p>
+
+<h3 id="object-replicator-object-replicator-permalink-to-this-headline">[object-replicator]<a href="#object-replicator" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>object-replicator</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>daemonize</p>
+
+<p>yes</p>
+
+<p>Whether or not to run replication as a daemon</p>
+
+<p>interval</p>
+
+<p>30</p>
+
+<p>Time in seconds to wait between replication passes</p>
+
+<p>concurrency</p>
+
+<p>1</p>
+
+<p>Number of replication jobs to run per worker process</p>
+
+<p>replicator_workers</p>
+
+<p>0</p>
+
+<p>Number of worker processes to use. No matter how big this number is, at most one worker per disk will be used. The default value of 0 means no forking; all work is done in the main process.</p>
+
+<p>sync_method</p>
+
+<p>rsync</p>
+
+<p>The sync method to use; default is rsync but you can use ssync to try the EXPERIMENTAL all-swift-code-no-rsync-callouts method. Once ssync is verified as or better than, rsync, we plan to deprecate rsync so we can move on with more features for replication.</p>
+
+<p>rsync_timeout</p>
+
+<p>900</p>
+
+<p>Max duration of a partition rsync</p>
+
+<p>rsync_bwlimit</p>
+
+<p>0</p>
+
+<p>Bandwidth limit for rsync in kB/s. 0 means unlimited.</p>
+
+<p>rsync_io_timeout</p>
+
+<p>30</p>
+
+<p>Timeout value sent to rsync –timeout and –contimeout options</p>
+
+<p>rsync_compress</p>
+
+<p>no</p>
+
+<p>Allow rsync to compress data which is transmitted to destination node during sync. However, this is applicable only when destination node is in a different region than the local one. NOTE: Objects that are already compressed (for example: .tar.gz, .mp3) might slow down the syncing process.</p>
+
+<p>stats_interval</p>
+
+<p>300</p>
+
+<p>Interval in seconds between logging replication statistics</p>
+
+<p>handoffs_first</p>
+
+<p>false</p>
+
+<p>If set to True, partitions that are not supposed to be on the node will be replicated first. The default setting should not be changed, except for extreme situations.</p>
+
+<p>handoff_delete</p>
+
+<p>auto</p>
+
+<p>By default handoff partitions will be removed when it has successfully replicated to all the canonical nodes. If set to an integer n, it will remove the partition if it is successfully replicated to n nodes. The default setting should not be changed, except for extreme situations.</p>
+
+<p>node_timeout</p>
+
+<p>DEFAULT or 10</p>
+
+<p>Request timeout to external services. This uses what’s set here, or what’s set in the DEFAULT section, or 10 (though other sections use 3 as the final default).</p>
+
+<p>http_timeout</p>
+
+<p>60</p>
+
+<p>Max duration of an http request. This is for REPLICATE finalization calls and so should be longer than node_timeout.</p>
+
+<p>lockup_timeout</p>
+
+<p>1800</p>
+
+<p>Attempts to kill all workers if nothing replicates for lockup_timeout seconds</p>
+
+<p>rsync_module</p>
+
+<p>{replication_ip}::object</p>
+
+<p>Format of the rsync module where the replicator will send data. The configuration value can include some variables that will be extracted from the ring. Variables must follow the format {NAME} where NAME is one of: ip, port, replication_ip, replication_port, region, zone, device, meta. See etc/rsyncd.conf-sample for some examples.</p>
+
+<p>rsync_error_log_line_length</p>
+
+<p>0</p>
+
+<p>Limits how long rsync error log lines are</p>
+
+<p>ring_check_interval</p>
+
+<p>15</p>
+
+<p>Interval for checking new ring file</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="object-reconstructor-object-reconstructor-permalink-to-this-headline">[object-reconstructor]<a href="#object-reconstructor" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>object-reconstructor</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>daemonize</p>
+
+<p>yes</p>
+
+<p>Whether or not to run reconstruction as a daemon</p>
+
+<p>interval</p>
+
+<p>30</p>
+
+<p>Time in seconds to wait between reconstruction passes</p>
+
+<p>reconstructor_workers</p>
+
+<p>0</p>
+
+<p>Maximum number of worker processes to spawn. Each worker will handle a subset of devices. Devices will be assigned evenly among the workers so that workers cycle at similar intervals (which can lead to fewer workers than requested). You can not have more workers than devices. If you have no devices only a single worker is spawned.</p>
+
+<p>concurrency</p>
+
+<p>1</p>
+
+<p>Number of reconstruction threads to spawn per reconstructor process.</p>
+
+<p>stats_interval</p>
+
+<p>300</p>
+
+<p>Interval in seconds between logging reconstruction statistics</p>
+
+<p>handoffs_only</p>
+
+<p>false</p>
+
+<p>The handoffs_only mode option is for special case emergency situations during rebalance such as disk full in the cluster. This option SHOULD NOT BE CHANGED, except for extreme situations. When handoffs_only mode is enabled the reconstructor will <em>only</em> revert fragments from handoff nodes to primary nodes and will not sync primary nodes with neighboring primary nodes. This will force the reconstructor to sync and delete handoffs’ fragments more quickly and minimize the time of the rebalance by limiting the number of rebuilds. The handoffs_only option is only for temporary use and should be disabled as soon as the emergency situation has been resolved.</p>
+
+<p>node_timeout</p>
+
+<p>DEFAULT or 10</p>
+
+<p>Request timeout to external services. The value used is the value set in this section, or the value set in the DEFAULT section, or 10.</p>
+
+<p>http_timeout</p>
+
+<p>60</p>
+
+<p>Max duration of an http request. This is for REPLICATE finalization calls and so should be longer than node_timeout.</p>
+
+<p>lockup_timeout</p>
+
+<p>1800</p>
+
+<p>Attempts to kill all threads if no fragment has been reconstructed for lockup_timeout seconds.</p>
+
+<p>ring_check_interval</p>
+
+<p>15</p>
+
+<p>Interval for checking new ring file</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="object-updater-object-updater-permalink-to-this-headline">[object-updater]<a href="#object-updater" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>object-updater</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>interval</p>
+
+<p>300</p>
+
+<p>Minimum time for a pass to take</p>
+
+<p>updater_workers</p>
+
+<p>1</p>
+
+<p>Number of worker processes</p>
+
+<p>concurrency</p>
+
+<p>8</p>
+
+<p>Number of updates to run concurrently in each worker process</p>
+
+<p>node_timeout</p>
+
+<p>DEFAULT or 10</p>
+
+<p>Request timeout to external services. This uses what’s set here, or what’s set in the DEFAULT section, or 10 (though other sections use 3 as the final default).</p>
+
+<p>objects_per_second</p>
+
+<p>50</p>
+
+<p>Maximum objects updated per second. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>slowdown</p>
+
+<p>0.01</p>
+
+<p>Time in seconds to wait between objects. Deprecated in favor of objects_per_second.</p>
+
+<p>report_interval</p>
+
+<p>300</p>
+
+<p>Interval in seconds between logging statistics about the current update pass.</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="object-auditor-object-auditor-permalink-to-this-headline">[object-auditor]<a href="#object-auditor" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>object-auditor</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>log_time</p>
+
+<p>3600</p>
+
+<p>Frequency of status logs in seconds.</p>
+
+<p>interval</p>
+
+<p>30</p>
+
+<p>Time in seconds to wait between auditor passes</p>
+
+<p>disk_chunk_size</p>
+
+<p>65536</p>
+
+<p>Size of chunks read during auditing</p>
+
+<p>files_per_second</p>
+
+<p>20</p>
+
+<p>Maximum files audited per second per auditor process. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>bytes_per_second</p>
+
+<p>10000000</p>
+
+<p>Maximum bytes audited per second per auditor process. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>concurrency</p>
+
+<p>1</p>
+
+<p>The number of parallel processes to use for checksum auditing.</p>
+
+<p>zero_byte_files_per_second</p>
+
+<p>50</p>
+
+<p> </p>
+
+<p>object_size_stats</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>rsync_tempfile_timeout</p>
+
+<p>auto</p>
+
+<p>Time elapsed in seconds before rsync tempfiles will be unlinked. Config value of “auto” try to use object-replicator’s rsync_timeout + 900 or fallback to 86400 (1 day).</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h2 id="container-server-configuration-container-server-configuration-permalink-to-this-headline">Container Server Configuration<a href="#container-server-configuration" title="Permalink to this headline">¶</a></h2>
+
+<p>An example Container Server configuration can be found at etc/container-server.conf-sample in the source code repository.</p>
+
+<p>The following configuration sections are available:</p>
+
+<ul>
+<li><a href="#container-server-default-options">[DEFAULT]</a></li>
+<li><a href="#container-server">[container-server]</a></li>
+<li><a href="#container-replicator">[container-replicator]</a></li>
+<li><a href="#container-updater">[container-updater]</a></li>
+<li><a href="#container-auditor">[container-auditor]</a></li>
+</ul>
+
+<h3 id="default-container-server-default-options-permalink-to-this-headline">[DEFAULT]<a href="#container-server-default-options" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>swift_dir</p>
+
+<p>/etc/swift</p>
+
+<p>Swift configuration directory</p>
+
+<p>devices</p>
+
+<p>/srv/node</p>
+
+<p>Parent directory of where devices are mounted</p>
+
+<p>mount_check</p>
+
+<p>true</p>
+
+<p>Whether or not check if the devices are mounted to prevent accidentally writing to the root device</p>
+
+<p>bind_ip</p>
+
+<p>0.0.0.0</p>
+
+<p>IP Address for server to bind to</p>
+
+<p>bind_port</p>
+
+<p>6201</p>
+
+<p>Port for server to bind to</p>
+
+<p>keep_idle</p>
+
+<p>600</p>
+
+<p>Value to set for socket TCP_KEEPIDLE</p>
+
+<p>bind_timeout</p>
+
+<p>30</p>
+
+<p>Seconds to attempt bind before giving up</p>
+
+<p>backlog</p>
+
+<p>4096</p>
+
+<p>Maximum number of allowed pending connections</p>
+
+<p>workers</p>
+
+<p>auto</p>
+
+<p>Override the number of pre-forked workers that will accept connections. If set it should be an integer, zero means no fork. If unset, it will try to default to the number of effective cpu cores and fallback to one. Increasing the number of workers may reduce the possibility of slow file system operations in one request from negatively impacting other requests. See <a href="#general-service-tuning">General Service Tuning</a>.</p>
+
+<p>max_clients</p>
+
+<p>1024</p>
+
+<p>Maximum number of clients one worker can process simultaneously (it will actually accept(2) N + 1). Setting this to one (1) will only handle one request at a time, without accepting another request concurrently.</p>
+
+<p>user</p>
+
+<p>swift</p>
+
+<p>User to run as</p>
+
+<p>disable_fallocate</p>
+
+<p>false</p>
+
+<p>Disable “fast fail” fallocate checks if the underlying filesystem does not support it.</p>
+
+<p>log_name</p>
+
+<p>swift</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>log_max_line_length</p>
+
+<p>0</p>
+
+<p>Caps the length of log lines to the value given; no limit if set to 0, the default.</p>
+
+<p>log_custom_handlers</p>
+
+<p>None</p>
+
+<p>Comma-separated list of functions to call to setup custom log handlers.</p>
+
+<p>log_udp_host</p>
+
+<p> </p>
+
+<p>Override log_address</p>
+
+<p>log_udp_port</p>
+
+<p>514</p>
+
+<p>UDP log port</p>
+
+<p>log_statsd_host</p>
+
+<p>None</p>
+
+<p>Enables StatsD logging; IPv4/IPv6 address or a hostname. If a hostname resolves to an IPv4 and IPv6 address, the IPv4 address will be used.</p>
+
+<p>log_statsd_port</p>
+
+<p>8125</p>
+
+<p> </p>
+
+<p>log_statsd_default_sample_rate</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_sample_rate_factor</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_metric_prefix</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>eventlet_debug</p>
+
+<p>false</p>
+
+<p>If true, turn on debug logging for eventlet</p>
+
+<p>fallocate_reserve</p>
+
+<p>1%</p>
+
+<p>You can set fallocate_reserve to the number of bytes or percentage of disk space you’d like fallocate to reserve, whether there is space for the given file size or not. Percentage will be used if the value ends with a ‘%’. This is useful for systems that behave badly when they completely run out of space; you can make the services pretend they’re out of space early.</p>
+
+<p>db_preallocation</p>
+
+<p>off</p>
+
+<p>If you don’t mind the extra disk space usage in overhead, you can turn this on to preallocate disk space with SQLite databases to decrease fragmentation.</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="container-server-container-server-permalink-to-this-headline">[container-server]<a href="#container-server" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>use</p>
+
+<p> </p>
+
+<p>paste.deploy entry point for the container server. For most cases, this should be egg:swift#container.</p>
+
+<p>set log_name</p>
+
+<p>container-server</p>
+
+<p>Label used when logging</p>
+
+<p>set log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>set log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>set log_requests</p>
+
+<p>True</p>
+
+<p>Whether or not to log each request</p>
+
+<p>set log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>node_timeout</p>
+
+<p>3</p>
+
+<p>Request timeout to external services</p>
+
+<p>conn_timeout</p>
+
+<p>0.5</p>
+
+<p>Connection timeout to external services</p>
+
+<p>allow_versions</p>
+
+<p>false</p>
+
+<p>Enable/Disable object versioning feature</p>
+
+<p>auto_create_account_prefix</p>
+
+<p>.</p>
+
+<p>Prefix used when automatically</p>
+
+<p>replication_server</p>
+
+<p> </p>
+
+<p>Configure parameter for creating specific server. To handle all verbs, including replication verbs, do not specify “replication_server” (this is the default). To only handle replication, set to a True value (e.g. “True” or “1”). To handle only non-replication verbs, set to “False”. Unless you have a separate replication network, you should not specify any value for “replication_server”.</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="container-replicator-container-replicator-permalink-to-this-headline">[container-replicator]<a href="#container-replicator" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>container-replicator</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>per_diff</p>
+
+<p>1000</p>
+
+<p>Maximum number of database rows that will be sync’d in a single HTTP replication request. Databases with less than or equal to this number of differing rows will always be sync’d using an HTTP replication request rather than using rsync.</p>
+
+<p>max_diffs</p>
+
+<p>100</p>
+
+<p>Maximum number of HTTP replication requests attempted on each replication pass for any one container. This caps how long the replicator will spend trying to sync a given database per pass so the other databases don’t get starved.</p>
+
+<p>concurrency</p>
+
+<p>8</p>
+
+<p>Number of replication workers to spawn</p>
+
+<p>interval</p>
+
+<p>30</p>
+
+<p>Time in seconds to wait between replication passes</p>
+
+<p>databases_per_second</p>
+
+<p>50</p>
+
+<p>Maximum databases to process per second. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>node_timeout</p>
+
+<p>10</p>
+
+<p>Request timeout to external services</p>
+
+<p>conn_timeout</p>
+
+<p>0.5</p>
+
+<p>Connection timeout to external services</p>
+
+<p>reclaim_age</p>
+
+<p>604800</p>
+
+<p>Time elapsed in seconds before a container can be reclaimed</p>
+
+<p>rsync_module</p>
+
+<p>{replication_ip}::container</p>
+
+<p>Format of the rsync module where the replicator will send data. The configuration value can include some variables that will be extracted from the ring. Variables must follow the format {NAME} where NAME is one of: ip, port, replication_ip, replication_port, region, zone, device, meta. See etc/rsyncd.conf-sample for some examples.</p>
+
+<p>rsync_compress</p>
+
+<p>no</p>
+
+<p>Allow rsync to compress data which is transmitted to destination node during sync. However, this is applicable only when destination node is in a different region than the local one. NOTE: Objects that are already compressed (for example: .tar.gz, mp3) might slow down the syncing process.</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="container-updater-container-updater-permalink-to-this-headline">[container-updater]<a href="#container-updater" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>container-updater</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>interval</p>
+
+<p>300</p>
+
+<p>Minimum time for a pass to take</p>
+
+<p>concurrency</p>
+
+<p>4</p>
+
+<p>Number of updater workers to spawn</p>
+
+<p>node_timeout</p>
+
+<p>3</p>
+
+<p>Request timeout to external services</p>
+
+<p>conn_timeout</p>
+
+<p>0.5</p>
+
+<p>Connection timeout to external services</p>
+
+<p>containers_per_second</p>
+
+<p>50</p>
+
+<p>Maximum containers updated per second. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>slowdown</p>
+
+<p>0.01</p>
+
+<p>Time in seconds to wait between containers. Deprecated in favor of containers_per_second.</p>
+
+<p>account_suppression_time</p>
+
+<p>60</p>
+
+<p>Seconds to suppress updating an account that has generated an error (timeout, not yet found, etc.)</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="container-auditor-container-auditor-permalink-to-this-headline">[container-auditor]<a href="#container-auditor" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>container-auditor</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>interval</p>
+
+<p>1800</p>
+
+<p>Minimum time for a pass to take</p>
+
+<p>containers_per_second</p>
+
+<p>200</p>
+
+<p>Maximum containers audited per second. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h2 id="account-server-configuration-account-server-configuration-permalink-to-this-headline">Account Server Configuration<a href="#account-server-configuration" title="Permalink to this headline">¶</a></h2>
+
+<p>An example Account Server configuration can be found at etc/account-server.conf-sample in the source code repository.</p>
+
+<p>The following configuration sections are available:</p>
+
+<ul>
+<li><a href="#account-server-default-options">[DEFAULT]</a></li>
+<li><a href="#account-server">[account-server]</a></li>
+<li><a href="#account-replicator">[account-replicator]</a></li>
+<li><a href="#account-auditor">[account-auditor]</a></li>
+<li><a href="#account-reaper">[account-reaper]</a></li>
+</ul>
+
+<h3 id="default-account-server-default-options-permalink-to-this-headline">[DEFAULT]<a href="#account-server-default-options" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>swift_dir</p>
+
+<p>/etc/swift</p>
+
+<p>Swift configuration directory</p>
+
+<p>devices</p>
+
+<p>/srv/node</p>
+
+<p>Parent directory or where devices are mounted</p>
+
+<p>mount_check</p>
+
+<p>true</p>
+
+<p>Whether or not check if the devices are mounted to prevent accidentally writing to the root device</p>
+
+<p>bind_ip</p>
+
+<p>0.0.0.0</p>
+
+<p>IP Address for server to bind to</p>
+
+<p>bind_port</p>
+
+<p>6202</p>
+
+<p>Port for server to bind to</p>
+
+<p>keep_idle</p>
+
+<p>600</p>
+
+<p>Value to set for socket TCP_KEEPIDLE</p>
+
+<p>bind_timeout</p>
+
+<p>30</p>
+
+<p>Seconds to attempt bind before giving up</p>
+
+<p>backlog</p>
+
+<p>4096</p>
+
+<p>Maximum number of allowed pending connections</p>
+
+<p>workers</p>
+
+<p>auto</p>
+
+<p>Override the number of pre-forked workers that will accept connections. If set it should be an integer, zero means no fork. If unset, it will try to default to the number of effective cpu cores and fallback to one. Increasing the number of workers may reduce the possibility of slow file system operations in one request from negatively impacting other requests. See <a href="#general-service-tuning">General Service Tuning</a>.</p>
+
+<p>max_clients</p>
+
+<p>1024</p>
+
+<p>Maximum number of clients one worker can process simultaneously (it will actually accept(2) N + 1). Setting this to one (1) will only handle one request at a time, without accepting another request concurrently.</p>
+
+<p>user</p>
+
+<p>swift</p>
+
+<p>User to run as</p>
+
+<p>db_preallocation</p>
+
+<p>off</p>
+
+<p>If you don’t mind the extra disk space usage in overhead, you can turn this on to preallocate disk space with SQLite databases to decrease fragmentation.</p>
+
+<p>disable_fallocate</p>
+
+<p>false</p>
+
+<p>Disable “fast fail” fallocate checks if the underlying filesystem does not support it.</p>
+
+<p>log_name</p>
+
+<p>swift</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>log_max_line_length</p>
+
+<p>0</p>
+
+<p>Caps the length of log lines to the value given; no limit if set to 0, the default.</p>
+
+<p>log_custom_handlers</p>
+
+<p>None</p>
+
+<p>Comma-separated list of functions to call to setup custom log handlers.</p>
+
+<p>log_udp_host</p>
+
+<p> </p>
+
+<p>Override log_address</p>
+
+<p>log_udp_port</p>
+
+<p>514</p>
+
+<p>UDP log port</p>
+
+<p>log_statsd_host</p>
+
+<p>None</p>
+
+<p>Enables StatsD logging; IPv4/IPv6 address or a hostname. If a hostname resolves to an IPv4 and IPv6 address, the IPv4 address will be used.</p>
+
+<p>log_statsd_port</p>
+
+<p>8125</p>
+
+<p> </p>
+
+<p>log_statsd_default_sample_rate</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_sample_rate_factor</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_metric_prefix</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>eventlet_debug</p>
+
+<p>false</p>
+
+<p>If true, turn on debug logging for eventlet</p>
+
+<p>fallocate_reserve</p>
+
+<p>1%</p>
+
+<p>You can set fallocate_reserve to the number of bytes or percentage of disk space you’d like fallocate to reserve, whether there is space for the given file size or not. Percentage will be used if the value ends with a ‘%’. This is useful for systems that behave badly when they completely run out of space; you can make the services pretend they’re out of space early.</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="account-server-account-server-permalink-to-this-headline">[account-server]<a href="#account-server" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>use</p>
+
+<p> </p>
+
+<p>Entry point for paste.deploy for the account server. For most cases, this should be egg:swift#account.</p>
+
+<p>set log_name</p>
+
+<p>account-server</p>
+
+<p>Label used when logging</p>
+
+<p>set log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>set log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>set log_requests</p>
+
+<p>True</p>
+
+<p>Whether or not to log each request</p>
+
+<p>set log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>auto_create_account_prefix</p>
+
+<p>.</p>
+
+<p>Prefix used when automatically creating accounts.</p>
+
+<p>replication_server</p>
+
+<p> </p>
+
+<p>Configure parameter for creating specific server. To handle all verbs, including replication verbs, do not specify “replication_server” (this is the default). To only handle replication, set to a True value (e.g. “True” or “1”). To handle only non-replication verbs, set to “False”. Unless you have a separate replication network, you should not specify any value for “replication_server”.</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="account-replicator-account-replicator-permalink-to-this-headline">[account-replicator]<a href="#account-replicator" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>account-replicator</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>per_diff</p>
+
+<p>1000</p>
+
+<p>Maximum number of database rows that will be sync’d in a single HTTP replication request. Databases with less than or equal to this number of differing rows will always be sync’d using an HTTP replication request rather than using rsync.</p>
+
+<p>max_diffs</p>
+
+<p>100</p>
+
+<p>Maximum number of HTTP replication requests attempted on each replication pass for any one container. This caps how long the replicator will spend trying to sync a given database per pass so the other databases don’t get starved.</p>
+
+<p>concurrency</p>
+
+<p>8</p>
+
+<p>Number of replication workers to spawn</p>
+
+<p>interval</p>
+
+<p>30</p>
+
+<p>Time in seconds to wait between replication passes</p>
+
+<p>databases_per_second</p>
+
+<p>50</p>
+
+<p>Maximum databases to process per second. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>node_timeout</p>
+
+<p>10</p>
+
+<p>Request timeout to external services</p>
+
+<p>conn_timeout</p>
+
+<p>0.5</p>
+
+<p>Connection timeout to external services</p>
+
+<p>reclaim_age</p>
+
+<p>604800</p>
+
+<p>Time elapsed in seconds before an account can be reclaimed</p>
+
+<p>rsync_module</p>
+
+<p>{replication_ip}::account</p>
+
+<p>Format of the rsync module where the replicator will send data. The configuration value can include some variables that will be extracted from the ring. Variables must follow the format {NAME} where NAME is one of: ip, port, replication_ip, replication_port, region, zone, device, meta. See etc/rsyncd.conf-sample for some examples.</p>
+
+<p>rsync_compress</p>
+
+<p>no</p>
+
+<p>Allow rsync to compress data which is transmitted to destination node during sync. However, this is applicable only when destination node is in a different region than the local one. NOTE: Objects that are already compressed (for example: .tar.gz, mp3) might slow down the syncing process.</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="account-auditor-account-auditor-permalink-to-this-headline">[account-auditor]<a href="#account-auditor" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>account-auditor</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>interval</p>
+
+<p>1800</p>
+
+<p>Minimum time for a pass to take</p>
+
+<p>accounts_per_second</p>
+
+<p>200</p>
+
+<p>Maximum accounts audited per second. Should be tuned according to individual system specs. 0 is unlimited.</p>
+
+<p>recon_cache_path</p>
+
+<p>/var/cache/swift</p>
+
+<p>Path to recon cache</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="account-reaper-account-reaper-permalink-to-this-headline">[account-reaper]<a href="#account-reaper" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>log_name</p>
+
+<p>account-reaper</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>concurrency</p>
+
+<p>25</p>
+
+<p>Number of replication workers to spawn</p>
+
+<p>interval</p>
+
+<p>3600</p>
+
+<p>Minimum time for a pass to take</p>
+
+<p>node_timeout</p>
+
+<p>10</p>
+
+<p>Request timeout to external services</p>
+
+<p>conn_timeout</p>
+
+<p>0.5</p>
+
+<p>Connection timeout to external services</p>
+
+<p>delay_reaping</p>
+
+<p>0</p>
+
+<p>Normally, the reaper begins deleting account information for deleted accounts immediately; you can set this to delay its work however. The value is in seconds, 2592000 = 30 days, for example. The sum of this value and the container-updater <code>interval</code> should be less than the account-replicator <code>reclaim_age</code>. This ensures that once the account-reaper has deleted a container there is sufficient time for the container-updater to report to the account before the account DB is removed.</p>
+
+<p>reap_warn_after</p>
+
+<p>2892000</p>
+
+<p>If the account fails to be be reaped due to a persistent error, the account reaper will log a message such as: Account <name> has not been reaped since <date> You can search logs for this message if space is not being reclaimed after you delete account(s). This is in addition to any time requested by delay_reaping.</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h2 id="proxy-server-configuration-proxy-server-configuration-permalink-to-this-headline">Proxy Server Configuration<a href="#proxy-server-configuration" title="Permalink to this headline">¶</a></h2>
+
+<p>An example Proxy Server configuration can be found at etc/proxy-server.conf-sample in the source code repository.</p>
+
+<p>The following configuration sections are available:</p>
+
+<ul>
+<li><a href="#proxy-server-default-options">[DEFAULT]</a></li>
+<li><a href="#proxy-server">[proxy-server]</a></li>
+<li>Individual sections for <a href="#proxy-middlewares">Proxy middlewares</a></li>
+</ul>
+
+<h3 id="default-proxy-server-default-options-permalink-to-this-headline">[DEFAULT]<a href="#proxy-server-default-options" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>bind_ip</p>
+
+<p>0.0.0.0</p>
+
+<p>IP Address for server to bind to</p>
+
+<p>bind_port</p>
+
+<p>80</p>
+
+<p>Port for server to bind to</p>
+
+<p>keep_idle</p>
+
+<p>600</p>
+
+<p>Value to set for socket TCP_KEEPIDLE</p>
+
+<p>bind_timeout</p>
+
+<p>30</p>
+
+<p>Seconds to attempt bind before giving up</p>
+
+<p>backlog</p>
+
+<p>4096</p>
+
+<p>Maximum number of allowed pending connections</p>
+
+<p>swift_dir</p>
+
+<p>/etc/swift</p>
+
+<p>Swift configuration directory</p>
+
+<p>workers</p>
+
+<p>auto</p>
+
+<p>Override the number of pre-forked workers that will accept connections. If set it should be an integer, zero means no fork. If unset, it will try to default to the number of effective cpu cores and fallback to one. See <a href="#general-service-tuning">General Service Tuning</a>.</p>
+
+<p>max_clients</p>
+
+<p>1024</p>
+
+<p>Maximum number of clients one worker can process simultaneously (it will actually accept(2) N + 1). Setting this to one (1) will only handle one request at a time, without accepting another request concurrently.</p>
+
+<p>user</p>
+
+<p>swift</p>
+
+<p>User to run as</p>
+
+<p>cert_file</p>
+
+<p> </p>
+
+<p>Path to the ssl .crt. This should be enabled for testing purposes only.</p>
+
+<p>key_file</p>
+
+<p> </p>
+
+<p>Path to the ssl .key. This should be enabled for testing purposes only.</p>
+
+<p>cors_allow_origin</p>
+
+<p> </p>
+
+<p>List of origin hosts that are allowed for CORS requests in addition to what the container has set.</p>
+
+<p>strict_cors_mode</p>
+
+<p>True</p>
+
+<p>If True (default) then CORS requests are only allowed if their Origin header matches an allowed origin. Otherwise, any Origin is allowed.</p>
+
+<p>cors_expose_headers</p>
+
+<p> </p>
+
+<p>This is a list of headers that are included in the header Access-Control-Expose-Headers in addition to what the container has set.</p>
+
+<p>client_timeout</p>
+
+<p>60</p>
+
+<p> </p>
+
+<p>trans_id_suffix</p>
+
+<p> </p>
+
+<p>This optional suffix (default is empty) that would be appended to the swift transaction id allows one to easily figure out from which cluster that X-Trans-Id belongs to. This is very useful when one is managing more than one swift cluster.</p>
+
+<p>log_name</p>
+
+<p>swift</p>
+
+<p>Label used when logging</p>
+
+<p>log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>log_level</p>
+
+<p>INFO</p>
+
+<p>Logging level</p>
+
+<p>log_headers</p>
+
+<p>False</p>
+
+<p> </p>
+
+<p>log_address</p>
+
+<p>/dev/log</p>
+
+<p>Logging directory</p>
+
+<p>log_max_line_length</p>
+
+<p>0</p>
+
+<p>Caps the length of log lines to the value given; no limit if set to 0, the default.</p>
+
+<p>log_custom_handlers</p>
+
+<p>None</p>
+
+<p>Comma separated list of functions to call to setup custom log handlers.</p>
+
+<p>log_udp_host</p>
+
+<p> </p>
+
+<p>Override log_address</p>
+
+<p>log_udp_port</p>
+
+<p>514</p>
+
+<p>UDP log port</p>
+
+<p>log_statsd_host</p>
+
+<p>None</p>
+
+<p>Enables StatsD logging; IPv4/IPv6 address or a hostname. If a hostname resolves to an IPv4 and IPv6 address, the IPv4 address will be used.</p>
+
+<p>log_statsd_port</p>
+
+<p>8125</p>
+
+<p> </p>
+
+<p>log_statsd_default_sample_rate</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_sample_rate_factor</p>
+
+<p>1.0</p>
+
+<p> </p>
+
+<p>log_statsd_metric_prefix</p>
+
+<p> </p>
+
+<p> </p>
+
+<p>eventlet_debug</p>
+
+<p>false</p>
+
+<p>If true, turn on debug logging for eventlet</p>
+
+<p>expose_info</p>
+
+<p>true</p>
+
+<p>Enables exposing configuration settings via HTTP GET /info.</p>
+
+<p>admin_key</p>
+
+<p> </p>
+
+<p>Key to use for admin calls that are HMAC signed. Default is empty, which will disable admin calls to /info.</p>
+
+<p>disallowed_sections</p>
+
+<p>swift.valid_api_versions</p>
+
+<p>Allows the ability to withhold sections from showing up in the public calls to /info. You can withhold subsections by separating the dict level with a “.”.</p>
+
+<p>expiring_objects_container_divisor</p>
+
+<p>86400</p>
+
+<p> </p>
+
+<p>expiring_objects_account_name</p>
+
+<p>expiring_objects</p>
+
+<p> </p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort) and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<h3 id="proxy-server-proxy-server-permalink-to-this-headline">[proxy-server]<a href="#proxy-server" title="Permalink to this headline">¶</a></h3>
+
+<p>Option</p>
+
+<p>Default</p>
+
+<p>Description</p>
+
+<p>use</p>
+
+<p> </p>
+
+<p>Entry point for paste.deploy for the proxy server. For most cases, this should be egg:swift#proxy.</p>
+
+<p>set log_name</p>
+
+<p>proxy-server</p>
+
+<p>Label used when logging</p>
+
+<p>set log_facility</p>
+
+<p>LOG_LOCAL0</p>
+
+<p>Syslog log facility</p>
+
+<p>set log_level</p>
+
+<p>INFO</p>
+
+<p>Log level</p>
+
+<p>set log_headers</p>
+
+<p>True</p>
+
+<p>If True, log headers in each request</p>
+
+<p>set log_handoffs</p>
+
+<p>True</p>
+
+<p>If True, the proxy will log whenever it has to failover to a handoff node</p>
+
+<p>recheck_account_existence</p>
+
+<p>60</p>
+
+<p>Cache timeout in seconds to send memcached for account existence</p>
+
+<p>recheck_container_existence</p>
+
+<p>60</p>
+
+<p>Cache timeout in seconds to send memcached for container existence</p>
+
+<p>object_chunk_size</p>
+
+<p>65536</p>
+
+<p>Chunk size to read from object servers</p>
+
+<p>client_chunk_size</p>
+
+<p>65536</p>
+
+<p>Chunk size to read from clients</p>
+
+<p>memcache_servers</p>
+
+<p>127.0.0.1:11211</p>
+
+<p>Comma separated list of memcached servers ip:port or [ipv6addr]:port</p>
+
+<p>memcache_max_connections</p>
+
+<p>2</p>
+
+<p>Max number of connections to each memcached server per worker</p>
+
+<p>node_timeout</p>
+
+<p>10</p>
+
+<p>Request timeout to external services</p>
+
+<p>recoverable_node_timeout</p>
+
+<p>node_timeout</p>
+
+<p>Request timeout to external services for requests that, on failure, can be recovered from. For example, object GET.</p>
+
+<p>client_timeout</p>
+
+<p>60</p>
+
+<p>Timeout to read one chunk from a client</p>
+
+<p>conn_timeout</p>
+
+<p>0.5</p>
+
+<p>Connection timeout to external services</p>
+
+<p>error_suppression_interval</p>
+
+<p>60</p>
+
+<p>Time in seconds that must elapse since the last error for a node to be considered no longer error limited</p>
+
+<p>error_suppression_limit</p>
+
+<p>10</p>
+
+<p>Error count to consider a node error limited</p>
+
+<p>allow_account_management</p>
+
+<p>false</p>
+
+<p>Whether account PUTs and DELETEs are even callable</p>
+
+<p>account_autocreate</p>
+
+<p>false</p>
+
+<p>If set to ‘true’ authorized accounts that do not yet exist within the Swift cluster will be automatically created.</p>
+
+<p>max_containers_per_account</p>
+
+<p>0</p>
+
+<p>If set to a positive value, trying to create a container when the account already has at least this maximum containers will result in a 403 Forbidden. Note: This is a soft limit, meaning a user might exceed the cap for recheck_account_existence before the 403s kick in.</p>
+
+<p>max_containers_whitelist</p>
+
+<p> </p>
+
+<p>This is a comma separated list of account names that ignore the max_containers_per_account cap.</p>
+
+<p>rate_limit_after_segment</p>
+
+<p>10</p>
+
+<p>Rate limit the download of large object segments after this segment is downloaded.</p>
+
+<p>rate_limit_segments_per_sec</p>
+
+<p>1</p>
+
+<p>Rate limit large object downloads at this rate.</p>
+
+<p>request_node_count</p>
+
+<p>2 * replicas</p>
+
+<p>Set to the number of nodes to contact for a normal request. You can use ‘* replicas’ at the end to have it use the number given times the number of replicas for the ring being used for the request.</p>
+
+<p>swift_owner_headers</p>
+
+<p><see the sample conf file for the list of default headers></p>
+
+<p>These are the headers whose values will only be shown to swift_owners. The exact definition of a swift_owner is up to the auth system in use, but usually indicates administrative responsibilities.</p>
+
+<p>sorting_method</p>
+
+<p>shuffle</p>
+
+<p>Storage nodes can be chosen at random (shuffle), by using timing measurements (timing), or by using an explicit match (affinity). Using timing measurements may allow for lower overall latency, while using affinity allows for finer control. In both the timing and affinity cases, equally-sorting nodes are still randomly chosen to spread load. This option may be overridden in a per-policy configuration section.</p>
+
+<p>timing_expiry</p>
+
+<p>300</p>
+
+<p>If the “timing” sorting_method is used, the timings will only be valid for the number of seconds configured by timing_expiry.</p>
+
+<p>concurrent_gets</p>
+
+<p>off</p>
+
+<p>Use replica count number of threads concurrently during a GET/HEAD and return with the first successful response. In the EC case, this parameter only affects an EC HEAD as an EC GET behaves differently.</p>
+
+<p>concurrency_timeout</p>
+
+<p>conn_timeout</p>
+
+<p>This parameter controls how long to wait before firing off the next concurrent_get thread. A value of 0 would we fully concurrent, any other number will stagger the firing of the threads. This number should be between 0 and node_timeout. The default is conn_timeout (0.5).</p>
+
+<p>nice_priority</p>
+
+<p>None</p>
+
+<p>Scheduling priority of server processes. Niceness values range from -20 (most favorable to the process) to 19 (least favorable to the process). The default does not modify priority.</p>
+
+<p>ionice_class</p>
+
+<p>None</p>
+
+<p>I/O scheduling class of server processes. I/O niceness class values are IOPRIO_CLASS_RT (realtime), IOPRIO_CLASS_BE (best-effort), and IOPRIO_CLASS_IDLE (idle). The default does not modify class and priority. Linux supports io scheduling priorities and classes since 2.6.13 with the CFQ io scheduler. Work only with ionice_priority.</p>
+
+<p>ionice_priority</p>
+
+<p>None</p>
+
+<p>I/O scheduling priority of server processes. I/O niceness priority is a number which goes from 0 to 7. The higher the value, the lower the I/O priority of the process. Work only with ionice_class. Ignored if IOPRIO_CLASS_IDLE is set.</p>
+
+<p>read_affinity</p>
+
+<p>None</p>
+
+<p>Specifies which backend servers to prefer on reads; used in conjunction with the sorting_method option being set to ‘affinity’. Format is a comma separated list of affinity descriptors of the form <selection>=<priority>. The <selection> may be r<N> for selecting nodes in region N or r<N>z<M> for selecting nodes in region N, zone M. The <priority> value should be a whole number that represents the priority to be given to the selection; lower numbers are higher priority. Default is empty, meaning no preference. This option may be overridden in a per-policy configuration section.</p>
+
+<p>write_affinity</p>
+
+<p>None</p>
+
+<p>Specifies which backend servers to prefer on writes. Format is a comma separated list of affinity descriptors of the form r<N> for region N or r<N>z<M> for region N, zone M. Default is empty, meaning no preference. This option may be overridden in a per-policy configuration section.</p>
+
+<p>write_affinity_node_count</p>
+
+<p>2 * replicas</p>
+
+<p>The number of local (as governed by the write_affinity setting) nodes to attempt to contact first on writes, before any non-local ones. The value should be an integer number, or use ‘* replicas’ at the end to have it use the number given times the number of replicas for the ring being used for the request. This option may be overridden in a per-policy configuration section.</p>
+
+<p>write_affinity_handoff_delete_count</p>
+
+<p>auto</p>
+
+<p>The number of local (as governed by the write_affinity setting) handoff nodes to attempt to contact on deletion, in addition to primary nodes. Example: in geographically distributed deployment, If replicas=3, sometimes there may be 1 primary node and 2 local handoff nodes in one region holding the object after uploading but before object replicated to the appropriate locations in other regions. In this case, include these handoff nodes to send request when deleting object could help make correct decision for the response. The default value ‘auto’ means Swift will calculate the number automatically, the default value is (replicas - len(local_primary_nodes)). This option may be overridden in a per-policy configuration section.</p>
+
+<h3 id="per-policy-configuration-per-policy-configuration-permalink-to-this-headline">Per policy configuration<a href="#per-policy-configuration" title="Permalink to this headline">¶</a></h3>
+
+<p>Some proxy-server configuration options may be overridden for individual <a href="overview_policies.html">Storage Policies</a> by including per-policy config section(s). These options are:</p>
+
+<ul>
+<li><code>sorting_method</code></li>
+<li><code>read_affinity</code></li>
+<li><code>write_affinity</code></li>
+<li><code>write_affinity_node_count</code></li>
+<li><code>write_affinity_handoff_delete_count</code></li>
+</ul>
+
+<p>The per-policy config section name must be of the form:</p>
+
+<p>[proxy-server:policy:<policy index\>]</p>
+
+<p>Note</p>
+
+<p>The per-policy config section name should refer to the policy index, not the policy name.</p>
+
+<p>Note</p>
+
+<p>The first part of proxy-server config section name must match the name of the proxy-server config section. This is typically <code>proxy-server</code> as shown above, but if different then the names of any per-policy config sections must be changed accordingly.</p>
+
+<p>The value of an option specified in a per-policy section will override any value given in the proxy-server section for that policy only. Otherwise the value of these options will be that specified in the proxy-server section.</p>
+
+<p>For example, the following section provides policy-specific options for a policy with index <code>3</code>:</p>
+
+<p>[proxy-server:policy:3]
+sorting_method \= affinity
+read_affinity \= r2\=1
+write_affinity \= r2
+write_affinity_node_count \= 1 * replicas
+write_affinity_handoff_delete_count \= 2</p>
+
+<p>Note</p>
+
+<p>It is recommended that per-policy config options are <em>not</em> included in the <code>[DEFAULT]</code> section. If they are then the following behavior applies.</p>
+
+<p>Per-policy config sections will inherit options in the <code>[DEFAULT]</code> section of the config file, and any such inheritance will take precedence over inheriting options from the proxy-server config section.</p>
+
+<p>Per-policy config section options will override options in the <code>[DEFAULT]</code> section. Unlike the behavior described under <a href="#id2">General Server Configuration</a> for paste-deploy <code>filter</code> and <code>app</code> sections, the <code>set</code> keyword is not required for options to override in per-policy config sections.</p>
+
+<p>For example, given the following settings in a config file:</p>
+
+<p>[DEFAULT]
+sorting_method \= affinity
+read_affinity \= r0\=100
+write_affinity \= r0</p>
+
+<p>[app:proxy-server]
+use \= egg:swift#proxy
+# use of set keyword here overrides [DEFAULT] option
+set read_affinity \= r1\=100
+# without set keyword, [DEFAULT] option overrides in a paste-deploy section
+write_affinity \= r1</p>
+
+<p>[proxy-server:policy:0]
+sorting_method \= affinity
+# set keyword not required here to override [DEFAULT] option
+write_affinity \= r1</p>
+
+<p>would result in policy with index <code>0</code> having settings:</p>
+
+<ul>
+<li><code>read_affinity = r0=100</code> (inherited from the <code>[DEFAULT]</code> section)</li>
+<li><code>write_affinity = r1</code> (specified in the policy 0 section)</li>
+</ul>
+
+<p>and any other policy would have the default settings of:</p>
+
+<ul>
+<li><code>read_affinity = r1=100</code> (set in the proxy-server section)</li>
+<li><code>write_affinity = r0</code> (inherited from the <code>[DEFAULT]</code> section)</li>
+</ul>
+
+<h3 id="proxy-middlewares-proxy-middlewares-permalink-to-this-headline">Proxy Middlewares<a href="#proxy-middlewares" title="Permalink to this headline">¶</a></h3>
+
+<p>Many features in Swift are implemented as middleware in the proxy-server pipeline. See <a href="middleware.html">Middleware</a> and the <code>proxy-server.conf-sample</code> file for more information. In particular, the use of some type of <a href="overview_auth.html">authentication and authorization middleware</a> is highly recommended.</p>
+
+<h2 id="memcached-considerations-memcached-considerations-permalink-to-this-headline">Memcached Considerations<a href="#memcached-considerations" title="Permalink to this headline">¶</a></h2>
+
+<p>Several of the Services rely on Memcached for caching certain types of lookups, such as auth tokens, and container/account existence. Swift does not do any caching of actual object data. Memcached should be able to run on any servers that have available RAM and CPU. At Rackspace, we run Memcached on the proxy servers. The memcache_servers config option in the proxy-server.conf should contain all memcached servers.</p>
+
+<h2 id="system-time-system-time-permalink-to-this-headline">System Time<a href="#system-time" title="Permalink to this headline">¶</a></h2>
+
+<p>Time may be relative but it is relatively important for Swift! Swift uses timestamps to determine which is the most recent version of an object. It is very important for the system time on each server in the cluster to by synced as closely as possible (more so for the proxy server, but in general it is a good idea for all the servers). At Rackspace, we use NTP with a local NTP server to ensure that the system times are as close as possible. This should also be monitored to ensure that the times do not vary too much.</p>
+
+<h2 id="general-service-tuning-general-service-tuning-permalink-to-this-headline">General Service Tuning<a href="#general-service-tuning" title="Permalink to this headline">¶</a></h2>
+
+<p>Most services support either a worker or concurrency value in the settings. This allows the services to make effective use of the cores available. A good starting point to set the concurrency level for the proxy and storage services to 2 times the number of cores available. If more than one service is sharing a server, then some experimentation may be needed to find the best balance.</p>
+
+<p>At Rackspace, our Proxy servers have dual quad core processors, giving us 8 cores. Our testing has shown 16 workers to be a pretty good balance when saturating a 10g network and gives good CPU utilization.</p>
+
+<p>Our Storage server processes all run together on the same servers. These servers have dual quad core processors, for 8 cores total. We run the Account, Container, and Object servers with 8 workers each. Most of the background jobs are run at a concurrency of 1, with the exception of the replicators which are run at a concurrency of 2.</p>
+
+<p>The max_clients parameter can be used to adjust the number of client requests an individual worker accepts for processing. The fewer requests being processed at one time, the less likely a request that consumes the worker’s CPU time, or blocks in the OS, will negatively impact other requests. The more requests being processed at one time, the more likely one worker can utilize network and disk capacity.</p>
+
+<p>On systems that have more cores, and more memory, where one can afford to run more workers, raising the number of workers and lowering the maximum number of clients serviced per worker can lessen the impact of CPU intensive or stalled requests.</p>
+
+<p>The nice_priority parameter can be used to set program scheduling priority. The ionice_class and ionice_priority parameters can be used to set I/O scheduling class and priority on the systems that use an I/O scheduler that supports I/O priorities. As at kernel 2.6.17 the only such scheduler is the Completely Fair Queuing (CFQ) I/O scheduler. If you run your Storage servers all together on the same servers, you can slow down the auditors or prioritize object-server I/O via these parameters (but probably do not need to change it on the proxy). It is a new feature and the best practices are still being developed. On some systems it may be required to run the daemons as root. For more info also see setpriority(2) and ioprio_set(2).</p>
+
+<p>The above configuration setting should be taken as suggestions and testing of configuration settings should be done to ensure best utilization of CPU, network connectivity, and disk I/O.</p>
+
+<h2 id="filesystem-considerations-filesystem-considerations-permalink-to-this-headline">Filesystem Considerations<a href="#filesystem-considerations" title="Permalink to this headline">¶</a></h2>
+
+<p>Swift is designed to be mostly filesystem agnostic–the only requirement being that the filesystem supports extended attributes (xattrs). After thorough testing with our use cases and hardware configurations, XFS was the best all-around choice. If you decide to use a filesystem other than XFS, we highly recommend thorough testing.</p>
+
+<p>For distros with more recent kernels (for example Ubuntu 12.04 Precise), we recommend using the default settings (including the default inode size of 256 bytes) when creating the file system:</p>
+
+<p>mkfs.xfs /dev/sda1</p>
+
+<p>In the last couple of years, XFS has made great improvements in how inodes are allocated and used. Using the default inode size no longer has an impact on performance.</p>
+
+<p>For distros with older kernels (for example Ubuntu 10.04 Lucid), some settings can dramatically impact performance. We recommend the following when creating the file system:</p>
+
+<p>mkfs.xfs -i size\=1024 /dev/sda1</p>
+
+<p>Setting the inode size is important, as XFS stores xattr data in the inode. If the metadata is too large to fit in the inode, a new extent is created, which can cause quite a performance problem. Upping the inode size to 1024 bytes provides enough room to write the default metadata, plus a little headroom.</p>
+
+<p>The following example mount options are recommended when using XFS:</p>
+
+<p>mount -t xfs -o noatime,nodiratime,nobarrier,logbufs\=8 /dev/sda1 /srv/node/sda</p>
+
+<p>We do not recommend running Swift on RAID, but if you are using RAID it is also important to make sure that the proper sunit and swidth settings get set so that XFS can make most efficient use of the RAID array.</p>
+
+<p>For a standard Swift install, all data drives are mounted directly under <code>/srv/node</code> (as can be seen in the above example of mounting <code>/dev/sda1</code> as <code>/srv/node/sda</code>). If you choose to mount the drives in another directory, be sure to set the devices config option in all of the server configs to point to the correct directory.</p>
+
+<p>The mount points for each drive in <code>/srv/node/</code> should be owned by the root user almost exclusively (<code>root:root 755</code>). This is required to prevent rsync from syncing files into the root drive in the event a drive is unmounted.</p>
+
+<p>Swift uses system calls to reserve space for new objects being written into the system. If your filesystem does not support fallocate() or posix_fallocate(), be sure to set the disable_fallocate = true config parameter in account, container, and object server configs.</p>
+
+<p>Most current Linux distributions ship with a default installation of updatedb. This tool runs periodically and updates the file name database that is used by the GNU locate tool. However, including Swift object and container database files is most likely not required and the periodic update affects the performance quite a bit. To disable the inclusion of these files add the path where Swift stores its data to the setting PRUNEPATHS in /etc/updatedb.conf:</p>
+
+<p>PRUNEPATHS\=&ldquo;&hellip; /tmp &hellip; /var/spool &hellip; /srv/node&rdquo;</p>
+
+<h2 id="general-system-tuning-general-system-tuning-permalink-to-this-headline">General System Tuning<a href="#general-system-tuning" title="Permalink to this headline">¶</a></h2>
+
+<p>Rackspace currently runs Swift on Ubuntu Server 10.04, and the following changes have been found to be useful for our use cases.</p>
+
+<p>The following settings should be in /etc/sysctl.conf:</p>
+
+<p># disable TIME_WAIT.. wait..
+net.ipv4.tcp_tw_recycle\=1
+net.ipv4.tcp_tw_reuse\=1</p>
+
+<p># disable syn cookies
+net.ipv4.tcp_syncookies \= 0</p>
+
+<p># double amount of allowed conntrack
+net.ipv4.netfilter.ip_conntrack_max \= 262144</p>
+
+<p>To load the updated sysctl settings, run <code>sudo sysctl -p</code></p>
+
+<p>A note about changing the TIME_WAIT values. By default the OS will hold a port open for 60 seconds to ensure that any remaining packets can be received. During high usage, and with the number of connections that are created, it is easy to run out of ports. We can change this since we are in control of the network. If you are not in control of the network, or do not expect high loads, then you may not want to adjust those values.</p>
+
+<h2 id="logging-considerations-logging-considerations-permalink-to-this-headline">Logging Considerations<a href="#logging-considerations" title="Permalink to this headline">¶</a></h2>
+
+<p>Swift is set up to log directly to syslog. Every service can be configured with the log_facility option to set the syslog log facility destination. We recommended using syslog-ng to route the logs to specific log files locally on the server and also to remote log collecting servers. Additionally, custom log handlers can be used via the custom_log_handlers setting.</p>
+
+<p>this page last updated: 2018-10-29 14:49:48</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/jwl/swift-not-org/openstack-swift-analysis-partition/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/jwl/swift-not-org/openstack-swift-object-storage-result-analysis/">
+            <span class="next-text nav-default"></span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

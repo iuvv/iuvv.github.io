@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Emacs on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/emacs/</link>
+    <description>Recent content in Emacs on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 22 Dec 2018 09:44:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/emacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>eshell 中 没有完全加载 .zshrc 中的配置</title>
+      <link>https://b.qqbb.app/post/eshell-zshrc-cannot-ok/</link>
+      <pubDate>Sat, 22 Dec 2018 09:44:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/eshell-zshrc-cannot-ok/</guid>
+      <description>Env 下面是终端上 zsh 的输出： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ➜ ~ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/ksh /bin/sh /bin/tcsh /bin/zsh ➜ ~ echo $SHELL /bin/zsh ➜ ~ which</description>
+    </item>
+    
+    <item>
+      <title>yasnippet-setup</title>
+      <link>https://b.qqbb.app/post/yasnippet/</link>
+      <pubDate>Sat, 17 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/yasnippet/</guid>
+      <description>功能 可以实现各种代码模板，包括注释模板。 可以参考emacs自带的yasnippet文档。命令是：c-h f yas-minor-mode 可以利用emacs的elisp代码</description>
+    </item>
+    
+    <item>
+      <title>在win10上安装emacs</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/emacs-install-with-win10/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/emacs-install-with-win10/</guid>
+      <description>在win10上安装emacs env os: win10 emacs: 26.1 step 官网下载 emacs 包 官网 https://www.gnu.org/software/emacs/ 下载地址 http://mirrors.nju.edu.cn/gnu/emacs/windows/emacs-26/emacs-26.1-x86_64.zip 放到程序相应位置 解压后得到 emacs-26.1-x86_64 文件夹，剪切至程序安装目录 C:\Program Files\emacs-26.1-x86_64 设置环境变量 设</description>
+    </item>
+    
+    <item>
+      <title>解决Mac下emacs中alt键不能使用问题</title>
+      <link>https://b.qqbb.app/post/emacs-melt-no-use/</link>
+      <pubDate>Sat, 27 Oct 2018 13:16:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/emacs-melt-no-use/</guid>
+      <description>Env os: mac Step iTerm preferences-&amp;gt;Profiles 找到Left option key acts as一栏 选中+Esc选项 Terminal preferences-&amp;gt;Profiles-&amp;gt;keyboard 在使用Option键作为Meta一栏上打钩 Ref https://www.jianshu.com/p/7432c3bfcc99</description>
+    </item>
+    
+    <item>
+      <title>Emacs Flycheck Eslint</title>
+      <link>https://b.qqbb.app/post/emacs-flycheck-eslint/</link>
+      <pubDate>Thu, 23 Aug 2018 15:05:07 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/emacs-flycheck-eslint/</guid>
+      <description>Env os: mac emacs: GNU Emacs 22.1.1 Step https://github.com/flycheck/flycheck/issues/1195 遇到下面的情形，就按提示，把这些个包，一个一个地安装。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34</description>
+    </item>
+    
+    <item>
+      <title>Emacs</title>
+      <link>https://b.qqbb.app/post/resource/emacs/</link>
+      <pubDate>Wed, 01 Aug 2018 00:09:53 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/resource/emacs/</guid>
+      <description>Step Emacs 快速指南 - 原生中文手册 怎样学习 Emacs？ ergoemacs.org popkit evil 已经看过的 spacemacs 快捷键 spacemacs快捷键2 Emacs中那些不常用的行操作命令 写给 Pythonist 的 Spacemacs</description>
+    </item>
+    
+  </channel>
+</rss>

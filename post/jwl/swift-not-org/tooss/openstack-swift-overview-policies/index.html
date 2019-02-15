@@ -1,0 +1,263 @@
+
+
+<p><a href="https://docs.openstack.org/swift/queens/overview%5Fpolicies.html">https://docs.openstack.org/swift/queens/overview%5Fpolicies.html</a></p>
+
+<p>存储策略</p>
+
+<p>更新时间：2019-01-15 02:30</p>
+
+<p>存储策略允许通过创建多个对象环来为各种目的对集群进行某种程度的分段。存储策略功能在整个代码库中实现，因此它是理解Swift体系结构的重要概念。</p>
+
+<p>如The Rings中所述，Swift使用修改的散列环来确定数据应驻留在集群中的位置。帐户数据库，容器数据库，有一个单独的环; 每个存储策略也有一个对象环。(译者注：有3个ring)每个对象环的行为完全相同，并以相同的方式维护，但是对于策略，不同的设备可以属于不同的环。通过支持多个对象环，Swift允许应用程序和/或部署者基本上将对象存储隔离在单个集群中。有很多原因可能需要这样做：</p>
+
+<ul>
+<li>不同级别的持久性：如果提供商想要提供（例如，2x复制和3x复制，但不想维护2个单独的群集），则他们将设置2x和3x复制策略并将节点分配给各自的环。此外，如果提供商想要提供冷存储层，他们可以创建一个擦除编码策略。</li>
+<li>性能：正如SSD可以用作帐户或数据库环的独占成员一样，也可以创建仅限SSD的对象环，并用于实现低延迟/高性能策略。</li>
+<li>将节点收集到组中：不同的对象环可能具有不同的物理服务器，因此特定存储策略中的对象始终位于特定的数据中心或地理位置。</li>
+<li>不同的存储实现：另一个例子是收集使用不同Diskfile的一组节点（例如，Kinetic，GlusterFS）并使用策略将流量直接引导到那些节点。</li>
+<li>不同的读写关联设置：可以将代理服务器配置为对每个策略使用不同的读写关联选项。有关详细信息，请参阅 <a href="https://docs.openstack.org/swift/queens/deployment%5Fguide.html#proxy-server-per-policy-config">每个策略配置</a>。</li>
+</ul>
+
+<p>注意</p>
+
+<p>今天，Swift支持两种不同的策略类型：复制和擦除代码。有关详细信息，请参阅 <a href="https://docs.openstack.org/swift/queens/overview%5Ferasure%5Fcode.html">Erasure Code Support</a>。</p>
+
+<p>另请注意，Diskfile是指后端对象存储插件架构。有关详细信息，请参阅 <a href="https://docs.openstack.org/swift/queens/development%5Fondisk%5Fbackends.html">Pluggable On-Disk Back-end APIs</a>。</p>
+
+<h2 id="容器和策略">容器和策略</h2>
+
+<p>策略在容器级别实施。这种方式有许多优点，其中最重要的是它能够轻松地在想要利
+用它们的应用程序上make life。它还确保存储策略仍然是Swift的核心功能，与auth实现无
+关。帐户/身份验证层未实施策略，是因为它需要Swift部署人员更改正在使用的所有身份验
+证系统。每个容器都有一个新的特殊的不可变元数据元素，称为存储策略索引(storage
+policy index)。
+请注意，在内部，Swift依赖于策略索引(policy indexes)而不是策略名称(policy name)。策略名称的存在是用于人类可读性，并且在代理中转换。创建容器时，支持一个新的可选header以指定策略名称。如果没有指定名称，使用默认策略（如果未定义其他策略，则将Policy-0视为默认策略）。我们将在下一节中介绍default和Policy-0之间的区别。</p>
+
+<p>创建容器时会分配策略。为容器分配策略后，将无法更改该策略（除非将其删除/重新
+创建）。对大型数据集的数据放置/移动的影响将使这个任务最好留给应用程序执行。
+因此，如果容器具有一个存在的策略（例如3x复制），并且想要将该数据迁移到
+Erasure Code策略，则应用程序将创建另一个容器，指定策略其他参数，然后只需将
+数据从一个容器移动到另一个。策略适用于每个容器，允许最小的应用程序感知
+(minimal application awareness); 一旦使用特定策略创建了容器，则存储在其中的 所有对象将根据该策略完成。如果删除了具有特定名称的容器（要求容器变为空），则可以创建具有相同名称的新容器，而不受先前共享相同名称的已删除容器强制执行的存储策略的任何限制。</p>
+
+<p>容器与策略具有多对一关系，这意味着任意数量的容器都可以共享一个策略。可以使用特定策略的容器数量没有限制。</p>
+
+<p>将环与容器相关联的概念引入了一个有趣的场景：如果同时在网络中断的任一侧使用不同的存储策略创建了2个同名容器，会发生什么？此外，如果将对象放在这些容器中，一大堆容器中，然后网络中断被恢复，会发生什么？好吧，没有特别小心，这将是一个大问题，因为应用程序最终可能会使用错误的环来尝试找到一个对象。幸运的是，这个问题有一个解决方案，一个名为Container Reconciler的守护进程不知疲倦地工作以识别和纠正这种潜在的情况。</p>
+
+<h2 id="容器协调器--container-reconciler">容器协调器(Container Reconciler)</h2>
+
+<p>因为,无法,在分布式最终一致系统中,强制执行容器创建的原子性，所以对象写入错误
+的存储策略必须最终由异步守护程序合并到正确的存储策略中。在网络分区期间从对象
+写入恢复,导致了使用不同存储策略创建的脑裂容器, 由 swift-container-reconciler守护程序处理。</p>
+
+<p>容器协调程序使用类似于object-expirer的队列。在容器复制期间移动队列。将容器协调器评估的对象排入队列从未被认为是错误的，因为如果对象的位置没有任何问题，则协调器将简单地将其出列。容器协调队列是对象的实际位置的索引日志，对象的实际位置发现了容器的存储策略的差异。</p>
+
+<p>要确定容器的正确存储策略，当容器将状态从已删除更改为重新创建时，必须更新container_stat表中的status_changed_at字段。此事务日志允许容器复制器在复制容器和处理REPLICATE请求时更新正确的存储策略。</p>
+
+<p>由于每个对象写入都是一个单独的分布式事务，因此无法根据给定容器数据库中的整个事务日志确定每个对象写入的存储策略的正确性。因此，容器数据库将始终记录对象写入，而不管基于每个对象行的存储策略。每个容器中的每个存储策略都会跟踪对象字节和计数统计信息，并使用普通对象行合并语义进行协调。</p>
+
+<p>使用常规容器复制在复制期间确保对象行完全持久。在容器复制器将其对象行推送到可
+用主节点之后，根据.misplaced_objects系统帐户下的对象时间戳，将任何放错位置的
+对象行,批量加载到容器中。这些行,最初写入本地节点上的切换容器(handoff container)，并且在复制传递结束时，.misplaced_objects容器将复制到正确的主节点。</p>
+
+<p>容器协调程序按降序处理.misplaced_objects容器，并在成功协调行所表示的对象时,
+重新收集容器。容器协调程序将始终,使用通过经缓存加速后的直接容器HEAD请求,验证排队对象的正确存储策略。</p>
+
+<p>由于假设，在合计下，各个存储节点的故障在大规模上是常见的，因此容器协调器,将
+以简单的仲裁多数(a simple quorum majority),进行前进。在故障和rebalance的组合
+期间，仲裁(a quorum)可能会提供正确存储策略的不完整记录 - 因此应用对象写入就
+可能必须执行多次。由于存储节点和容器数据库,在重新应用对象写入时不会处理
+X-Timestamp小于或等于其现有记录的写入，因此它们的时间戳会略微增加。为了将此
+增量透明地应用于客户端，已将时间的第二个向量添加到Swift以供内部使用。见 <a href="https://docs.openstack.org/swift/queens/misc.html#swift.common.utils.Timestamp">Timestamp</a>。</p>
+
+<p>由于协调程序将对象写入应用于正确的存储策略，因此它会清除不再适用于不正确的存储策略的写入，并从.misplaced_objects容器中删除行。成功处理完所有行后，它会休眠并定期检查容器复制期间要发现的新排队行。</p>
+
+<h2 id="默认与-policy-0">默认与&rsquo;Policy- 0&rsquo;</h2>
+
+<p>存储策略是一种通用功能，旨在支持具有相同级别灵活性的新群集和预先存在的群集。
+出于这个原因，我们引入了Policy-0, 这个与“default”策略不同的概念。正如您将在我
+们开始配置策略时所看到的，每个策略都有一个名称和任意数量的别名（人性化的，可
+配置的）以及索引（或简单策略编号）。Swift保留索引0以映射到所有安装中存在的对象环（例如，/etc/swift/object.ring.gz）。您可以将此策略命名为您喜欢的任何名称，如果未定义任何策略，则会将其自身报告为Policy-0，但是您无法更改索引，因为必须始终存在索引为0的策略。</p>
+
+<p>另一个重要概念是默认策略，它可以是群集中的任何策略。默认策略是在未指定存储策
+略的情况下发送容器创建请求时自动选择的策略。
+<a href="https://docs.openstack.org/swift/queens/overview%5Fpolicies.html#configure-policy">Configuring Policies</a>介绍了如何设置默认策略。区别Policy-0是微妙的，但非常重要。 Policy-0是Swift在访问预存储策略容器没有策略时使用的 - 在这种情况下，我们不会使用默认值，因为它可能没有与旧容器相同的策略。如果未定义其他策略，Swift将始终选择Policy-0默认值。</p>
+
+<p>换句话说，默认策略意味着“如果没有指定其他内容则使用此策略创建”，并且Policy-0
+策略意味着“如果没有容器策略则使用旧策略”,这实际上意味着使用object.ring.gz去查找。</p>
+
+<p>注意</p>
+
+<p>使用基于存储策略的代码，无法创建没有策略的容器。如果没有提供任何内容，Swift
+仍将选择默认策略并将其分配给容器。对于在引入存储策略之前创建的容器，将使用旧的Policy-0。</p>
+
+<h2 id="弃用策略">弃用策略</h2>
+
+<p>有时候不再需要一种策略; 但是，简单地删除策略和相关的环对于现有数据将是有问题的。为了确保资源不会在群集中孤立（留在磁盘上但不再可访问），并且在需要停用策略时向应用程序提供正确的消息传递，则使用弃用(deprecation)的概念。<a href="https://docs.openstack.org/swift/queens/overview%5Fpolicies.html#configure-policy">Configuring Policies</a>描述了如何弃用策略。</p>
+
+<p>Swift对弃用策略的行为如下：</p>
+
+<ul>
+<li>已弃用的策略不会出现在/info中</li>
+<li>在使用已弃用的策略创建的预先存在的容器上仍允许PUT/GET/DELETE/POST/HEAD</li>
+<li>尝试使用已弃用的策略创建新容器时，客户端将收到“400 Bad Request”错误</li>
+<li>客户端仍然可以通过HEAD访问预先存在的容器上的策略统计信息</li>
+</ul>
+
+<p>注意</p>
+
+<p>策略不能同时是默认策略和弃用策略。如果您弃用默认策略，则必须指定新的默认策略。</p>
+
+<p>您还可以使用已弃用的功能部署新策略。如果想在使得新存储策略普遍可用之前测试新
+存储策略，则可以在最初将新策略推送到所有节点时弃用该策略。被弃用将使其天生
+(render it innate)并且无法使用。要测试它，您需要使用该存储策略创建容器; 这将
+需要单个proxy实例（或一组仅在内部可访问的proxy-server），这些proxy实例已经被
+一次性配置, 这个配置是带有新策略且未标记为已弃用。使用新存储策略创建容器后，
+任何授权使用该容器的客户端都将能够在新存储策略中添加和访问存储在该容器中的数
+据。如果满意，你可以推出一个新的swift.conf,它不再将策略标记为已弃用,到所有节点。</p>
+
+<h2 id="配置策略">配置策略</h2>
+
+<p>注意</p>
+
+<p>有关向 SAIO设置添加策略的分步指南，请参阅 <a href="https://docs.openstack.org/swift/queens/policies%5Fsaio.html">Adding Storage Policies to an Existing SAIO</a>。</p>
+
+<p>部署者必须充分了解配置策略的语义。配置策略分为三个步骤：</p>
+
+<ul>
+<li>编辑/etc/swift/swift.conf文件以定义新策略。</li>
+<li>创建相应的策略对象环文件。</li>
+<li>（可选）创建特定于策略的proxy-server配置设置。</li>
+</ul>
+
+<h3 id="定义策略">定义策略</h3>
+
+<p>每个策略都由/etc/swift/swift.conf文件中的一个section定义。节名称必须是
+[storage-policy:<N>]的格式, 所在<N>是策略索引。除了可读性之外，没有理由将策略索引按顺序排列，但强制执行以下规则：</p>
+
+<ul>
+<li>如果一个策略具有索引0,且索引0且未定义其他策略，则Swift将创建一个使用索引0的默认策略。</li>
+<li>策略索引必须是非负整数。</li>
+<li>策略索引必须是唯一的。</li>
+</ul>
+
+<p>警告</p>
+
+<p>创建和使用策略后，永远不应更改策略索引。更改策略索引可能会导致无法访问数据。</p>
+
+<p>每个策略section包含以下选项：</p>
+
+<ul>
+<li>name = <policy\_name> （必需）
+
+<ul>
+<li>策略的主要名称。</li>
+<li>策略名称不区分大小写。</li>
+<li>策略名称必须仅包含字母，数字或短划线。</li>
+<li>策略名称必须是唯一的。</li>
+<li>策略名称可以更改。</li>
+<li>名称Policy-0只能用于具有索引0的策略。</li>
+</ul></li>
+<li>aliases = <policy\_name>[, <policy\_name>, &hellip;] （可选的）
+
+<ul>
+<li>以逗号分隔的策略备用名称列表。</li>
+<li>默认值是空列表（即没有别名）。</li>
+<li>所有别名必须遵循该name选项的规则。</li>
+<li>别名可以添加到列表中或从列表中删除。</li>
+<li>如果更改主名称，别名可用于保留对旧主名称的支持。</li>
+</ul></li>
+<li>default = [true|false] （可选的）
+
+<ul>
+<li>如果true在客户端未指定策略时将使用此策略。</li>
+<li>默认值为false。</li>
+<li>通过在所需的策略部分中进行设置，可以随时更改默认策略 。default = true</li>
+<li>如果没有将策略声明为缺省策略且未定义其他策略，则将具有索引的策略0设置为缺省策略;</li>
+<li>否则，必须将一个策略声明为default。</li>
+<li>不能将不推荐使用的策略声明为默认值。</li>
+<li>有关详细信息，请参阅默认与&rsquo;Policy-0&rsquo;。</li>
+</ul></li>
+<li>deprecated = [true|false] （可选的）
+
+<ul>
+<li>如果true此时无法使用此策略创建新容器。</li>
+<li>默认值为false。</li>
+<li>可以通过将deprecated选项添加到所需的策略部分来弃用任何策略。但是，不推荐使用已弃用的策略作为默认值。因此，由于必须始终存在默认策略，因此必须始终至少有一个未弃用的策略。</li>
+<li>有关详细信息，请参阅 <a href="https://docs.openstack.org/swift/queens/overview%5Fpolicies.html#deprecate-policy">Deprecating Policies</a>。</li>
+</ul></li>
+<li>policy_type = [replication|erasure_coding] （可选的）
+
+<ul>
+<li>该选项policy_type用于区分不同的策略类型。</li>
+<li>默认值为replication。</li>
+<li>定义EC策略时使用该值erasure_coding。</li>
+</ul></li>
+</ul>
+
+<p>EC策略类型具有其他必需选项。有关详细信息，请参阅 <a href="https://docs.openstack.org/swift/queens/overview%5Ferasure%5Fcode.html#using-ec-policy">Using an Erasure Code Policy</a>。</p>
+
+<p>以下是正确配置的swift.conf文件的示例。有关使用此示例配置而去设置一个all-in-one的完整说明，请参阅 <a href="https://docs.openstack.org/swift/queens/policies%5Fsaio.html">Adding Storage Policies to an Existing SAIO</a>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>swift-hash<span class="o">]</span>
+<span class="c1"># random unique strings that can never change (DO NOT LOSE)
+</span><span class="c1"># Use only printable chars (python -c &#34;import string; print(string.printable)&#34;)
+</span><span class="c1"></span><span class="nv">swift_hash_path_prefix</span> <span class="o">=</span> changeme
+<span class="nv">swift_hash_path_suffix</span> <span class="o">=</span> changeme
+
+<span class="o">[</span>storage-policy:0<span class="o">]</span>
+<span class="nv">name</span> <span class="o">=</span> gold
+<span class="nv">aliases</span> <span class="o">=</span> yellow, orange
+<span class="nv">policy_type</span> <span class="o">=</span> replication
+<span class="nv">default</span> <span class="o">=</span> yes
+
+<span class="o">[</span>storage-policy:1<span class="o">]</span>
+<span class="nv">name</span> <span class="o">=</span> silver
+<span class="nv">policy_type</span> <span class="o">=</span> replication
+<span class="nv">deprecated</span> <span class="o">=</span> yes</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="创建一个环">创建一个环</h3>
+
+<p>一旦swift.conf配置为一个新的策略，必须创建一个新的环。环工具不支持策略名称，
+因此在创建新策略的环文件时使用正确的策略索引至关重要。使用
+swift-ring-builder创建其他对象环，与传统环是相同的方式,除了在构建文件名称的
+单词object后面附加-N，其中N匹配在swift.conf中使用的策略索引。因此，如果是要为索引1策略创建环：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">swift-ring-builder object-1.builder create <span class="m">10</span> <span class="m">3</span> <span class="m">1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>在swift-ring-builder用于添加设备，rebalance等操作时，继续使用相同的命名约定。
+此命名约定也用于pre-policy 存储节点数据字典的模式。</p>
+
+<p>注意</p>
+
+<p>确实可以将相同的驱动器用于多个策略，并且将在后面的部分中介绍如何在磁盘上管理它的详细信息，在设置之前了解此类配置的含义非常重要。确保它真的是你想要做的，在许多情况下它会是，但在其他情况下可能不是。</p>
+
+<h3 id="proxy-server-配置-可选">Proxy server 配置（可选）</h3>
+
+<p>与读取和写入关联相关的 <a href="https://docs.openstack.org/swift/queens/proxy.html#proxy-server">Proxy Server</a>配置选项，可以用单个存储策略来选择性覆盖。
+有关详细信息，请参阅 <a href="https://docs.openstack.org/swift/queens/deployment%5Fguide.html#proxy-server-per-policy-config">Per policy configuration</a>。</p>

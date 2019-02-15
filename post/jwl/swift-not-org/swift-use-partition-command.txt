@@ -1,0 +1,69 @@
+
+## create
+swift-ring-builder object.builder create 10 3 1
+swift-ring-builder container.builder create 10 3 1
+swift-ring-builder account.builder create 10 3 1
+
+## remove 
+swift-ring-builder object.builder
+swift-ring-builder object.builder remove --id=4 
+swift-ring-builder container.builder
+swift-ring-builder container.builder  remove --id=3
+swift-ring-builder account.builder 
+swift-ring-builder account.builder remove --id=0 
+
+## check
+swift-ring-builder object.builder
+swift-ring-builder container.builder
+swift-ring-builder account.builder 
+
+## add 
+swift-ring-builder object.builder add   --region 1 --zone 1 --ip 192.168.100.107 --port 6200 --device sdc --weight 100
+swift-ring-builder container.builder add   --region 1 --zone 1 --ip 192.168.100.107 --port 6201 --device sdc --weight 100
+swift-ring-builder account.builder   add --region 1 --zone 1 --ip 192.168.100.107 --port 6202   --device sdc --weight 100
+
+## check
+swift-ring-builder object.builder
+swift-ring-builder container.builder
+swift-ring-builder account.builder 
+
+## rebalance
+swift-ring-builder object.builder rebalance
+swift-ring-builder account.builder rebalance
+swift-ring-builder container.builder rebalance
+
+## check
+swift-ring-builder object.builder
+swift-ring-builder container.builder
+swift-ring-builder account.builder 
+
+## scp 
+scp *.ring.gz swift.conf ubuntu@192.168.100.106:/tmp/
+
+### cp 
+
+cp *.ring.gz /tmp/107sdc/
+
+### on the storage node, scp
+scp ubuntu@192.168.100.50:/tmp/107sdc/object.ring.gz .
+scp ubuntu@192.168.100.50:/tmp/107sdc/container.ring.gz .                                                             100%  285     0.3KB/s   00:00    
+scp ubuntu@192.168.100.50:/tmp/107sdc/account.ring.gz .
+chown -R root:swift /etc/swift
+
+## On the controller node 
+service memcached restart
+service swift-proxy restart
+service memcached status
+service swift-proxy status
+
+## On the storage nodes, start the Object Storage services:
+swift-init all start
+
+## upload
+http://192.168.100.50/horizon/project/containers/container/test3
+
+## check
+du -sh /srv/node/sd*/
+
+
+

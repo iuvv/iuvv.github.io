@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Software on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/software/</link>
+    <description>Recent content in Software on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 13 Feb 2018 21:14:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Software Architect</title>
+      <link>https://b.qqbb.app/post/software-architect/</link>
+      <pubDate>Tue, 13 Feb 2018 21:14:59 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/software-architect/</guid>
+      <description>c4model</description>
+    </item>
+    
+  </channel>
+</rss>

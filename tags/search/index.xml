@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Search on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/search/</link>
+    <description>Recent content in Search on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 15 Nov 2018 11:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/search/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spacemacs Rocks Day 5, Find, Search and replace</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-5-notes/</link>
+      <pubDate>Thu, 15 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-5-notes/</guid>
+      <description>Evil search Use / and * to start search. Use n &amp;amp; N to search forward and backward 进入 iedit 批量修改 * e 修改的时候，按S则删除原单词，修改完成后，按ESC，2次，退出iedit模式回到Nor</description>
+    </item>
+    
+  </channel>
+</rss>

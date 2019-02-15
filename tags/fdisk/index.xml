@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Fdisk on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/fdisk/</link>
+    <description>Recent content in Fdisk on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/fdisk/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在vmware workstation pro 中给ubuntu增加新分区</title>
+      <link>https://b.qqbb.app/post/ubuntu-vmware-workstation-pro-new-partition/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-vmware-workstation-pro-new-partition/</guid>
+      <description>env 在 vmware workstation pro 中安装的ubuntu server已经把20G的硬盘已经按默认的方式分区，且已经是把20G硬盘全占用。 此时，如果用 fdisk /dev/sda 然后 n 来新建分</description>
+    </item>
+    
+  </channel>
+</rss>

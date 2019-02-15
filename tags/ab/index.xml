@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ab on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/ab/</link>
+    <description>Recent content in Ab on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 01 Mar 2018 17:30:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/ab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux Install Ab Httpd Tools</title>
+      <link>https://b.qqbb.app/post/linux-install-ab-httpd-tools/</link>
+      <pubDate>Thu, 01 Mar 2018 17:30:25 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/linux-install-ab-httpd-tools/</guid>
+      <description>env 长城证券 压力测试 要安装 ab step 离线安装 下载 httpd-tools libapr-1.so.0 libaprutil-1.so.0 安装 1 2 rpm -ivh *.rpm which ab</description>
+    </item>
+    
+  </channel>
+</rss>

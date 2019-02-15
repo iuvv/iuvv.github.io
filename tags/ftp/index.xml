@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ftp on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/ftp/</link>
+    <description>Recent content in Ftp on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 30 May 2018 09:59:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/ftp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vsftp Add User</title>
+      <link>https://b.qqbb.app/post/vsftp-add-user/</link>
+      <pubDate>Wed, 30 May 2018 09:59:54 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/vsftp-add-user/</guid>
+      <description>env os: centos6.9 ftp: vsftpd ip: 10.88.88.22 step 加用户 加用户，为安全，禁止用户登录 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 [root@bitspace vsftpd]# useradd liuchao [root@bitspace vsftpd]# passwd liuchao Changing password for user liuchao. New password: [root@bitspace vsftpd]# passwd liuchao Changing password for user liuchao. New password: BAD PASSWORD:</description>
+    </item>
+    
+    <item>
+      <title>Ftp Cannot Chrome File Access</title>
+      <link>https://b.qqbb.app/post/ftp-cannot-chrome-file-access/</link>
+      <pubDate>Tue, 29 May 2018 15:11:41 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ftp-cannot-chrome-file-access/</guid>
+      <description>为何客户端软件可以而浏览器则不能连接FTP服务器 env centos6.9 ftp: vsftpd step 这里主要的点就是理解主动模式与被动模式。 主动模式对服务器端有利，被动模式对客户端有</description>
+    </item>
+    
+    <item>
+      <title>Centos6 Install Ftp</title>
+      <link>https://b.qqbb.app/post/centos6-install-ftp/</link>
+      <pubDate>Tue, 29 May 2018 10:39:09 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos6-install-ftp/</guid>
+      <description>CentOS6上ftp服务器搭建实战 env centos6.9 IP: 10.88.88.22 IP: 172.16.55.6 step 1.安装程序包 1 2 [root@node1 ~]$ yum install -y vsftpd [root@node1 ~]$ yum install -y lftp # 安装测试软件 2.启动vsftpd服务 1 2 3 4 5</description>
+    </item>
+    
+  </channel>
+</rss>

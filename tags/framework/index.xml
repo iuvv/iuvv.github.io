@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Framework on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/framework/</link>
+    <description>Recent content in Framework on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 29 Nov 2018 12:02:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>web框架</title>
+      <link>https://b.qqbb.app/post/web-framework-benchmarks/</link>
+      <pubDate>Thu, 29 Nov 2018 12:02:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/web-framework-benchmarks/</guid>
+      <description>一个超级好的 Web Framewosrk Benchmarks http://www.techempower.com/whatwedo.html http://www.techempower.com/benchmarks/ http://www.techempower.com/benchmarks/#section=data-r14&amp;amp;hw=ph&amp;amp;test=update 这里面才是真正的压力测试结果。里面可以看到 市面上 最全的: web 架构方案， 数据库， 程序语言language， 的表现。</description>
+    </item>
+    
+  </channel>
+</rss>

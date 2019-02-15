@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Domain on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/domain/</link>
+    <description>Recent content in Domain on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 07 Oct 2018 18:59:16 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/domain/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog Change Cname</title>
+      <link>https://b.qqbb.app/post/blog/blog-change-cname/</link>
+      <pubDate>Sun, 07 Oct 2018 18:59:16 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blog/blog-change-cname/</guid>
+      <description>如果你想把网站的域名从A转成B,则你需要像下面这样做。 Env A: blog.finsoft.info B: b.qqbb.app Step CNAME 1 grep &amp;#34;blog.finsoft.info&amp;#34; -rl ./CNAME | xargs sed -i &amp;#34;s/blog.finsoft.info/b.qqbb.app/g&amp;#34; content 在 ./themes/beautifulhugo/layouts/partials/head_custom.html 中修改百度统计的代码。 baidu-tongji 在 ./themes/beautifulhugo/layouts/partials/head_custom.html 中修改百度统计的代</description>
+    </item>
+    
+  </channel>
+</rss>

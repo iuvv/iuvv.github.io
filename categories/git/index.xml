@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/git/</link>
+    <description>Recent content in Git on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 28 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>git中submodule子模块的添加、使用和删除</title>
+      <link>https://b.qqbb.app/post/git-submodules-add-usage-delete/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/git-submodules-add-usage-delete/</guid>
+      <description>背景 项目中经常使用别人维护的模块，在git中使用子模块的功能能够大大提高开发效率。 使用子模块后，不必负责子模块的维护，只需要在必要的时候同步</description>
+    </item>
+    
+    <item>
+      <title>配置公私钥别名</title>
+      <link>https://b.qqbb.app/post/git-multi-ssh-keys/</link>
+      <pubDate>Tue, 13 Nov 2018 22:10:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/git-multi-ssh-keys/</guid>
+      <description>配置公私钥别名 私钥权限不是600 1 2 3 4 5 6 7 8 ➜ tom-finsoftinfo git:(master) ✗ ssh-add id_rsa_finsoftinfo @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ @ WARNING: UNPROTECTED PRIVATE KEY FILE! @ @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ Permissions 0644 for &amp;#39;id_rsa_finsoftinfo&amp;#39; are too open. It is required that your private key files are NOT accessible by others. This private key will be ignored. ➜ tom-finsoftinfo git:(master) ✗ 看</description>
+    </item>
+    
+    <item>
+      <title>Git Faq A</title>
+      <link>https://b.qqbb.app/post/git-faq-a/</link>
+      <pubDate>Thu, 14 Jun 2018 11:56:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/git-faq-a/</guid>
+      <description>git 报错 Updates were rejected because the tip of your current branch is behind Env 1 2 3 4 5 6 7 8 ➜ public git:(master) git push -u origin master To bitbucket.org:tomtsang/blog_tomtsang_hugo_html.git ! [rejected] master -&amp;gt; master (non-fast-forward) error: failed to push some refs to &amp;#39;git@bitbucket.org:tomtsang/blog_tomtsang_hugo_html.git&amp;#39; hint: Updates were rejected because the tip of your current branch is behind hint: its remote counterpart. Integrate the remote changes (e.g.</description>
+    </item>
+    
+    <item>
+      <title>Gitlab汉化</title>
+      <link>https://b.qqbb.app/post/gitlab-cn/</link>
+      <pubDate>Tue, 17 Apr 2018 09:50:03 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-cn/</guid>
+      <description>对gitlab进行汉化 env IP: 192.168.31.148 OS: ubuntu-14.04.5 gitlab: 10.6.4 step 1 2 3 4 5 6 7 8 9 10 11 12 13 mkdir xhang &amp;amp;&amp;amp; cd xhang git clone https://gitlab.com/xhang/gitlab.git cd gitlab/ git fetch gitlab_version=$(sudo cat /opt/gitlab/embedded/service/gitlab-rails/VERSION) echo ${gitlab_version} git diff v${gitlab_version} v${gitlab_version}-zh &amp;gt; ../${gitlab_version}-zh.diff cd .. sudo gitlab-ctl stop sudo patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 &amp;lt; 10.6.4-zh.diff sudo gitlab-ctl start</description>
+    </item>
+    
+    <item>
+      <title>Git Command</title>
+      <link>https://b.qqbb.app/post/command/git/</link>
+      <pubDate>Fri, 02 Mar 2018 11:41:30 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/command/git/</guid>
+      <description>git reset &amp;ndash;hard commit_id Git允许我们在版本的历史之间穿梭，使用命令 1 git reset --hard commit_id 去除对 已添加的文件或文件夹 的跟踪 1 git rm -r --cached -- .idea/ 这样呢，文件夹里 .idea/ 的修改，git</description>
+    </item>
+    
+    <item>
+      <title>Git From Outside</title>
+      <link>https://b.qqbb.app/post/git-from-outside/</link>
+      <pubDate>Fri, 02 Mar 2018 11:37:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/git-from-outside/</guid>
+      <description>从外部复制一个.git文件，如何使用 问题 有.git 文件 ，直接使用，报错如下： 1 2 fatal: &amp;#39;/srv/OpenX.git&amp;#39; does not appear to be a git repository fatal: Could not read from remote repository. 现在有一个新来的.git文</description>
+    </item>
+    
+  </channel>
+</rss>

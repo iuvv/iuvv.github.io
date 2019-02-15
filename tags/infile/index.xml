@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Infile on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/infile/</link>
+    <description>Recent content in Infile on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 12:15:19 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/infile/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mariadb Cluster Infile Base Centos</title>
+      <link>https://b.qqbb.app/post/mysql/mysql-cluster-infile-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 12:15:19 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql/mysql-cluster-infile-base-centos/</guid>
+      <description>mysql-cluster 主要参考 http://mariadb.org/ 环境 centos7-amd64 mariadb10.1（IP:10.10.13.110） + mariadb5.5(IP:192.168.31.240) 步骤 准备2台机器 安装mariadb10.1 参考这里 把 mariadb5.5 的数据，</description>
+    </item>
+    
+  </channel>
+</rss>

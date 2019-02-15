@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Version on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/version/</link>
+    <description>Recent content in Version on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 29 May 2018 10:11:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/version/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos Release</title>
+      <link>https://b.qqbb.app/post/centos-release/</link>
+      <pubDate>Tue, 29 May 2018 10:11:05 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos-release/</guid>
+      <description>前言 记下CentOS 7查看系统版本及查看机器位数x86-64的方法，由于不经常使用Linux，每当使用的时候就是安装软件，安装软件的时候就要</description>
+    </item>
+    
+    <item>
+      <title>Nodejs Version</title>
+      <link>https://b.qqbb.app/post/nodejs-version/</link>
+      <pubDate>Fri, 02 Mar 2018 15:08:46 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/nodejs-version/</guid>
+      <description>nodejs系列之使用n管理nodejs版本 ref http://blog.csdn.net/jiangbo_phd/article/details/51476155 主要点 npm -g XXX :安装的XXX软件，在linux下的目录 /usr/lib/node_modules/ sudo n :切换node版本 n 切换之后的 node 默</description>
+    </item>
+    
+  </channel>
+</rss>

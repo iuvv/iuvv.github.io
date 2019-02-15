@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/blog/</link>
+    <description>Recent content in Blogs on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 12 Jun 2018 00:19:44 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Blog Tom Hugo Init</title>
+      <link>https://b.qqbb.app/blog/blog-tom-hugo-init/</link>
+      <pubDate>Tue, 12 Jun 2018 00:19:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-tom-hugo-init/</guid>
+      <description>在新机器上初始化tomtsang-rootsongjc-hugo项目 Env os: macOS hugo: Step git clone git clone idrsa 因为这里的public涉及多个仓库，所以，这里我就拉</description>
+    </item>
+    
+    <item>
+      <title>Diff Rootsongjc</title>
+      <link>https://b.qqbb.app/blog/diff-rootsongjc/</link>
+      <pubDate>Wed, 04 Apr 2018 16:50:26 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/diff-rootsongjc/</guid>
+      <description>每一次,可以直接把rootsongjc博客中的themes/beautifulhugo直接拷贝过来, 然后修改下面的位置即可. 页脚 注释掉二维码</description>
+    </item>
+    
+    <item>
+      <title>Blog Hexo</title>
+      <link>https://b.qqbb.app/blog/blog-hexo/</link>
+      <pubDate>Fri, 02 Mar 2018 15:28:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-hexo/</guid>
+      <description>hexo创建个人博客 hexo + bitbucket 创建个人博客 此项目内容, 已合并至 hugo + bitbucket 中, 具体见工程 bitbucket 1 2 3 ➜ tomtsang git:(master) ✗ git remote -v originbit git@bitbucket.org:tomtsang/blogs.git (fetch) originbit git@bitbucket.org:tomtsang/blogs.git (push) hexo + github 创建个人博客(已废弃)</description>
+    </item>
+    
+    <item>
+      <title>tom&#39;s blog</title>
+      <link>https://b.qqbb.app/blog/blog-tom/</link>
+      <pubDate>Wed, 31 Jan 2018 12:26:38 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-tom/</guid>
+      <description>我们的网站会用到以下组件 内容管理 Hugo：用于静态html生成和进行内容管理 源码托管 GitHub：用于存储网站代码同时托管网站 gitee：用</description>
+    </item>
+    
+  </channel>
+</rss>

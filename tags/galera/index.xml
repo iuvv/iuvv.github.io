@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Galera on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/galera/</link>
+    <description>Recent content in Galera on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 12:49:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/galera/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mariadb Galera From Docker to Bare</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-from-docker-to-bare/</link>
+      <pubDate>Fri, 02 Mar 2018 12:49:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-from-docker-to-bare/</guid>
+      <description>mysql系列之 从 docker+Galera 转到 Galera(去除 docker) context 之前在 docker之docker-mariadb-galera(panubo版) 中成功在 docker 中安</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera Cluster Install Faq Base Centos</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-cluster-install-faq-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 12:44:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-cluster-install-faq-base-centos/</guid>
+      <description>mysql系列之集群 MariaDB-Galera-cluster 报错 报错1, /etc/my.cnf.d/下 有一个 不应该存在的 .cnf 错误原因： mysql 加载了 /etc/my.cnf.d/下的所有 *.cnf</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera Cluster Install Base Centos</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-cluster-install-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 12:43:16 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-cluster-install-base-centos/</guid>
+      <description>mysql系列之集群 MariaDB Galera Cluster 部署 参考 How To Setup MariaDB Galera Cluster 10.0 On CentOS http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/ 安装 过程 MariaDB is a relational database management system (RDBMS) and MariaDB Galera Cluster is a synchronous multi-master cluster for MariaDB. It is available on Linux only, and only supports the XtraDB/InnoDB storage engines. This article explains how to setup MariaDB</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera Panubo2 Base Docker</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-panubo2-base-docker/</link>
+      <pubDate>Fri, 02 Mar 2018 11:26:51 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-panubo2-base-docker/</guid>
+      <description>docker之docker-mariadb-galera(panubo版)(2017-02) ref https://github.com/panubo/docker-mariadb-galera env node0, 10.10.13.110, primary node1, 10.10.15.240 node2, 10.10.12.13(这一台</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera Panubo Base Docker</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-panubo-base-docker/</link>
+      <pubDate>Fri, 02 Mar 2018 10:32:52 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-panubo-base-docker/</guid>
+      <description>docker之docker-mariadb-galera(panubo版) env node0, 10.10.12.17 node1, 10.10.12.18 node2, 10.10.13.10(这一台暂时没用上) step 拉取 (pa</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tour on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/tour/</link>
+    <description>Recent content in Tour on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 21 Nov 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/tour/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>go-tour-zh离线安装(本地安装)</title>
+      <link>https://b.qqbb.app/post/go-tour-zh-local-install/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/go-tour-zh-local-install/</guid>
+      <description>中文文档 最近尝试学习golang，在某个网站（真忘了）上发现gotour是一款灰常叼的教程&amp;amp;指南，之后搜索发现有前辈给出了本地安装离</description>
+    </item>
+    
+  </channel>
+</rss>

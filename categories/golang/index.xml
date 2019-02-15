@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/golang/</link>
+    <description>Recent content in Golang on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 03 Dec 2018 21:33:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>golang channel</title>
+      <link>https://b.qqbb.app/post/golang-channel-learning-a/</link>
+      <pubDate>Mon, 03 Dec 2018 21:33:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/golang-channel-learning-a/</guid>
+      <description>goroutine 首先我们来看线程,在golang里面也叫goroutine 在读这篇文章之前，我们需要了解一下并发与并行。golang的线程是一种并发机制，</description>
+    </item>
+    
+    <item>
+      <title>go-tour-zh离线安装(本地安装)</title>
+      <link>https://b.qqbb.app/post/go-tour-zh-local-install/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/go-tour-zh-local-install/</guid>
+      <description>中文文档 最近尝试学习golang，在某个网站（真忘了）上发现gotour是一款灰常叼的教程&amp;amp;指南，之后搜索发现有前辈给出了本地安装离</description>
+    </item>
+    
+    <item>
+      <title>Golang Gvm</title>
+      <link>https://b.qqbb.app/post/golang-gvm/</link>
+      <pubDate>Sun, 15 Jul 2018 14:09:03 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/golang-gvm/</guid>
+      <description>Go 语言多版本安装及管理利器 - GVM Env golang Step ### 安装指定版本 golang 这里要科学上网 通过 gvm 安装指定 go版本 1 2 ➜ ~ gvm install go1.10 Downloading Go source... 但是这个时候，没有指定你会使用哪</description>
+    </item>
+    
+    <item>
+      <title>Golang Ide Gogland</title>
+      <link>https://b.qqbb.app/post/golang-ide-gogland/</link>
+      <pubDate>Sun, 15 Jul 2018 13:55:25 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/golang-ide-gogland/</guid>
+      <description>Jetbrains 家族利器之 Gogland 简明教程 Env os: mac Step 安装 gvm 参考 Go 语言多版本安装及管理利器 - GVM 并 通过 gvm 安装指定 go版本 安装 goland 略 激活 gogland mac版本 从 GoLand注册码 找</description>
+    </item>
+    
+    <item>
+      <title>Golang Import Packages</title>
+      <link>https://b.qqbb.app/post/golang-import-packages/</link>
+      <pubDate>Fri, 09 Feb 2018 22:29:31 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/golang-import-packages/</guid>
+      <description>ref https://segmentfault.com/q/1010000010846304 https://my.oschina.net/zlLeaf/blog/174404 step 1 2 3 4 5 6 7 8 9 10 通常情况下，import的包都是相对$GOPATH/src目录引入的，比如从github上面clone下来的项目</description>
+    </item>
+    
+    <item>
+      <title>Golang Install</title>
+      <link>https://b.qqbb.app/post/golang-install/</link>
+      <pubDate>Mon, 05 Feb 2018 23:34:58 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/golang-install/</guid>
+      <description>mac Golang在Mac OS上的环境配置 LiteIDE下载,这个网址,好像现在打不开 调试 mac安装gdb 1 2 brew tap homebrew/dupes brew install gdb delve 参考了 Installing Go, Gocode, GDB and LiteIDE</description>
+    </item>
+    
+    <item>
+      <title>Go Learn</title>
+      <link>https://b.qqbb.app/post/learn/golang/</link>
+      <pubDate>Mon, 05 Feb 2018 14:25:08 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/learn/golang/</guid>
+      <description>资料导航 http://www.geeker8.com/go/41 菜鸟教程 已完成 优 比较易读 缺点 没介绍 通道，go协程，等并发概念和原理 Go语言第一课 代码 已完成 优 比较易读 有代码测试 Go简易教程 代码 学习</description>
+    </item>
+    
+  </channel>
+</rss>

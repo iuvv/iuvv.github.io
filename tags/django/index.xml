@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Django on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/django/</link>
+    <description>Recent content in Django on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 24 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/django/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>django-oscar(笔记)</title>
+      <link>https://b.qqbb.app/post/note-about-django-oscar/</link>
+      <pubDate>Thu, 24 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-django-oscar/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44  (oscar) ➜ django-oscar git:(master) make sandbox pip install -r requirements.txt Collecting Werkzeug==0.14.1 (from -r requirements.txt (line 4)) Downloading https://files.pythonhosted.org/packages/20/c4/12e3e56473e52375aa29c4764e70d1b8f3efa6682bef8d0aae04fe335243/Werkzeug-0.14.1-py2.py3-none-any.whl (322kB) 100% |████████████████████████████████| 327kB 8.8MB/s Collecting django-debug-toolbar==1.</description>
+    </item>
+    
+    <item>
+      <title>using-django中的queries</title>
+      <link>https://b.qqbb.app/post/djangoprojectcom-using-django-queries/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/djangoprojectcom-using-django-queries/</guid>
+      <description>本文是对 https://docs.djangoproject.com/zh-hans/2.1/topics/db/queries/ 这一小节的说明</description>
+    </item>
+    
+  </channel>
+</rss>

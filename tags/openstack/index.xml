@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openstack on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/openstack/</link>
+    <description>Recent content in Openstack on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 18 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/openstack/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>swift with overview-erasure-code</title>
+      <link>https://b.qqbb.app/post/analysis-openstack-swift-overview_erasure_code/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/analysis-openstack-swift-overview_erasure_code/</guid>
+      <description>本文记录一下，关于 swift 与 erasure-code 相关的内容。 关于 erasure code 可以优先看一下 https://blog.csdn.net/chdhust/article/details/78311494 Ref https://docs.openstack.org/swift/queens/overview%5Ferasure%5Fcode.html</description>
+    </item>
+    
+    <item>
+      <title>swift 安装过程（queen）</title>
+      <link>https://b.qqbb.app/post/swift-queens-install/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/swift-queens-install/</guid>
+      <description>主要记录一下根据官方文档安装过程中遇到的一些小的问题。 env os: 均为 ubuntu server 16.04 controller node: 192.168.100.50 网络适配器 3 个： VMnet0 VMnet1 VMnet8(NAT) storage node: 192.168.100.105 192.168.100.106 192.168.100.107 各节点网络适配器相同，2个： VMnet0 VMnet1 注</description>
+    </item>
+    
+    <item>
+      <title>jd.com从openstack转到kubernetes</title>
+      <link>https://b.qqbb.app/post/jd-kubernetes-openstack/</link>
+      <pubDate>Thu, 29 Nov 2018 12:17:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jd-kubernetes-openstack/</guid>
+      <description>http://www.infoq.com/cn/news/2017/03/jd-kubernetes-openstack
+http://blog.kubernetes.io/2017/02/inside-jd-com-shift-to-kubernetes-from-openstack.html</description>
+    </item>
+    
+    <item>
+      <title>SWIFt 通过 keystone 认证，并实现调用swift接口</title>
+      <link>https://b.qqbb.app/post/analysis-openstack-swift-keystone-authentication/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/analysis-openstack-swift-keystone-authentication/</guid>
+      <description>总体 安装 keystone 认证 调用swift接口 向keystone发送请求。得到X-Auth-Token 带X-Auth-Token向swift服务发出请求 env</description>
+    </item>
+    
+    <item>
+      <title>swift storage node 出现 xfs 错误</title>
+      <link>https://b.qqbb.app/post/swift-problem-with-xfs-file-system/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/swift-problem-with-xfs-file-system/</guid>
+      <description>env 在安装 swift storage node 过程中，把storage node关机，再开机时，开机登陆页面，出现如下的错误： 错误中，主要是包含 &amp;ldquo;XFS(sdb): Internal error xfs_trans_cancel&amp;rdquo;, &amp;ldquo;XFS(sdb): Corruption of in -memory data detected&amp;rdquo; 等字样，</description>
+    </item>
+    
+  </channel>
+</rss>

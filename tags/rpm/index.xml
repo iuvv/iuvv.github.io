@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rpm on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/rpm/</link>
+    <description>Recent content in Rpm on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 17:29:20 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/rpm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gcc Rpm Install Offline</title>
+      <link>https://b.qqbb.app/post/gcc-rpm-install-offline/</link>
+      <pubDate>Fri, 02 Mar 2018 17:29:20 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gcc-rpm-install-offline/</guid>
+      <description>gcc rpm 安装包下载 安装gcc, 下载 1 2 3 4 5 6 7 8 9 10 [root@localhost jlch]# rpm -ivh gcc-4.8.5-16.el7_4.1.x86_64.rpm warning: gcc-4.8.5-16.el7_4.1.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY error: Failed dependencies: cpp = 4.8.5-16.el7_4.1 is needed by gcc-4.8.5-16.el7_4.1.x86_64 glibc-devel &amp;gt;= 2.2.90-12 is needed by gcc-4.8.5-16.el7_4.1.x86_64 libgcc &amp;gt;= 4.8.5-16.el7_4.1 is needed by gcc-4.8.5-16.el7_4.1.x86_64 libgomp = 4.8.5-16.el7_4.1 is needed by</description>
+    </item>
+    
+  </channel>
+</rss>

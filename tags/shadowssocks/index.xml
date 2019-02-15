@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shadowssocks on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/shadowssocks/</link>
+    <description>Recent content in Shadowssocks on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 11 Jun 2018 20:34:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/shadowssocks/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Network Proxy Shadowsocks Server</title>
+      <link>https://b.qqbb.app/post/network-proxy-shadowsocks-server/</link>
+      <pubDate>Mon, 11 Jun 2018 20:34:39 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/network-proxy-shadowsocks-server/</guid>
+      <description>Env cloud: aws os: ubuntu16 ip: 美国IP Ref 直接看下面文章就可以了 - https://github.com/flyzy2005/ss-fly - https://www.flyzy2005.com/fan-qiang/shadowsocks/install-shadowsocks-in-one-command/#shadowsocks Step 1 2 3 git clone https://github.com/Flyzy2005/ss-fly ss-fly/ss-fly.sh -i password 1024 ping www.youtube.com 1 2 3 4 修改配置文件：vim /etc/shadowsocks.json 停止ss服务：ssserver -c</description>
+    </item>
+    
+  </channel>
+</rss>

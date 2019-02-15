@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Zsh on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/zsh/</link>
+    <description>Recent content in Zsh on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 22 Dec 2018 09:44:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/zsh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>eshell 中 没有完全加载 .zshrc 中的配置</title>
+      <link>https://b.qqbb.app/post/eshell-zshrc-cannot-ok/</link>
+      <pubDate>Sat, 22 Dec 2018 09:44:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/eshell-zshrc-cannot-ok/</guid>
+      <description>Env 下面是终端上 zsh 的输出： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ➜ ~ cat /etc/shells # List of acceptable shells for chpass(1). # Ftpd will not allow users to connect who are not using # one of these shells. /bin/bash /bin/csh /bin/ksh /bin/sh /bin/tcsh /bin/zsh ➜ ~ echo $SHELL /bin/zsh ➜ ~ which</description>
+    </item>
+    
+    <item>
+      <title>Mac Iterm2 Ohmyzsh Install</title>
+      <link>https://b.qqbb.app/post/mac-iterm2-ohmyzsh-install/</link>
+      <pubDate>Tue, 12 Jun 2018 11:48:11 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-iterm2-ohmyzsh-install/</guid>
+      <description>Mac下如何安装iTerm2并使用zsh iTerm2 Env os: macOS Step 安装iterm2 安装iterm2只需要下载，解压安装就可以了。 安装zsh 方式1 1 brew install zsh zsh-completions 无</description>
+    </item>
+    
+  </channel>
+</rss>

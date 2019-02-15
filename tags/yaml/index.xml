@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yaml on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/yaml/</link>
+    <description>Recent content in Yaml on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 25 Nov 2018 17:47:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/yaml/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>k8s 中 cephfs 成功的 yaml 文件</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-yaml/</link>
+      <pubDate>Sun, 25 Nov 2018 17:47:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-yaml/</guid>
+      <description>https://github.com/kubernetes-incubator/external-storage/tree/master/ceph/cephfs 对 我们好不容易成功安装的 k8s-cephfs 进行一个记录呀！ 环境 1 2 3 4 5 6 7 k8s-master 192.168.31.120 km master k8s-node1 192.168.31.119 kn1 node1 k8s-node2 192.168.31.118 kn2 node2 cephfs-admin 192.168.31.115 cephfs-monitor 192.168.31.114 cephfs-client 192.168.31.172 git remote 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 jlch@km:~/cephfs$ git remote -v</description>
+    </item>
+    
+  </channel>
+</rss>

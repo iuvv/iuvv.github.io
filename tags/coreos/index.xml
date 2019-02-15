@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coreos on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/coreos/</link>
+    <description>Recent content in Coreos on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 10:36:14 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/coreos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mariadb Galera Base Docker Coreos</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-base-docker-coreos/</link>
+      <pubDate>Fri, 02 Mar 2018 10:36:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-base-docker-coreos/</guid>
+      <description>MariaDB Galera cluster running on CoreOS using the official Docker images env Coreos + any public cloud (Azure, AWS, Google, etc) step 开端口: 1 2 3 4 5 6 sudo firewall-cmd --permanent --add-port=4567/udp; sudo firewall-cmd --permanent --add-port=4567/tcp; sudo firewall-cmd --permanent --add-port=4568/tcp; sudo firewall-cmd --permanent --add-port=4444/tcp; sudo firewall-cmd --permanent --add-port=3306/tcp; sudo firewall-cmd --reload; sudo firewall-cmd --permanent --list-port 检查mysql 是不是起</description>
+    </item>
+    
+  </channel>
+</rss>

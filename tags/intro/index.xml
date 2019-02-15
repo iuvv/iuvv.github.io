@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Intro on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/intro/</link>
+    <description>Recent content in Intro on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 30 Nov 2018 17:34:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/intro/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ceph 安装，基于ubuntu, intro</title>
+      <link>https://b.qqbb.app/post/ceph-install-base-ubuntu-intro/</link>
+      <pubDate>Fri, 30 Nov 2018 17:34:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ceph-install-base-ubuntu-intro/</guid>
+      <description>Contents:
+ README Preflight Storage Cluster Quick Start Block Device Quick Start Filesystem Quick Start Object Storage Quick Start  </description>
+    </item>
+    
+    <item>
+      <title>ceph 安装 intro</title>
+      <link>https://b.qqbb.app/post/ceph-install-intro/</link>
+      <pubDate>Fri, 30 Nov 2018 17:13:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ceph-install-intro/</guid>
+      <description>Contents:
+ install-by-docker install.FAQ install-by-ubuntu/index  </description>
+    </item>
+    
+    <item>
+      <title>ceph intro</title>
+      <link>https://b.qqbb.app/post/ceph-intro/</link>
+      <pubDate>Fri, 30 Nov 2018 09:31:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ceph-intro/</guid>
+      <description>Contents:
+ cephfs/index install  </description>
+    </item>
+    
+    <item>
+      <title>ubuntu intro</title>
+      <link>https://b.qqbb.app/post/ubuntu-intro/</link>
+      <pubDate>Thu, 29 Nov 2018 11:07:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-intro/</guid>
+      <description>Contents:
+ update-kernel/index how-to-install-certificates-for-command-line ubuntu-desktop/index  </description>
+    </item>
+    
+    <item>
+      <title>kubernetes cephfs intro</title>
+      <link>https://b.qqbb.app/post/kubernetes-cephfs-intro/</link>
+      <pubDate>Sun, 25 Nov 2018 17:31:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-cephfs-intro/</guid>
+      <description>REAEME cephfs-stateful cephfs-k8s-make-by-go-get cephfs-k8s-deployment-faq cephfs-k8s-yaml cephfs-k8s-make cephfs-k8s-faq</description>
+    </item>
+    
+    <item>
+      <title>k8s安装系列</title>
+      <link>https://b.qqbb.app/post/kubernetes-install-intro/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-install-intro/</guid>
+      <description>env  kubeadm: v1.8.4 os: ubuntu 16.04  step kubernetes-before-install kubeadm-init-before-v1.8.3 kubeadm-install-ubuntu-v1.8.4 kubeadm-join upgrade-v1.8.3-failure-install-v1.8.3 kubeadm-install-v1.8.3 kubeadm-init-use-local-image kubeadm-build delete-node kubeadm-install-FAQ</description>
+    </item>
+    
+    <item>
+      <title>kubernetes系列</title>
+      <link>https://b.qqbb.app/post/kubernetes/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes/</guid>
+      <description>Contents:
+install/index upgrade/index storage cephfs/index nfs-k8s source</description>
+    </item>
+    
+  </channel>
+</rss>

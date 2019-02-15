@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysqlslap on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/mysqlslap/</link>
+    <description>Recent content in Mysqlslap on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 12:51:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/mysqlslap/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql Mysqlslap</title>
+      <link>https://b.qqbb.app/post/mysql-mysqlslap/</link>
+      <pubDate>Fri, 02 Mar 2018 12:51:05 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-mysqlslap/</guid>
+      <description>mysqlslap模拟并发测试数据库性能 安装：简单，装了mysql就有了 作用：模拟并发测试数据库性能。 reference 参考网址 命令主要参数, 示例与解析 示例</description>
+    </item>
+    
+  </channel>
+</rss>

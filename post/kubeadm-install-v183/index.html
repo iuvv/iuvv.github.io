@@ -1,0 +1,938 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>kubeadm v1.8.3 安装 - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/ env 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node Initializing your master 1 kubeadm init --pod-network-cidr=10.244.0.0/16 如果遇到类似下面错误 1 2 - [preflight] Some fatal errors occurred: :: Port 10250 is in use /etc/kubernetes/manifests is not empty /var/lib/kubelet is not empty 则，参考 https://github.com/kubernetes/kubernetes/issues/37063 运行下面命令： 1 2 kubeadm reset systemctl" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/kubeadm-install-v183/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="kubeadm v1.8.3 安装" />
+<meta property="og:description" content="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/ env 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node Initializing your master 1 kubeadm init --pod-network-cidr=10.244.0.0/16 如果遇到类似下面错误 1 2 - [preflight] Some fatal errors occurred: :: Port 10250 is in use /etc/kubernetes/manifests is not empty /var/lib/kubelet is not empty 则，参考 https://github.com/kubernetes/kubernetes/issues/37063 运行下面命令： 1 2 kubeadm reset systemctl" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/kubeadm-install-v183/" />
+
+
+
+<meta property="article:published_time" content="2018-11-24T09:36:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-11-24T09:46:56&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="kubeadm v1.8.3 安装">
+<meta itemprop="description" content="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/ env 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node Initializing your master 1 kubeadm init --pod-network-cidr=10.244.0.0/16 如果遇到类似下面错误 1 2 - [preflight] Some fatal errors occurred: :: Port 10250 is in use /etc/kubernetes/manifests is not empty /var/lib/kubelet is not empty 则，参考 https://github.com/kubernetes/kubernetes/issues/37063 运行下面命令： 1 2 kubeadm reset systemctl">
+
+
+<meta itemprop="datePublished" content="2018-11-24T09:36:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-24T09:36:00&#43;08:00" />
+<meta itemprop="wordCount" content="1010">
+
+
+
+<meta itemprop="keywords" content="kubernetes,install," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kubeadm v1.8.3 安装"/>
+<meta name="twitter:description" content="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/ env 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node Initializing your master 1 kubeadm init --pod-network-cidr=10.244.0.0/16 如果遇到类似下面错误 1 2 - [preflight] Some fatal errors occurred: :: Port 10250 is in use /etc/kubernetes/manifests is not empty /var/lib/kubelet is not empty 则，参考 https://github.com/kubernetes/kubernetes/issues/37063 运行下面命令： 1 2 kubeadm reset systemctl"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">kubeadm v1.8.3 安装</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-11-24" class="post-time">
+          2018-11-24
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/kubernetes/"> kubernetes </a>
+            
+          </div>
+        <span class="more-meta"> 约 1010 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#initializing-your-master">Initializing your master</a></li>
+<li><a href="#找到所有要配置的-image">找到所有要配置的 image</a>
+<ul>
+<li><a href="#找-etckubernetesmanifests">找 <em>etc/kubernetes/manifests</em></a></li>
+<li><a href="#找源码">找源码</a></li>
+<li><a href="#github-hub.docker.io-配置-image">github hub.docker.io 配置 image</a></li>
+</ul></li>
+<li><a href="#docker-registry-push">docker registry push</a></li>
+<li><a href="#kubeadm-init-use-local-image">kubeadm-init-use-local-image</a></li>
+<li><a href="#kubeadm-init">kubeadm init</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p><a href="https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/">https://kubernetes.io/docs/setup/independent/create-cluster-kubeadm/</a></p>
+
+<h2 id="env">env</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">192.168.31.120 km master
+192.168.31.119 kn1 node
+192.168.31.118 kn2 node</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="initializing-your-master">Initializing your master</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">kubeadm init --pod-network-cidr<span class="o">=</span><span class="m">10</span>.244.0.0/16</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果遇到类似下面错误</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">- <span class="o">[</span>preflight<span class="o">]</span> Some fatal errors occurred: :: Port <span class="m">10250</span> is in use
+/etc/kubernetes/manifests is not empty /var/lib/kubelet is not empty</code></pre></td></tr></table>
+</div>
+</div>
+<p>则，参考 <a href="https://github.com/kubernetes/kubernetes/issues/37063">https://github.com/kubernetes/kubernetes/issues/37063</a>
+运行下面命令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">kubeadm reset
+systemctl start kubelet.service</code></pre></td></tr></table>
+</div>
+</div>
+<p>之后，再次运行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">kubeadm init --pod-network-cidr<span class="o">=</span><span class="m">10</span>.244.0.0/16</code></pre></td></tr></table>
+</div>
+</div>
+<p>被墙了，出不去，我了个去，怎么办？</p>
+
+<p><a href="https://mritd.me/2016/10/29/set-up-kubernetes-cluster-by-kubeadm/#21安装包从哪来">https://mritd.me/2016/10/29/set-up-kubernetes-cluster-by-kubeadm/#21安装包从哪来</a></p>
+
+<p>好吧，那就去 hub.docker.com 中配置吧</p>
+
+<h2 id="找到所有要配置的-image">找到所有要配置的 image</h2>
+
+<h3 id="找-etckubernetesmanifests">找 <em>etc/kubernetes/manifests</em></h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~# <span class="nb">cd</span> /etc/kubernetes/manifests/
+root@km:/etc/kubernetes/manifests# ls
+etcd.yaml  kube-apiserver.yaml  kube-controller-manager.yaml  kube-scheduler.yaml
+root@km:/etc/kubernetes/manifests#
+root@km:/etc/kubernetes/manifests# cat *.yaml <span class="p">|</span> grep image
+image: gcr.io/google_containers/etcd-amd64:3.0.17
+image: gcr.io/google_containers/kube-apiserver-amd64:v1.8.3
+image: gcr.io/google_containers/kube-controller-manager-amd64:v1.8.3
+image: gcr.io/google_containers/kube-scheduler-amd64:v1.8.3
+root@km:/etc/kubernetes/manifests#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="找源码">找源码</h3>
+
+<p><a href="https://github.com/kubernetes/kubernetes/tree/master/cmd/kubeadm">https://github.com/kubernetes/kubernetes/tree/master/cmd/kubeadm</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~/kubernetes.20171116/cmd/kubeadm# git clone https://github.com/kubernetes/kubernetes kubernetes.20171116
+root@km:~# <span class="nb">cd</span> kubernetes.20171116
+root@km:~/kubernetes.20171116# <span class="nb">cd</span> cmd/kubeadm/
+root@km:~/kubernetes.20171116/cmd/kubeadm# grep gcr.io -r ./
+./app/apis/kubeadm/v1alpha1/defaults.go:    <span class="nv">DefaultImageRepository</span> <span class="o">=</span> <span class="s2">&#34;gcr.io/google_containers&#34;</span>
+./app/phases/selfhosting/selfhosting_test.go:    image: gcr.io/google_containers/kube-apiserver-amd64:v1.7.4
+./app/phases/selfhosting/selfhosting_test.go:        image: gcr.io/google_containers/kube-apiserver-amd64:v1.7.4
+./app/phases/selfhosting/selfhosting_test.go:    image: gcr.io/google_containers/kube-controller-manager-amd64:v1.7.4
+./app/phases/selfhosting/selfhosting_test.go:        image: gcr.io/google_containers/kube-controller-manager-amd64:v1.7.4
+./app/phases/selfhosting/selfhosting_test.go:    image: gcr.io/google_containers/kube-scheduler-amd64:v1.7.4
+./app/phases/selfhosting/selfhosting_test.go:        image: gcr.io/google_containers/kube-scheduler-amd64:v1.7.4
+./app/phases/selfhosting/selfhosting_test.go:    - image: gcr.io/google_containers/busybox
+./app/phases/selfhosting/selfhosting_test.go:        <span class="s2">&#34;image&#34;</span>: <span class="s2">&#34;gcr.io/google_containers/busybox&#34;</span>
+./app/phases/selfhosting/selfhosting_test.go:  - image: gcr.io/google_containers/busybox
+./app/phases/upgrade/staticpods_test.go:imageRepository: gcr.io/google_containers
+./app/util/template_test.go:    <span class="nv">validTmplOut</span> <span class="o">=</span> <span class="s2">&#34;image: gcr.io/google_containers/pause-amd64:3.0&#34;</span>
+./app/util/template_test.go:    <span class="nv">doNothing</span>    <span class="o">=</span> <span class="s2">&#34;image: gcr.io/google_containers/pause-amd64:3.0&#34;</span>
+./app/util/template_test.go:                ImageRepository: <span class="s2">&#34;gcr.io/google_containers&#34;</span>,
+./app/util/template_test.go:                ImageRepository: <span class="s2">&#34;gcr.io/google_containers&#34;</span>,
+./app/images/images_test.go:    <span class="nv">gcrPrefix</span>   <span class="o">=</span> <span class="s2">&#34;gcr.io/google_containers&#34;</span>
+./app/constants/constants.go:   <span class="nv">DefaultCIImageRepository</span> <span class="o">=</span> <span class="s2">&#34;gcr.io/kubernetes-ci-images&#34;</span>
+root@km:~/kubernetes.20171116/cmd/kubeadm#</code></pre></td></tr></table>
+</div>
+</div>
+<p>最后，居然什么也没有找到。哎呀。好吧。</p>
+
+<p>回到 <a href="https://gitee.com/tomt/tom%5Fdocker%5Fregistry%5Fpush%5Fpull.git">https://gitee.com/tomt/tom%5Fdocker%5Fregistry%5Fpush%5Fpull.git</a>
+，看了一下，也就是这4个需要更新一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">gcr.io/google_containers/kube-apiserver-amd64:v1.8.3
+gcr.io/google_containers/kube-proxy-amd64:v1.8.3
+gcr.io/google_containers/kube-scheduler-amd64:v1.8.3
+gcr.io/google_containers/kube-controller-manager-amd64:v1.8.3</code></pre></td></tr></table>
+</div>
+</div>
+<p>好了。明确了image, 那就做吧。</p>
+
+<h3 id="github-hub.docker.io-配置-image">github hub.docker.io 配置 image</h3>
+
+<p>注意，在 hub.docker.io 下，自动构建仓库，时，取 github的仓库，对这个仓库名称有限制</p>
+
+<ul>
+<li>不能大于3个 “-” 号</li>
+<li>长度不能太长</li>
+</ul>
+
+<p>这样呢，gcr.io/google_containers/kube-controller-manager-amd64:v1.8.3，在
+github上本来要创建名称为 dockerlibraryk8s-kube-controller-manager-amd64 ，那这个不符合要求的。
+怎么办？改个名称咯。 我把它修改成 dockerlibraryk8s-kube-cm-amd64了。
+记得最后，pull 下来的时候，docker tag 一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# ls
+dockerlibraryk8s.sh  k8s-v1.8.3.txt
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# cat dockerlibraryk8s.sh
+<span class="c1">#images=(heapster-influxdb-amd64:v1.3.3 heapster-amd64:v1.4.0 heapster-grafana-amd64:v4.4.3)
+</span><span class="c1">#images=(heapster-grafana-amd64:v4.4.3)
+</span><span class="c1"></span><span class="k">for</span> imageName in <span class="sb">`</span>cat k8s-v1.8.3.txt<span class="sb">`</span><span class="p">;</span> <span class="k">do</span>
+    <span class="nb">echo</span> <span class="nv">$imageName</span>
+    <span class="nb">echo</span> <span class="si">${</span><span class="nv">imageName</span><span class="p">%:*</span><span class="si">}</span>
+    <span class="nb">echo</span> <span class="si">${</span><span class="nv">imageName</span><span class="p">#*:</span><span class="si">}</span>
+    <span class="nv">imageNamelast</span><span class="o">=</span>dockerlibraryk8s-<span class="si">${</span><span class="nv">imageName</span><span class="p">%:*</span><span class="si">}</span>
+    <span class="nb">echo</span> docker pull tomtsang/<span class="nv">$imageNamelast</span>
+    docker pull tomtsang/<span class="nv">$imageNamelast</span>
+    <span class="nb">echo</span> docker tag tomtsang/<span class="nv">$imageNamelast</span> gcr.io/google_containers/<span class="nv">$imageName</span>
+    docker tag tomtsang/<span class="nv">$imageNamelast</span> gcr.io/google_containers/<span class="nv">$imageName</span>
+    <span class="nb">echo</span> docker rmi tomtsang/<span class="nv">$imageNamelast</span>
+    docker rmi tomtsang/<span class="nv">$imageNamelast</span>
+<span class="k">done</span>
+<span class="nb">echo</span> <span class="s2">&#34;game over&#34;</span>
+
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# docker pull tomtsang/dockerlibraryk8s-kube-cm-amd64
+Using default tag: latest
+latest: Pulling from tomtsang/dockerlibraryk8s-kube-cm-amd64
+0ffadd58f2a6: Already exists
+18c5c31a1ebe: Pull <span class="nb">complete</span>
+Digest: sha256:4e738f80a607772c205ca597c1d5874ee50ac40f0a5e88ab85084fd45b684ac0
+Status: Downloaded newer image <span class="k">for</span> tomtsang/dockerlibraryk8s-kube-cm-amd64:latest
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# docker tag tomtsang/dockerlibraryk8s-kube-cm-amd64 gcr.io/google_containers/dockerlibraryk8s-kube-cm-amd64:v1.8.3
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# docker tag gcr.io/google_containers/dockerlibraryk8s-kube-cm-amd64:v1.8.3 gcr.io/google_containers/kube-controller-manager-amd64:v1.8.3
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# docker rmi tomtsang/dockerlibraryk8s-kube-cm-amd64
+Untagged: tomtsang/dockerlibraryk8s-kube-cm-amd64:latest
+Untagged: tomtsang/dockerlibraryk8s-kube-cm-amd64@sha256:4e738f80a607772c205ca597c1d5874ee50ac40f0a5e88ab85084fd45b684ac0
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3#</code></pre></td></tr></table>
+</div>
+</div>
+<p>使用 <a href="http://git.oschina.net/tomt/tom%5Fk8s%5Fkubernetes%5Finstall">http://git.oschina.net/tomt/tom%5Fk8s%5Fkubernetes%5Finstall</a>
+这个仓库吧。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# git remote -v
+origin  http://git.oschina.net/tomt/tom_k8s_kubernetes_install <span class="o">(</span>fetch<span class="o">)</span>
+origin  http://git.oschina.net/tomt/tom_k8s_kubernetes_install <span class="o">(</span>push<span class="o">)</span>
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# ls
+dockerlibraryk8s.sh  k8s-v1.8.3.txt
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# <span class="nb">pwd</span>
+/root/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# ls
+dockerlibraryk8s.sh  k8s-v1.8.3.txt
+root@km:~/tom_k8s_kubernetes_install/k8/docker-library-k8s-v1.8.3# ./dockerlibraryk8s.sh</code></pre></td></tr></table>
+</div>
+</div>
+<p>到现在为止，应该 4 个 image都成功pull 到了 master节点了。</p>
+
+<h2 id="docker-registry-push">docker registry push</h2>
+
+<p>因为我们后面要在 node 节点上使用，所以干脆就直接 push 到 docker registry
+去吧。</p>
+
+<h2 id="kubeadm-init-use-local-image">kubeadm-init-use-local-image</h2>
+
+<p>参看 kubeadm-init-use-local-image.rst 文件。</p>
+
+<p>好像没成功</p>
+
+<h2 id="kubeadm-init">kubeadm init</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~# <span class="nb">export</span>
+...
+<span class="nb">declare</span> -x <span class="nv">http_proxy</span><span class="o">=</span><span class="s2">&#34;http://192.168.31.239:8118/&#34;</span>
+<span class="nb">declare</span> -x <span class="nv">https_proxy</span><span class="o">=</span><span class="s2">&#34;http://192.168.31.239:8118/&#34;</span>
+<span class="nb">declare</span> -x <span class="nv">no_proxy</span><span class="o">=</span><span class="s2">&#34;localhost,127.0.0.1,192.168.31.120,10.96.0.10,github.com,ubuntu.com&#34;</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~# kubeadm init --pod-network-cidr<span class="o">=</span><span class="m">10</span>.244.0.0/16 --skip-preflight-checks
+....
+....
+....
+To start using your cluster, you need to run <span class="o">(</span>as a regular user<span class="o">)</span>:
+
+mkdir -p <span class="nv">$HOME</span>/.kube
+sudo cp -i /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/.kube/config
+sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/.kube/config
+
+You should now deploy a pod network to the cluster.
+Run <span class="s2">&#34;kubectl apply -f [podnetwork].yaml&#34;</span> with one of the options listed at:
+http://kubernetes.io/docs/admin/addons/
+
+You can now join any number of machines by running the following on each node
+as root:
+
+kubeadm join --token ce4253.8322cc2590378260 <span class="m">192</span>.168.31.120:6443 --discovery-token-ca-cert-hash sha256:bb0b9ef27e5ffef06776ca10a87ed548cefedc703ddaf904316c87d4a7f3655d</code></pre></td></tr></table>
+</div>
+</div>
+<p>有image, 而不能启动docker container.</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-11-24</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/kubernetes/">kubernetes</a>
+          <a href="https://b.qqbb.app/tags/install/">install</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/kubernetes-cephfs-make/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">cephfs-k8s 中的 make</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/spacemacs-rocks-season-1-day-5-notes/">
+            <span class="next-text nav-default">Spacemacs Rocks Day 5, Find, Search and replace</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

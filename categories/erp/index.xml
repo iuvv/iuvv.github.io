@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Erp on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/erp/</link>
+    <description>Recent content in Erp on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 02 Jul 2018 16:51:41 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/erp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Erp Golang</title>
+      <link>https://b.qqbb.app/post/resource/erp-golang/</link>
+      <pubDate>Mon, 02 Jul 2018 16:51:41 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/resource/erp-golang/</guid>
+      <description>Any ERP system written in Go 非开源 https://www.obs2go.com/ open source https://golanglibs.com/search?q=erp&amp;amp;sort=top 中英文 https://getqor.com/cn https://github.com/qor/qor https://github.com/reechou/erp 中文版 https://github.com/hexiaoyun128/ERP.git https://www.ctolib.com/hexiaoyun128-ERP.html hexya 无中文 http://hexya.io/ 中文版 https://github.com/JoyiSystem/goerp golang-erp https://github.com/odenktools/golang-erp</description>
+    </item>
+    
+    <item>
+      <title>Qor Example Install</title>
+      <link>https://b.qqbb.app/post/qor-example-install/</link>
+      <pubDate>Mon, 02 Jul 2018 16:32:56 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-example-install/</guid>
+      <description>qor-example 安装启动 Env os: ubuntu16 go: 1.10.2 Step 设置 GOPATH 添加 /home/tom/golang/qor为GOPATH 1 2 3 4 5 root@tom-w10vbud16:/home/tom/ztom/bits/pem/aws/aws-account-b/pem# export | grep go declare -x GOPATH=&amp;#34;/home/tom/golang/lib:/home/tom/golang/goc2p:/home/tom/ztom/project/github/ERP/goERP:/home/tom/golang/qor&amp;#34; declare -x GOROOT=&amp;#34;/usr/local/go&amp;#34; declare -x PATH=&amp;#34;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/go/bin:/home/tom/golang/lib/bin&amp;#34; root@tom-w10vbud16:/home/tom/ztom/bits/pem/aws/aws-account-b/pem# 安装 1 2 3 4 5</description>
+    </item>
+    
+  </channel>
+</rss>

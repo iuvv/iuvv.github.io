@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shop on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/shop/</link>
+    <description>Recent content in Shop on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 15 Apr 2018 23:58:27 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/shop/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Saleor</title>
+      <link>https://b.qqbb.app/post/shop/saleor/</link>
+      <pubDate>Sun, 15 Apr 2018 23:58:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/shop/saleor/</guid>
+      <description>关于 saleor 项目 env IP: home, 192.168.31.109 OS: ubuntu, 16.04.03 step FAQ-1 pip install uwsgi==2.0.17时出错: lto1: fatal error: bytecode stream generated with LTO version 6.0 instead of the expected 4.1 见 python-install-uwsgi 一文. FAQ-2 这一小节是一个大大的错误, 可直接</description>
+    </item>
+    
+  </channel>
+</rss>

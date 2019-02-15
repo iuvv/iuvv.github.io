@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Magit on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/magit/</link>
+    <description>Recent content in Magit on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 15 Nov 2018 11:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/magit/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spacemacs Rocks Day 4, Magit workflow</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-4-notes/</link>
+      <pubDate>Thu, 15 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-4-notes/</guid>
+      <description>如果magit状态下，不知道按键，则 SPC g s 后按 ? 号，查看。 Magit init, commit and commit messages SPC g i(magit-init) SPC u S(所有文件加入版本库) 按TAB查看文件的修改 SPC g s(magit-status) s-1 (goto unstaged section)</description>
+    </item>
+    
+  </channel>
+</rss>

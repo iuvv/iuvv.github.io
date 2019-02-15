@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yum on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/yum/</link>
+    <description>Recent content in Yum on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 11:46:46 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/yum/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Centos Yum</title>
+      <link>https://b.qqbb.app/post/centos-yum/</link>
+      <pubDate>Fri, 02 Mar 2018 11:46:46 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos-yum/</guid>
+      <description>centos系列之yum yum安装的软件在哪? linux下如何查看某个软件 是否安装？安装路径在哪? linux下如何查看某个软件 是否安装？安装</description>
+    </item>
+    
+  </channel>
+</rss>

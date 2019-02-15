@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mongodb on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/mongodb/</link>
+    <description>Recent content in Mongodb on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 19 Mar 2018 09:56:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fix Users Vip</title>
+      <link>https://b.qqbb.app/jlch/mongodb/fix-users-vip/</link>
+      <pubDate>Mon, 19 Mar 2018 09:56:39 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/jlch/mongodb/fix-users-vip/</guid>
+      <description>手工修改 VIP 用户数 修改某一天 1 2 testrs:PRIMARY&amp;gt; db.user.update({&amp;#34;vip.level&amp;#34;:0, &amp;#34;registerTime&amp;#34; : /20180317/}, {$set: {&amp;#34;vip&amp;#34; : { &amp;#34;level&amp;#34; : 1, &amp;#34;value&amp;#34; : &amp;#34;会员&amp;#34;, &amp;#34;createTime&amp;#34; : &amp;#34;20180317010101&amp;#34;, &amp;#34;endTime&amp;#34; : &amp;#34;20180417235959&amp;#34; }}}, { multi: 1}) WriteResult({ &amp;#34;nMatched&amp;#34; : 8, &amp;#34;nUpserted&amp;#34; : 0, &amp;#34;nModified&amp;#34; : 8 }) 修改小于某个指</description>
+    </item>
+    
+    <item>
+      <title>Fix 20180309 Singal Day</title>
+      <link>https://b.qqbb.app/jlch/mongodb/fix-20180309-singal-day/</link>
+      <pubDate>Fri, 09 Mar 2018 16:13:51 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/jlch/mongodb/fix-20180309-singal-day/</guid>
+      <description>使用历史行情回放,重新生成短线精灵的信号 env 10.10.13.12/openQuote 下的 Signals_1Min 在 20180309 的信号(2559条)出错了!悲剧! 使用历史行情回放,重新生成短线精灵的信号. 所以现在将</description>
+    </item>
+    
+    <item>
+      <title>Fix 601313 to 601360</title>
+      <link>https://b.qqbb.app/jlch/mongodb/fix-601313-to-601360/</link>
+      <pubDate>Fri, 09 Mar 2018 14:25:50 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/jlch/mongodb/fix-601313-to-601360/</guid>
+      <description>因 601313.SH 要替换成 601360.SH 方法1 update 1 2 3 4 testrs:PRIMARY&amp;gt; db.Signals_Day.update({&amp;#34;TrdDt&amp;#34;:{$lt:20180301}, &amp;#34;ID&amp;#34;:&amp;#34;601313.SH&amp;#34; }, {$set: {&amp;#34;ID&amp;#34;: &amp;#34;601360.SH&amp;#34;}},{multi:true}) WriteResult({ &amp;#34;nMatched&amp;#34; : 234, &amp;#34;nUpserted&amp;#34; : 0, &amp;#34;nModified&amp;#34; : 1368 }) testrs:PRIMARY&amp;gt; db.KLine_Day.update({&amp;#34;TrdDt&amp;#34;:{$lt:20180301}, &amp;#34;ID&amp;#34;:&amp;#34;601313.SH&amp;#34; }, {$set: {&amp;#34;ID&amp;#34;: &amp;#34;601360.SH&amp;#34;}},{multi:true}) WriteResult({ &amp;#34;nMatched&amp;#34; : 1368, &amp;#34;nUpserted&amp;#34; : 0, &amp;#34;nModified&amp;#34; : 1368 }) 方法2, (效果不好)export, 替换</description>
+    </item>
+    
+    <item>
+      <title>Nodejs Mongodb</title>
+      <link>https://b.qqbb.app/post/nodejs-mongodb/</link>
+      <pubDate>Fri, 02 Mar 2018 15:07:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/nodejs-mongodb/</guid>
+      <description>nodejs系列之mongodb 1 var mongodb = require(&amp;#34;mongodb&amp;#34;); 这个 mongodb 包的API文档： http://mongodb.github.io/node-mongodb-native/2.2/api/index.html</description>
+    </item>
+    
+    <item>
+      <title>Mongodb Update</title>
+      <link>https://b.qqbb.app/post/mongodb-update/</link>
+      <pubDate>Fri, 02 Mar 2018 11:52:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mongodb-update/</guid>
+      <description>mongodb系列之update 只要是批量，后头加 {multi: true} 吧。 批量，新增一个k-v db.Signals_Day.update({TrdDt:20161129}, {$set: {&amp;ldquo;Real&amp;rdquo;: true}}, {multi: true}) 1 2 3 4 5 6 7 testrs:PRIMARY&amp;gt; db.Signals_Day.update({TrdDt:20161129}, {$set: {&amp;#34;Real&amp;#34;: true}}, {multi: true}) WriteResult({ &amp;#34;nMatched&amp;#34; : 8935, &amp;#34;nUpserted&amp;#34; : 0, &amp;#34;nModified&amp;#34; : 8933 })</description>
+    </item>
+    
+    <item>
+      <title>Mongodb Distinct</title>
+      <link>https://b.qqbb.app/post/mongodb-distinct/</link>
+      <pubDate>Fri, 02 Mar 2018 11:51:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mongodb-distinct/</guid>
+      <description>mongodb系列之distinct reference https://docs.mongodb.com/manual/reference/method/db.collection.distinct/ http://www.jb51.net/article/65929.htm destinct MongoDB的destinct命令是获取特定字段中不同值列表。该命令适用于普通字段，数组字段和</description>
+    </item>
+    
+    <item>
+      <title>Mongodb Findoneandupdate</title>
+      <link>https://b.qqbb.app/post/mongodb-findoneandupdate/</link>
+      <pubDate>Fri, 02 Mar 2018 11:50:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mongodb-findoneandupdate/</guid>
+      <description>mongodb系列之findOneAndUpdate 参考 http://mongodb.github.io/node-mongodb-native/2.2/api/Collection.html#findOneAndUpdate https://docs.mongodb.com/manual/reference/method/db.collection.findOneAndUpdate/ 示例 修改键（字段）的值,修改了{b:2} 1 2 3 4 5 6 7 8 9 10 11 12 13 14 var MongoClient = require(&amp;#39;mongodb&amp;#39;).MongoClient; MongoClient.connect(&amp;#39;mongodb://192.168.31.240:27017/test&amp;#39;, function(err,</description>
+    </item>
+    
+    <item>
+      <title>Mongodb Replace</title>
+      <link>https://b.qqbb.app/post/mongodb-replace/</link>
+      <pubDate>Wed, 28 Feb 2018 17:37:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mongodb-replace/</guid>
+      <description>env jlch 20180228, 江南嘉捷601313 变更为 三六零601360 step 1 2 3 4 5 6 7 8 9 10 11 12 13 14 testrs:PRIMARY&amp;gt; db.self_stock.find({&amp;#34;groups._sort&amp;#34;:/601313.SH/}) { &amp;#34;_id&amp;#34; : &amp;#34;oxKP9t4ipFn59N9tmGQjW1IB0d9M&amp;#34;, &amp;#34;groups&amp;#34; : [ { &amp;#34;_name&amp;#34; : &amp;#34;default0&amp;#34;, &amp;#34;_alias&amp;#34; : &amp;#34;default0&amp;#34;, &amp;#34;_sort&amp;#34; : &amp;#34;600696.SH|601313.SH|000023.SZ|002416.SZ|002180.SZ|002715.SZ|300104.SZ|002070.SZ|002455.SZ|399001.SZ|000001.SH|399006.SZ&amp;#34;, &amp;#34;_stocks&amp;#34; : [ &amp;#34;002416.SZ&amp;#34;, &amp;#34;002180.SZ&amp;#34;, &amp;#34;002715.SZ&amp;#34;, &amp;#34;300104.SZ&amp;#34;, &amp;#34;002070.SZ&amp;#34;, &amp;#34;002455.SZ&amp;#34;, &amp;#34;399001.SZ&amp;#34;, &amp;#34;000001.SH&amp;#34;,</description>
+    </item>
+    
+    <item>
+      <title>Mongodb Output Import</title>
+      <link>https://b.qqbb.app/post/mongodb-output-import/</link>
+      <pubDate>Tue, 06 Feb 2018 11:12:03 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mongodb-output-import/</guid>
+      <description>env 从 192.168.31.42/abc/Signals_1Min 转移mongodb数据 到 192.168.31.240/openQuote/Signals_1Min ref MongoDB导入导出以及数据库备份 step mongoexport 导出 准备导出字段 1 2 3 4 5 6 7 8 9 10 11 [jlch@check 42]$ cat field_Signals_1Min.txt _id Type Sign ID TrdDt TrdTm PrevClsPx LastPx TM Vol[jlch@check</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="当一个文件上传后，存储文件的结果现象分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&amp;frasl;192.168.0.50 代理节点 object1 192.168.100.105 存" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-object-storage-result-analysis/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="当一个文件上传后，存储文件的结果现象分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&frasl;192.168.0.50 代理节点 object1 192.168.100.105 存" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-object-storage-result-analysis/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="当一个文件上传后，存储文件的结果现象分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&frasl;192.168.0.50 代理节点 object1 192.168.100.105 存">
+
+
+
+<meta itemprop="wordCount" content="1485">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="当一个文件上传后，存储文件的结果现象分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&frasl;192.168.0.50 代理节点 object1 192.168.100.105 存"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        <span class="more-meta"> 约 1485 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#step">step</a>
+<ul>
+<li><a href="#理论">理论</a></li>
+<li><a href="#观察现场">观察现场</a></li>
+<li><a href="#upload">upload</a></li>
+<li><a href="#ring-会产生-partition">ring 会产生 partition</a></li>
+<li><a href="#观察现场-1">观察现场</a></li>
+<li><a href="#partition目录-119">partition目录 - 119</a>
+<ul>
+<li><a href="#hashes-pkl">hashes.pkl</a></li>
+<li><a href="#hashes-invalid">hashes.invalid</a></li>
+</ul></li>
+<li><a href="#suffix-path目录-611">suffix_path目录 - 611</a></li>
+<li><a href="#object的hash-path目录-1df3d15f3a9a2b788e373576bcf97611">object的hash_path目录 - 1df3d15f3a9a2b788e373576bcf97611</a>
+<ul>
+<li><a href="#object的数据-object-a-txt">object的数据 - object-a.txt</a></li>
+<li><a href="#object的元数据">object的元数据</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ref">ref</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>当一个文件上传后，存储文件的结果现象分析</p>
+
+<h2 id="env">env</h2>
+
+<ul>
+<li>系统：Ubuntu Server 16.04×64</li>
+<li>存储设置：4T</li>
+<li>架构部署:</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th align="center">IP</th>
+<th align="right">作用</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>keystone</td>
+<td align="center">192.168.100.50</td>
+<td align="right">keystone node</td>
+</tr>
+
+<tr>
+<td>Proxy</td>
+<td align="center">192.168.100.<sup>50</sup>&frasl;<sub>192</sub>.168.0.50</td>
+<td align="right">代理节点</td>
+</tr>
+
+<tr>
+<td>object1</td>
+<td align="center">192.168.100.105</td>
+<td align="right">存储节点1(zone1)</td>
+</tr>
+
+<tr>
+<td>object2</td>
+<td align="center">192.168.100.106</td>
+<td align="right">存储节点2(zone1)</td>
+</tr>
+
+<tr>
+<td>object3</td>
+<td align="center">192.168.100.107</td>
+<td align="right">存储节点3(zone1)</td>
+</tr>
+
+<tr>
+<td>object4</td>
+<td align="center">192.168.100.107</td>
+<td align="right">存储节点4(zone1)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="step">step</h2>
+
+<h3 id="理论">理论</h3>
+
+<p>以对象为例：在objects目录下存放的是各个partition目录，其中每个partition目录是由若干个suffix_path名的目录和一个hashes.pkl文件组成，suffix_path目录下是由object的hash_path名构成的目录，在hash_path目录下存放了关于object的数据和元数据，因此可以以partition目录为单位将整体复制到新分配的节点磁盘。</p>
+
+<h3 id="观察现场">观察现场</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@swift105:/srv/node/sdb# ls
+accounts  async_pending  containers  objects  tmp
+root@swift105:/srv/node/sdb# <span class="nb">cd</span> objects/
+root@swift105:/srv/node/sdb/objects# ls
+<span class="m">0</span>     <span class="m">128</span>  <span class="m">162</span>  <span class="m">185</span>  <span class="m">20</span>   <span class="m">206</span>  <span class="m">24</span>   <span class="m">257</span>  <span class="m">28</span>   <span class="m">313</span>  <span class="m">33</span>   <span class="m">342</span>  <span class="m">360</span>  <span class="m">38</span>   <span class="m">411</span>  <span class="m">453</span>  <span class="m">491</span>  <span class="m">516</span>  <span class="m">53</span>   <span class="m">555</span>  <span class="m">579</span>  <span class="m">586</span>  <span class="m">624</span>  <span class="m">67</span>   <span class="m">760</span>  <span class="m">848</span>  <span class="m">874</span>  <span class="m">90</span>   <span class="m">915</span>  <span class="m">921</span>  <span class="m">97</span>   <span class="m">981</span>  <span class="m">99</span>   <span class="m">999</span>
+<span class="m">1016</span>  <span class="m">130</span>  <span class="m">174</span>  <span class="m">19</span>   <span class="m">200</span>  <span class="m">221</span>  <span class="m">242</span>  <span class="m">264</span>  <span class="m">284</span>  <span class="m">315</span>  <span class="m">330</span>  <span class="m">351</span>  <span class="m">361</span>  <span class="m">392</span>  <span class="m">431</span>  <span class="m">462</span>  <span class="m">492</span>  <span class="m">52</span>   <span class="m">534</span>  <span class="m">562</span>  <span class="m">58</span>   <span class="m">596</span>  <span class="m">636</span>  <span class="m">684</span>  <span class="m">778</span>  <span class="m">868</span>  <span class="m">883</span>  <span class="m">908</span>  <span class="m">92</span>   <span class="m">937</span>  <span class="m">974</span>  <span class="m">987</span>  <span class="m">991</span>  auditor_status_ALL.json
+<span class="m">1022</span>  <span class="m">149</span>  <span class="m">18</span>   <span class="m">193</span>  <span class="m">201</span>  <span class="m">226</span>  <span class="m">253</span>  <span class="m">266</span>  <span class="m">309</span>  <span class="m">32</span>   <span class="m">340</span>  <span class="m">354</span>  <span class="m">379</span>  <span class="m">408</span>  <span class="m">446</span>  <span class="m">49</span>   <span class="m">507</span>  <span class="m">524</span>  <span class="m">542</span>  <span class="m">576</span>  <span class="m">582</span>  <span class="m">614</span>  <span class="m">66</span>   <span class="m">706</span>  <span class="m">782</span>  <span class="m">87</span>   <span class="m">899</span>  <span class="m">911</span>  <span class="m">920</span>  <span class="m">952</span>  <span class="m">977</span>  <span class="m">989</span>  <span class="m">992</span>  auditor_status_ALL.json
+root@swift105:/srv/node/sdb/objects# </code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="upload">upload</h3>
+
+<p>因为现在的文件少，所以，我们寄希望于，我们上传一个新的文件，创建新的 partition ，然后，我们观察一下，这个新的partition中有什么.</p>
+
+<p>通过 chrome: <a href="http://192.168.0.50/horizon/project/containers/container/test4">http://192.168.0.50/horizon/project/containers/container/test4</a> 上传一个 object-a.txt 文件</p>
+
+<p>这个时候，先记录一下，文件的头尾，用于等会比较。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">DELL@DESKTOP-MQ9CENU MINGW64 ~/Downloads
+$ head object-a.txt <span class="o">&amp;&amp;</span> tail object-a.txt
+<span class="o">[</span>DEFAULT<span class="o">]</span>
+<span class="nv">bind_ip</span> <span class="o">=</span> <span class="m">192</span>.168.100.50
+<span class="nv">bind_port</span> <span class="o">=</span> <span class="m">6200</span>
+<span class="c1"># bind_timeout = 30
+</span><span class="c1"># backlog = 4096
+</span><span class="c1"></span><span class="nv">user</span> <span class="o">=</span> swift
+<span class="nv">swift_dir</span> <span class="o">=</span> /etc/swift
+<span class="nv">devices</span> <span class="o">=</span> /srv/node
+<span class="nv">mount_check</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="c1"># disable_fallocate = false
+</span><span class="c1"># dump_timestamp = false
+</span><span class="c1">#
+</span><span class="c1"># This is the path of the URL to access the mini web UI.
+</span><span class="c1"># path = /__profile__
+</span><span class="c1">#
+</span><span class="c1"># Clear the data when the wsgi server shutdown.
+</span><span class="c1"># flush_at_shutdown = false
+</span><span class="c1">#
+</span><span class="c1"># unwind the iterator of applications
+</span><span class="c1"># unwind = false
+</span><span class="c1"></span>
+DELL@DESKTOP-MQ9CENU MINGW64 ~/Downloads
+$</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="ring-会产生-partition">ring 会产生 partition</h3>
+
+<p>如何生成 partition 的呢，请看 <a href="/jwl/openstack-swift-analysis-partition/">这里</a> 或者 <a href="/post/openstack-swift-analysis-partition/">这里</a></p>
+
+<h3 id="观察现场-1">观察现场</h3>
+
+<p>默认配置下，会产生partition，并复制3份，我在 100.105，100.106，100.107-sdb 中都找到了（107-sdc 中没有）。下面我就以 100.105 为例，进去分析：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@swift105:/srv/node/sdb/objects# ls
+<span class="m">0</span>     <span class="m">119</span>  <span class="m">149</span>  <span class="m">18</span>   <span class="m">193</span>  <span class="m">201</span>  <span class="m">226</span>  <span class="m">253</span>  <span class="m">266</span>  <span class="m">309</span>  <span class="m">32</span>   <span class="m">340</span>  <span class="m">354</span>  <span class="m">379</span>  <span class="m">408</span>  <span class="m">446</span>  <span class="m">49</span>   <span class="m">507</span>  <span class="m">524</span>  <span class="m">542</span>  <span class="m">576</span>  <span class="m">582</span>  <span class="m">614</span>  <span class="m">66</span>   <span class="m">706</span>  <span class="m">782</span>  <span class="m">87</span>   <span class="m">899</span>  <span class="m">911</span>  <span class="m">920</span>  <span class="m">952</span>  <span class="m">977</span>  <span class="m">989</span>  <span class="m">992</span>                      auditor_status_ALL.json
+<span class="m">1016</span>  <span class="m">128</span>  <span class="m">162</span>  <span class="m">185</span>  <span class="m">20</span>   <span class="m">206</span>  <span class="m">24</span>   <span class="m">257</span>  <span class="m">28</span>   <span class="m">313</span>  <span class="m">33</span>   <span class="m">342</span>  <span class="m">360</span>  <span class="m">38</span>   <span class="m">411</span>  <span class="m">453</span>  <span class="m">491</span>  <span class="m">516</span>  <span class="m">53</span>   <span class="m">555</span>  <span class="m">579</span>  <span class="m">586</span>  <span class="m">624</span>  <span class="m">67</span>   <span class="m">760</span>  <span class="m">848</span>  <span class="m">874</span>  <span class="m">90</span>   <span class="m">915</span>  <span class="m">921</span>  <span class="m">97</span>   <span class="m">981</span>  <span class="m">99</span>   <span class="m">999</span>
+<span class="m">1022</span>  <span class="m">130</span>  <span class="m">174</span>  <span class="m">19</span>   <span class="m">200</span>  <span class="m">221</span>  <span class="m">242</span>  <span class="m">264</span>  <span class="m">284</span>  <span class="m">315</span>  <span class="m">330</span>  <span class="m">351</span>  <span class="m">361</span>  <span class="m">392</span>  <span class="m">431</span>  <span class="m">462</span>  <span class="m">492</span>  <span class="m">52</span>   <span class="m">534</span>  <span class="m">562</span>  <span class="m">58</span>   <span class="m">596</span>  <span class="m">636</span>  <span class="m">684</span>  <span class="m">778</span>  <span class="m">868</span>  <span class="m">883</span>  <span class="m">908</span>  <span class="m">92</span>   <span class="m">937</span>  <span class="m">974</span>  <span class="m">987</span>  <span class="m">991</span>  auditor_status_ALL.json
+root@swift105:/srv/node/sdb/objects# </code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="partition目录-119">partition目录 - 119</h3>
+
+<p>观察到，多出了一个 119 文件夹，这个 119 就是我们的 object partition了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@swift105:/srv/node/sdb/objects# <span class="nb">cd</span> <span class="m">119</span> <span class="o">&amp;&amp;</span> ls 
+<span class="m">611</span>  hashes.invalid  hashes.pkl
+root@swift105:/srv/node/sdb/objects/119# </code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li>hashes.invalid ： 这个是什么，我不知道，谁能告诉我</li>
+<li>611 : suffix_path名的目录</li>
+<li>hashes.pkl ： a pickled dictionary.</li>
+</ul>
+
+<h4 id="hashes-pkl">hashes.pkl</h4>
+
+<p>The file itself is a pickled dictionary. The dictionary contains a dictionary where the key is a suffix directory name and the value is the MD5 hash of the directory listing for that suffix. In this manner, the daemon can quickly identify differences between local and remote suffix directories on a per partition basis as the scope of any one hashes.pkl file is a partition directory.</p>
+
+<p>具体看  <a href="https://docs.openstack.org/swift/queens/overview_replication.html#hashes-pkl">https://docs.openstack.org/swift/queens/overview_replication.html#hashes-pkl</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@swift105:/srv/node/sdb/objects/119# cp hashes.pkl ~/a.pkl <span class="o">&amp;&amp;</span> <span class="nb">cd</span> <span class="o">&amp;&amp;</span> ls
+a.pkl
+root@swift105:~# python
+Python <span class="m">2</span>.7.12 <span class="o">(</span>default, Nov <span class="m">12</span> <span class="m">2018</span>, <span class="m">14</span>:36:49<span class="o">)</span> 
+<span class="o">[</span>GCC <span class="m">5</span>.4.0 <span class="m">20160609</span><span class="o">]</span> on linux2
+Type <span class="s2">&#34;help&#34;</span>, <span class="s2">&#34;copyright&#34;</span>, <span class="s2">&#34;credits&#34;</span> or <span class="s2">&#34;license&#34;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import cPickle as pickle
+&gt;&gt;&gt; <span class="nv">fr</span> <span class="o">=</span> open<span class="o">(</span><span class="s1">&#39;a.pkl&#39;</span><span class="o">)</span>
+&gt;&gt;&gt; <span class="nv">inf</span> <span class="o">=</span> pickle.load<span class="o">(</span>fr<span class="o">)</span>
+&gt;&gt;&gt; print<span class="o">(</span>inf<span class="o">)</span>
+<span class="o">{</span>u<span class="s1">&#39;611&#39;</span>: <span class="s1">&#39;e1955615281c88159dcc46d12766c6ef&#39;</span><span class="o">}</span>
+&gt;&gt;&gt; fr.close<span class="o">()</span>
+&gt;&gt;&gt; exit<span class="o">()</span>
+root@swift105:~# </code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="hashes-invalid">hashes.invalid</h4>
+
+<p>这个是什么，我不知道，谁知道的？</p>
+
+<h3 id="suffix-path目录-611">suffix_path目录 - 611</h3>
+
+<p>suffix_path目录下是由object的hash_path名构成的目录</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@swift105:/srv/node/sdb/objects/119# <span class="nb">cd</span> <span class="m">611</span>/ <span class="o">&amp;&amp;</span> ls
+1df3d15f3a9a2b788e373576bcf97611
+root@swift105:/srv/node/sdb/objects/119/611# </code></pre></td></tr></table>
+</div>
+</div>
+<p>最后3位是 &lsquo;611&rsquo;</p>
+
+<h3 id="object的hash-path目录-1df3d15f3a9a2b788e373576bcf97611">object的hash_path目录 - 1df3d15f3a9a2b788e373576bcf97611</h3>
+
+<p>在hash_path目录下存放了关于object的数据和元数据</p>
+
+<h4 id="object的数据-object-a-txt">object的数据 - object-a.txt</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@swift105:/srv/node/sdb/objects/119/611# <span class="nb">cd</span> 1df3d15f3a9a2b788e373576bcf97611/ <span class="o">&amp;&amp;</span> ls
+<span class="m">1548756536</span>.41498.data
+root@swift105:/srv/node/sdb/objects/119/611/1df3d15f3a9a2b788e373576bcf97611# </code></pre></td></tr></table>
+</div>
+</div>
+<p>同时，我们可以看一下这个数据的数据内容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@swift105:/srv/node/sdb/objects/119/611/1df3d15f3a9a2b788e373576bcf97611# cp <span class="m">1548756536</span>.41498.data ~/a.txt <span class="o">&amp;&amp;</span> head ~/a.txt <span class="o">&amp;&amp;</span> tail ~/a.txt
+<span class="o">[</span>DEFAULT<span class="o">]</span>
+<span class="nv">bind_ip</span> <span class="o">=</span> <span class="m">192</span>.168.100.50
+<span class="nv">bind_port</span> <span class="o">=</span> <span class="m">6200</span>
+<span class="c1"># bind_timeout = 30
+</span><span class="c1"># backlog = 4096
+</span><span class="c1"></span><span class="nv">user</span> <span class="o">=</span> swift
+<span class="nv">swift_dir</span> <span class="o">=</span> /etc/swift
+<span class="nv">devices</span> <span class="o">=</span> /srv/node
+<span class="nv">mount_check</span> <span class="o">=</span> <span class="nb">true</span>
+<span class="c1"># disable_fallocate = false
+</span><span class="c1"># dump_timestamp = false
+</span><span class="c1">#
+</span><span class="c1"># This is the path of the URL to access the mini web UI.
+</span><span class="c1"># path = /__profile__
+</span><span class="c1">#
+</span><span class="c1"># Clear the data when the wsgi server shutdown.
+</span><span class="c1"># flush_at_shutdown = false
+</span><span class="c1">#
+</span><span class="c1"># unwind the iterator of applications
+</span><span class="c1"># unwind = false
+</span><span class="c1"></span>root@swift105:/srv/node/sdb/objects/119/611/1df3d15f3a9a2b788e373576bcf97611# </code></pre></td></tr></table>
+</div>
+</div>
+<p>与之前的内容比较，知道，就是这个文件，文件内容一样。</p>
+
+<h4 id="object的元数据">object的元数据</h4>
+
+<p>元数据存储在文件系统的扩展属性（xattr）中。</p>
+
+<p>那怎么才能看得到呢？</p>
+
+<h2 id="ref">ref</h2>
+
+<ul>
+<li><a href="https://docs.openstack.org/swift/queens/overview_replication.html#hashes-pkl">https://docs.openstack.org/swift/queens/overview_replication.html#hashes-pkl</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/jwl/swift-not-org/openstack-swift-deployment_guide/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/jwl/swift-not-org/openstack-swift-overview-acl/">
+            <span class="next-text nav-default"></span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

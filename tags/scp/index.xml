@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Scp on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/scp/</link>
+    <description>Recent content in Scp on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/scp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Can scp create a directory if it doesn&#39;t exist?</title>
+      <link>https://b.qqbb.app/post/can-scp-create-a-directory-if-it-doesnt-exist/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/can-scp-create-a-directory-if-it-doesnt-exist/</guid>
+      <description>Can scp create a directory if it doesn&amp;rsquo;t exist?
+As far as I know, scp itself cannot do that, no. However, you could just ssh to the target machine, create the directory and then copy. Something like:
+1 2  ssh user@host &amp;#34;mkdir -p /target/path/&amp;#34; &amp;amp;&amp;amp; scp /path/to/source user@host:/target/path/   Note that if you are copying entire directories, the above is not needed. For example, to copy the directory ~/foo to the remote host, you could use the -r (recursive) flag:</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mac on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/mac/</link>
+    <description>Recent content in Mac on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 30 Jan 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/mac/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>mac 上安装 sshpass</title>
+      <link>https://b.qqbb.app/post/how-to-install-sshpass-on-mac/</link>
+      <pubDate>Wed, 30 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/how-to-install-sshpass-on-mac/</guid>
+      <description> 1  brew install https://raw.githubusercontent.com/kadwanev/bigboybrew/master/Library/Formula/sshpass.rb   Ref  https://stackoverflow.com/questions/32255660/how-to-install-sshpass-on-mac fs  </description>
+    </item>
+    
+    <item>
+      <title>Mac下为什么有的文件名后带一个*星号</title>
+      <link>https://b.qqbb.app/post/mac-file-name-end-with-asterisk/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-file-name-end-with-asterisk/</guid>
+      <description>Mac下为什么有的文件名后带一个*星号？ 这个*号仅仅是ls命令显示的，表示有可执行权限，实际文件名不带*号。 1 $ ls -F 可执行文件名后就会加*号</description>
+    </item>
+    
+    <item>
+      <title>在mac zsh下，ls只显示文件名</title>
+      <link>https://b.qqbb.app/post/mac-zsh-list-file-name-only/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-zsh-list-file-name-only/</guid>
+      <description>ls只显示文件名 1 $ ls -a1</description>
+    </item>
+    
+    <item>
+      <title>mac 系统中文件的软链接、硬链接</title>
+      <link>https://b.qqbb.app/post/mac-hard-links-soft-links/</link>
+      <pubDate>Sat, 01 Dec 2018 11:31:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-hard-links-soft-links/</guid>
+      <description>最近有这么个需求，由于我在多台设备上使用 Surge ，因此我想把 Surge 的配置文件使用 Dropbox 进行同步，但是 Dropbox 的路径在 ~/User/slark/Dropbox/surge.conf 下，而 Surge 的配置文件位于 ~/.surge.c</description>
+    </item>
+    
+    <item>
+      <title>mac tips</title>
+      <link>https://b.qqbb.app/post/mac-tips/</link>
+      <pubDate>Wed, 05 Dec 2018 22:40:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-tips/</guid>
+      <description>卸载软件 为什么在我的mac上面下了腾讯电脑管家就卸载不了了？点击没有小叉叉也不能移到废纸篓. 1 finder－应用程序－右键－移到废纸篓</description>
+    </item>
+    
+    <item>
+      <title>解决Mac下emacs中alt键不能使用问题</title>
+      <link>https://b.qqbb.app/post/emacs-melt-no-use/</link>
+      <pubDate>Sat, 27 Oct 2018 13:16:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/emacs-melt-no-use/</guid>
+      <description>Env os: mac Step iTerm preferences-&amp;gt;Profiles 找到Left option key acts as一栏 选中+Esc选项 Terminal preferences-&amp;gt;Profiles-&amp;gt;keyboard 在使用Option键作为Meta一栏上打钩 Ref https://www.jianshu.com/p/7432c3bfcc99</description>
+    </item>
+    
+    <item>
+      <title>Mac Sed</title>
+      <link>https://b.qqbb.app/post/mac-sed/</link>
+      <pubDate>Mon, 08 Oct 2018 12:08:31 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-sed/</guid>
+      <description>由于Mac OS X自带的sed等命令行工具是基于BSD的，有一些缺陷和不足，比如sed不支持\t来表示TAB Env os: mac 报错如下： 1 2 3 4 5 6 ➜ home git:(master) ✗</description>
+    </item>
+    
+    <item>
+      <title>Privoxy Mac</title>
+      <link>https://b.qqbb.app/post/privoxy-mac/</link>
+      <pubDate>Sun, 15 Jul 2018 14:16:28 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/privoxy-mac/</guid>
+      <description>mac osx 下面通过 privoxy 把shadowsocks 转换成http代理 Env os: mac Step 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 ➜ ~ brew install privoxy ... ... To have launchd start privoxy now and restart at login: brew services start privoxy Or,</description>
+    </item>
+    
+    <item>
+      <title>Mac</title>
+      <link>https://b.qqbb.app/post/resource/mac/</link>
+      <pubDate>Sat, 30 Jun 2018 10:46:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/resource/mac/</guid>
+      <description>Env Step mysql sequelpro Karabiner Elements https://pqrs.org/osx/karabiner/ Karabiner Elements 键位定制神器 https://www.jianshu.com/p/47d5de7f12bc https://github.com/tekezo/Karabiner-Elements https://note.wuze.me/liu-shui/macos-zhi-wai-jie-hhkb-jian-pan-karabiner-elements-pei-zhi ### Manico, 一款快速启动及切换 Mac App 的工具 KeyCastr: 录屏好帮手，实时显示按键操作的小工具 Ref https://zhuanlan.zhihu.com/p/29982257</description>
+    </item>
+    
+    <item>
+      <title>Mac Rar Unrar</title>
+      <link>https://b.qqbb.app/post/mac-rar-unrar/</link>
+      <pubDate>Tue, 12 Jun 2018 17:15:24 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-rar-unrar/</guid>
+      <description>Mac上rar文件命令解压和压缩 Env os: macOS Step rar和unrar命令需要自己安装 可以直接通过brew安装，如果不清楚brew安装命令，可以查看《m</description>
+    </item>
+    
+    <item>
+      <title>Mac Iterm2 Ohmyzsh Install</title>
+      <link>https://b.qqbb.app/post/mac-iterm2-ohmyzsh-install/</link>
+      <pubDate>Tue, 12 Jun 2018 11:48:11 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-iterm2-ohmyzsh-install/</guid>
+      <description>Mac下如何安装iTerm2并使用zsh iTerm2 Env os: macOS Step 安装iterm2 安装iterm2只需要下载，解压安装就可以了。 安装zsh 方式1 1 brew install zsh zsh-completions 无</description>
+    </item>
+    
+    <item>
+      <title>Macos Apple Id America</title>
+      <link>https://b.qqbb.app/post/macos-apple-id-america/</link>
+      <pubDate>Mon, 11 Jun 2018 20:02:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/macos-apple-id-america/</guid>
+      <description>申请美国apple id Env os: macOS cloud: aws Step Ref https://zhuanlan.zhihu.com/p/36574047 https://www.zhihu.com/question/20422874/answer/413390698 https://blog.csdn.net/amoscn/article/details/79364599 https://zhuanlan.zhihu.com/p/33150135</description>
+    </item>
+    
+    <item>
+      <title>Mac Install Software</title>
+      <link>https://b.qqbb.app/post/mac-install-software/</link>
+      <pubDate>Mon, 11 Jun 2018 19:54:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-install-software/</guid>
+      <description>记录mac-pro安装软件 安装截图 安装 git (直接输入git version) 这个时候，会自动安装Xcode的组件，请保持网络稳定且快速。 搜狗五笔拼音 homebrew [telnet]() brew install telnet</description>
+    </item>
+    
+    <item>
+      <title>Mac上SSH-Key对应多个github账号</title>
+      <link>https://b.qqbb.app/post/mac-ssh-github/</link>
+      <pubDate>Sat, 07 Apr 2018 22:30:59 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-ssh-github/</guid>
+      <description>Mac 上SSH-Key对应多个github账号 当然, 也不单是github帐号, gitlab或者其它账号都是可以的哟&amp;hellip; 前言 因为最近在</description>
+    </item>
+    
+    <item>
+      <title>Mac Faq</title>
+      <link>https://b.qqbb.app/post/mac-faq/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-faq/</guid>
+      <description>how-to-open-app-from-unidentified-developer-in-mac-os-x how-to-open-app-from-unidentified-developer-in-mac-os-x
+https://zhidao.baidu.com/question/466554299.html</description>
+    </item>
+    
+    <item>
+      <title>Mac Faq</title>
+      <link>https://b.qqbb.app/post/test/ok/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/test/ok/</guid>
+      <description>how-to-open-app-from-unidentified-developer-in-mac-os-x how-to-open-app-from-unidentified-developer-in-mac-os-x
+https://zhidao.baidu.com/question/466554299.html</description>
+    </item>
+    
+    <item>
+      <title>Mac Faq</title>
+      <link>https://b.qqbb.app/post/test/test/ok/</link>
+      <pubDate>Thu, 15 Mar 2018 16:33:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/test/test/ok/</guid>
+      <description>how-to-open-app-from-unidentified-developer-in-mac-os-x how-to-open-app-from-unidentified-developer-in-mac-os-x
+https://zhidao.baidu.com/question/466554299.html</description>
+    </item>
+    
+    <item>
+      <title>Mac Command</title>
+      <link>https://b.qqbb.app/post/command/mac/</link>
+      <pubDate>Fri, 23 Feb 2018 17:08:40 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/command/mac/</guid>
+      <description>brew 1 2 brew install node brew upgrade node Mac OS 如何更改文件的默认打开方式 如何显示Mac OS X上的隐藏文件和文件夹 如何显示Mac OS X上的隐藏文件和文件夹 https://wenku.baidu.com/view/ce92f3b877232f60dccca1e0.html</description>
+    </item>
+    
+  </channel>
+</rss>

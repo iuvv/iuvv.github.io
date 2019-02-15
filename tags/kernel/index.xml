@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kernel on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/kernel/</link>
+    <description>Recent content in Kernel on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 30 Nov 2018 09:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/kernel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>centos更新内核</title>
+      <link>https://b.qqbb.app/post/centos-update-kernel/</link>
+      <pubDate>Fri, 30 Nov 2018 09:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos-update-kernel/</guid>
+      <description>https://linux.cn/article-8310-1.html</description>
+    </item>
+    
+    <item>
+      <title>Update Kernel Base Centos</title>
+      <link>https://b.qqbb.app/post/update-kernel-base-centos/</link>
+      <pubDate>Fri, 22 Jun 2018 11:34:39 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/update-kernel-base-centos/</guid>
+      <description>如何在 CentOS 7 中安装或升级最新的内核 请直接看 https://linux.cn/article-8310-1.html 下文只是记录 Env os: centos7 Step 虽然有些人使用 Linux 来表示整个操作系统，但要注意的是，严格地来说，Linux 只是个</description>
+    </item>
+    
+    <item>
+      <title>Update Kernel Base Ubuntu</title>
+      <link>https://b.qqbb.app/post/update-kernel-base-ubuntu/</link>
+      <pubDate>Thu, 21 Jun 2018 21:55:37 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/update-kernel-base-ubuntu/</guid>
+      <description>ubuntu16.04 update-kernel Env os: ubuntu16.04 ip: 192.168.31.118 Step 浏览器打开 http://kernel.ubuntu.com/~kernel-ppa/mainline/ 找到适合的 内核版本（这时v4.12), 进入， 找到合适的内核文件(linux-image-4.12.0-04120</description>
+    </item>
+    
+  </channel>
+</rss>

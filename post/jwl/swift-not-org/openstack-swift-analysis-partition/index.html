@@ -1,0 +1,1305 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="ring 生成 partition 分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T python-swiftclient 3.5.0 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&amp;frasl;192.168.0.50 代理节点 object1 192.168.100.105 存储节点1(zone1) object2" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-analysis-partition/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="ring 生成 partition 分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T python-swiftclient 3.5.0 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&frasl;192.168.0.50 代理节点 object1 192.168.100.105 存储节点1(zone1) object2" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-analysis-partition/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="ring 生成 partition 分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T python-swiftclient 3.5.0 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&frasl;192.168.0.50 代理节点 object1 192.168.100.105 存储节点1(zone1) object2">
+
+
+
+<meta itemprop="wordCount" content="3095">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="ring 生成 partition 分析 env 系统：Ubuntu Server 16.04×64 存储设置：4T python-swiftclient 3.5.0 架构部署: 主机名 IP 作用 keystone 192.168.100.50 keystone node Proxy 192.168.100.50&frasl;192.168.0.50 代理节点 object1 192.168.100.105 存储节点1(zone1) object2"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        <span class="more-meta"> 约 3095 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#step">step</a>
+<ul>
+<li>
+<ul>
+<li><a href="#网上示例">网上示例</a></li>
+<li><a href="#现象">现象</a></li>
+<li><a href="#本质">本质</a>
+<ul>
+<li><a href="#源码位置">源码位置</a></li>
+<li><a href="#get-part">get_part</a>
+<ul>
+<li><a href="#hash-path">hash_path</a></li>
+<li><a href="#struct-unpack-from">struct.unpack_from</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#本质的一个示例">本质的一个示例</a></li>
+<li><a href="#调试源代码">调试源代码</a>
+<ul>
+<li><a href="#修改源代码">修改源代码</a></li>
+<li><a href="#重启swift-proxy服务">重启swift-proxy服务</a></li>
+<li><a href="#看日志">看日志</a></li>
+</ul></li>
+<li><a href="#现象结合本质">现象结合本质</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#ref">ref</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>ring 生成 partition 分析</p>
+
+<h2 id="env">env</h2>
+
+<ul>
+<li>系统：Ubuntu Server 16.04×64</li>
+<li>存储设置：4T</li>
+<li>python-swiftclient 3.5.0</li>
+<li>架构部署:</li>
+</ul>
+
+<table>
+<thead>
+<tr>
+<th>主机名</th>
+<th align="center">IP</th>
+<th align="right">作用</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td>keystone</td>
+<td align="center">192.168.100.50</td>
+<td align="right">keystone node</td>
+</tr>
+
+<tr>
+<td>Proxy</td>
+<td align="center">192.168.100.<sup>50</sup>&frasl;<sub>192</sub>.168.0.50</td>
+<td align="right">代理节点</td>
+</tr>
+
+<tr>
+<td>object1</td>
+<td align="center">192.168.100.105</td>
+<td align="right">存储节点1(zone1)</td>
+</tr>
+
+<tr>
+<td>object2</td>
+<td align="center">192.168.100.106</td>
+<td align="right">存储节点2(zone1)</td>
+</tr>
+
+<tr>
+<td>object3</td>
+<td align="center">192.168.100.107</td>
+<td align="right">存储节点3(zone1)</td>
+</tr>
+
+<tr>
+<td>object4</td>
+<td align="center">192.168.100.107</td>
+<td align="right">存储节点4(zone1)</td>
+</tr>
+</tbody>
+</table>
+
+<h2 id="step">step</h2>
+
+<h4 id="网上示例">网上示例</h4>
+
+<p>通过 <a href="https://ask.openstack.org/en/question/6766/what-is-a-swift-partition/">https://ask.openstack.org/en/question/6766/what-is-a-swift-partition/</a> 知道：</p>
+
+<p>SEC/MY_account/cats/kitten.jpgRET =&gt; 4f3146f77835ff33a6baba807f7f5c10 =&gt; 4f31</p>
+
+<ul>
+<li>SEC/MY_account/cats/kitten.jpgRET =&gt; 4f3146f77835ff33a6baba807f7f5c10 这一步，放到<a href="https://md5jiami.51240.com/">网上md5加密</a>就能得到了。</li>
+<li>4f3146f77835ff33a6baba807f7f5c10 =&gt; 4f31</li>
+<li>4f31 =&gt; 20273 这一步，放到<a href="http://tool.oschina.net/hexconvert">网上16进制转10进制</a>就能得到了。</li>
+</ul>
+
+<p>那么我们这个版本的是如何生成 partition 的呢？</p>
+
+<h4 id="现象">现象</h4>
+
+<p>从下面的现象，我们知道，当传入</p>
+
+<p>account= &ldquo;AUTH_7d6eaa90d74a4f239963933c3a744df3&rdquo;
+container = &ldquo;test4&rdquo;
+obj = &ldquo;object-a.txt&rdquo;</p>
+
+<p>最后得到的 partition 值是 119</p>
+
+<p>怎么得到下面的 119 呢？</p>
+
+<h4 id="本质">本质</h4>
+
+<p>直接看源码。</p>
+
+<h5 id="源码位置">源码位置</h5>
+
+<p>在 python 安装包的路径下。我这里是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:/usr/lib/python2.7/dist-packages/swift# ls
+account  cli  common  container  __init__.py  __init__.pyc  locale  obj  proxy
+root@controller:/usr/lib/python2.7/dist-packages/swift# </code></pre></td></tr></table>
+</div>
+</div>
+<p>如果你当前没有安装swift的环境，也没有关系，去<a href="https://github.com/openstack/swift">github下载</a>。
+这里要注意版本。不同版本，源代码当然不同啦, 找与你对应的版本哟! 我的swift是queen版本时安装的。
+下载后，有一个，进入，里有还有一个swift文件夹，此文件夹中的内容，与上面我这里的是一致的。</p>
+
+<p>各文件夹是什么作用，这里先不介绍了。</p>
+
+<h5 id="get-part">get_part</h5>
+
+<p>在 <code>./common/ring/ring.py</code> 的 333 行，找到 get_part 函数。这个就是我想要的。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">get_part</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Get the partition for an account/container/object.
+</span><span class="s2">
+</span><span class="s2">        :param account: account name
+</span><span class="s2">        :param container: container name
+</span><span class="s2">        :param obj: object name
+</span><span class="s2">        :returns: the partition number
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">hash_path</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">raw_digest</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rtime</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reload</span><span class="p">()</span>
+        <span class="n">part</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack_from</span><span class="p">(</span><span class="s1">&#39;&gt;I&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_part_shift</span>
+        <span class="k">return</span> <span class="n">part</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>我们分析一下。里面主要就是 hash_path 和 struct.unpack_from 函数</p>
+
+<h6 id="hash-path">hash_path</h6>
+
+<p>找到源码 <code>common/utils.py</code> 的 2265 行，找到 hash_path 函数</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">hash_path</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">raw_digest</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Get the canonical hash for an account/container/object
+</span><span class="s2">
+</span><span class="s2">    :param account: Account
+</span><span class="s2">    :param container: Container
+</span><span class="s2">    :param object: Object
+</span><span class="s2">    :param raw_digest: If True, return the raw version rather than a hex digest
+</span><span class="s2">    :returns: hash string
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">if</span> <span class="nb">object</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">container</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;container is required if object is provided&#39;</span><span class="p">)</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">account</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">container</span><span class="p">:</span>
+        <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">object</span><span class="p">:</span>
+        <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">raw_digest</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">md5</span><span class="p">(</span><span class="n">HASH_PATH_PREFIX</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+                   <span class="o">+</span> <span class="n">HASH_PATH_SUFFIX</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">md5</span><span class="p">(</span><span class="n">HASH_PATH_PREFIX</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+                   <span class="o">+</span> <span class="n">HASH_PATH_SUFFIX</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>看到了么？我们这里是执行</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">md5(HASH_PATH_PREFIX + &#39;/&#39; + &#39;/&#39;.join(paths)
+                   + HASH_PATH_SUFFIX).digest()</pre></td></tr></table>
+</div>
+</div>
+<p>注意到这里有</p>
+
+<ul>
+<li>HASH_PATH_PREFIX = &ldquo;openstack&rdquo;</li>
+<li>HASH_PATH_SUFFIX = &ldquo;openstack&rdquo;</li>
+</ul>
+
+<p>来自于配置文件<code>/etc/swift/swift.conf</code></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:/home/ubuntu# grep swift_hash_path_suffix -rn /etc/swift/swift.conf
+<span class="m">9</span>:swift_hash_path_suffix <span class="o">=</span> openstack
+root@controller:/home/ubuntu# grep swift_hash_path_prefix -rn /etc/swift/swift.conf
+<span class="m">10</span>:swift_hash_path_prefix <span class="o">=</span> openstack
+root@controller:/home/ubuntu# </code></pre></td></tr></table>
+</div>
+</div>
+<p>####### md5</p>
+
+<p><a href="https://docs.python.org/2/library/md5.html">https://docs.python.org/2/library/md5.html</a></p>
+
+<h6 id="struct-unpack-from">struct.unpack_from</h6>
+
+<p>struct.unpack_from 的 作用，请看<a href="/jwl/python-struct-module/">这里</a> 或者 <a href="/post/python-struct-module/">这里</a></p>
+
+<p>简单说就是： 将字节流转换成python数据类型。Unpack the buffer according to the given format.</p>
+
+<p>我们这里是 <code>struct.unpack_from('&gt;I', key)[0]</code></p>
+
+<p><code>'&gt;I'</code>, 表示转换成python的 unsigned int。</p>
+
+<h4 id="本质的一个示例">本质的一个示例</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">ubuntu@controller:~$ python
+Python <span class="m">2</span>.7.12 <span class="o">(</span>default, Dec  <span class="m">4</span> <span class="m">2017</span>, <span class="m">14</span>:50:18<span class="o">)</span> 
+<span class="o">[</span>GCC <span class="m">5</span>.4.0 <span class="m">20160609</span><span class="o">]</span> on linux2
+Type <span class="s2">&#34;help&#34;</span>, <span class="s2">&#34;copyright&#34;</span>, <span class="s2">&#34;credits&#34;</span> or <span class="s2">&#34;license&#34;</span> <span class="k">for</span> more information.
+&gt;&gt;&gt; import swift
+&gt;&gt;&gt; from swift.common.utils import hash_path, validate_configuration
+&gt;&gt;&gt; from hashlib import md5, sha1
+&gt;&gt;&gt; import struct
+&gt;&gt;&gt; <span class="nv">HASH_PATH_PREFIX</span> <span class="o">=</span> <span class="s2">&#34;openstack&#34;</span>
+&gt;&gt;&gt; <span class="nv">HASH_PATH_SUFFIX</span> <span class="o">=</span> <span class="s2">&#34;openstack&#34;</span>
+&gt;&gt;&gt; <span class="nv">account</span><span class="o">=</span> <span class="s2">&#34;AUTH_7d6eaa90d74a4f239963933c3a744df3&#34;</span>
+&gt;&gt;&gt; <span class="nv">container</span> <span class="o">=</span> <span class="s2">&#34;test4&#34;</span>
+&gt;&gt;&gt; <span class="nv">obj</span> <span class="o">=</span> <span class="s2">&#34;object-a.txt&#34;</span>
+&gt;&gt;&gt; <span class="nv">paths</span> <span class="o">=</span> <span class="o">[</span>account, container, obj<span class="o">]</span>
+&gt;&gt;&gt; <span class="s1">&#39;/&#39;</span>.join<span class="o">(</span>paths<span class="o">)</span>
+<span class="s1">&#39;AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a.txt&#39;</span>
+&gt;&gt;&gt; HASH_PATH_PREFIX + <span class="s1">&#39;/&#39;</span> + <span class="s1">&#39;/&#39;</span>.join<span class="o">(</span>paths<span class="o">)</span> + HASH_PATH_SUFFIX
+<span class="s1">&#39;openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a.txtopenstack&#39;</span>
+&gt;&gt;&gt; md5<span class="o">(</span>HASH_PATH_PREFIX + <span class="s1">&#39;/&#39;</span> + <span class="s1">&#39;/&#39;</span>.join<span class="o">(</span>paths<span class="o">)</span> + HASH_PATH_SUFFIX<span class="o">)</span>
+&lt;md5 HASH object @ 0x7f8632c45670&gt;
+&gt;&gt;&gt; md5<span class="o">(</span>HASH_PATH_PREFIX + <span class="s1">&#39;/&#39;</span> + <span class="s1">&#39;/&#39;</span>.join<span class="o">(</span>paths<span class="o">)</span> + HASH_PATH_SUFFIX<span class="o">)</span>.digest<span class="o">()</span>
+<span class="s1">&#39;\x1d\xf3\xd1_:\x9a+x\x8e75v\xbc\xf9v\x11&#39;</span>
+&gt;&gt;&gt; <span class="nv">key</span> <span class="o">=</span> hash_path<span class="o">(</span>account, container, obj, <span class="nv">raw_digest</span><span class="o">=</span>True<span class="o">)</span>
+&gt;&gt;&gt; key
+<span class="s1">&#39;\x1d\xf3\xd1_:\x9a+x\x8e75v\xbc\xf9v\x11&#39;</span>
+&gt;&gt;&gt; print<span class="o">(</span>struct.unpack_from<span class="o">(</span><span class="s1">&#39;&gt;I&#39;</span>, key<span class="o">))</span>
+<span class="o">(</span><span class="m">502518111</span>,<span class="o">)</span>
+&gt;&gt;&gt; print<span class="o">(</span>struct.unpack_from<span class="o">(</span><span class="s1">&#39;&gt;I&#39;</span>, key<span class="o">)[</span><span class="m">0</span><span class="o">])</span>
+<span class="m">502518111</span>
+&gt;&gt;&gt; <span class="m">502518111</span> &gt;&gt; <span class="m">22</span>
+<span class="m">119</span>
+&gt;&gt;&gt; <span class="nv">part</span> <span class="o">=</span> struct.unpack_from<span class="o">(</span><span class="s1">&#39;&gt;I&#39;</span>, key<span class="o">)[</span><span class="m">0</span><span class="o">]</span> &gt;&gt; <span class="m">22</span>
+&gt;&gt;&gt; part
+<span class="m">119</span>
+&gt;&gt;&gt; exit<span class="o">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>好了，现在基本上知道，119，就是这么来的了。</p>
+
+<h4 id="调试源代码">调试源代码</h4>
+
+<p>但是，如果你看是想亲眼见一下，119，怎么办？调试源代码吧。</p>
+
+<p>因为我之前已经上传了 object = &ldquo;object-a.txt&rdquo; 。不能同名的。所以我现在object = &ldquo;object-a-3.txt&rdquo;</p>
+
+<h5 id="修改源代码">修改源代码</h5>
+
+<p>我这里只是示例。</p>
+
+<ul>
+<li><code>./common/ring/ring.py</code> 的 333 行</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python">    <span class="k">def</span> <span class="nf">get_part</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">account</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">        Get the partition for an account/container/object.
+</span><span class="s2">
+</span><span class="s2">        :param account: account name
+</span><span class="s2">        :param container: container name
+</span><span class="s2">        :param obj: object name
+</span><span class="s2">        :returns: the partition number
+</span><span class="s2">        &#34;&#34;&#34;</span>
+        <span class="n">key</span> <span class="o">=</span> <span class="n">hash_path</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">container</span><span class="p">,</span> <span class="n">obj</span><span class="p">,</span> <span class="n">raw_digest</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;--------------------------------------------------, my debug --------------------&#34;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;=========keys:&#34;</span><span class="p">,</span> <span class="n">key</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">time</span><span class="p">()</span> <span class="o">&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_rtime</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_reload</span><span class="p">()</span>
+        <span class="n">part</span> <span class="o">=</span> <span class="n">struct</span><span class="o">.</span><span class="n">unpack_from</span><span class="p">(</span><span class="s1">&#39;&gt;I&#39;</span><span class="p">,</span> <span class="n">key</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&gt;&gt;</span> <span class="bp">self</span><span class="o">.</span><span class="n">_part_shift</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;11111111partition:&#34;</span><span class="p">,</span> <span class="n">part</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">part</span></code></pre></td></tr></table>
+</div>
+</div>
+<ul>
+<li><code>common/utils.py</code> 的 2265 行</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">hash_path</span><span class="p">(</span><span class="n">account</span><span class="p">,</span> <span class="n">container</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="nb">object</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">raw_digest</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="s2">&#34;&#34;&#34;
+</span><span class="s2">    Get the canonical hash for an account/container/object
+</span><span class="s2">
+</span><span class="s2">    :param account: Account
+</span><span class="s2">    :param container: Container
+</span><span class="s2">    :param object: Object
+</span><span class="s2">    :param raw_digest: If True, return the raw version rather than a hex digest
+</span><span class="s2">    :returns: hash string
+</span><span class="s2">    &#34;&#34;&#34;</span>
+    <span class="k">if</span> <span class="nb">object</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">container</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;container is required if object is provided&#39;</span><span class="p">)</span>
+    <span class="n">paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">account</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">container</span><span class="p">:</span>
+        <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">container</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">object</span><span class="p">:</span>
+        <span class="n">paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">raw_digest</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&#34;--------------------------------------------------, my debug --------------------&#34;</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">HASH_PATH_PREFIX</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">HASH_PATH_PREFIX</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">+</span> <span class="n">HASH_PATH_SUFFIX</span><span class="p">)</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">md5</span><span class="p">(</span><span class="n">HASH_PATH_PREFIX</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span> <span class="o">+</span> <span class="n">HASH_PATH_SUFFIX</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">())</span>
+
+        <span class="k">return</span> <span class="n">md5</span><span class="p">(</span><span class="n">HASH_PATH_PREFIX</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+                   <span class="o">+</span> <span class="n">HASH_PATH_SUFFIX</span><span class="p">)</span><span class="o">.</span><span class="n">digest</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">md5</span><span class="p">(</span><span class="n">HASH_PATH_PREFIX</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span> <span class="o">+</span> <span class="s1">&#39;/&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">paths</span><span class="p">)</span>
+                   <span class="o">+</span> <span class="n">HASH_PATH_SUFFIX</span><span class="p">)</span><span class="o">.</span><span class="n">hexdigest</span><span class="p">()</span></code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="重启swift-proxy服务">重启swift-proxy服务</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:/home/ubuntu# service swift-proxy restart
+root@controller:/home/ubuntu# service swift-proxy status</code></pre></td></tr></table>
+</div>
+</div>
+<h5 id="看日志">看日志</h5>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span><span class="lnt">96
+</span><span class="lnt">97
+</span><span class="lnt">98
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@controller:/home/ubuntu# tail -f /var/log/syslog
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: ??70L??023G <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xdf\xcf\x8a\xff\x9b7\xc1H0L\xf4A\xb2\x13\xc1\x87&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">895</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: - - <span class="m">30</span>/Jan/2019/08/07/44 HEAD /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3%3Fformat%3Djson HTTP/1.0 <span class="m">204</span> - Swift - - - - tx5d49fd7b64cb4e0c89e04-005c515b50 - <span class="m">0</span>.0047 RL - <span class="m">1548835664</span>.549806118 <span class="m">1548835664</span>.554487944 -
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: ??70L??023G <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xdf\xcf\x8a\xff\x9b7\xc1H0L\xf4A\xb2\x13\xc1\x87&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">895</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: ?<span class="o">]</span>?14Ν?#023#032#032#001#027??txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xbc]\xec\x0c\xcf]\x8a\xb6\x13\x1a\x96\x1a\x01\x17\xf6\xd1&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">753</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: ?<span class="o">]</span>?14Ν?#023#032#032#001#027??txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xbc]\xec\x0c\xcf]\x8a\xb6\x13\x1a\x96\x1a\x01\x17\xf6\xd1&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">753</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a-3.txtopenstack <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: &gt;惘<span class="p">&amp;</span><span class="c1">#013??#026%?? (txn: tx5d49fd7b64cb4e0c89e04-005c515b50) (client_ip: 127.0.0.1)
+</span><span class="c1"></span>Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;&gt;\xe6\x83\x98&amp;\x0b\xaa\xe1\xe0\xa1\x16%\xd9\xf6\x82\xbf&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">251</span><span class="o">)</span> <span class="o">(</span>txn: tx5d49fd7b64cb4e0c89e04-005c515b50<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:44 controller proxy-server: <span class="m">127</span>.0.0.1 <span class="m">127</span>.0.0.1 <span class="m">30</span>/Jan/2019/08/07/44 HEAD /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a-3.txt HTTP/1.0 <span class="m">404</span> - python-swiftclient-3.5.0 gAAAAABcUVjCZNjJ... - - - tx5d49fd7b64cb4e0c89e04-005c515b50 - <span class="m">0</span>.0212 - - <span class="m">1548835664</span>.548610926 <span class="m">1548835664</span>.569818020 <span class="m">0</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4openstack <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: ?<span class="o">]</span>?14Ν?#023#032#032#001#027??txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xbc]\xec\x0c\xcf]\x8a\xb6\x13\x1a\x96\x1a\x01\x17\xf6\xd1&#39;</span><span class="o">)</span> <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">753</span><span class="o">)</span> <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a-3.txtopenstack <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: &gt;惘<span class="p">&amp;</span><span class="c1">#013??#026%?? (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+</span><span class="c1"></span>Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;&gt;\xe6\x83\x98&amp;\x0b\xaa\xe1\xe0\xa1\x16%\xd9\xf6\x82\xbf&#39;</span><span class="o">)</span> <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">251</span><span class="o">)</span> <span class="o">(</span>txn: txacc37f453a6441499423e-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: <span class="m">127</span>.0.0.1 <span class="m">127</span>.0.0.1 <span class="m">30</span>/Jan/2019/08/07/45 PUT /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a-3.txt HTTP/1.0 <span class="m">201</span> - python-swiftclient-3.5.0 gAAAAABcUVjCZNjJ... <span class="m">18431</span> - - txacc37f453a6441499423e-005c515b51 - <span class="m">0</span>.0709 - - <span class="m">1548835665</span>.213526964 <span class="m">1548835665</span>.284423113 <span class="m">0</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3openstack <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: ??70L??023G <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xdf\xcf\x8a\xff\x9b7\xc1H0L\xf4A\xb2\x13\xc1\x87&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">895</span><span class="o">)</span> <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4openstack <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: ?<span class="o">]</span>?14Ν?#023#032#032#001#027??txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xbc]\xec\x0c\xcf]\x8a\xb6\x13\x1a\x96\x1a\x01\x17\xf6\xd1&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">753</span><span class="o">)</span> <span class="o">(</span>txn: tx06a68fa051174db18c0aa-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3openstack <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: ??70L??023G <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xdf\xcf\x8a\xff\x9b7\xc1H0L\xf4A\xb2\x13\xc1\x87&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">895</span><span class="o">)</span> <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4openstack <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: ?<span class="o">]</span>?14Ν?#023#032#032#001#027??txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xbc]\xec\x0c\xcf]\x8a\xb6\x13\x1a\x96\x1a\x01\x17\xf6\xd1&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">753</span><span class="o">)</span> <span class="o">(</span>txn: tx8a9fb911df1d48af97b6f-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: <span class="m">127</span>.0.0.1 <span class="m">127</span>.0.0.1 <span class="m">30</span>/Jan/2019/08/07/45 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/%3Fformat%3Djson HTTP/1.0 <span class="m">200</span> - python-swiftclient-3.5.0 gAAAAABcUVjCZNjJ... - <span class="m">103</span> - tx06a68fa051174db18c0aa-005c515b51 - <span class="m">0</span>.0584 - - <span class="m">1548835665</span>.329989910 <span class="m">1548835665</span>.388351917 <span class="m">0</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: <span class="m">127</span>.0.0.1 <span class="m">127</span>.0.0.1 <span class="m">30</span>/Jan/2019/08/07/45 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4%3Fdelimiter%3D%252F%26limit%3D1001%26format%3Djson HTTP/1.0 <span class="m">200</span> - python-swiftclient-3.5.0 gAAAAABcUVjCZNjJ... - <span class="m">1017</span> - tx8a9fb911df1d48af97b6f-005c515b51 - <span class="m">0</span>.0464 - - <span class="m">1548835665</span>.346412897 <span class="m">1548835665</span>.392823935 <span class="m">0</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3openstack <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: ??70L??023G <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xdf\xcf\x8a\xff\x9b7\xc1H0L\xf4A\xb2\x13\xc1\x87&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">895</span><span class="o">)</span> <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4openstack <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: ?<span class="o">]</span>?14Ν?#023#032#032#001#027??txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;=========keys:&#39;</span>, <span class="s1">&#39;\xbc]\xec\x0c\xcf]\x8a\xb6\x13\x1a\x96\x1a\x01\x17\xf6\xd1&#39;</span><span class="o">)</span> <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: STDOUT: <span class="o">(</span><span class="s1">&#39;11111111partition:&#39;</span>, <span class="m">753</span><span class="o">)</span> <span class="o">(</span>txn: tx10ed616c142448debc5d4-005c515b51<span class="o">)</span> <span class="o">(</span>client_ip: <span class="m">127</span>.0.0.1<span class="o">)</span>
+Jan <span class="m">30</span> <span class="m">16</span>:07:45 controller proxy-server: <span class="m">127</span>.0.0.1 <span class="m">127</span>.0.0.1 <span class="m">30</span>/Jan/2019/08/07/45 GET /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4%3Fmarker%3Dobject-server.txt%26delimiter%3D%252F%26limit%3D1001%26format%3Djson HTTP/1.0 <span class="m">200</span> - python-swiftclient-3.5.0 gAAAAABcUVjCZNjJ... - <span class="m">2</span> - tx10ed616c142448debc5d4-005c515b51 - <span class="m">0</span>.0069 - - <span class="m">1548835665</span>.394655943 <span class="m">1548835665</span>.401551962 <span class="m">0</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>找到了</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">Jan 30 16:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+Jan 30 16:07:45 controller proxy-server: STDOUT: openstack (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+Jan 30 16:07:45 controller proxy-server: STDOUT: openstack/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a-3.txtopenstack (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+Jan 30 16:07:45 controller proxy-server: STDOUT: &gt;惘&amp;#013??#026%?? (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+Jan 30 16:07:45 controller proxy-server: STDOUT: --------------------------------------------------, my debug -------------------- (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+Jan 30 16:07:45 controller proxy-server: STDOUT: (&#39;=========keys:&#39;, &#39;&gt;\xe6\x83\x98&amp;\x0b\xaa\xe1\xe0\xa1\x16%\xd9\xf6\x82\xbf&#39;) (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+Jan 30 16:07:45 controller proxy-server: STDOUT: (&#39;11111111partition:&#39;, 251) (txn: txacc37f453a6441499423e-005c515b51) (client_ip: 127.0.0.1)
+Jan 30 16:07:45 controller proxy-server: 127.0.0.1 127.0.0.1 30/Jan/2019/08/07/45 PUT /v1/AUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a-3.txt HTTP/1.0 201 - python-swiftclient-3.5.0 gAAAAABcUVjCZNjJ... 18431 - - txacc37f453a6441499423e-005c515b51 - 0.0709 - - 1548835665.213526964 1548835665.284423113 0</code></pre></td></tr></table>
+</div>
+</div>
+<p>这下终于放心了。</p>
+
+<p>几个想看到的点，都看到了。最后得到的 partition 是 251。哈哈！~</p>
+
+<h4 id="现象结合本质">现象结合本质</h4>
+
+<p>openstackAUTH_7d6eaa90d74a4f239963933c3a744df3/test4/object-a.txtopenstack</p>
+
+<p>Compute the MD5 hash of that string to get 942354320ddd6c54d9a4c052ef18bc25</p>
+
+<p>then take the first 16 bits to get 9423, or in decimal, *****.</p>
+
+<h2 id="ref">ref</h2>
+
+<ul>
+<li><a href="https://ask.openstack.org/en/question/6766/what-is-a-swift-partition/">https://ask.openstack.org/en/question/6766/what-is-a-swift-partition/</a></li>
+<li><a href="https://docs.openstack.org/swift/queens/overview_ring.html">https://docs.openstack.org/swift/queens/overview_ring.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/jwl/swift-not-org/how-to-enable-reseller-admin-for-openstack-swift-object-storage-and-keystone-v3/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/jwl/swift-not-org/openstack-swift-deployment_guide/">
+            <span class="next-text nav-default"></span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

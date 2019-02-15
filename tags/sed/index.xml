@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Sed on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/sed/</link>
+    <description>Recent content in Sed on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 12 Nov 2018 19:11:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/sed/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>linux sed 批量替换字符串</title>
+      <link>https://b.qqbb.app/post/sed-string-replace/</link>
+      <pubDate>Mon, 12 Nov 2018 19:11:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/sed-string-replace/</guid>
+      <description>Linux下批量替换多个文件中的字符串的简单方法。 用sed命令可以批量替换多个文件中的字符串 命令如下： 1 sed -i &amp;#34;s/原字符串/新字符串</description>
+    </item>
+    
+    <item>
+      <title>Mac Sed</title>
+      <link>https://b.qqbb.app/post/mac-sed/</link>
+      <pubDate>Mon, 08 Oct 2018 12:08:31 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-sed/</guid>
+      <description>由于Mac OS X自带的sed等命令行工具是基于BSD的，有一些缺陷和不足，比如sed不支持\t来表示TAB Env os: mac 报错如下： 1 2 3 4 5 6 ➜ home git:(master) ✗</description>
+    </item>
+    
+  </channel>
+</rss>

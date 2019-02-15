@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bitbucket on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/bitbucket/</link>
+    <description>Recent content in Bitbucket on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 07 Jul 2018 16:29:25 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/bitbucket/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Bitbucket User Share Repo</title>
+      <link>https://b.qqbb.app/post/bitbucket-user-share-repo/</link>
+      <pubDate>Sat, 07 Jul 2018 16:29:25 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/bitbucket-user-share-repo/</guid>
+      <description>bitbucket组来实现不同用户间的共同管理某一个具体repo Env 2个bitbucket R: repo, 仓库R G: 组 A: UserA, 拥有仓库R，拥有组G，要分享给用户</description>
+    </item>
+    
+  </channel>
+</rss>

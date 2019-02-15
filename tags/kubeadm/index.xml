@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kubeadm on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/kubeadm/</link>
+    <description>Recent content in Kubeadm on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 25 Nov 2018 17:05:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/kubeadm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>更新kubeadm clusters 从v1.7.3至v1.8.3</title>
+      <link>https://b.qqbb.app/post/kubeadm-clusters-upgrade-from-v173-to-v183/</link>
+      <pubDate>Sun, 25 Nov 2018 17:05:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-clusters-upgrade-from-v173-to-v183/</guid>
+      <description>Upgrading kubeadm clusters from 1.7 to 1.8 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/ env 1 2 3 192.168.31.120 km, master 192.168.31.119 kn1 192.168.31.118 kn2 下载 kubeadm https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm 1 2 3 4 root@km:~# sudo chmod a+rx /usr/bin/kubeadm root@km:~# kubeadm version kubeadm version: &amp;amp;version.Info{Major:&amp;#34;1&amp;#34;, Minor:&amp;#34;8&amp;#34;, GitVersion:&amp;#34;v1.8.2&amp;#34;, GitCommit:&amp;#34;bdaeafa71f6c7c04636251031f93464384d54963&amp;#34;, GitTreeState:&amp;#34;clean&amp;#34;, BuildDate:&amp;#34;2017-10-24T19:38:10Z&amp;#34;, GoVersion:&amp;#34;go1.8.3&amp;#34;, Compiler:&amp;#34;gc&amp;#34;, Platform:&amp;#34;linux/amd64&amp;#34;} root@km:~# 上传 1 2 root@km:~# kubeadm config upload from-file --config ./admin.conf unable to decode config from &amp;#34;./admin.conf&amp;#34; [no kind &amp;#34;Config&amp;#34; is registered for</description>
+    </item>
+    
+    <item>
+      <title>ubuntu中安装kubeadm</title>
+      <link>https://b.qqbb.app/post/kubeadm-install-base-ubuntu/</link>
+      <pubDate>Fri, 23 Nov 2018 17:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-install-base-ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu中安装kubeadm v1.8.4</title>
+      <link>https://b.qqbb.app/post/kubeadm-v184-install-base-ubuntu/</link>
+      <pubDate>Fri, 23 Nov 2018 17:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-v184-install-base-ubuntu/</guid>
+      <description>Environment kubeadm: v1.8.4 所有节点都要安装 kubeadm, kubelet, kubectl 安装时，全使用 root 用户。直到 kubeadm join 成功后，全使用 非root用户 1 2 3 192.168.31.120 km master 192.168.31.119 kn1 node 192.168.31.118 kn2 node 加代理 准备FQ网络 命令行 加代理</description>
+    </item>
+    
+  </channel>
+</rss>

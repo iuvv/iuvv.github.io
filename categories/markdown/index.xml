@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Markdown on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/markdown/</link>
+    <description>Recent content in Markdown on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 01 Aug 2018 00:00:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/markdown/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown Style Guide</title>
+      <link>https://b.qqbb.app/post/markdown-style-guide/</link>
+      <pubDate>Wed, 01 Aug 2018 00:00:23 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/markdown-style-guide/</guid>
+      <description> Step http://einverne.github.io/markdown-style-guide/zh.html
+Ref  http://einverne.github.io/markdown-style-guide/zh.html  </description>
+    </item>
+    
+    <item>
+      <title>Convert Rst to Gfm Document Style</title>
+      <link>https://b.qqbb.app/post/convert-rst-to-gfm-document-style/</link>
+      <pubDate>Thu, 21 Jun 2018 22:02:47 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/convert-rst-to-gfm-document-style/</guid>
+      <description>RST(reStructuredText) 转换为 MD(Markdown) Env os: ubuntu16.04 ip: 192.168.31.199 Step 准备 安装 restbuilder https://pythonhosted.org/sphinxcontrib-restbuilder/ 1 pip install sphinxcontrib-restbuilder 安装 pandoc https://pandoc.org/installing.html https://github.com/jgm/pandoc/releases/latest 我这里选择二进制安装包 1 2 wget https://github.com/jgm/pandoc/releases/download/2.2.1/pandoc-2.2.1-1-amd64.deb dpkg -i ./pandoc-2.2.1-1-amd64.deb 操作 生成 rst 文件： 1 make -e SPHINXOPTS=&amp;#34;-D language=&amp;#39;zh_CN&amp;#39;&amp;#34; rst 转换 rst 到 gfm或mark</description>
+    </item>
+    
+    <item>
+      <title>Markdown Comments</title>
+      <link>https://b.qqbb.app/post/markdown-comments/</link>
+      <pubDate>Sat, 16 Jun 2018 23:01:25 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/markdown-comments/</guid>
+      <description>概述 下面是我整理的在Markdown中写注释的几种方法，供自己开发时参考，相信对其他人也有用。 Step html标签 既然Markdown内嵌html</description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>https://b.qqbb.app/post/markdown/</link>
+      <pubDate>Fri, 02 Mar 2018 11:49:46 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/markdown/</guid>
+      <description>Markdown转HTML 在线版： 在一起（这个网站还有很多其实转换工具） 带了样式，但是不能用于 表格 作业部落 不带样式，但是可用于 表格 HTML转</description>
+    </item>
+    
+  </channel>
+</rss>

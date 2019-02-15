@@ -1,0 +1,1284 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>ceph-install-base-ubuntu Block Device Quick Start - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="env 192.168.31.172 ceph-client 修改 hostname 为 ceph-client INSTALL CEPH admin 节点： 1 2 ceph-deploy install ceph-client ceph-deploy admin ceph-client ceph-client 节点： 1 sudo chmod &#43;r /etc/ceph/ceph.client.admin.keyring CREATE A BLOCK DEVICE POOL admin 节点： 原来在 admin 节点，是没有这个 rbd 命令的。 要通过 sudo apt install ceph-common 之后，才会有" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/ceph-install-base-ubuntu-block-device-quick-start/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="ceph-install-base-ubuntu Block Device Quick Start" />
+<meta property="og:description" content="env 192.168.31.172 ceph-client 修改 hostname 为 ceph-client INSTALL CEPH admin 节点： 1 2 ceph-deploy install ceph-client ceph-deploy admin ceph-client ceph-client 节点： 1 sudo chmod &#43;r /etc/ceph/ceph.client.admin.keyring CREATE A BLOCK DEVICE POOL admin 节点： 原来在 admin 节点，是没有这个 rbd 命令的。 要通过 sudo apt install ceph-common 之后，才会有" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/ceph-install-base-ubuntu-block-device-quick-start/" />
+
+
+
+<meta property="article:published_time" content="2018-12-01T08:27:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-12-01T08:28:26&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="ceph-install-base-ubuntu Block Device Quick Start">
+<meta itemprop="description" content="env 192.168.31.172 ceph-client 修改 hostname 为 ceph-client INSTALL CEPH admin 节点： 1 2 ceph-deploy install ceph-client ceph-deploy admin ceph-client ceph-client 节点： 1 sudo chmod &#43;r /etc/ceph/ceph.client.admin.keyring CREATE A BLOCK DEVICE POOL admin 节点： 原来在 admin 节点，是没有这个 rbd 命令的。 要通过 sudo apt install ceph-common 之后，才会有">
+
+
+<meta itemprop="datePublished" content="2018-12-01T08:27:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-12-01T08:27:00&#43;08:00" />
+<meta itemprop="wordCount" content="2184">
+
+
+
+<meta itemprop="keywords" content="ceph,install,ubuntu," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ceph-install-base-ubuntu Block Device Quick Start"/>
+<meta name="twitter:description" content="env 192.168.31.172 ceph-client 修改 hostname 为 ceph-client INSTALL CEPH admin 节点： 1 2 ceph-deploy install ceph-client ceph-deploy admin ceph-client ceph-client 节点： 1 sudo chmod &#43;r /etc/ceph/ceph.client.admin.keyring CREATE A BLOCK DEVICE POOL admin 节点： 原来在 admin 节点，是没有这个 rbd 命令的。 要通过 sudo apt install ceph-common 之后，才会有"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">ceph-install-base-ubuntu Block Device Quick Start</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-12-01" class="post-time">
+          2018-12-01
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/ceph/"> ceph </a>
+            
+          </div>
+        <span class="more-meta"> 约 2184 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#install-ceph">INSTALL CEPH</a></li>
+<li><a href="#create-a-block-device-pool">CREATE A BLOCK DEVICE POOL</a></li>
+<li><a href="#configure-a-block-device">CONFIGURE A BLOCK DEVICE</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="env">env</h2>
+
+<p>192.168.31.172 ceph-client</p>
+
+<p>修改 hostname 为 ceph-client</p>
+
+<h2 id="install-ceph">INSTALL CEPH</h2>
+
+<p>admin 节点：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">ceph-deploy install ceph-client
+ceph-deploy admin ceph-client</code></pre></td></tr></table>
+</div>
+</div>
+<p>ceph-client 节点：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">sudo chmod +r /etc/ceph/ceph.client.admin.keyring</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="create-a-block-device-pool">CREATE A BLOCK DEVICE POOL</h2>
+
+<p>admin 节点：</p>
+
+<p>原来在 admin 节点，是没有这个 rbd 命令的。</p>
+
+<p>要通过 sudo apt install ceph-common 之后，才会有。所以先运行一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@cephadmin:~/my-cluster$ sudo apt install ceph-common -y
+cephu@cephadmin:~/my-cluster$ rbd pool init jlch
+2017-10-24 15:57:45.951917 7fde4fa6e0c0 -1 auth: unable to find a keyring on /etc/ceph/ceph.client.admin.keyring,/etc/ceph/ceph.keyring,/etc/ceph/keyring,/etc/ceph/keyring.bin,: (2) No such file or directory
+2017-10-24 15:57:45.951937 7fde4fa6e0c0 -1 monclient: ERROR: missing keyring, cannot use cephx for authentication
+2017-10-24 15:57:45.951942 7fde4fa6e0c0  0 librados: client.admin initialization error (2) No such file or directory
+rbd: couldn&#39;t connect to the cluster!
+cephu@cephadmin:~/my-cluster$</code></pre></td></tr></table>
+</div>
+</div>
+<p>ceph-client 节点：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">jlch@k-m:/etc/apt/sources.list.d$ sudo ls /etc/ceph/* -l
+[sudo] password for jlch:
+-rw-r--r-- 1 root root  63 Oct 24 15:32 /etc/ceph/ceph.client.admin.keyring
+-rw-r--r-- 1 root root 249 Oct 24 15:32 /etc/ceph/ceph.conf
+-rw-r--r-- 1 root root  92 Apr 21  2017 /etc/ceph/rbdmap
+-rw------- 1 root root   0 Oct 24 11:20 /etc/ceph/tmp2IJh4C
+jlch@k-m:/etc/apt/sources.list.d$</code></pre></td></tr></table>
+</div>
+</div>
+<p>我去，明明有的，为什么说 unable to find a keyring on
+*******，哪里出的问题?</p>
+
+<p>哈哈，这个问题的原因找到了。需要把 上一小节的 最后一个部分，执行一下。</p>
+
+<p>而且，要按上一小节的方式，osd create 一个 pool 出来，才能在这里 pool
+init .</p>
+
+<p>比如之前就是创建了 pool mytest. 这里就是</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">rbd pool init mytest</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="configure-a-block-device">CONFIGURE A BLOCK DEVICE</h2>
+
+<p>On the ceph-client node</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ rbd create mytest --size 4096 -m mon1 -k /etc/ceph/ceph.client.admin.keyring
+rbd: error opening default pool &#39;rbd&#39;
+Ensure that the default pool has been created or specify an alternate pool name.
+cephu@ceph-client:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>报错，因为，这里说了，opening default pool &lsquo;rbd&rsquo;
+出错，为啥？因为之前没有建立过 pool rbd 呀，之前，只有 pool mytest 呀。
+怎么办？2个方法。1）重新新建立一个 pool rbd, 2）指向到已建立的pool, 如
+pool mytest 。</p>
+
+<p>我们走 方法2.</p>
+
+<p>方法1</p>
+
+<p>回 ceph-admin 节点：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@cephadmin:~/my-cluster$ ceph osd pool create rbd 8
+pool &#39;rbd&#39; created
+cephu@cephadmin:~/my-cluster$ rbd pool init rbd
+cephu@cephadmin:~/my-cluster$</code></pre></td></tr></table>
+</div>
+</div>
+<p>回 ceph-client 节点：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ rbd create foo --size 4096 -m mon1 -k /etc/ceph/ceph.client.admin.keyring</code></pre></td></tr></table>
+</div>
+</div>
+<p>方法2</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ rbd help create # 这里会发现是加 -p 参数来指定 pool
+cephu@ceph-client:~$ rbd create foo --size 4096 -m mon1 -k /etc/ceph/ceph.client.admin.keyring -p mytest
+cephu@ceph-client:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>好了，可以走下一步了。 我们继续。</p>
+
+<p>On the ceph-client node, map the image to a block device.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ sudo rbd map foo --image client.admin -m mon1  -p mytest
+rbd: sysfs write failed
+rbd: error opening image client.admin: (2) No such file or directory
+In some cases useful info is found in syslog - try &#34;dmesg | tail&#34;.
+rbd: map failed: (110) Connection timed out
+cephu@ceph-client:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>报错了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ dmesg | tail -n 100
+...
+[692522.117250] libceph: mon0 192.168.31.114:6789 missing required protocol features
+[692532.096436] libceph: mon0 192.168.31.114:6789 feature set mismatch, my 106b84a842a42 &lt; server&#39;s 40106b84a842a42, missing 400000000000000
+[692532.099897] libceph: mon0 192.168.31.114:6789 missing required protocol features
+[692542.111938] libceph: mon0 192.168.31.114:6789 feature set mismatch, my 106b84a842a42 &lt; server&#39;s 40106b84a842a42, missing 400000000000000
+[692542.115603] libceph: mon0 192.168.31.114:6789 missing required protocol features</code></pre></td></tr></table>
+</div>
+</div>
+<p><a href="http://www.hl10502.com/2017/08/01/ceph-rbdmap-error-1/">http://www.hl10502.com/2017/08/01/ceph-rbdmap-error-1/</a></p>
+
+<p>上面有一些详细的原理</p>
+
+<p>又要农总出马了。</p>
+
+<p><a href="http://blog.csdn.net/lk142500/article/details/78275910">http://blog.csdn.net/lk142500/article/details/78275910</a></p>
+
+<p>这里指出了解决方法。来吧。</p>
+
+<p>admin 节点</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">  1
+</span><span class="lnt">  2
+</span><span class="lnt">  3
+</span><span class="lnt">  4
+</span><span class="lnt">  5
+</span><span class="lnt">  6
+</span><span class="lnt">  7
+</span><span class="lnt">  8
+</span><span class="lnt">  9
+</span><span class="lnt"> 10
+</span><span class="lnt"> 11
+</span><span class="lnt"> 12
+</span><span class="lnt"> 13
+</span><span class="lnt"> 14
+</span><span class="lnt"> 15
+</span><span class="lnt"> 16
+</span><span class="lnt"> 17
+</span><span class="lnt"> 18
+</span><span class="lnt"> 19
+</span><span class="lnt"> 20
+</span><span class="lnt"> 21
+</span><span class="lnt"> 22
+</span><span class="lnt"> 23
+</span><span class="lnt"> 24
+</span><span class="lnt"> 25
+</span><span class="lnt"> 26
+</span><span class="lnt"> 27
+</span><span class="lnt"> 28
+</span><span class="lnt"> 29
+</span><span class="lnt"> 30
+</span><span class="lnt"> 31
+</span><span class="lnt"> 32
+</span><span class="lnt"> 33
+</span><span class="lnt"> 34
+</span><span class="lnt"> 35
+</span><span class="lnt"> 36
+</span><span class="lnt"> 37
+</span><span class="lnt"> 38
+</span><span class="lnt"> 39
+</span><span class="lnt"> 40
+</span><span class="lnt"> 41
+</span><span class="lnt"> 42
+</span><span class="lnt"> 43
+</span><span class="lnt"> 44
+</span><span class="lnt"> 45
+</span><span class="lnt"> 46
+</span><span class="lnt"> 47
+</span><span class="lnt"> 48
+</span><span class="lnt"> 49
+</span><span class="lnt"> 50
+</span><span class="lnt"> 51
+</span><span class="lnt"> 52
+</span><span class="lnt"> 53
+</span><span class="lnt"> 54
+</span><span class="lnt"> 55
+</span><span class="lnt"> 56
+</span><span class="lnt"> 57
+</span><span class="lnt"> 58
+</span><span class="lnt"> 59
+</span><span class="lnt"> 60
+</span><span class="lnt"> 61
+</span><span class="lnt"> 62
+</span><span class="lnt"> 63
+</span><span class="lnt"> 64
+</span><span class="lnt"> 65
+</span><span class="lnt"> 66
+</span><span class="lnt"> 67
+</span><span class="lnt"> 68
+</span><span class="lnt"> 69
+</span><span class="lnt"> 70
+</span><span class="lnt"> 71
+</span><span class="lnt"> 72
+</span><span class="lnt"> 73
+</span><span class="lnt"> 74
+</span><span class="lnt"> 75
+</span><span class="lnt"> 76
+</span><span class="lnt"> 77
+</span><span class="lnt"> 78
+</span><span class="lnt"> 79
+</span><span class="lnt"> 80
+</span><span class="lnt"> 81
+</span><span class="lnt"> 82
+</span><span class="lnt"> 83
+</span><span class="lnt"> 84
+</span><span class="lnt"> 85
+</span><span class="lnt"> 86
+</span><span class="lnt"> 87
+</span><span class="lnt"> 88
+</span><span class="lnt"> 89
+</span><span class="lnt"> 90
+</span><span class="lnt"> 91
+</span><span class="lnt"> 92
+</span><span class="lnt"> 93
+</span><span class="lnt"> 94
+</span><span class="lnt"> 95
+</span><span class="lnt"> 96
+</span><span class="lnt"> 97
+</span><span class="lnt"> 98
+</span><span class="lnt"> 99
+</span><span class="lnt">100
+</span><span class="lnt">101
+</span><span class="lnt">102
+</span><span class="lnt">103
+</span><span class="lnt">104
+</span><span class="lnt">105
+</span><span class="lnt">106
+</span><span class="lnt">107
+</span><span class="lnt">108
+</span><span class="lnt">109
+</span><span class="lnt">110
+</span><span class="lnt">111
+</span><span class="lnt">112
+</span><span class="lnt">113
+</span><span class="lnt">114
+</span><span class="lnt">115
+</span><span class="lnt">116
+</span><span class="lnt">117
+</span><span class="lnt">118
+</span><span class="lnt">119
+</span><span class="lnt">120
+</span><span class="lnt">121
+</span><span class="lnt">122
+</span><span class="lnt">123
+</span><span class="lnt">124
+</span><span class="lnt">125
+</span><span class="lnt">126
+</span><span class="lnt">127
+</span><span class="lnt">128
+</span><span class="lnt">129
+</span><span class="lnt">130
+</span><span class="lnt">131
+</span><span class="lnt">132
+</span><span class="lnt">133
+</span><span class="lnt">134
+</span><span class="lnt">135
+</span><span class="lnt">136
+</span><span class="lnt">137
+</span><span class="lnt">138
+</span><span class="lnt">139
+</span><span class="lnt">140
+</span><span class="lnt">141
+</span><span class="lnt">142
+</span><span class="lnt">143
+</span><span class="lnt">144
+</span><span class="lnt">145
+</span><span class="lnt">146
+</span><span class="lnt">147
+</span><span class="lnt">148
+</span><span class="lnt">149
+</span><span class="lnt">150
+</span><span class="lnt">151
+</span><span class="lnt">152
+</span><span class="lnt">153
+</span><span class="lnt">154
+</span><span class="lnt">155
+</span><span class="lnt">156
+</span><span class="lnt">157
+</span><span class="lnt">158
+</span><span class="lnt">159
+</span><span class="lnt">160
+</span><span class="lnt">161
+</span><span class="lnt">162
+</span><span class="lnt">163
+</span><span class="lnt">164
+</span><span class="lnt">165
+</span><span class="lnt">166
+</span><span class="lnt">167
+</span><span class="lnt">168
+</span><span class="lnt">169
+</span><span class="lnt">170
+</span><span class="lnt">171
+</span><span class="lnt">172
+</span><span class="lnt">173
+</span><span class="lnt">174
+</span><span class="lnt">175
+</span><span class="lnt">176
+</span><span class="lnt">177
+</span><span class="lnt">178
+</span><span class="lnt">179
+</span><span class="lnt">180
+</span><span class="lnt">181
+</span><span class="lnt">182
+</span><span class="lnt">183
+</span><span class="lnt">184
+</span><span class="lnt">185
+</span><span class="lnt">186
+</span><span class="lnt">187
+</span><span class="lnt">188
+</span><span class="lnt">189
+</span><span class="lnt">190
+</span><span class="lnt">191
+</span><span class="lnt">192
+</span><span class="lnt">193
+</span><span class="lnt">194
+</span><span class="lnt">195
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@cephadmin:~/my-cluster$ ceph -v
+ceph version 12.2.1 (3e7492b9ada8bdc9a5cd0feafd42fbca27f9c38e) luminous (stable)
+cephu@cephadmin:~/my-cluster$ ceph osd crush tunables optimal
+adjusted tunables profile to optimal
+cephu@cephadmin:~/my-cluster$ ceph osd crush rule ls
+replicated_rule
+cephu@cephadmin:~/my-cluster$ ceph osd crush rule dump
+[
+    {
+        &#34;rule_id&#34;: 0,
+        &#34;rule_name&#34;: &#34;replicated_rule&#34;,
+        &#34;ruleset&#34;: 0,
+        &#34;type&#34;: 1,
+        &#34;min_size&#34;: 1,
+        &#34;max_size&#34;: 10,
+        &#34;steps&#34;: [
+            {
+                &#34;op&#34;: &#34;take&#34;,
+                &#34;item&#34;: -1,
+                &#34;item_name&#34;: &#34;default&#34;
+            },
+            {
+                &#34;op&#34;: &#34;chooseleaf_firstn&#34;,
+                &#34;num&#34;: 0,
+                &#34;type&#34;: &#34;host&#34;
+            },
+            {
+                &#34;op&#34;: &#34;emit&#34;
+            }
+        ]
+    }
+]
+
+cephu@cephadmin:~/my-cluster$ ceph osd crush show-tunables
+{
+    &#34;choose_local_tries&#34;: 0,
+    &#34;choose_local_fallback_tries&#34;: 0,
+    &#34;choose_total_tries&#34;: 50,
+    &#34;chooseleaf_descend_once&#34;: 1,
+    &#34;chooseleaf_vary_r&#34;: 1,
+    &#34;chooseleaf_stable&#34;: 1,
+    &#34;straw_calc_version&#34;: 1,
+    &#34;allowed_bucket_algs&#34;: 54,
+    &#34;profile&#34;: &#34;jewel&#34;,
+    &#34;optimal_tunables&#34;: 1,
+    &#34;legacy_tunables&#34;: 0,
+    &#34;minimum_required_version&#34;: &#34;jewel&#34;,
+    &#34;require_feature_tunables&#34;: 1,
+    &#34;require_feature_tunables2&#34;: 1,
+    &#34;has_v2_rules&#34;: 0,
+    &#34;require_feature_tunables3&#34;: 1,
+    &#34;has_v3_rules&#34;: 0,
+    &#34;has_v4_buckets&#34;: 1,
+    &#34;require_feature_tunables5&#34;: 1,
+    &#34;has_v5_rules&#34;: 0
+}
+
+cephu@cephadmin:~/my-cluster$ ceph osd crush -h
+
+General usage:
+==============
+usage: ceph [-h] [-c CEPHCONF] [-i INPUT_FILE] [-o OUTPUT_FILE]
+            [--id CLIENT_ID] [--name CLIENT_NAME] [--cluster CLUSTER]
+            [--admin-daemon ADMIN_SOCKET] [-s] [-w] [--watch-debug]
+            [--watch-info] [--watch-sec] [--watch-warn] [--watch-error]
+            [--watch-channel WATCH_CHANNEL] [--version] [--verbose]
+            [--concise] [-f {json,json-pretty,xml,xml-pretty,plain}]
+            [--connect-timeout CLUSTER_TIMEOUT]
+
+Ceph administration tool
+
+optional arguments:
+-h, --help            request mon help
+-c CEPHCONF, --conf CEPHCONF
+                        ceph configuration file
+-i INPUT_FILE, --in-file INPUT_FILE
+                        input file, or &#34;-&#34; for stdin
+-o OUTPUT_FILE, --out-file OUTPUT_FILE
+                        output file, or &#34;-&#34; for stdout
+--id CLIENT_ID, --user CLIENT_ID
+                        client id for authentication
+--name CLIENT_NAME, -n CLIENT_NAME
+                        client name for authentication
+--cluster CLUSTER     cluster name
+--admin-daemon ADMIN_SOCKET
+                        submit admin-socket commands (&#34;help&#34; for help
+-s, --status          show cluster status
+-w, --watch           watch live cluster changes
+--watch-debug         watch debug events
+--watch-info          watch info events
+--watch-sec           watch security events
+--watch-warn          watch warn events
+--watch-error         watch error events
+--watch-channel WATCH_CHANNEL
+                        which log channel to follow when using -w/--watch. One
+                        of [&#39;cluster&#39;, &#39;audit&#39;, &#39;*&#39;
+--version, -v         display version
+--verbose             make verbose
+--concise             make less verbose
+-f {json,json-pretty,xml,xml-pretty,plain}, --format {json,json-pretty,xml,xml-pretty,plain}
+--connect-timeout CLUSTER_TIMEOUT
+                        set a timeout for connecting to the cluster
+
+Local commands:
+===============
+
+ping &lt;mon.id&gt;           Send simple presence/life test to a mon
+                        &lt;mon.id&gt; may be &#39;mon.*&#39; for all mons
+daemon {type.id|path} &lt;cmd&gt;
+                        Same as --admin-daemon, but auto-find admin socket
+daemonperf {type.id | path} [stat-pats] [priority] [&lt;interval&gt;] [&lt;count&gt;]
+daemonperf {type.id | path} list|ls [stat-pats] [priority]
+                        Get selected perf stats from daemon/admin socket
+                        Optional shell-glob comma-delim match string stat-pats
+                        Optional selection priority (can abbreviate name):
+                        critical, interesting, useful, noninteresting, debug
+                        List shows a table of all available stats
+                        Run &lt;count&gt; times (default forever),
+                        once per &lt;interval&gt; seconds (default 1)
+
+
+Monitor commands:
+=================
+osd crush add &lt;osdname (id|osd.id)&gt; &lt;float[0.0-]&gt; &lt;args&gt; [&lt;args&gt;...]                                                 add or update crushmap position and weight for &lt;name&gt; with &lt;weight&gt; and location &lt;args&gt;
+osd crush add-bucket &lt;name&gt; &lt;type&gt;                                                                                   add no-parent (probably root) crush bucket &lt;name&gt; of type &lt;type&gt;
+osd crush class ls                                                                                                   list all crush device classes
+osd crush class ls-osd &lt;class&gt;                                                                                       list all osds belonging to the specific &lt;class&gt;
+osd crush class rename &lt;srcname&gt; &lt;dstname&gt;                                                                           rename crush device class &lt;srcname&gt; to &lt;dstname&gt;
+osd crush create-or-move &lt;osdname (id|osd.id)&gt; &lt;float[0.0-]&gt; &lt;args&gt; [&lt;args&gt;...]                                      create entry or move existing entry for &lt;name&gt; &lt;weight&gt; at/to location &lt;args&gt;
+osd crush dump                                                                                                       dump crush map
+osd crush get-tunable straw_calc_version                                                                             get crush tunable &lt;tunable&gt;
+osd crush link &lt;name&gt; &lt;args&gt; [&lt;args&gt;...]                                                                             link existing entry for &lt;name&gt; under location &lt;args&gt;
+osd crush ls &lt;node&gt;                                                                                                  list items beneath a node in the CRUSH tree
+osd crush move &lt;name&gt; &lt;args&gt; [&lt;args&gt;...]                                                                             move existing entry for &lt;name&gt; to location &lt;args&gt;
+osd crush remove &lt;name&gt; {&lt;ancestor&gt;}                                                                                 remove &lt;name&gt; from crush map (everywhere, or just at &lt;ancestor&gt;)
+osd crush rename-bucket &lt;srcname&gt; &lt;dstname&gt;                                                                          rename bucket &lt;srcname&gt; to &lt;dstname&gt;
+osd crush reweight &lt;name&gt; &lt;float[0.0-]&gt;                                                                              change &lt;name&gt;&#39;s weight to &lt;weight&gt; in crush map
+osd crush reweight-all                                                                                               recalculate the weights for the tree to ensure they sum correctly
+osd crush reweight-subtree &lt;name&gt; &lt;float[0.0-]&gt;                                                                      change all leaf items beneath &lt;name&gt; to &lt;weight&gt; in crush map
+osd crush rm &lt;name&gt; {&lt;ancestor&gt;}                                                                                     remove &lt;name&gt; from crush map (everywhere, or just at &lt;ancestor&gt;)
+osd crush rm-device-class &lt;ids&gt; [&lt;ids&gt;...]                                                                           remove class of the osd(s) &lt;id&gt; [&lt;id&gt;...],or use &lt;all|any|*&gt; to remove all.
+osd crush rule create-erasure &lt;name&gt; {&lt;profile&gt;}                                                                     create crush rule &lt;name&gt; for erasure coded pool created with &lt;profile&gt; (default default)
+osd crush rule create-replicated &lt;name&gt; &lt;root&gt; &lt;type&gt; {&lt;class&gt;}                                                      create crush rule &lt;name&gt; for replicated pool to start from &lt;root&gt;, replicate across buckets of type &lt;type&gt;, using a
+                                                                                                                    choose mode of &lt;firstn|indep&gt; (default firstn; indep best for erasure pools)
+osd crush rule create-simple &lt;name&gt; &lt;root&gt; &lt;type&gt; {firstn|indep}                                                     create crush rule &lt;name&gt; to start from &lt;root&gt;, replicate across buckets of type &lt;type&gt;, using a choose mode of
+                                                                                                                    &lt;firstn|indep&gt; (default firstn; indep best for erasure pools)
+osd crush rule dump {&lt;name&gt;}                                                                                         dump crush rule &lt;name&gt; (default all)
+osd crush rule ls                                                                                                    list crush rules
+osd crush rule ls-by-class &lt;class&gt;                                                                                   list all crush rules that reference the same &lt;class&gt;
+osd crush rule rename &lt;srcname&gt; &lt;dstname&gt;                                                                            rename crush rule &lt;srcname&gt; to &lt;dstname&gt;
+osd crush rule rm &lt;name&gt;                                                                                             remove crush rule &lt;name&gt;
+osd crush set &lt;osdname (id|osd.id)&gt; &lt;float[0.0-]&gt; &lt;args&gt; [&lt;args&gt;...]                                                 update crushmap position and weight for &lt;name&gt; to &lt;weight&gt; with location &lt;args&gt;
+osd crush set {&lt;int&gt;}                                                                                                set crush map from input file
+osd crush set-device-class &lt;class&gt; &lt;ids&gt; [&lt;ids&gt;...]                                                                  set the &lt;class&gt; of the osd(s) &lt;id&gt; [&lt;id&gt;...],or use &lt;all|any|*&gt; to set all.
+osd crush set-tunable straw_calc_version &lt;int&gt;                                                                       set crush tunable &lt;tunable&gt; to &lt;value&gt;
+osd crush show-tunables                                                                                              show current crush tunables
+osd crush swap-bucket &lt;source&gt; &lt;dest&gt; {--yes-i-really-mean-it}                                                       swap existing bucket contents from (orphan) bucket &lt;source&gt; and &lt;target&gt;
+osd crush tree {--show-shadow}                                                                                       dump crush buckets and items in a tree view
+osd crush tunables legacy|argonaut|bobtail|firefly|hammer|jewel|optimal|default                                      set crush tunables values to &lt;profile&gt;
+osd crush unlink &lt;name&gt; {&lt;ancestor&gt;}                                                                                 unlink &lt;name&gt; from crush map (everywhere, or just at &lt;ancestor&gt;)
+osd crush weight-set create &lt;poolname&gt; flat|positional                                                               create a weight-set for a given pool
+osd crush weight-set create-compat                                                                                   create a default backward-compatible weight-set
+osd crush weight-set dump                                                                                            dump crush weight sets
+osd crush weight-set ls                                                                                              list crush weight sets
+osd crush weight-set reweight &lt;poolname&gt; &lt;item&gt; &lt;float[0.0-]&gt; [&lt;float[0.0-]&gt;...]                                     set weight for an item (bucket or osd) in a pool&#39;s weight-set
+osd crush weight-set reweight-compat &lt;item&gt; &lt;float[0.0-]&gt; [&lt;float[0.0-]&gt;...]                                         set weight for an item (bucket or osd) in the backward-compatible weight-set
+osd crush weight-set rm &lt;poolname&gt;                                                                                   remove the weight-set for a given pool
+osd crush weight-set rm-compat                                                                                       remove the backward-compatible weight-set
+cephu@cephadmin:~/my-cluster$ ceph osd crush tunables hammer
+adjusted tunables profile to hammer
+cephu@cephadmin:~/my-cluster$ ceph osd crush show-tunables
+{
+    &#34;choose_local_tries&#34;: 0,
+    &#34;choose_local_fallback_tries&#34;: 0,
+    &#34;choose_total_tries&#34;: 50,
+    &#34;chooseleaf_descend_once&#34;: 1,
+    &#34;chooseleaf_vary_r&#34;: 1,
+    &#34;chooseleaf_stable&#34;: 0,
+    &#34;straw_calc_version&#34;: 1,
+    &#34;allowed_bucket_algs&#34;: 54,
+    &#34;profile&#34;: &#34;hammer&#34;,
+    &#34;optimal_tunables&#34;: 0,
+    &#34;legacy_tunables&#34;: 0,
+    &#34;minimum_required_version&#34;: &#34;hammer&#34;,
+    &#34;require_feature_tunables&#34;: 1,
+    &#34;require_feature_tunables2&#34;: 1,
+    &#34;has_v2_rules&#34;: 0,
+    &#34;require_feature_tunables3&#34;: 1,
+    &#34;has_v3_rules&#34;: 0,
+    &#34;has_v4_buckets&#34;: 1,
+    &#34;require_feature_tunables5&#34;: 0,
+    &#34;has_v5_rules&#34;: 0
+}
+
+cephu@cephadmin:~/my-cluster$</code></pre></td></tr></table>
+</div>
+</div>
+<p>回 ceph-client 节点：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ ceph -v
+ceph version 12.2.1 (3e7492b9ada8bdc9a5cd0feafd42fbca27f9c38e) luminous (stable)
+cephu@ceph-client:~$ rbd ls
+foo
+cephu@ceph-client:~$ sudo rbd map foo --name client.admin
+/dev/rbd0
+cephu@ceph-client:~$ ls /dev/rbd
+rbd/  rbd0
+cephu@ceph-client:~$ ls /dev/rbd/rbd/foo
+/dev/rbd/rbd/foo
+cephu@ceph-client:~$ ls /dev/rbd0
+/dev/rbd0
+cephu@ceph-client:~$ ls /dev/rbd0 -l
+brw-rw---- 1 root disk 251, 0 Oct 25 12:03 /dev/rbd0
+cephu@ceph-client:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>成功了。。继续。。</p>
+
+<p>Use the block device by creating a file system on the ceph-client node.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ sudo mkfs.ext4 -m0 /dev/rbd/rbd/foo
+mke2fs 1.42.13 (17-May-2015)
+Discarding device blocks: done
+Creating filesystem with 1048576 4k blocks and 262144 inodes
+Filesystem UUID: d83ebc8d-1956-4d81-b9db-391f939634ac
+Superblock backups stored on blocks:
+        32768, 98304, 163840, 229376, 294912, 819200, 884736
+
+Allocating group tables: done
+Writing inode tables: done
+Creating journal (32768 blocks): done
+Writing superblocks and filesystem accounting information: done
+
+cephu@ceph-client:~$</code></pre></td></tr></table>
+</div>
+</div>
+<p>Mount the file system on the ceph-client node.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">cephu@ceph-client:~$ sudo mkdir /mnt/ceph-block-device
+cephu@ceph-client:~$ sudo mount /dev/rbd/rbd/foo /mnt/ceph-block-device
+cephu@ceph-client:~$ cd /mnt/ceph-block-device
+cephu@ceph-client:/mnt/ceph-block-device$ ls
+lost+found
+cephu@ceph-client:/mnt/ceph-block-device$</code></pre></td></tr></table>
+</div>
+</div>
+<p>好了，这小一节，结束了。</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-12-01</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/ceph/">ceph</a>
+          <a href="https://b.qqbb.app/tags/install/">install</a>
+          <a href="https://b.qqbb.app/tags/ubuntu/">ubuntu</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/jupyter-notebook-login-with-token/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">jupyter-notebook 密码查询</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/kubernetes-cephfs-yaml/">
+            <span class="next-text nav-default">k8s 中 cephfs 成功的 yaml 文件</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

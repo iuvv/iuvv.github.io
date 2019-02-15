@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/windows/</link>
+    <description>Recent content in Windows on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 12 Feb 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Windows下效率必备软件</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/windows-tools/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/windows-tools/</guid>
+      <description>Windows下效率必备软件 env os: win10 step 工欲善其事，必先利其器！ 工欲善其事，必先利其器！ 工欲善其事，必先利其器！重而说三。 AutoHotKey: 神器！神器！神器！当</description>
+    </item>
+    
+    <item>
+      <title>Network Proxy Win10</title>
+      <link>https://b.qqbb.app/post/network-proxy-win10/</link>
+      <pubDate>Mon, 11 Jun 2018 10:10:16 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/network-proxy-win10/</guid>
+      <description>通过win10实现FQ Env os: win10 Step 先配置Shadowsocks privoxy or not 方法1 不配置 privoxy 其实可以不配置privoxy,而使得socks5生效。 具体步骤</description>
+    </item>
+    
+    <item>
+      <title>Windows Command</title>
+      <link>https://b.qqbb.app/post/command/windows/</link>
+      <pubDate>Wed, 28 Feb 2018 17:26:01 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/command/windows/</guid>
+      <description>windows 后台运行 使用start /b +命令即可，具体方法如下： 按windows和r组合键打开运行面板； 在运行框内输入cmd，再按回车键进入命令提示符中</description>
+    </item>
+    
+  </channel>
+</rss>

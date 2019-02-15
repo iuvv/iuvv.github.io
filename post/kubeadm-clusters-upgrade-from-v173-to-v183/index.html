@@ -1,0 +1,1339 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>更新kubeadm clusters 从v1.7.3至v1.8.3 - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="Upgrading kubeadm clusters from 1.7 to 1.8 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/ env 1 2 3 192.168.31.120 km, master 192.168.31.119 kn1 192.168.31.118 kn2 下载 kubeadm https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm 1 2 3 4 root@km:~# sudo chmod a&#43;rx /usr/bin/kubeadm root@km:~# kubeadm version kubeadm version: &amp;amp;version.Info{Major:&amp;#34;1&amp;#34;, Minor:&amp;#34;8&amp;#34;, GitVersion:&amp;#34;v1.8.2&amp;#34;, GitCommit:&amp;#34;bdaeafa71f6c7c04636251031f93464384d54963&amp;#34;, GitTreeState:&amp;#34;clean&amp;#34;, BuildDate:&amp;#34;2017-10-24T19:38:10Z&amp;#34;, GoVersion:&amp;#34;go1.8.3&amp;#34;, Compiler:&amp;#34;gc&amp;#34;, Platform:&amp;#34;linux/amd64&amp;#34;} root@km:~# 上传 1 2 root@km:~# kubeadm config upload from-file --config ./admin.conf unable to decode config from &amp;#34;./admin.conf&amp;#34; [no kind &amp;#34;Config&amp;#34; is registered for" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/kubeadm-clusters-upgrade-from-v173-to-v183/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="更新kubeadm clusters 从v1.7.3至v1.8.3" />
+<meta property="og:description" content="Upgrading kubeadm clusters from 1.7 to 1.8 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/ env 1 2 3 192.168.31.120 km, master 192.168.31.119 kn1 192.168.31.118 kn2 下载 kubeadm https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm 1 2 3 4 root@km:~# sudo chmod a&#43;rx /usr/bin/kubeadm root@km:~# kubeadm version kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;8&#34;, GitVersion:&#34;v1.8.2&#34;, GitCommit:&#34;bdaeafa71f6c7c04636251031f93464384d54963&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2017-10-24T19:38:10Z&#34;, GoVersion:&#34;go1.8.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} root@km:~# 上传 1 2 root@km:~# kubeadm config upload from-file --config ./admin.conf unable to decode config from &#34;./admin.conf&#34; [no kind &#34;Config&#34; is registered for" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/kubeadm-clusters-upgrade-from-v173-to-v183/" />
+
+
+
+<meta property="article:published_time" content="2018-11-25T17:05:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-11-25T17:07:55&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="更新kubeadm clusters 从v1.7.3至v1.8.3">
+<meta itemprop="description" content="Upgrading kubeadm clusters from 1.7 to 1.8 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/ env 1 2 3 192.168.31.120 km, master 192.168.31.119 kn1 192.168.31.118 kn2 下载 kubeadm https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm 1 2 3 4 root@km:~# sudo chmod a&#43;rx /usr/bin/kubeadm root@km:~# kubeadm version kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;8&#34;, GitVersion:&#34;v1.8.2&#34;, GitCommit:&#34;bdaeafa71f6c7c04636251031f93464384d54963&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2017-10-24T19:38:10Z&#34;, GoVersion:&#34;go1.8.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} root@km:~# 上传 1 2 root@km:~# kubeadm config upload from-file --config ./admin.conf unable to decode config from &#34;./admin.conf&#34; [no kind &#34;Config&#34; is registered for">
+
+
+<meta itemprop="datePublished" content="2018-11-25T17:05:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-25T17:05:00&#43;08:00" />
+<meta itemprop="wordCount" content="2117">
+
+
+
+<meta itemprop="keywords" content="kubernetes,upgrade,kubeadm," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="更新kubeadm clusters 从v1.7.3至v1.8.3"/>
+<meta name="twitter:description" content="Upgrading kubeadm clusters from 1.7 to 1.8 https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/ env 1 2 3 192.168.31.120 km, master 192.168.31.119 kn1 192.168.31.118 kn2 下载 kubeadm https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm 1 2 3 4 root@km:~# sudo chmod a&#43;rx /usr/bin/kubeadm root@km:~# kubeadm version kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;8&#34;, GitVersion:&#34;v1.8.2&#34;, GitCommit:&#34;bdaeafa71f6c7c04636251031f93464384d54963&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2017-10-24T19:38:10Z&#34;, GoVersion:&#34;go1.8.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;} root@km:~# 上传 1 2 root@km:~# kubeadm config upload from-file --config ./admin.conf unable to decode config from &#34;./admin.conf&#34; [no kind &#34;Config&#34; is registered for"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">更新kubeadm clusters 从v1.7.3至v1.8.3</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-11-25" class="post-time">
+          2018-11-25
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/kubernetes/"> kubernetes </a>
+            
+          </div>
+        <span class="more-meta"> 约 2117 字 </span>
+          <span class="more-meta"> 预计阅读 5 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#下载-kubeadm">下载 kubeadm</a></li>
+<li><a href="#上传">上传</a></li>
+<li><a href="#proxy-fq">proxy FQ</a></li>
+<li><a href="#kubeadm-upgrade-apply-v1.8.3">kubeadm upgrade apply v1.8.3</a></li>
+<li><a href="#解决报错">解决报错</a>
+<ul>
+<li><a href="#加入-kubeadm-init-参数">加入 kubeadm init 参数</a></li>
+<li><a href="#kubeadm-upgrade-plan">kubeadm upgrade plan</a></li>
+<li><a href="#kubeadm-upgrade-apply">kubeadm upgrade apply</a></li>
+</ul></li>
+<li><a href="#新的尝试">新的尝试</a></li>
+<li><a href="#全新安装-v1.8.3">全新安装 v1.8.3</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>Upgrading kubeadm clusters from 1.7 to 1.8</p>
+
+<p><a href="https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/">https://kubernetes.io/docs/tasks/administer-cluster/kubeadm-upgrade-1-8/</a></p>
+
+<h2 id="env">env</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">192.168.31.120 km, master
+192.168.31.119 kn1
+192.168.31.118 kn2</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="下载-kubeadm">下载 kubeadm</h2>
+
+<blockquote>
+<p><a href="https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm">https://dl.k8s.io/release/v1.8.2/bin/linux/amd64/kubeadm</a></p>
+</blockquote>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# sudo chmod a+rx /usr/bin/kubeadm
+root@km:~# kubeadm version
+kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;8&#34;, GitVersion:&#34;v1.8.2&#34;, GitCommit:&#34;bdaeafa71f6c7c04636251031f93464384d54963&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2017-10-24T19:38:10Z&#34;, GoVersion:&#34;go1.8.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="上传">上传</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# kubeadm config upload from-file --config ./admin.conf
+unable to decode config from &#34;./admin.conf&#34; [no kind &#34;Config&#34; is registered for version &#34;v1&#34;]</code></pre></td></tr></table>
+</div>
+</div>
+<p>不是这样的 conf 文件呀。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# kubeadm config upload from-flags []
+unable to get URL &#34;https://dl.k8s.io/release/stable-1.8.txt&#34;: Get https://storage.googleapis.com/kubernetes-release/release/stable-1.8.txt: read tcp 192.168.31.120:47118-&gt;172.217.24.16:443: read: connection reset by peer
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>要FQ呀。</p>
+
+<h2 id="proxy-fq">proxy FQ</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# cat proxy.sh
+#!/bin/bash
+NO_PROXY=localhost,127.0.0.1/8,192.168.31.1/24
+export NO_PROXY
+export http_proxy=http://192.168.31.10:1080/
+export https_proxy=http://192.168.31.10:1080/
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="kubeadm-upgrade-apply-v1.8.3">kubeadm upgrade apply v1.8.3</h2>
+
+<p>FQ后，重新来过</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span><span class="lnt">62
+</span><span class="lnt">63
+</span><span class="lnt">64
+</span><span class="lnt">65
+</span><span class="lnt">66
+</span><span class="lnt">67
+</span><span class="lnt">68
+</span><span class="lnt">69
+</span><span class="lnt">70
+</span><span class="lnt">71
+</span><span class="lnt">72
+</span><span class="lnt">73
+</span><span class="lnt">74
+</span><span class="lnt">75
+</span><span class="lnt">76
+</span><span class="lnt">77
+</span><span class="lnt">78
+</span><span class="lnt">79
+</span><span class="lnt">80
+</span><span class="lnt">81
+</span><span class="lnt">82
+</span><span class="lnt">83
+</span><span class="lnt">84
+</span><span class="lnt">85
+</span><span class="lnt">86
+</span><span class="lnt">87
+</span><span class="lnt">88
+</span><span class="lnt">89
+</span><span class="lnt">90
+</span><span class="lnt">91
+</span><span class="lnt">92
+</span><span class="lnt">93
+</span><span class="lnt">94
+</span><span class="lnt">95
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# cp kubeadm.v1.8.3  kubeadm
+root@km:~# mv kubeadm /usr/bin/
+root@km:~# chmod a+rx /usr/bin/kubeadm
+root@km:~# kubeadm version
+kubeadm version: &amp;version.Info{Major:&#34;1&#34;, Minor:&#34;8&#34;, GitVersion:&#34;v1.8.3&#34;, GitCommit:&#34;f0efb3cb883751c5ffdbe6d515f3cb4fbe7b7acd&#34;, GitTreeState:&#34;clean&#34;, BuildDate:&#34;2017-11-08T18:27:48Z&#34;, GoVersion:&#34;go1.8.3&#34;, Compiler:&#34;gc&#34;, Platform:&#34;linux/amd64&#34;}
+root@km:~# kubeadm config upload from-flags []
+[uploadconfig] Storing the configuration used in ConfigMap &#34;kubeadm-config&#34; in the &#34;kube-system&#34; Namespace
+root@km:~# kubeadm upgrade plan
+[preflight] Running pre-flight checks
+[upgrade] Making sure the cluster is healthy:
+[upgrade/health] Checking API Server health: Healthy
+[upgrade/health] Checking Node health: All Nodes are healthy
+[upgrade/health] Checking Static Pod manifests exists on disk: All manifests exist on disk
+[upgrade/config] Making sure the configuration is correct:
+[upgrade/config] Reading configuration from the cluster...
+[upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;
+[upgrade] Fetching available versions to upgrade to
+[upgrade/versions] Cluster version: v1.7.3
+[upgrade/versions] kubeadm version: v1.8.3
+[upgrade/versions] Latest stable version: v1.8.3
+[upgrade/versions] Latest version in the v1.7 series: v1.7.10
+
+Components that must be upgraded manually after you&#39;ve upgraded the control plane with &#39;kubeadm upgrade apply&#39;:
+COMPONENT   CURRENT      AVAILABLE
+Kubelet     3 x v1.7.3   v1.7.10
+
+Upgrade to the latest version in the v1.7 series:
+
+COMPONENT            CURRENT   AVAILABLE
+API Server           v1.7.3    v1.7.10
+Controller Manager   v1.7.3    v1.7.10
+Scheduler            v1.7.3    v1.7.10
+Kube Proxy           v1.7.3    v1.7.10
+Kube DNS             1.14.5    1.14.5
+
+You can now apply the upgrade by executing the following command:
+
+    kubeadm upgrade apply v1.7.10
+
+_____________________________________________________________________
+
+Components that must be upgraded manually after you&#39;ve upgraded the control plane with &#39;kubeadm upgrade apply&#39;:
+COMPONENT   CURRENT      AVAILABLE
+Kubelet     3 x v1.7.3   v1.8.3
+
+Upgrade to the latest stable version:
+
+COMPONENT            CURRENT   AVAILABLE
+API Server           v1.7.3    v1.8.3
+Controller Manager   v1.7.3    v1.8.3
+Scheduler            v1.7.3    v1.8.3
+Kube Proxy           v1.7.3    v1.8.3
+Kube DNS             1.14.5    1.14.5
+
+You can now apply the upgrade by executing the following command:
+
+    kubeadm upgrade apply v1.8.3
+
+_____________________________________________________________________
+
+root@km:~# kubeadm upgrade apply v1.8.3
+[preflight] Running pre-flight checks
+[upgrade] Making sure the cluster is healthy:
+[upgrade/health] Checking API Server health: Healthy
+[upgrade/health] Checking Node health: All Nodes are healthy
+[upgrade/health] Checking Static Pod manifests exists on disk: All manifests exist on disk
+[upgrade/config] Making sure the configuration is correct:
+[upgrade/config] Reading configuration from the cluster...
+[upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;
+[upgrade/version] You have chosen to upgrade to version &#34;v1.8.3&#34;
+[upgrade/versions] Cluster version: v1.7.3
+[upgrade/versions] kubeadm version: v1.8.3
+[upgrade/confirm] Are you sure you want to proceed with the upgrade? [y/N]: y
+[upgrade/prepull] Will prepull images for components [kube-apiserver kube-controller-manager kube-scheduler]
+[upgrade/prepull] Prepulling image for component kube-scheduler.
+[upgrade/prepull] Prepulling image for component kube-apiserver.
+[upgrade/prepull] Prepulling image for component kube-controller-manager.
+[apiclient] Found 1 Pods for label selector k8s-app=upgrade-prepull-kube-apiserver
+[apiclient] Found 0 Pods for label selector k8s-app=upgrade-prepull-kube-controller-manager
+[apiclient] Found 1 Pods for label selector k8s-app=upgrade-prepull-kube-controller-manager
+[apiclient] Found 0 Pods for label selector k8s-app=upgrade-prepull-kube-scheduler
+[apiclient] Found 1 Pods for label selector k8s-app=upgrade-prepull-kube-scheduler
+[upgrade/prepull] Prepulled image for component kube-apiserver.
+[upgrade/prepull] Prepulled image for component kube-controller-manager.
+[upgrade/prepull] Prepulled image for component kube-scheduler.
+[upgrade/prepull] Successfully prepulled the images for all the control plane components
+[upgrade/apply] Upgrading your Static Pod-hosted control plane to version &#34;v1.8.3&#34;...
+[upgrade/staticpods] Writing upgraded Static Pod manifests to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests025451644&#34;
+[controlplane] Wrote Static Pod manifest for component kube-apiserver to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests025451644/kube-apiserver.yaml&#34;
+[controlplane] Wrote Static Pod manifest for component kube-controller-manager to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests025451644/kube-controller-manager.yaml&#34;
+[controlplane] Wrote Static Pod manifest for component kube-scheduler to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests025451644/kube-scheduler.yaml&#34;
+[upgrade/staticpods] Moved upgraded manifest to &#34;/etc/kubernetes/manifests/kube-apiserver.yaml&#34; and backed up old manifest to &#34;/etc/kubernetes/tmp/kubeadm-backup-manifests188726187/kube-apiserver.yaml&#34;
+[upgrade/staticpods] Waiting for the kubelet to restart the component
+[upgrade/apply] FATAL: couldn&#39;t upgrade control plane. kubeadm has tried to recover everything into the earlier state. Errors faced: [timed out waiting for the condition]
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>报错了。</p>
+
+<h2 id="解决报错">解决报错</h2>
+
+<h3 id="加入-kubeadm-init-参数">加入 kubeadm init 参数</h3>
+
+<p>通过 kubeadm upgrade &ndash;help 发现，要先把之前 kubeadm init 的参数，作为configmap传进来。
+回忆一下，之前是 kubeadm init
+&ndash;pod-network-cidr=10.244.0.0/16，所以这里把它加进去</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# kubeadm config upload from-flags [--pod-network-cidr=10.244.0.0/16]
+[uploadconfig] Storing the configuration used in ConfigMap &#34;kubeadm-config&#34; in the &#34;kube-system&#34; Namespace
+root@km:~#
+root@km:~# k get configmap kubeadm-config -n kube-system
+NAME             DATA      AGE
+kubeadm-config   1         1d
+root@km:~# k describe configmap kubeadm-config -n kube-system
+Name:       kubeadm-config
+Namespace:  kube-system
+Labels:     &lt;none&gt;
+Annotations:    &lt;none&gt;
+
+Data
+====
+MasterConfiguration:
+----
+api:
+advertiseAddress: 192.168.31.120
+bindPort: 6443
+authorizationModes:
+- Node
+- RBAC
+certificatesDir: /etc/kubernetes/pki
+cloudProvider: &#34;&#34;
+etcd:
+caFile: &#34;&#34;
+certFile: &#34;&#34;
+dataDir: /var/lib/etcd
+endpoints: null
+image: &#34;&#34;
+keyFile: &#34;&#34;
+imageRepository: gcr.io/google_containers
+kubernetesVersion: v1.8.3
+networking:
+dnsDomain: cluster.local
+podSubnet: &#34;&#34;
+serviceSubnet: 10.96.0.0/12
+nodeName: km
+token: &#34;&#34;
+tokenTTL: 24h0m0s
+unifiedControlPlaneImage: &#34;&#34;
+
+Events: &lt;none&gt;
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>呀！没把参数 &ndash;pod-network-cidr=10.244.0.0/16，加入呀（如果加入了
+podSubnet: &ldquo;&rdquo; 会变成 podSubnet: 10.244.0.0/16 的）</p>
+
+<p>看来刚刚不能加 [] 这个中括号。 再来。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# kubeadm config upload from-flags --pod-network-cidr=10.244.0.0/16
+[uploadconfig] Storing the configuration used in ConfigMap &#34;kubeadm-config&#34; in the &#34;kube-system&#34; Namespace
+root@km:~# k get cm kubeadm-config -n kube-system -o yaml
+apiVersion: v1
+data:
+MasterConfiguration: |
+    api:
+    advertiseAddress: 192.168.31.120
+    bindPort: 6443
+    authorizationModes:
+    - Node
+    - RBAC
+    certificatesDir: /etc/kubernetes/pki
+    cloudProvider: &#34;&#34;
+    etcd:
+    caFile: &#34;&#34;
+    certFile: &#34;&#34;
+    dataDir: /var/lib/etcd
+    endpoints: null
+    image: &#34;&#34;
+    keyFile: &#34;&#34;
+    imageRepository: gcr.io/google_containers
+    kubernetesVersion: v1.8.3
+    networking:
+    dnsDomain: cluster.local
+    podSubnet: 10.244.0.0/16
+    serviceSubnet: 10.96.0.0/12
+    nodeName: km
+    token: &#34;&#34;
+    tokenTTL: 24h0m0s
+    unifiedControlPlaneImage: &#34;&#34;
+kind: ConfigMap
+metadata:
+creationTimestamp: 2017-11-14T10:04:45Z
+name: kubeadm-config
+namespace: kube-system
+resourceVersion: &#34;10542232&#34;
+selfLink: /api/v1/namespaces/kube-system/configmaps/kubeadm-config
+uid: 3de0d764-c923-11e7-96bf-000c299a346f
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>成功。</p>
+
+<h3 id="kubeadm-upgrade-plan">kubeadm upgrade plan</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# kubeadm upgrade plan
+[preflight] Running pre-flight checks
+[upgrade] Making sure the cluster is healthy:
+[upgrade/health] Checking API Server health: Healthy
+[upgrade/health] Checking Node health: All Nodes are healthy
+[upgrade/health] Checking Static Pod manifests exists on disk: All manifests exist on disk
+[upgrade/config] Making sure the configuration is correct:
+[upgrade/config] Reading configuration from the cluster...
+[upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;
+[upgrade] Fetching available versions to upgrade to
+[upgrade/versions] Cluster version: v1.7.3
+[upgrade/versions] kubeadm version: v1.8.3
+[upgrade/versions] Latest stable version: v1.8.3
+[upgrade/versions] Latest version in the v1.7 series: v1.7.10
+
+Components that must be upgraded manually after you&#39;ve upgraded the control plane with &#39;kubeadm upgrade apply&#39;:
+COMPONENT   CURRENT      AVAILABLE
+Kubelet     3 x v1.7.3   v1.7.10
+
+Upgrade to the latest version in the v1.7 series:
+
+COMPONENT            CURRENT   AVAILABLE
+API Server           v1.7.3    v1.7.10
+Controller Manager   v1.7.3    v1.7.10
+Scheduler            v1.7.3    v1.7.10
+Kube Proxy           v1.7.3    v1.7.10
+Kube DNS             1.14.5    1.14.5
+
+You can now apply the upgrade by executing the following command:
+
+    kubeadm upgrade apply v1.7.10
+
+_____________________________________________________________________
+
+Components that must be upgraded manually after you&#39;ve upgraded the control plane with &#39;kubeadm upgrade apply&#39;:
+COMPONENT   CURRENT      AVAILABLE
+Kubelet     3 x v1.7.3   v1.8.3
+
+Upgrade to the latest stable version:
+
+COMPONENT            CURRENT   AVAILABLE
+API Server           v1.7.3    v1.8.3
+Controller Manager   v1.7.3    v1.8.3
+Scheduler            v1.7.3    v1.8.3
+Kube Proxy           v1.7.3    v1.8.3
+Kube DNS             1.14.5    1.14.5
+
+You can now apply the upgrade by executing the following command:
+
+    kubeadm upgrade apply v1.8.3
+
+_____________________________________________________________________
+
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="kubeadm-upgrade-apply">kubeadm upgrade apply</h3>
+
+<p>如果说kubernetes的配置文件不是默认/etc/kubernetes/admin.conf，那则在这里加
+&ndash;kubeconfig /root/admin.conf 就行了。 如：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# kubeadm upgrade apply v1.8.3 --kubeconfig /root/admin.conf --force</code></pre></td></tr></table>
+</div>
+</div>
+<p>多打印一些信息吧</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span><span class="lnt">60
+</span><span class="lnt">61
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# kubeadm upgrade apply v1.8.3 --print-config --skip-preflight-checks
+[preflight] Skipping pre-flight checks
+[upgrade] Making sure the cluster is healthy:
+[upgrade/health] Checking API Server health: Healthy
+[upgrade/health] Checking Node health: All Nodes are healthy
+[upgrade/health] Checking Static Pod manifests exists on disk: All manifests exist on disk
+[upgrade/config] Making sure the configuration is correct:
+[upgrade/config] Reading configuration from the cluster...
+[upgrade/config] FYI: You can look at this config file with &#39;kubectl -n kube-system get cm kubeadm-config -oyaml&#39;
+[upgrade/config] Configuration used:
+    api:
+    advertiseAddress: 192.168.31.120
+    bindPort: 6443
+    authorizationModes:
+    - Node
+    - RBAC
+    certificatesDir: /etc/kubernetes/pki
+    cloudProvider: &#34;&#34;
+    etcd:
+    caFile: &#34;&#34;
+    certFile: &#34;&#34;
+    dataDir: /var/lib/etcd
+    endpoints: null
+    image: &#34;&#34;
+    keyFile: &#34;&#34;
+    imageRepository: gcr.io/google_containers
+    kubernetesVersion: v1.8.3
+    networking:
+    dnsDomain: cluster.local
+    podSubnet: 10.244.0.0/16
+    serviceSubnet: 10.96.0.0/12
+    nodeName: km
+    token: ef36c0.2aa43b08712e4d54
+    tokenTTL: 24h0m0s
+    unifiedControlPlaneImage: &#34;&#34;
+[upgrade/version] You have chosen to upgrade to version &#34;v1.8.3&#34;
+[upgrade/versions] Cluster version: v1.7.3
+[upgrade/versions] kubeadm version: v1.8.3
+[upgrade/confirm] Are you sure you want to proceed with the upgrade? [y/N]: y
+[upgrade/prepull] Will prepull images for components [kube-apiserver kube-controller-manager kube-scheduler]
+[upgrade/prepull] Prepulling image for component kube-scheduler.
+[upgrade/prepull] Prepulling image for component kube-apiserver.
+[upgrade/prepull] Prepulling image for component kube-controller-manager.
+[apiclient] Found 1 Pods for label selector k8s-app=upgrade-prepull-kube-apiserver
+[apiclient] Found 0 Pods for label selector k8s-app=upgrade-prepull-kube-controller-manager
+[apiclient] Found 1 Pods for label selector k8s-app=upgrade-prepull-kube-controller-manager
+[apiclient] Found 0 Pods for label selector k8s-app=upgrade-prepull-kube-scheduler
+[apiclient] Found 1 Pods for label selector k8s-app=upgrade-prepull-kube-scheduler
+[upgrade/prepull] Prepulled image for component kube-apiserver.
+[upgrade/prepull] Prepulled image for component kube-controller-manager.
+[upgrade/prepull] Prepulled image for component kube-scheduler.
+[upgrade/prepull] Successfully prepulled the images for all the control plane components
+[upgrade/apply] Upgrading your Static Pod-hosted control plane to version &#34;v1.8.3&#34;...
+[upgrade/staticpods] Writing upgraded Static Pod manifests to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests076595912&#34;
+[controlplane] Wrote Static Pod manifest for component kube-apiserver to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests076595912/kube-apiserver.yaml&#34;
+[controlplane] Wrote Static Pod manifest for component kube-controller-manager to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests076595912/kube-controller-manager.yaml&#34;
+[controlplane] Wrote Static Pod manifest for component kube-scheduler to &#34;/etc/kubernetes/tmp/kubeadm-upgraded-manifests076595912/kube-scheduler.yaml&#34;
+[upgrade/staticpods] Moved upgraded manifest to &#34;/etc/kubernetes/manifests/kube-apiserver.yaml&#34; and backed up old manifest to &#34;/etc/kubernetes/tmp/kubeadm-backup-manifests094178183/kube-apiserver.yaml&#34;
+[upgrade/staticpods] Waiting for the kubelet to restart the component
+[upgrade/apply] FATAL: couldn&#39;t upgrade control plane. kubeadm has tried to recover everything into the earlier state. Errors faced: [timed out waiting for the condition]
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>还是失败了。 彻底失败了。</p>
+
+<p>没有办法了。</p>
+
+<h2 id="新的尝试">新的尝试</h2>
+
+<p>按照下面的办法再试一下吧。
+<a href="http://www.youruncloud.com/docker/1%5F106.html">http://www.youruncloud.com/docker/1%5F106.html</a></p>
+
+<p>发现还是不行呀。</p>
+
+<h2 id="全新安装-v1.8.3">全新安装 v1.8.3</h2>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-11-25</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/kubernetes/">kubernetes</a>
+          <a href="https://b.qqbb.app/tags/upgrade/">upgrade</a>
+          <a href="https://b.qqbb.app/tags/kubeadm/">kubeadm</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/kubernetes-storage-practise/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">kubernetes storage</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/kubeadm-install-faq-kubelet-cni/">
+            <span class="next-text nav-default">kubeadm-kubelet-cni</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

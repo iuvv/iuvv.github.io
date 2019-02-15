@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>File Name on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/file-name/</link>
+    <description>Recent content in File Name on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 23 Nov 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/file-name/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Shell获取某目录下所有文件夹的名称</title>
+      <link>https://b.qqbb.app/post/shell-get-dir-name/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/shell-get-dir-name/</guid>
+      <description>方法一 1 2 3 4 5 6 #!/bin/bash dir=$(ls -l D:/temp/ |awk &amp;#39;/^d/ {print $NF}&amp;#39;) for i in $dir do echo $i done 方法二 1 2 3 4 5 #!/bin/bash for dir in $(ls D:/tmep/) do [ -d $dir ] &amp;amp;&amp;amp; echo $dir done 方法三 1 2 #!/bin/bash ls -l D:/temp/ |awk &amp;#39;/^d/ {print $NF}&amp;#39; ## 其实同方法一，直</description>
+    </item>
+    
+    <item>
+      <title>shell批量替换文件扩展名</title>
+      <link>https://b.qqbb.app/post/shell-replace-file-houzhui/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/shell-replace-file-houzhui/</guid>
+      <description>早上本想将一些照片上传到相册中，但是由于所有照片的扩展名都是JPG而不是小写的jpg，因此造成了“格式不正确”而不能上传照片。此刻就产生了这</description>
+    </item>
+    
+  </channel>
+</rss>

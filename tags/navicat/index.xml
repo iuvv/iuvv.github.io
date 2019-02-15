@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Navicat on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/navicat/</link>
+    <description>Recent content in Navicat on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 12:46:45 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/navicat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mysql Navicat</title>
+      <link>https://b.qqbb.app/post/mysql-navicat/</link>
+      <pubDate>Fri, 02 Mar 2018 12:46:45 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-navicat/</guid>
+      <description>mysql系列之navicat reference http://blog.csdn.net/lwei_998/article/details/45560483 http://blog.csdn.net/moneyshi/article/details/50906650 http://mt.sohu.com/20160324/n441844650.shtml 导出连接设置 Navicat 版本 8 1.选择文件 -&amp;gt; 导出登录数据文件。导出的文件（.reg）包含你的全部连接设置。 2.备</description>
+    </item>
+    
+  </channel>
+</rss>

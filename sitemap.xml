@@ -1,0 +1,5682 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml-stylesheet type="text/xsl" href="https://b.qqbb.app/sitemap.xsl"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  
+  <url>
+    <loc>https://b.qqbb.app/post/note-about-gitbook/</loc>
+    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nodejs-install/</loc>
+    <lastmod>2019-02-15T23:00:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/eslint-install/</loc>
+    <lastmod>2019-02-10T18:31:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/tools/</loc>
+    <lastmod>2019-02-11T15:47:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/taro-msparis-install/</loc>
+    <lastmod>2019-02-07T23:47:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/saleor-conf-templates-base/</loc>
+    <lastmod>2019-02-01T15:45:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/saleor-customization-docker/</loc>
+    <lastmod>2019-01-31T22:54:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/pipenv-install-failed/</loc>
+    <lastmod>2019-01-31T20:45:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/how-to-install-sshpass-on-mac/</loc>
+    <lastmod>2019-01-30T21:10:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/git-submodules-add-usage-delete/</loc>
+    <lastmod>2019-01-28T21:07:13-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/note-about-tmux/</loc>
+    <lastmod>2019-01-29T19:19:08-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/add-user-to-docker-group/</loc>
+    <lastmod>2019-01-27T19:20:34-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/note-about-django-oscar/</loc>
+    <lastmod>2019-01-25T18:29:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-close-ssh-connection-user/</loc>
+    <lastmod>2019-01-22T00:45:09-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/translation-openstack-swift-overview-policies/</loc>
+    <lastmod>2019-01-22T02:35:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/translation-openstack-swift-overview-policies/</loc>
+    <lastmod>2019-01-23T18:26:07-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/translation-openstack-swift-overview-reaper/</loc>
+    <lastmod>2019-01-23T23:20:40-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/translation-openstack-swift-overview-rings/</loc>
+    <lastmod>2019-01-22T02:35:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/can-scp-create-a-directory-if-it-doesnt-exist/</loc>
+    <lastmod>2019-01-19T00:44:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/note-about-openstack-swift/</loc>
+    <lastmod>2019-01-21T23:40:11-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/note-about-spacemacs/</loc>
+    <lastmod>2019-01-23T23:40:16-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/analysis-openstack-swift-overview_erasure_code/</loc>
+    <lastmod>2019-01-19T00:13:57-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-build-copy-failed-no-such-file-or-directory/</loc>
+    <lastmod>2019-01-13T22:55:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/djangoprojectcom-using-django-queries/</loc>
+    <lastmod>2019-01-09T09:53:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/vmware-workstation-pro-install/</loc>
+    <lastmod>2019-01-09T16:00:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/swift-queens-install/</loc>
+    <lastmod>2019-01-09T16:27:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-vmware-workstation-pro-new-partition/</loc>
+    <lastmod>2019-01-08T19:04:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/eshell-zshrc-cannot-ok/</loc>
+    <lastmod>2018-12-22T10:11:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/how-to-check-if-a-program-exists-from-a-bash-script/</loc>
+    <lastmod>2018-12-16T12:08:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-interview-roadmap/</loc>
+    <lastmod>2018-12-16T16:43:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-login-faq/</loc>
+    <lastmod>2018-12-15T17:31:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/golang-channel-learning-a/</loc>
+    <lastmod>2018-12-04T00:07:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/works/</loc>
+    <lastmod>2018-12-13T09:48:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/works/</loc>
+    <lastmod>2018-12-13T09:48:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/devops-ideas/</loc>
+    <lastmod>2018-12-01T08:53:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kids-code/</loc>
+    <lastmod>2018-12-01T08:38:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-intro/</loc>
+    <lastmod>2018-11-30T17:44:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu/</loc>
+    <lastmod>2018-11-30T17:28:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-intro/</loc>
+    <lastmod>2018-11-30T17:16:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-intro/</loc>
+    <lastmod>2018-11-30T09:33:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/centos-update-kernel/</loc>
+    <lastmod>2018-11-30T09:09:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-desktop-set-apt-source/</loc>
+    <lastmod>2018-11-29T17:43:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jd-kubernetes-openstack/</loc>
+    <lastmod>2018-11-30T00:19:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/web-framework-benchmarks/</loc>
+    <lastmod>2018-11-30T00:11:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-intro/</loc>
+    <lastmod>2018-11-29T17:05:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-nfs-yaml/</loc>
+    <lastmod>2018-11-25T18:17:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-intro/</loc>
+    <lastmod>2018-11-25T17:33:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-storage-practise/</loc>
+    <lastmod>2018-11-25T17:22:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-clusters-upgrade-from-v173-to-v183/</loc>
+    <lastmod>2018-11-25T17:07:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/</loc>
+    <lastmod>2018-11-25T13:59:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/analysis-openstack-swift-keystone-authentication/</loc>
+    <lastmod>2019-01-18T02:11:47-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/shell-get-dir-name/</loc>
+    <lastmod>2018-11-23T15:51:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-registry/</loc>
+    <lastmod>2018-11-23T15:31:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-install-intro/</loc>
+    <lastmod>2018-11-23T17:19:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes/</loc>
+    <lastmod>2018-11-25T18:11:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu16-update-kernel/</loc>
+    <lastmod>2018-11-23T16:16:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-install-ubuntu/</loc>
+    <lastmod>2018-11-23T15:29:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/go-tour-zh-local-install/</loc>
+    <lastmod>2018-11-22T16:25:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-zsh-list-file-name-only/</loc>
+    <lastmod>2018-11-20T00:30:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/yasnippet/</loc>
+    <lastmod>2018-11-17T23:02:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-key-binding/</loc>
+    <lastmod>2019-01-30T21:29:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/git-multi-ssh-keys/</loc>
+    <lastmod>2018-11-26T18:19:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/sed-string-replace/</loc>
+    <lastmod>2018-11-27T23:17:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/vim-redo/</loc>
+    <lastmod>2018-11-25T18:33:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/easy-hugo-and-ox-hugo-qa/</loc>
+    <lastmod>2018-11-17T00:30:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hugo-jane-transmitter-from-beautifulhugo/</loc>
+    <lastmod>2018-11-28T00:17:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hugo-server-faq/</loc>
+    <lastmod>2018-11-17T16:18:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/saleor-customization-tests/</loc>
+    <lastmod>2019-01-31T22:45:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/note-about-tmuxinator/</loc>
+    <lastmod>2019-01-29T19:29:10-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-compose-installed-then-error-specify-docker_host/</loc>
+    <lastmod>2019-01-27T19:40:10-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-ln-s-make-soft-link/</loc>
+    <lastmod>2019-01-24T20:14:48-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/analysis-openstack-swift-overview-ring/</loc>
+    <lastmod>2019-01-21T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/swift-problem-with-xfs-file-system/</loc>
+    <lastmod>2019-01-09T15:14:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/vmware-copy-vm-from-other-hosts/</loc>
+    <lastmod>2019-01-09T16:08:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-pyenv-install-with-mac/</loc>
+    <lastmod>2018-12-22T08:44:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-readme/</loc>
+    <lastmod>2018-11-30T17:44:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-docker/</loc>
+    <lastmod>2018-11-30T17:16:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/cephfs-install/</loc>
+    <lastmod>2018-11-30T17:11:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-desktop-setup/</loc>
+    <lastmod>2018-11-29T23:47:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/how-to-install-certificates-for-command-line-2/</loc>
+    <lastmod>2018-11-30T09:13:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/awesome-cloud-native/</loc>
+    <lastmod>2018-11-25T18:08:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-readme/</loc>
+    <lastmod>2018-11-25T17:33:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-flannel-ping-wrong/</loc>
+    <lastmod>2018-11-25T16:55:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-registry-ui/</loc>
+    <lastmod>2018-11-23T15:35:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/shell-replace-file-houzhui/</loc>
+    <lastmod>2018-11-23T16:23:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-file-name-end-with-asterisk/</loc>
+    <lastmod>2018-11-20T00:33:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/org-visual-line-navigation/</loc>
+    <lastmod>2018-11-13T14:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/blogging-with-org-mode-and-ox-hugo/</loc>
+    <lastmod>2018-11-17T00:30:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hugo-jane-add-baidu-tongji/</loc>
+    <lastmod>2018-11-29T10:30:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/note-about-wemux/</loc>
+    <lastmod>2019-01-30T14:26:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-remove-images-multy/</loc>
+    <lastmod>2019-01-27T19:43:41-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-get-os-lsb-release/</loc>
+    <lastmod>2019-01-25T18:28:36-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-hard-links-soft-links/</loc>
+    <lastmod>2018-12-01T23:56:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-faq/</loc>
+    <lastmod>2018-11-30T17:20:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-auth/</loc>
+    <lastmod>2018-11-30T17:12:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-quick-start-preflight/</loc>
+    <lastmod>2018-11-30T17:43:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-stateful/</loc>
+    <lastmod>2018-11-25T17:34:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-registry-push-pull/</loc>
+    <lastmod>2018-11-23T15:37:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-init-before-v1_8_3/</loc>
+    <lastmod>2018-11-23T16:55:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-0-notes/</loc>
+    <lastmod>2018-11-22T19:18:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-1-notes/</loc>
+    <lastmod>2018-11-22T19:02:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/sshpass-let-ssh-login-with-password/</loc>
+    <lastmod>2019-01-28T22:32:42-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-tips/</loc>
+    <lastmod>2018-12-16T16:49:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-tips/</loc>
+    <lastmod>2018-12-05T22:42:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-storage-cluster-quick-start/</loc>
+    <lastmod>2018-11-30T17:52:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-make-by-go-get/</loc>
+    <lastmod>2018-11-25T17:41:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-install-base-ubuntu/</loc>
+    <lastmod>2018-11-23T17:00:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-v184-install-base-ubuntu/</loc>
+    <lastmod>2018-11-23T17:15:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-login-failure/</loc>
+    <lastmod>2018-11-23T15:41:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/shane-sveller-blog-about-ox-hugo/</loc>
+    <lastmod>2018-11-19T01:10:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-filesystem-quick-start/</loc>
+    <lastmod>2018-12-01T08:27:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-deployment-faq/</loc>
+    <lastmod>2018-11-25T17:43:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-join/</loc>
+    <lastmod>2018-11-24T09:31:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-3-notes/</loc>
+    <lastmod>2018-11-20T14:51:34+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jupyter-notebook-login-with-token/</loc>
+    <lastmod>2018-12-21T09:53:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-block-device-quick-start/</loc>
+    <lastmod>2018-12-01T08:28:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-yaml/</loc>
+    <lastmod>2018-11-25T17:51:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-upgrade-failure-from-v183-to-v184/</loc>
+    <lastmod>2018-11-24T09:36:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-4-notes/</loc>
+    <lastmod>2018-11-20T10:22:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jupyter-notebook-with-emacs/</loc>
+    <lastmod>2018-12-22T09:35:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ceph-install-base-ubuntu-object-storage-quick-start/</loc>
+    <lastmod>2018-12-01T08:30:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-make/</loc>
+    <lastmod>2018-11-25T17:57:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-install-v183/</loc>
+    <lastmod>2018-11-24T09:46:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-5-notes/</loc>
+    <lastmod>2018-11-16T23:51:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-cephfs-faq/</loc>
+    <lastmod>2018-11-25T17:59:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-init-use-local-image/</loc>
+    <lastmod>2018-11-24T09:56:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-6-notes/</loc>
+    <lastmod>2018-11-19T01:05:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubeadm-build/</loc>
+    <lastmod>2018-11-24T23:31:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-7-notes/</loc>
+    <lastmod>2018-11-19T01:44:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-delete-node/</loc>
+    <lastmod>2018-11-25T13:41:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-8-notes/</loc>
+    <lastmod>2018-11-19T23:07:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-9-notes/</loc>
+    <lastmod>2018-11-20T10:23:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-10-notes/</loc>
+    <lastmod>2018-11-22T18:57:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-11-notes/</loc>
+    <lastmod>2018-11-22T19:01:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/emacs-markdown-preview/</loc>
+    <lastmod>2018-11-20T22:28:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/remove-mysql-mariadb-from-ubuntu/</loc>
+    <lastmod>2019-02-13T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/cannot-setup-mysql-root-password-during-installation/</loc>
+    <lastmod>2019-02-13T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/mysql-usage/</loc>
+    <lastmod>2019-02-13T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/windows-tools/</loc>
+    <lastmod>2019-02-12T10:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/autohotkey-usage/</loc>
+    <lastmod>2019-02-12T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/tooss/openstack-swift-deployment_guide-preparing-the-ring/</loc>
+    <lastmod>2019-02-12T17:50:11-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/emacs-install-with-win10/</loc>
+    <lastmod>2019-02-12T10:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/spacemacs-install-with-win10/</loc>
+    <lastmod>2019-02-12T12:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/tooss/swift-account-quota-outcome/</loc>
+    <lastmod>2019-01-25T18:40:11-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/tooss/swift-multy-proxy-node-conf/</loc>
+    <lastmod>2019-01-23T19:00:11-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/mkfs-xfs-command-not-found/</loc>
+    <lastmod>2019-01-21T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/org-mode-set-org-directory/</loc>
+    <lastmod>2018-11-13T14:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/emacs-install-base-ubuntu/</loc>
+    <lastmod>2018-11-12T20:08:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hugo-emacs/</loc>
+    <lastmod>2018-11-12T20:00:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/env/</loc>
+    <lastmod>2018-11-14T16:30:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ox-hugo-quickly-create-a-draft-post/</loc>
+    <lastmod>2018-11-15T00:49:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/org-blog-why/</loc>
+    <lastmod>2018-11-09T23:32:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/emacs-melt-no-use/</loc>
+    <lastmod>2018-10-27T13:16:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jaqs-lecture4/</loc>
+    <lastmod>2018-10-17T09:18:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-jaqs-install/</loc>
+    <lastmod>2018-10-16T11:38:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-env-virtualenv/</loc>
+    <lastmod>2018-10-15T11:47:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-sed/</loc>
+    <lastmod>2018-10-08T12:08:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/blog/blog-change-cname/</loc>
+    <lastmod>2018-10-07T18:59:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-use-zilongshanren-spacemacs-private/</loc>
+    <lastmod>2018-08-28T23:53:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-qa-1/</loc>
+    <lastmod>2018-08-25T12:33:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/emacs-flycheck-eslint/</loc>
+    <lastmod>2018-08-23T15:05:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/proxy/</loc>
+    <lastmod>2018-08-10T09:49:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gamil-mail-server-domain/</loc>
+    <lastmod>2018-08-09T15:44:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/keyboard-ubuntu/</loc>
+    <lastmod>2018-08-08T00:29:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/keyboard/</loc>
+    <lastmod>2018-08-08T00:28:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-share-file-to-virtulbox-win7/</loc>
+    <lastmod>2018-08-03T23:10:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/emacs/</loc>
+    <lastmod>2018-08-01T00:09:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/blog/blog-dashen/</loc>
+    <lastmod>2018-08-01T00:03:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/markdown-style-guide/</loc>
+    <lastmod>2018-08-01T00:00:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/privoxy-mac/</loc>
+    <lastmod>2018-07-15T14:16:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/golang-gvm/</loc>
+    <lastmod>2018-07-15T14:09:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/golang-ide-gogland/</loc>
+    <lastmod>2018-07-15T13:55:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/win10-share-files/</loc>
+    <lastmod>2018-07-14T17:51:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/u-shendu/</loc>
+    <lastmod>2018-07-14T17:49:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-no-passwd-login/</loc>
+    <lastmod>2018-07-14T17:44:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gitlab-authority/</loc>
+    <lastmod>2018-07-12T11:07:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/vscode-change-file-eol/</loc>
+    <lastmod>2018-07-11T11:21:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/change-system-datetime-base-ubuntu/</loc>
+    <lastmod>2018-07-11T10:40:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hugo-install-base-win10/</loc>
+    <lastmod>2018-07-11T10:34:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gitlab-ci-step-by-step/</loc>
+    <lastmod>2018-07-10T22:26:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/bitbucket-user-share-repo/</loc>
+    <lastmod>2018-07-07T16:29:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-user-create/</loc>
+    <lastmod>2018-07-04T14:40:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/qor-character-set-database-utf8/</loc>
+    <lastmod>2018-07-04T10:53:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/qor-admin-test-change-sidebar/</loc>
+    <lastmod>2018-07-03T19:02:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/qor-admin-test-change-title/</loc>
+    <lastmod>2018-07-03T18:45:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/qor-admin-test/</loc>
+    <lastmod>2018-07-03T18:16:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/grep-exclude-many-file/</loc>
+    <lastmod>2018-07-03T11:20:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/qor-doc-get-started/</loc>
+    <lastmod>2018-07-02T18:54:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/erp-golang/</loc>
+    <lastmod>2018-07-02T16:51:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/qor-example-install/</loc>
+    <lastmod>2018-07-02T16:32:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-role/</loc>
+    <lastmod>2018-07-01T20:50:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/mac/</loc>
+    <lastmod>2018-06-30T10:46:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/rancher-add-worker/</loc>
+    <lastmod>2018-06-30T10:22:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/rancher-service-discovery/</loc>
+    <lastmod>2018-06-30T09:06:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/rancher-node-driver-add-aliyun/</loc>
+    <lastmod>2018-06-29T20:53:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gitlab-workflow/</loc>
+    <lastmod>2018-06-29T09:08:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/yapi-install-base-ubuntu/</loc>
+    <lastmod>2018-06-28T18:37:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/svn-remove-user-name-passwd/</loc>
+    <lastmod>2018-06-28T18:33:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/svn-authorization-failed/</loc>
+    <lastmod>2018-06-28T18:10:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/svn-add-projects/</loc>
+    <lastmod>2018-06-28T18:02:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/svn-permission-configuration/</loc>
+    <lastmod>2018-06-28T17:42:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-add-format-mount-harddisk/</loc>
+    <lastmod>2018-06-28T14:16:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-install-faq-a/</loc>
+    <lastmod>2018-06-26T18:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nginx-servername/</loc>
+    <lastmod>2018-06-25T14:13:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mastercard-icard-tapngo-registry/</loc>
+    <lastmod>2018-06-24T11:45:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/apple-id-register-hongkong/</loc>
+    <lastmod>2018-06-24T10:42:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-swap/</loc>
+    <lastmod>2018-06-22T18:56:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-registry-mirrors-base-ubuntu/</loc>
+    <lastmod>2018-06-22T16:38:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/update-kernel-base-centos/</loc>
+    <lastmod>2018-06-22T11:34:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/how-to-install-certificates-for-command-line/</loc>
+    <lastmod>2018-06-21T22:32:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/convert-rst-to-gfm-document-style/</loc>
+    <lastmod>2018-06-21T22:02:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/update-kernel-base-ubuntu/</loc>
+    <lastmod>2018-06-21T21:55:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/host-protection/</loc>
+    <lastmod>2018-06-21T17:18:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/teamviewer-install-base-ubuntu/</loc>
+    <lastmod>2018-06-21T16:48:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/ct/eos/</loc>
+    <lastmod>2018-06-20T09:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/ddos/</loc>
+    <lastmod>2018-06-19T19:45:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-kill-tty/</loc>
+    <lastmod>2018-06-19T17:41:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/backup-rancher/</loc>
+    <lastmod>2018-06-19T00:18:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-pull-with-proxy/</loc>
+    <lastmod>2018-06-17T23:38:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/rancher-single-node-install/</loc>
+    <lastmod>2018-06-17T16:59:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/markdown-comments/</loc>
+    <lastmod>2018-06-16T23:01:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/blog/comment-with-livere-city/</loc>
+    <lastmod>2018-06-16T22:18:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/static-ip-ubuntu18/</loc>
+    <lastmod>2018-06-16T21:52:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/php-install-base-ubuntu/</loc>
+    <lastmod>2018-06-16T18:11:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-command-not-found/</loc>
+    <lastmod>2018-06-16T18:08:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/google-chrome-setup/</loc>
+    <lastmod>2018-06-14T20:53:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/google-chrome-helper/</loc>
+    <lastmod>2018-06-14T20:17:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/blog/hugo/</loc>
+    <lastmod>2018-06-14T17:28:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/charts/</loc>
+    <lastmod>2018-06-14T16:30:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/git-faq-a/</loc>
+    <lastmod>2018-06-14T11:56:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tomt/participate-in-the-competition/</loc>
+    <lastmod>2018-06-14T00:33:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/iterm2-hotkey/</loc>
+    <lastmod>2018-06-13T16:15:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/learn/blockchain/</loc>
+    <lastmod>2018-06-13T15:43:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-install-pip-with-get-pip-py/</loc>
+    <lastmod>2018-06-13T13:12:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-faq-openssl/</loc>
+    <lastmod>2018-06-13T13:00:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/tomcat-install-base-ubuntu/</loc>
+    <lastmod>2018-06-12T20:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nginx-config-server_name/</loc>
+    <lastmod>2018-06-12T18:11:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-rar-unrar/</loc>
+    <lastmod>2018-06-12T17:15:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-iterm2-ohmyzsh-install/</loc>
+    <lastmod>2018-06-12T11:48:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/blog/blog-tom-hugo-init/</loc>
+    <lastmod>2018-06-12T00:19:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/network-proxy-shadowsocks-server/</loc>
+    <lastmod>2018-06-11T20:34:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/macos-apple-id-america/</loc>
+    <lastmod>2018-06-11T20:02:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-install-software/</loc>
+    <lastmod>2018-06-11T19:54:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/network-proxy-win10/</loc>
+    <lastmod>2018-06-11T10:10:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/aws-get-access-key-secret-key/</loc>
+    <lastmod>2018-06-07T17:22:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/realtek-shengyin/</loc>
+    <lastmod>2018-06-07T16:03:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/rancher2-install-base-aws-ubuntu/</loc>
+    <lastmod>2018-06-06T17:08:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mount-ntfs-base-centos/</loc>
+    <lastmod>2018-06-06T16:57:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-install-base-ubuntu/</loc>
+    <lastmod>2018-06-04T19:01:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-pip-install-virtualenv/</loc>
+    <lastmod>2018-06-04T15:56:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-pip-install-ssl-module-not-available/</loc>
+    <lastmod>2018-06-04T15:08:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-install-setuptools/</loc>
+    <lastmod>2018-06-04T14:29:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-zlib-module-missing/</loc>
+    <lastmod>2018-06-04T14:22:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-install-pip/</loc>
+    <lastmod>2018-06-04T14:22:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-upgrade-version-base-on-centos/</loc>
+    <lastmod>2018-06-04T10:06:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/vsftp-add-user/</loc>
+    <lastmod>2018-05-30T09:59:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ftp-cannot-chrome-file-access/</loc>
+    <lastmod>2018-05-29T15:11:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/centos6-install-ftp/</loc>
+    <lastmod>2018-05-29T10:39:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/centos-iptable-open-port-21/</loc>
+    <lastmod>2018-05-29T10:30:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/centos-release/</loc>
+    <lastmod>2018-05-29T10:11:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/network-proxy-iphone/</loc>
+    <lastmod>2018-05-28T16:14:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ssh-login/</loc>
+    <lastmod>2018-05-24T15:22:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/virtualbox-share-pasteboard/</loc>
+    <lastmod>2018-05-24T11:37:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/virtualbox-share-file/</loc>
+    <lastmod>2018-05-24T11:35:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-http-proxy/</loc>
+    <lastmod>2018-05-24T11:30:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-wgetrc-wget-proxy/</loc>
+    <lastmod>2018-05-24T11:24:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/xshell-ubuntu-transmitter-file/</loc>
+    <lastmod>2018-05-24T11:19:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-apt-http-proxy/</loc>
+    <lastmod>2018-05-24T10:16:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ubuntu-install-wubipinyin/</loc>
+    <lastmod>2018-05-24T09:32:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ngrok-ssh/</loc>
+    <lastmod>2018-04-23T00:05:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ngrok-multi-user-tunnel/</loc>
+    <lastmod>2018-04-22T09:02:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/ngrok-server-install/</loc>
+    <lastmod>2018-04-19T15:18:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/python-install-uwsgi/</loc>
+    <lastmod>2018-04-17T23:51:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gitlab-change-password/</loc>
+    <lastmod>2018-04-17T17:15:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gitlab-cn/</loc>
+    <lastmod>2018-04-17T09:50:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gitlab-install-base-ubuntu14.04/</loc>
+    <lastmod>2018-04-16T17:36:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/shop/saleor/</loc>
+    <lastmod>2018-04-15T23:58:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/command-github/</loc>
+    <lastmod>2018-04-12T09:39:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-ssh-github/</loc>
+    <lastmod>2018-04-07T22:30:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/blog/diff-rootsongjc/</loc>
+    <lastmod>2018-04-04T16:50:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hugo-gitment/</loc>
+    <lastmod>2018-04-04T16:44:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/python/</loc>
+    <lastmod>2018-04-04T15:59:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/python/</loc>
+    <lastmod>2018-04-03T23:00:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/kubernetes/</loc>
+    <lastmod>2018-04-02T22:41:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-heapster-install/</loc>
+    <lastmod>2018-03-28T10:46:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/test/test/</loc>
+    <lastmod>2018-03-26T22:48:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/mysql/</loc>
+    <lastmod>2018-03-26T16:23:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/linux/</loc>
+    <lastmod>2018-03-26T16:21:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-passwd/</loc>
+    <lastmod>2018-03-26T16:18:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/cheatsheet/</loc>
+    <lastmod>2018-03-21T10:56:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/telephone-interview/</loc>
+    <lastmod>2018-03-20T15:54:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/jlch/mongodb/fix-users-vip/</loc>
+    <lastmod>2018-03-19T09:56:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mac-faq/</loc>
+    <lastmod>2018-03-15T16:33:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/test/ok/</loc>
+    <lastmod>2018-03-15T16:33:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/test/test/ok/</loc>
+    <lastmod>2018-03-15T16:33:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/weixin-send-messages/</loc>
+    <lastmod>2018-03-10T16:05:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/jlch/mongodb/fix-20180309-singal-day/</loc>
+    <lastmod>2018-03-09T16:13:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/jlch/mongodb/fix-601313-to-601360/</loc>
+    <lastmod>2018-03-09T14:25:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/javascript-type/</loc>
+    <lastmod>2018-03-09T11:32:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/stock-iwencai-crawler/</loc>
+    <lastmod>2018-03-09T11:22:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/curl/</loc>
+    <lastmod>2018-03-08T17:47:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/stock-iwencai/</loc>
+    <lastmod>2018-03-08T16:43:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/html-decoder/</loc>
+    <lastmod>2018-03-08T15:51:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hedge-fund/</loc>
+    <lastmod>2018-03-07T10:48:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gcc-rpm-install-offline/</loc>
+    <lastmod>2018-03-02T17:29:20+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/blog/blog-hexo/</loc>
+    <lastmod>2018-03-02T15:28:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-install-2-base-centos/</loc>
+    <lastmod>2018-03-02T15:26:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-length/</loc>
+    <lastmod>2018-03-02T15:14:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hexo-tomtsang/</loc>
+    <lastmod>2018-03-02T15:11:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/nodejs-npm/</loc>
+    <lastmod>2018-03-02T15:09:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nodejs-version/</loc>
+    <lastmod>2018-03-02T15:08:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nodejs-mongodb/</loc>
+    <lastmod>2018-03-02T15:07:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nodejs-npm-faq-1/</loc>
+    <lastmod>2018-03-02T15:06:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nodejs-tofixed/</loc>
+    <lastmod>2018-03-02T15:05:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nginx-faq-2/</loc>
+    <lastmod>2018-03-02T15:04:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nginx-faq-1/</loc>
+    <lastmod>2018-03-02T15:03:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-mysqlslap/</loc>
+    <lastmod>2018-03-02T12:51:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-from-docker-to-bare/</loc>
+    <lastmod>2018-03-02T12:49:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-user/</loc>
+    <lastmod>2018-03-02T12:47:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-navicat/</loc>
+    <lastmod>2018-03-02T12:46:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-cluster-install-base-centos/</loc>
+    <lastmod>2018-03-02T12:45:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-cluster-install-faq-base-centos/</loc>
+    <lastmod>2018-03-02T12:44:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-cluster-install-base-centos/</loc>
+    <lastmod>2018-03-02T12:43:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-use/</loc>
+    <lastmod>2018-03-02T12:41:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-secure-installation/</loc>
+    <lastmod>2018-03-02T12:41:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql/mysql-cluster-base-centos/</loc>
+    <lastmod>2018-03-02T12:15:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql/mysql-cluster-infile-base-centos/</loc>
+    <lastmod>2018-03-02T12:15:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-install-base-centos/</loc>
+    <lastmod>2018-03-02T11:56:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-install-base-centos/</loc>
+    <lastmod>2018-03-02T11:55:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-install/</loc>
+    <lastmod>2018-03-02T11:54:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mongodb-update/</loc>
+    <lastmod>2018-03-02T11:52:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mongodb-distinct/</loc>
+    <lastmod>2018-03-02T11:51:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mongodb-findoneandupdate/</loc>
+    <lastmod>2018-03-02T11:50:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/markdown/</loc>
+    <lastmod>2018-03-02T11:49:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-port-process/</loc>
+    <lastmod>2018-03-02T11:47:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/centos-yum/</loc>
+    <lastmod>2018-03-02T11:46:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/hexo/</loc>
+    <lastmod>2018-03-02T11:45:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/hexo-hello-world/</loc>
+    <lastmod>2018-03-02T11:44:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/git-workflow/</loc>
+    <lastmod>2018-03-02T11:42:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/git/</loc>
+    <lastmod>2018-03-02T11:41:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gitlab-install/</loc>
+    <lastmod>2018-03-02T11:40:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/git-from-outside/</loc>
+    <lastmod>2018-03-02T11:37:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/environment-about-it/</loc>
+    <lastmod>2018-03-02T11:35:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-registry-install-for-jlch/</loc>
+    <lastmod>2018-03-02T11:30:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-panubo2-base-docker/</loc>
+    <lastmod>2018-03-02T11:26:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/vscode-extensions/</loc>
+    <lastmod>2018-03-02T11:22:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-registry-install/</loc>
+    <lastmod>2018-03-02T10:38:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-base-docker-coreos/</loc>
+    <lastmod>2018-03-02T10:36:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-panubo-base-docker/</loc>
+    <lastmod>2018-03-02T10:32:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mariadb-galera-base-docker/</loc>
+    <lastmod>2018-03-02T10:31:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/docker-install-base-centos/</loc>
+    <lastmod>2018-03-02T10:28:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/virtualbox-install-ubuntu-desktop/</loc>
+    <lastmod>2018-03-01T22:47:20+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-install-ab-httpd-tools/</loc>
+    <lastmod>2018-03-01T17:30:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/project-ok/</loc>
+    <lastmod>2018-03-01T16:50:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/linux-change-disklabel/</loc>
+    <lastmod>2018-02-28T23:01:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mongodb-replace/</loc>
+    <lastmod>2018-02-28T17:37:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/windows/</loc>
+    <lastmod>2018-02-28T17:26:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysqldump-faq/</loc>
+    <lastmod>2018-02-28T14:31:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/gem/</loc>
+    <lastmod>2018-02-27T17:56:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nginx-seo/</loc>
+    <lastmod>2018-02-27T11:08:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-config-server.conf/</loc>
+    <lastmod>2018-02-26T17:25:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/gem-install-faq/</loc>
+    <lastmod>2018-02-26T09:23:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/vmware-workstation/</loc>
+    <lastmod>2018-02-24T10:40:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/bundle-install/</loc>
+    <lastmod>2018-02-24T09:24:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/yarn-install/</loc>
+    <lastmod>2018-02-24T09:20:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/today-learn/</loc>
+    <lastmod>2018-02-23T17:27:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/mac/</loc>
+    <lastmod>2018-02-23T17:08:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/nodejs-faq-unexpected-token-function/</loc>
+    <lastmod>2018-02-23T15:42:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/nodejs/</loc>
+    <lastmod>2018-02-23T15:31:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/route/</loc>
+    <lastmod>2018-02-23T12:25:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/blockchain/</loc>
+    <lastmod>2018-02-23T10:08:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/docker/</loc>
+    <lastmod>2018-02-23T10:08:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mount/</loc>
+    <lastmod>2018-02-22T10:20:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/software-architect/</loc>
+    <lastmod>2018-02-13T21:14:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/enterprise-idea/</loc>
+    <lastmod>2018-02-13T21:12:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/life-healthy/</loc>
+    <lastmod>2018-02-13T11:35:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-config/</loc>
+    <lastmod>2018-02-12T10:05:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mysql-install-rpm/</loc>
+    <lastmod>2018-02-12T09:59:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/github-travis/</loc>
+    <lastmod>2018-02-11T15:29:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/life-film/</loc>
+    <lastmod>2018-02-10T23:19:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/golang/</loc>
+    <lastmod>2018-02-10T10:57:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/golang-import-packages/</loc>
+    <lastmod>2018-02-09T22:29:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/stock-trade-discipline/</loc>
+    <lastmod>2018-02-07T10:15:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/code-style/</loc>
+    <lastmod>2018-02-06T17:55:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/mongodb-output-import/</loc>
+    <lastmod>2018-02-06T11:12:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/telnet-install/</loc>
+    <lastmod>2018-02-06T10:33:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/microservices-python/</loc>
+    <lastmod>2018-02-06T00:08:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/golang-install/</loc>
+    <lastmod>2018-02-05T23:34:58+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/redis-install/</loc>
+    <lastmod>2018-02-05T17:23:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/learn/golang/</loc>
+    <lastmod>2018-02-05T14:25:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/resource/resource/</loc>
+    <lastmod>2018-02-04T21:59:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/kubernetes-deployment-rollingupdate/</loc>
+    <lastmod>2018-02-04T13:21:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/r-rstudio-vnc-install-centos/</loc>
+    <lastmod>2018-02-03T14:38:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/command/bash/</loc>
+    <lastmod>2018-02-03T14:30:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/svn-install-centos/</loc>
+    <lastmod>2018-02-03T14:22:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/redis-history/</loc>
+    <lastmod>2018-02-03T13:41:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/perl-rpm-install-offline/</loc>
+    <lastmod>2018-02-01T20:11:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/git-github-tips/</loc>
+    <lastmod>2018-01-31T15:55:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/blog/blog-date/</loc>
+    <lastmod>2018-01-31T12:26:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/centos-install-mysql-no-network/</loc>
+    <lastmod>2018-01-31T12:26:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/blog/blog-tom/</loc>
+    <lastmod>2018-01-31T12:26:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/virtualbox-add-vbox/</loc>
+    <lastmod>2018-01-31T12:26:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-2-notes/</loc>
+    <lastmod>2018-11-16T23:08:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/about/</loc>
+    <lastmod>2017-03-18T20:53:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/</loc>
+    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/code-analysis/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/convert-html-to-markdown/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/convert-markdown-to-org-with-pandoc/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/efficient-command/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/linux-cp-exclude-dir-or-exclude-file/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/pip-install-memcache/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/programmer-competency-matrix/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/python-struct-module/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/tools/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/ubuntu-install-pip/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/ubuntu-ssh-login-error-system-is-booting-up-see-pam-nologin-8/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/use-home-not-use-bolanghao-in-zshrc/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/jinweilai-not-org/vscode-git-integrated-terminal/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/how-to-enable-reseller-admin-for-openstack-swift-object-storage-and-keystone-v3/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-analysis-partition/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-deployment_guide/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-object-storage-result-analysis/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/openstack-swift-overview-acl/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swfit-account-quota-restful-api/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-account-quota-outcome/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-account-quota-process/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-controller-node-add-a-new-storage-node/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-faq/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-installed-source-code-address/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-keystone-auth-with-jinweilai-openstack-dev-env2/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-multy-proxy-node-conf/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-multy-proxy-node-faq/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-multy-proxy-node-ha-with-nginx/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-multy-proxy-node-illustration/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-storage-node-system-failed-re-mount/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/swift-what-is-a-swift-partition/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/tooss/openstack-swift-overview-policies/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/tooss/swift-controller-node-add-a-new-storage-node/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/jwl/swift-not-org/tooss/swift-storage-node-system-failed-re-mount/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ab/</loc>
+    <lastmod>2018-03-01T17:30:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/apple/</loc>
+    <lastmod>2018-06-24T10:42:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/apple/</loc>
+    <lastmod>2018-06-24T10:42:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/apt/</loc>
+    <lastmod>2018-11-29T17:43:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/architect/</loc>
+    <lastmod>2018-02-13T21:14:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/architect/</loc>
+    <lastmod>2018-02-13T21:14:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/auth/</loc>
+    <lastmod>2018-11-30T17:12:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/autohotkey/</loc>
+    <lastmod>2019-02-12T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/autohotkey/</loc>
+    <lastmod>2019-02-12T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/aws/</loc>
+    <lastmod>2018-06-07T17:22:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/aws/</loc>
+    <lastmod>2018-06-07T17:22:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/baidu/</loc>
+    <lastmod>2018-11-29T10:30:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/before/</loc>
+    <lastmod>2018-11-23T16:55:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/benchmarks/</loc>
+    <lastmod>2018-11-30T00:11:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/bitbucket/</loc>
+    <lastmod>2018-07-07T16:29:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/bitbucket/</loc>
+    <lastmod>2018-07-07T16:29:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/blockchain/</loc>
+    <lastmod>2018-06-20T09:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/blockchain/</loc>
+    <lastmod>2018-06-13T15:43:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/blog/</loc>
+    <lastmod>2018-11-09T23:32:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/blog/</loc>
+    <lastmod>2018-11-09T23:32:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/blog/</loc>
+    <lastmod>2018-06-12T00:19:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/build/</loc>
+    <lastmod>2018-11-24T23:31:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/bundle/</loc>
+    <lastmod>2018-02-24T09:24:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/bundle/</loc>
+    <lastmod>2018-02-24T09:24:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ca/</loc>
+    <lastmod>2018-06-21T22:32:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ca/</loc>
+    <lastmod>2018-06-21T22:32:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/categories/</loc>
+    <lastmod>2018-11-28T00:17:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/</loc>
+    <lastmod>2018-06-24T10:42:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/centos/</loc>
+    <lastmod>2018-11-30T09:09:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/centos/</loc>
+    <lastmod>2018-11-30T09:09:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ceph/</loc>
+    <lastmod>2018-11-30T17:44:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ceph/</loc>
+    <lastmod>2018-11-30T17:44:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/cephfs/</loc>
+    <lastmod>2018-11-25T17:33:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/certificates/</loc>
+    <lastmod>2018-11-30T09:13:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/channel/</loc>
+    <lastmod>2018-12-04T00:07:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/charts/</loc>
+    <lastmod>2018-06-14T16:30:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/charts/</loc>
+    <lastmod>2018-06-14T16:30:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/cheatsheet/</loc>
+    <lastmod>2018-03-21T10:56:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/cheatsheet/</loc>
+    <lastmod>2018-03-21T10:56:42+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/check/</loc>
+    <lastmod>2018-12-16T12:08:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/chrome/</loc>
+    <lastmod>2018-06-14T20:53:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/chrome/</loc>
+    <lastmod>2018-06-14T20:53:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/cloud-native/</loc>
+    <lastmod>2018-11-25T18:08:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/cloud-native/</loc>
+    <lastmod>2018-03-26T22:48:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/cluster/</loc>
+    <lastmod>2018-03-02T12:45:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/cni/</loc>
+    <lastmod>2018-11-25T13:59:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/code/</loc>
+    <lastmod>2018-12-01T08:38:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/code/</loc>
+    <lastmod>2018-12-01T08:38:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/command/</loc>
+    <lastmod>2018-04-12T09:39:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/comment/</loc>
+    <lastmod>2018-06-16T22:18:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/conf/</loc>
+    <lastmod>2019-02-01T15:45:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/config/</loc>
+    <lastmod>2018-02-26T17:25:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/coreos/</loc>
+    <lastmod>2018-03-02T10:36:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/crawler/</loc>
+    <lastmod>2018-03-09T11:22:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/ct/</loc>
+    <lastmod>2018-06-20T09:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/curl/</loc>
+    <lastmod>2018-03-08T17:47:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/curl/</loc>
+    <lastmod>2018-03-08T17:47:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ddos/</loc>
+    <lastmod>2018-06-19T19:45:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ddos/</loc>
+    <lastmod>2018-06-19T19:45:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/decoder/</loc>
+    <lastmod>2018-03-08T15:51:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/delete/</loc>
+    <lastmod>2018-11-25T13:41:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/desktop/</loc>
+    <lastmod>2018-11-29T17:43:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/devops/</loc>
+    <lastmod>2018-12-01T08:53:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/devops/</loc>
+    <lastmod>2018-12-01T08:53:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/discipline/</loc>
+    <lastmod>2018-02-07T10:15:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/distinct/</loc>
+    <lastmod>2018-03-02T11:51:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/django/</loc>
+    <lastmod>2019-01-25T18:29:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/django/</loc>
+    <lastmod>2019-01-09T09:53:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/dns/</loc>
+    <lastmod>2018-06-12T18:11:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/docker/</loc>
+    <lastmod>2019-01-27T19:20:34-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/docker/</loc>
+    <lastmod>2019-01-27T19:20:34-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/docker-compose/</loc>
+    <lastmod>2019-01-27T19:40:10-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/domain/</loc>
+    <lastmod>2018-10-07T18:59:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/download/</loc>
+    <lastmod>2018-06-21T22:32:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/easy-hugo/</loc>
+    <lastmod>2018-11-17T00:30:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/emacs/</loc>
+    <lastmod>2018-12-22T10:11:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/emacs/</loc>
+    <lastmod>2018-12-22T10:11:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/enterprise/</loc>
+    <lastmod>2018-02-13T21:12:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/enterprise/</loc>
+    <lastmod>2018-02-13T21:12:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/env/</loc>
+    <lastmod>2018-03-02T11:35:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/env/</loc>
+    <lastmod>2018-03-02T11:35:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/eos/</loc>
+    <lastmod>2018-06-20T09:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/eos/</loc>
+    <lastmod>2018-06-20T09:46:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/erp/</loc>
+    <lastmod>2018-07-02T16:51:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/erp/</loc>
+    <lastmod>2018-07-02T16:51:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/eshell/</loc>
+    <lastmod>2018-12-22T10:11:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/eslint/</loc>
+    <lastmod>2019-02-10T18:31:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/eslint/</loc>
+    <lastmod>2019-02-10T18:31:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/export/</loc>
+    <lastmod>2018-02-06T11:12:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/extensions/</loc>
+    <lastmod>2018-03-02T11:22:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/faq/</loc>
+    <lastmod>2019-01-31T20:45:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/fdisk/</loc>
+    <lastmod>2019-01-08T19:04:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/file/</loc>
+    <lastmod>2018-11-20T00:33:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/file-name/</loc>
+    <lastmod>2018-11-23T15:51:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/film/</loc>
+    <lastmod>2018-02-10T23:19:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/flannel/</loc>
+    <lastmod>2018-11-25T16:55:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/flycheck/</loc>
+    <lastmod>2018-08-23T15:05:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/framework/</loc>
+    <lastmod>2018-11-30T00:11:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/framework/</loc>
+    <lastmod>2018-11-30T00:11:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ftp/</loc>
+    <lastmod>2018-05-30T09:59:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ftp/</loc>
+    <lastmod>2018-05-30T09:59:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/galera/</loc>
+    <lastmod>2018-03-02T12:49:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/gcc/</loc>
+    <lastmod>2018-03-02T17:29:20+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/gem/</loc>
+    <lastmod>2018-02-27T17:56:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/gem/</loc>
+    <lastmod>2018-02-27T17:56:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/gfm/</loc>
+    <lastmod>2018-06-21T22:02:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/git/</loc>
+    <lastmod>2019-01-28T21:07:13-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/git/</loc>
+    <lastmod>2019-01-28T21:07:13-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/gitbook/</loc>
+    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/gitbook/</loc>
+    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/github/</loc>
+    <lastmod>2018-04-12T09:39:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/github/</loc>
+    <lastmod>2018-04-12T09:39:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/gitlab/</loc>
+    <lastmod>2018-07-12T11:07:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/gitlab/</loc>
+    <lastmod>2018-07-12T11:07:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/godaddy/</loc>
+    <lastmod>2018-06-12T18:11:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/gogland/</loc>
+    <lastmod>2018-07-15T13:55:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/golang/</loc>
+    <lastmod>2018-12-04T00:07:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/golang/</loc>
+    <lastmod>2018-12-04T00:07:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/golangs/</loc>
+    <lastmod>2018-02-10T10:57:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/google/</loc>
+    <lastmod>2018-06-14T20:53:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/grep/</loc>
+    <lastmod>2018-07-03T11:20:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/grep/</loc>
+    <lastmod>2018-07-03T11:20:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/gvm/</loc>
+    <lastmod>2018-07-15T14:09:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/healthy/</loc>
+    <lastmod>2018-02-13T11:35:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/heapster/</loc>
+    <lastmod>2018-03-28T10:46:26+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/hedge-fund/</loc>
+    <lastmod>2018-03-07T10:48:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/hedge-fund/</loc>
+    <lastmod>2018-03-07T10:48:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/hello-world/</loc>
+    <lastmod>2018-03-02T11:44:17+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/hexo/</loc>
+    <lastmod>2018-03-02T15:28:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/hexo/</loc>
+    <lastmod>2018-03-02T15:11:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/hotkey/</loc>
+    <lastmod>2018-06-13T16:15:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/html/</loc>
+    <lastmod>2018-03-08T15:51:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/html/</loc>
+    <lastmod>2018-03-08T15:51:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/httpd-tools/</loc>
+    <lastmod>2018-03-01T17:30:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/hugo/</loc>
+    <lastmod>2018-11-28T00:17:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/hugo/</loc>
+    <lastmod>2018-11-28T00:17:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/icard/</loc>
+    <lastmod>2018-06-24T11:45:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ide/</loc>
+    <lastmod>2018-07-15T13:55:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/idea/</loc>
+    <lastmod>2018-02-13T21:12:06+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ideas/</loc>
+    <lastmod>2018-12-01T08:53:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/image/</loc>
+    <lastmod>2018-11-24T09:56:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/images/</loc>
+    <lastmod>2019-01-27T19:43:41-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/import/</loc>
+    <lastmod>2018-02-06T11:12:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/infile/</loc>
+    <lastmod>2018-03-02T12:15:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/install/</loc>
+    <lastmod>2019-02-15T23:00:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/install/</loc>
+    <lastmod>2018-05-24T09:32:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/interview/</loc>
+    <lastmod>2018-12-16T16:43:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/interview/</loc>
+    <lastmod>2018-03-20T15:54:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/intro/</loc>
+    <lastmod>2018-11-30T17:44:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ip/</loc>
+    <lastmod>2018-06-16T21:52:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ip/</loc>
+    <lastmod>2018-06-16T21:52:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/iphone/</loc>
+    <lastmod>2018-05-28T16:14:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/iptables/</loc>
+    <lastmod>2018-05-29T10:30:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/istio/</loc>
+    <lastmod>2018-03-26T22:48:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/iterm2/</loc>
+    <lastmod>2018-06-13T16:15:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/iterm2/</loc>
+    <lastmod>2018-06-13T16:15:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/iwencai/</loc>
+    <lastmod>2018-03-09T11:22:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/jane/</loc>
+    <lastmod>2018-11-28T00:17:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/jaqs/</loc>
+    <lastmod>2018-10-17T09:18:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/javascript/</loc>
+    <lastmod>2018-03-09T11:32:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/javascript/</loc>
+    <lastmod>2018-03-09T11:32:33+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/jlch/</loc>
+    <lastmod>2018-03-09T16:13:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/jlch/</loc>
+    <lastmod>2018-03-19T09:56:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/kernel/</loc>
+    <lastmod>2018-11-30T09:09:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/keybinding/</loc>
+    <lastmod>2019-01-30T21:29:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/keyboard/</loc>
+    <lastmod>2018-08-08T00:29:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/keyboard/</loc>
+    <lastmod>2018-08-08T00:28:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/kubeadm/</loc>
+    <lastmod>2018-11-25T17:07:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/kubernetes/</loc>
+    <lastmod>2018-11-30T00:19:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/kubernetes/</loc>
+    <lastmod>2018-11-30T00:19:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/learn/</loc>
+    <lastmod>2018-07-02T18:54:49+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/learn/</loc>
+    <lastmod>2018-02-23T17:27:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/life/</loc>
+    <lastmod>2018-02-13T11:35:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/life/</loc>
+    <lastmod>2018-02-13T11:35:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/links/</loc>
+    <lastmod>2018-12-01T23:56:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/linux/</loc>
+    <lastmod>2019-01-22T00:45:09-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/linux/</loc>
+    <lastmod>2019-01-22T00:45:09-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/login/</loc>
+    <lastmod>2018-12-15T17:31:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mac/</loc>
+    <lastmod>2019-01-30T21:10:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/mac/</loc>
+    <lastmod>2019-01-30T21:10:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/magit/</loc>
+    <lastmod>2018-11-20T10:22:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mail/</loc>
+    <lastmod>2018-08-09T15:44:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/mail/</loc>
+    <lastmod>2018-08-09T15:44:37+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/make/</loc>
+    <lastmod>2018-11-25T17:41:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mariadb/</loc>
+    <lastmod>2018-03-02T12:49:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/mariadb/</loc>
+    <lastmod>2018-03-02T12:49:14+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/markdown/</loc>
+    <lastmod>2018-08-01T00:00:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/markdown/</loc>
+    <lastmod>2018-08-01T00:00:23+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mastercard/</loc>
+    <lastmod>2018-06-24T11:45:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/mastercard/</loc>
+    <lastmod>2018-06-24T11:45:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/me/</loc>
+    <lastmod>2017-03-18T20:53:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/microservices/</loc>
+    <lastmod>2018-02-06T00:08:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/microservices/</loc>
+    <lastmod>2018-02-06T00:08:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mirrors/</loc>
+    <lastmod>2018-06-22T16:38:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mkfs/</loc>
+    <lastmod>2019-01-21T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mmmmmm/</loc>
+    <lastmod>2018-03-15T16:33:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mongodb/</loc>
+    <lastmod>2018-03-19T09:56:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/mongodb/</loc>
+    <lastmod>2018-03-19T09:56:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mount/</loc>
+    <lastmod>2018-06-06T16:57:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/mount/</loc>
+    <lastmod>2018-06-06T16:57:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mysql/</loc>
+    <lastmod>2019-02-13T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/mysql/</loc>
+    <lastmod>2019-02-13T18:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mysqldump/</loc>
+    <lastmod>2018-02-28T14:31:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/mysqlslap/</loc>
+    <lastmod>2018-03-02T12:51:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/navicat/</loc>
+    <lastmod>2018-03-02T12:46:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/network/</loc>
+    <lastmod>2018-08-10T09:49:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/nfs/</loc>
+    <lastmod>2018-11-25T18:17:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/nginx/</loc>
+    <lastmod>2018-06-25T14:13:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/nginx/</loc>
+    <lastmod>2018-06-25T14:13:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ngrok/</loc>
+    <lastmod>2018-04-23T00:05:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ngrok/</loc>
+    <lastmod>2018-04-23T00:05:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/nodejs/</loc>
+    <lastmod>2019-02-15T23:00:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/nodejs/</loc>
+    <lastmod>2019-02-15T23:00:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/note/</loc>
+    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/notebook/</loc>
+    <lastmod>2018-12-22T09:35:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/npm/</loc>
+    <lastmod>2018-03-02T15:09:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/nvm/</loc>
+    <lastmod>2019-02-15T23:00:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/openssl/</loc>
+    <lastmod>2018-06-13T13:00:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/openstack/</loc>
+    <lastmod>2019-01-19T00:13:57-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/openstack/</loc>
+    <lastmod>2019-01-09T16:27:38+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/org/</loc>
+    <lastmod>2018-11-17T00:30:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/org/</loc>
+    <lastmod>2018-11-17T00:30:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/oscar/</loc>
+    <lastmod>2019-01-25T18:29:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/oscar/</loc>
+    <lastmod>2019-01-25T18:29:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ox-hugo/</loc>
+    <lastmod>2018-11-17T00:30:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/pandoc/</loc>
+    <lastmod>2018-06-21T22:02:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/panubo/</loc>
+    <lastmod>2018-03-02T11:26:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/parted/</loc>
+    <lastmod>2018-02-28T23:01:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/passwd/</loc>
+    <lastmod>2018-03-26T16:18:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/perl/</loc>
+    <lastmod>2018-02-01T20:11:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/perl/</loc>
+    <lastmod>2018-02-01T20:11:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/php/</loc>
+    <lastmod>2018-06-16T18:11:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/php/</loc>
+    <lastmod>2018-06-16T18:11:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/pip/</loc>
+    <lastmod>2018-06-13T13:12:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/pipenv/</loc>
+    <lastmod>2019-01-31T20:45:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/port/</loc>
+    <lastmod>2018-03-02T11:47:57+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/post/</loc>
+    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/preview/</loc>
+    <lastmod>2018-11-20T22:28:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/privoxy/</loc>
+    <lastmod>2018-07-15T14:16:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/privoxy/</loc>
+    <lastmod>2018-07-15T14:16:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/project/</loc>
+    <lastmod>2018-03-01T16:50:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/project/</loc>
+    <lastmod>2018-03-01T16:50:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/protection/</loc>
+    <lastmod>2018-06-21T17:18:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/protection/</loc>
+    <lastmod>2018-06-21T17:18:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/proxy/</loc>
+    <lastmod>2018-08-10T09:49:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/proxy/</loc>
+    <lastmod>2018-08-10T09:49:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/pyenv/</loc>
+    <lastmod>2018-12-22T08:44:22+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/python/</loc>
+    <lastmod>2019-01-31T20:45:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/python/</loc>
+    <lastmod>2019-01-31T20:45:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/qor/</loc>
+    <lastmod>2018-07-04T10:53:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/qor/</loc>
+    <lastmod>2018-07-04T10:53:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/r/</loc>
+    <lastmod>2018-02-03T14:38:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/r/</loc>
+    <lastmod>2018-02-03T14:38:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/rancher/</loc>
+    <lastmod>2018-06-30T10:22:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/rancher/</loc>
+    <lastmod>2018-06-30T10:22:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/rar/</loc>
+    <lastmod>2018-06-12T17:15:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/react/</loc>
+    <lastmod>2019-02-07T23:47:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/react/</loc>
+    <lastmod>2019-02-07T23:47:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/readme/</loc>
+    <lastmod>2018-11-30T17:44:32+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/realtek/</loc>
+    <lastmod>2018-06-07T16:03:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/realtek/</loc>
+    <lastmod>2018-06-07T16:03:04+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/redis/</loc>
+    <lastmod>2018-02-05T17:23:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/redis/</loc>
+    <lastmod>2018-02-05T17:23:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/registry/</loc>
+    <lastmod>2018-11-23T15:31:45+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/registry-ui/</loc>
+    <lastmod>2018-11-23T15:35:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/replace/</loc>
+    <lastmod>2018-11-27T23:17:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/resource/</loc>
+    <lastmod>2018-07-02T16:51:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/resource/</loc>
+    <lastmod>2018-02-04T21:59:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/route/</loc>
+    <lastmod>2018-02-23T12:25:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/rpm/</loc>
+    <lastmod>2018-03-02T17:29:20+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/rst/</loc>
+    <lastmod>2018-06-21T22:02:47+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/rstudio/</loc>
+    <lastmod>2018-02-03T14:38:19+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ruby/</loc>
+    <lastmod>2018-02-26T09:23:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ruby/</loc>
+    <lastmod>2018-02-26T09:23:11+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/saleor/</loc>
+    <lastmod>2019-02-01T15:45:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/saleor/</loc>
+    <lastmod>2019-02-01T15:45:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/sapcemacs/</loc>
+    <lastmod>2018-11-17T00:30:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/scp/</loc>
+    <lastmod>2019-01-19T00:44:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/search/</loc>
+    <lastmod>2018-11-16T23:51:00+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/sed/</loc>
+    <lastmod>2018-11-27T23:17:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/sed/</loc>
+    <lastmod>2018-11-27T23:17:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/seo/</loc>
+    <lastmod>2018-02-27T11:08:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/service-mesh/</loc>
+    <lastmod>2018-03-26T22:48:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/setup/</loc>
+    <lastmod>2018-11-29T23:47:50+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/shadowsocks/</loc>
+    <lastmod>2018-07-15T14:16:28+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/shadowssocks/</loc>
+    <lastmod>2018-06-11T20:34:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/shell/</loc>
+    <lastmod>2019-01-19T00:44:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/shell/</loc>
+    <lastmod>2019-01-19T00:44:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/shop/</loc>
+    <lastmod>2018-04-15T23:58:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/shop/</loc>
+    <lastmod>2018-04-15T23:58:27+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/software/</loc>
+    <lastmod>2018-02-13T21:14:59+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/source/</loc>
+    <lastmod>2018-11-25T18:08:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/spacemacs/</loc>
+    <lastmod>2019-01-23T23:40:16-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/spacemacs/</loc>
+    <lastmod>2019-01-23T23:40:16-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ssh/</loc>
+    <lastmod>2019-01-22T00:45:09-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ssh/</loc>
+    <lastmod>2018-05-24T15:22:36+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/sshpass/</loc>
+    <lastmod>2019-01-30T21:10:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/statefulset/</loc>
+    <lastmod>2018-11-25T17:34:07+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/stock/</loc>
+    <lastmod>2018-03-09T11:22:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/stock/</loc>
+    <lastmod>2018-03-09T11:22:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/storage/</loc>
+    <lastmod>2018-11-25T17:22:08+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/submodules/</loc>
+    <lastmod>2019-01-28T21:07:13-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/svn/</loc>
+    <lastmod>2018-06-28T18:33:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/svn/</loc>
+    <lastmod>2018-06-28T18:33:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/swift/</loc>
+    <lastmod>2019-01-22T02:35:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/swift/</loc>
+    <lastmod>2019-01-22T02:35:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/</loc>
+    <lastmod>2018-03-01T17:30:25+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/taro/</loc>
+    <lastmod>2019-02-07T23:47:10+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/teamviewer/</loc>
+    <lastmod>2018-06-21T16:48:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/teamviewer/</loc>
+    <lastmod>2018-06-21T16:48:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/telnet/</loc>
+    <lastmod>2018-02-06T10:33:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/telnet/</loc>
+    <lastmod>2018-02-06T10:33:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/test/</loc>
+    <lastmod>2018-03-26T22:48:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tips/</loc>
+    <lastmod>2018-12-16T16:49:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tmux/</loc>
+    <lastmod>2019-01-29T19:29:10-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/tmux/</loc>
+    <lastmod>2019-01-29T19:29:10-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/today/</loc>
+    <lastmod>2018-02-23T17:27:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tom/</loc>
+    <lastmod>2018-06-14T00:33:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/tom/</loc>
+    <lastmod>2018-06-14T00:33:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tomcat/</loc>
+    <lastmod>2018-06-12T20:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/tomcat/</loc>
+    <lastmod>2018-06-12T20:51:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tomt/</loc>
+    <lastmod>2018-06-14T00:33:56+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tools/</loc>
+    <lastmod>2019-02-11T15:47:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/tools/</loc>
+    <lastmod>2019-02-11T15:47:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tortoisesvn/</loc>
+    <lastmod>2018-06-28T18:33:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tour/</loc>
+    <lastmod>2018-11-22T16:25:15+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/trade/</loc>
+    <lastmod>2018-02-07T10:15:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/trade/</loc>
+    <lastmod>2018-02-07T10:15:52+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/transilation/</loc>
+    <lastmod>2019-01-22T02:35:17-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/travis/</loc>
+    <lastmod>2018-02-11T15:29:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/travis/</loc>
+    <lastmod>2018-02-11T15:29:53+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tty/</loc>
+    <lastmod>2018-06-19T17:41:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/tutor/</loc>
+    <lastmod>2018-11-22T18:57:48+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ubuntu/</loc>
+    <lastmod>2019-01-08T19:04:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/ubuntu/</loc>
+    <lastmod>2019-01-08T19:04:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/ubunut/</loc>
+    <lastmod>2018-05-24T11:19:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/undo/</loc>
+    <lastmod>2018-11-25T18:33:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/update/</loc>
+    <lastmod>2018-03-19T09:56:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/update-kernel/</loc>
+    <lastmod>2018-11-23T16:16:09+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/upgrade/</loc>
+    <lastmod>2018-11-25T17:07:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/user/</loc>
+    <lastmod>2018-03-02T12:47:29+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/version/</loc>
+    <lastmod>2018-05-29T10:11:05+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/vi/</loc>
+    <lastmod>2018-11-25T18:33:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/vi/</loc>
+    <lastmod>2018-11-25T18:33:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/virtualbox/</loc>
+    <lastmod>2018-08-03T23:10:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/virtualbox/</loc>
+    <lastmod>2018-08-03T23:10:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/vmware/</loc>
+    <lastmod>2019-01-09T16:00:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/vmware/</loc>
+    <lastmod>2019-01-09T16:00:24+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/vscode/</loc>
+    <lastmod>2018-07-11T11:21:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/vscode/</loc>
+    <lastmod>2018-07-11T11:21:21+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/vsftp/</loc>
+    <lastmod>2018-05-30T09:59:54+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/wechat/</loc>
+    <lastmod>2018-03-10T16:05:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/wechat/</loc>
+    <lastmod>2018-03-10T16:05:35+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/wemux/</loc>
+    <lastmod>2019-01-30T14:26:41+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/wercker/</loc>
+    <lastmod>2018-03-26T22:48:44+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/wget/</loc>
+    <lastmod>2018-05-24T11:24:18+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/win10/</loc>
+    <lastmod>2018-07-14T17:51:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/win10/</loc>
+    <lastmod>2018-07-14T17:51:39+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/win7/</loc>
+    <lastmod>2018-08-03T23:10:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/windows/</loc>
+    <lastmod>2019-02-12T10:09:25-08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/windows/</loc>
+    <lastmod>2018-02-28T17:26:01+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/workflow/</loc>
+    <lastmod>2018-06-29T09:08:02+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/works/</loc>
+    <lastmod>2018-12-13T09:48:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/works/</loc>
+    <lastmod>2018-12-13T09:48:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/wubipinyin/</loc>
+    <lastmod>2018-05-24T09:32:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/xfs/</loc>
+    <lastmod>2019-01-09T15:14:12+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/xmodmap/</loc>
+    <lastmod>2018-08-08T00:29:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/xshell/</loc>
+    <lastmod>2018-05-24T11:19:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/yaml/</loc>
+    <lastmod>2018-11-25T17:51:31+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/yapi/</loc>
+    <lastmod>2018-06-28T18:37:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/yapi/</loc>
+    <lastmod>2018-06-28T18:37:43+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/yarn/</loc>
+    <lastmod>2018-02-24T09:20:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/yarn/</loc>
+    <lastmod>2018-02-24T09:20:55+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/yasnippet/</loc>
+    <lastmod>2018-11-17T23:02:51+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/yum/</loc>
+    <lastmod>2018-03-02T11:46:46+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/zsh/</loc>
+    <lastmod>2018-12-22T10:11:40+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/friend/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+</urlset>

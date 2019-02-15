@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ubuntu on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/ubuntu/</link>
+    <description>Recent content in Ubuntu on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 08 Jan 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/ubuntu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在vmware workstation pro 中给ubuntu增加新分区</title>
+      <link>https://b.qqbb.app/post/ubuntu-vmware-workstation-pro-new-partition/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-vmware-workstation-pro-new-partition/</guid>
+      <description>env 在 vmware workstation pro 中安装的ubuntu server已经把20G的硬盘已经按默认的方式分区，且已经是把20G硬盘全占用。 此时，如果用 fdisk /dev/sda 然后 n 来新建分</description>
+    </item>
+    
+    <item>
+      <title>set apt source</title>
+      <link>https://b.qqbb.app/post/ubuntu-desktop-set-apt-source/</link>
+      <pubDate>Thu, 29 Nov 2018 17:39:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-desktop-set-apt-source/</guid>
+      <description>https://github.com/vnpy/vnpy/wiki/Ubuntu%E7%8E%AF%E5%A2%83%E5%AE%89%E8%A3%85</description>
+    </item>
+    
+    <item>
+      <title>ubuntu intro</title>
+      <link>https://b.qqbb.app/post/ubuntu-intro/</link>
+      <pubDate>Thu, 29 Nov 2018 11:07:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-intro/</guid>
+      <description>Contents:
+ update-kernel/index how-to-install-certificates-for-command-line ubuntu-desktop/index  </description>
+    </item>
+    
+    <item>
+      <title>ubuntu16.04升级内核至 4.10 以上</title>
+      <link>https://b.qqbb.app/post/ubuntu16-update-kernel/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu16-update-kernel/</guid>
+      <description>ubuntu16.04 update-kernel env 1 2 192.168.31.118 192.168.31.119 step 浏览器打开 http://kernel.ubuntu.com/~kernel-ppa/mainline/ 找到适合的 内核版本（这时v4.12), 进入， 找到合适的内核文件(linux-image-4.12.0-04120</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Desktop 环境安装</title>
+      <link>https://b.qqbb.app/post/ubuntu-desktop-setup/</link>
+      <pubDate>Thu, 29 Nov 2018 17:50:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-desktop-setup/</guid>
+      <description>安装Ubuntu 全部安装流程： Figure 1: 安装流程 推荐的Ubuntu环境： 版本：Ubuntu 16.04 LTS 语言：简体中文 时区：Shanghai 硬件：64位，4</description>
+    </item>
+    
+    <item>
+      <title>命令行下如何安装或者更新 CA.crt 文件</title>
+      <link>https://b.qqbb.app/post/how-to-install-certificates-for-command-line-2/</link>
+      <pubDate>Thu, 29 Nov 2018 15:50:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/how-to-install-certificates-for-command-line-2/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>Keyboard Ubuntu</title>
+      <link>https://b.qqbb.app/post/keyboard-ubuntu/</link>
+      <pubDate>Wed, 08 Aug 2018 00:29:31 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/keyboard-ubuntu/</guid>
+      <description>通过xmodmap修改ubuntu系统下的键盘布局 因为某种需求，需要把 右ctrl与右alt 互换 Env os: ubuntu desktop 16.04 target: swap Right Ctrl with Right Alt on my keyboard xmodmap Installation 1 2 3 4 5 6</description>
+    </item>
+    
+    <item>
+      <title>Change System Datetime Base Ubuntu</title>
+      <link>https://b.qqbb.app/post/change-system-datetime-base-ubuntu/</link>
+      <pubDate>Wed, 11 Jul 2018 10:40:10 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/change-system-datetime-base-ubuntu/</guid>
+      <description>Env os: ubuntu16 Step 原理 需要取消自动从互联网同步时间才可以的 1 timedatectl set-ntp 0 上面的命令可以关闭自动同步，然后你再设置就好了 如果又要打开可以运行 1 timedatectl set-ntp 1 示例 1 2 3</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Install Faq A</title>
+      <link>https://b.qqbb.app/post/ubuntu-install-faq-a/</link>
+      <pubDate>Tue, 26 Jun 2018 18:51:29 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-install-faq-a/</guid>
+      <description>U盘安装Ubuntu16.04 server版 提示无法挂载cd-rom数据的解决办法 Step 错误： 使用类似ultraiso的刻录软件会出现这个错误 Failed</description>
+    </item>
+    
+    <item>
+      <title>Update Kernel Base Ubuntu</title>
+      <link>https://b.qqbb.app/post/update-kernel-base-ubuntu/</link>
+      <pubDate>Thu, 21 Jun 2018 21:55:37 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/update-kernel-base-ubuntu/</guid>
+      <description>ubuntu16.04 update-kernel Env os: ubuntu16.04 ip: 192.168.31.118 Step 浏览器打开 http://kernel.ubuntu.com/~kernel-ppa/mainline/ 找到适合的 内核版本（这时v4.12), 进入， 找到合适的内核文件(linux-image-4.12.0-04120</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Command Not Found</title>
+      <link>https://b.qqbb.app/post/ubuntu-command-not-found/</link>
+      <pubDate>Sat, 16 Jun 2018 18:08:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-command-not-found/</guid>
+      <description> add-apt-repository: command not found When I run:
+1  sudo add-apt-repository ppa:ubuntu-wine/ppa   Log here:
+1  sudo: add-apt-repository: command not found   solved I tried to run:
+1  sudo apt-get install software-properties-common  </description>
+    </item>
+    
+    <item>
+      <title>Xshell Ubuntu Transmitter File</title>
+      <link>https://b.qqbb.app/post/xshell-ubuntu-transmitter-file/</link>
+      <pubDate>Thu, 24 May 2018 11:19:43 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/xshell-ubuntu-transmitter-file/</guid>
+      <description>xshell + ubuntu 直接拖拽完成传输 env win10-xshell ubuntu step ubunut 安装lrzsz软件 1 2 3 4 5 6 7 ubuntu@ip-172-31-17-102:~$ sudo apt install lrzsz Reading package lists... Done Building dependency tree Reading state information... Done lrzsz is already the newest version (0.12.21-8). 0 upgraded, 0 newly installed, 0 to remove and 1 not upgraded. ubuntu@ip-172-31-17-102:~$ 如果</description>
+    </item>
+    
+    <item>
+      <title>Ubuntu Apt Http Proxy</title>
+      <link>https://b.qqbb.app/post/ubuntu-apt-http-proxy/</link>
+      <pubDate>Thu, 24 May 2018 10:16:52 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu-apt-http-proxy/</guid>
+      <description>Ubuntu的更改apt-get代理，设置与取消 apt代理的设置 方法1 这是一种临时的手段，如果您仅仅是暂时需要通过http代理使用apt-g</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Wechat on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/wechat/</link>
+    <description>Recent content in Wechat on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 10 Mar 2018 16:05:35 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/wechat/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>WeChat Send Messages</title>
+      <link>https://b.qqbb.app/post/weixin-send-messages/</link>
+      <pubDate>Sat, 10 Mar 2018 16:05:35 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/weixin-send-messages/</guid>
+      <description>监控服务调用微信API如何给自己发告警信息 微信开发之发送消息接口 微信智能问答机器人 golang golang-wechat golang-wechat https://github.com/songtianyi/wechat-go https://github.com/liushuchun/wechatcmd wechat_pusher - 基于Golang开发的高性能微信消息定时推送</description>
+    </item>
+    
+  </channel>
+</rss>

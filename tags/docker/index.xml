@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/docker/</link>
+    <description>Recent content in Docker on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 27 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>用户加入docker组</title>
+      <link>https://b.qqbb.app/post/add-user-to-docker-group/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/add-user-to-docker-group/</guid>
+      <description>Docker 创建docker用户组，应用用户加入docker组 创建docker用户组 1 sudo groupadd docker 应用用户加入docker用户组 1 sudo usermod -aG docker ${USER} 重启docker</description>
+    </item>
+    
+    <item>
+      <title>docker build时运行 COPY 时报no such file or directory 错误</title>
+      <link>https://b.qqbb.app/post/docker-build-copy-failed-no-such-file-or-directory/</link>
+      <pubDate>Sun, 13 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-build-copy-failed-no-such-file-or-directory/</guid>
+      <description>env Expected behavior COPY command to copy a file from local to image Actual behavior doing a simple COPY command in Dockerfile is throwing this error when the file is in a folder (not same level as Dockerfile file) Description I have a Dockerfile that has the line: COPY MyAgSourceAPI/conf/php/testsql.php var/www But it causes the error: COPY failed: stat /var/lib/docker/tmp/docker-builder918577595/MyAgSourceAPI/conf/php/testsql.php: no such file or directory step 有一些解</description>
+    </item>
+    
+    <item>
+      <title>docker login failure,  unauthorized: incorrect username or password</title>
+      <link>https://b.qqbb.app/post/docker-login-faq/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-login-faq/</guid>
+      <description>报错中出现类似“unauthorized: incorrect username or password”的话。 1 2 3 4 5 6 7 8 ➜ saleor git:(master) docker-compose run web python3 manage.py migrate Pulling db (library/postgres:latest)... latest: Pulling from library/postgres a5a6f2f73cd8: Already exists e50fbea8af5a: Pull complete 73b4855ad326: Pull complete ERROR:</description>
+    </item>
+    
+    <item>
+      <title>docker registry</title>
+      <link>https://b.qqbb.app/post/docker-registry/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-registry/</guid>
+      <description>docker registry 1 2 3 在 192.168.31.240 ， 10.10.12.17 中建立了 registry 输入用户zimug，密码zimug_password 192.168.31.171 client root 用户 1 2 3 4 sudo mkdir -p /etc/docker/certs.d/reg.jlch.com:5000 sudo echo 192.168.31.240 reg.jlch.com &amp;gt;&amp;gt; /etc/hosts sudo scp -r tom@192.168.31.240:/home/tom/registry/certs/registry.crt /etc/docker/certs.d/reg.jlch.com:5000 1 2 3 4 5 6</description>
+    </item>
+    
+    <item>
+      <title>ubuntu中安装docker</title>
+      <link>https://b.qqbb.app/post/docker-install-ubuntu/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-install-ubuntu/</guid>
+      <description>1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 57 58 59 60 61 62 63 64 65 66 67 68 69 70 71 72 73 74 75 76 77 78 79 80 81 82 83 84 85 86 87 88 89 90 91 92 93 94 95 96 97 98 99 100  root@km:~# sudo apt-get update .</description>
+    </item>
+    
+    <item>
+      <title>docker-compose安装后报&#34;specify DOCKER_HOST&#34;错误</title>
+      <link>https://b.qqbb.app/post/docker-compose-installed-then-error-specify-docker_host/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-compose-installed-then-error-specify-docker_host/</guid>
+      <description>按照官网 https://docs.docker.com/compose/install/ 安装完 docker-compose 后，要重 新进入一下用户(比如切换为root，再次切换为user)，配置才生效。 否则会报出下面的错误： 1 2 3 ERROR: Couldn’</description>
+    </item>
+    
+    <item>
+      <title>ceph安装，基于docker</title>
+      <link>https://b.qqbb.app/post/ceph-install-base-docker/</link>
+      <pubDate>Fri, 30 Nov 2018 17:15:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ceph-install-base-docker/</guid>
+      <description>https://github.com/ceph/ceph-docker
+m1 http://ceph.com/planet/%E5%9F%BA%E4%BA%8Edocker%E9%83%A8%E7%BD%B2ceph%E4%BB%A5%E5%8F%8A%E4%BF%AE%E6%94%B9docker-image/
+http://www.sebastien-han.fr/blog/2015/06/23/bootstrap-your-ceph-cluster-in-docker/
+http://www.topjishu.com/10455.html
+http://ceph.com/planet/%E5%9F%BA%E4%BA%8Edocker-ui-%E9%85%8D%E7%BD%AEceph%E9%9B%86%E7%BE%A4/
+m2 http://www.dockerinfo.net/445.html
+m3 http://www.jianshu.com/p/f08ed7287416</description>
+    </item>
+    
+    <item>
+      <title>docker registry ui</title>
+      <link>https://b.qqbb.app/post/docker-registry-ui/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-registry-ui/</guid>
+      <description>http://blog.csdn.net/mideagroup/article/details/52052618 env 192.168.31.240 home/tom/hyper-docker-registry-web-config 下</description>
+    </item>
+    
+    <item>
+      <title>批量删除docker images</title>
+      <link>https://b.qqbb.app/post/docker-remove-images-multy/</link>
+      <pubDate>Sun, 27 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-remove-images-multy/</guid>
+      <description> 1 2 3  docker ps -a | grep &amp;#34;Exited&amp;#34; | awk &amp;#39;{print $1 }&amp;#39;|xargs docker stop docker ps -a | grep &amp;#34;Exited&amp;#34; | awk &amp;#39;{print $1 }&amp;#39;|xargs docker rm docker images|grep none|awk &amp;#39;{print $3 }&amp;#39;|xargs docker rmi   Ref  https://blog.csdn.net/p656456564545/article/details/50097145  </description>
+    </item>
+    
+    <item>
+      <title>docker 登陆失败</title>
+      <link>https://b.qqbb.app/post/docker-login-failure/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-login-failure/</guid>
+      <description>login failure - 代理问题 1 2 3 4 5 root@km:~/dockerRegistry# docker login reg.jlch.com:5000 Username (zimug): Password: Error response from daemon: Get https://reg.jlch.com:5000/v1/users/: EOF root@km:~/dockerRegistry# vi /lib/systemd/system/docker.service 重点把 reg.jlch.com 加入 Environment 中。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32</description>
+    </item>
+    
+    <item>
+      <title>docker-registry-push-pull</title>
+      <link>https://b.qqbb.app/post/docker-registry-push-pull/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-registry-push-pull/</guid>
+      <description>请查看 https://gitee.com/tomt/tom%5Fdocker%5Fregistry%5Fpush%5Fpull.git</description>
+    </item>
+    
+    <item>
+      <title>Docker Registry Mirrors Base Ubuntu</title>
+      <link>https://b.qqbb.app/post/docker-registry-mirrors-base-ubuntu/</link>
+      <pubDate>Fri, 22 Jun 2018 16:38:30 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-registry-mirrors-base-ubuntu/</guid>
+      <description>如何配置镜像加速器 Env docker: 17.03.2+ os: ubuntu16.04 Step 打开 https://cr.console.aliyun.com/#/imageList 找到 镜像加速器 可以根据自己OS选择，下面的是ubuntu, registry-mirrors中的内容已失效</description>
+    </item>
+    
+    <item>
+      <title>Docker Pull With Proxy</title>
+      <link>https://b.qqbb.app/post/docker-pull-with-proxy/</link>
+      <pubDate>Sun, 17 Jun 2018 23:38:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-pull-with-proxy/</guid>
+      <description>透过proxy进行docker pull Env os: ubuntu16 os: centos Step 对于Ubuntu 系统 1 sudo vi /etc/default/docker 对于Centos 系统 1 sudo vi /etc/sysconfig/docker 把下面的内容加到尾部 1 2 3 4 5 HTTP_PROXY=http://192.168.31.112:8118 http_proxy=${HTTP_PROXY} HTTPS_PROXY=${HTTP_PROXY} https_proxy=${HTTP_PROXY} export</description>
+    </item>
+    
+    <item>
+      <title>Docker Install Base Ubuntu</title>
+      <link>https://b.qqbb.app/post/docker-install-base-ubuntu/</link>
+      <pubDate>Mon, 04 Jun 2018 19:01:35 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-install-base-ubuntu/</guid>
+      <description>ubuntu中安装docker-ce Env os: ubuntu16 ip: ... docker: 17.03.2~ce-0~ubuntu-xenial Step 查看已安装 1 sudo docker version 如果有已安装，请卸载，给个示例 1 sudo apt remove docker* -y 安装 1 2 3 4 5 6 7 8 9 lsb_release -a sudo</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera From Docker to Bare</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-from-docker-to-bare/</link>
+      <pubDate>Fri, 02 Mar 2018 12:49:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-from-docker-to-bare/</guid>
+      <description>mysql系列之 从 docker+Galera 转到 Galera(去除 docker) context 之前在 docker之docker-mariadb-galera(panubo版) 中成功在 docker 中安</description>
+    </item>
+    
+    <item>
+      <title>Docker Registry Install For Jlch</title>
+      <link>https://b.qqbb.app/post/docker-registry-install-for-jlch/</link>
+      <pubDate>Fri, 02 Mar 2018 11:30:46 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-registry-install-for-jlch/</guid>
+      <description>docker之registry搭建(当然更建议使用Harbor) reference http://www.zimug.com/317.html?utm_source=tuicool&amp;amp;utm_medium=referral docker-registry env docker版本大于1.6.0(docker -v) 机器3台: * registry server , IP: 192.168.31.240</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera Panubo2 Base Docker</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-panubo2-base-docker/</link>
+      <pubDate>Fri, 02 Mar 2018 11:26:51 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-panubo2-base-docker/</guid>
+      <description>docker之docker-mariadb-galera(panubo版)(2017-02) ref https://github.com/panubo/docker-mariadb-galera env node0, 10.10.13.110, primary node1, 10.10.15.240 node2, 10.10.12.13(这一台</description>
+    </item>
+    
+    <item>
+      <title>Docker Registry Install</title>
+      <link>https://b.qqbb.app/post/docker-registry-install/</link>
+      <pubDate>Fri, 02 Mar 2018 10:38:59 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-registry-install/</guid>
+      <description>docker之registry搭建(当然更建议使用Harbor) reference http://www.zimug.com/317.html?utm_source=tuicool&amp;amp;utm_medium=referral docker-registry env docker版本大于1.6.0(docker -v) 机器3台: * registry server , IP: 10.10.12.17</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera Base Docker Coreos</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-base-docker-coreos/</link>
+      <pubDate>Fri, 02 Mar 2018 10:36:14 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-base-docker-coreos/</guid>
+      <description>MariaDB Galera cluster running on CoreOS using the official Docker images env Coreos + any public cloud (Azure, AWS, Google, etc) step 开端口: 1 2 3 4 5 6 sudo firewall-cmd --permanent --add-port=4567/udp; sudo firewall-cmd --permanent --add-port=4567/tcp; sudo firewall-cmd --permanent --add-port=4568/tcp; sudo firewall-cmd --permanent --add-port=4444/tcp; sudo firewall-cmd --permanent --add-port=3306/tcp; sudo firewall-cmd --reload; sudo firewall-cmd --permanent --list-port 检查mysql 是不是起</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Galera Panubo Base Docker</title>
+      <link>https://b.qqbb.app/post/mariadb-galera-panubo-base-docker/</link>
+      <pubDate>Fri, 02 Mar 2018 10:32:52 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-galera-panubo-base-docker/</guid>
+      <description>docker之docker-mariadb-galera(panubo版) env node0, 10.10.12.17 node1, 10.10.12.18 node2, 10.10.13.10(这一台暂时没用上) step 拉取 (pa</description>
+    </item>
+    
+  </channel>
+</rss>

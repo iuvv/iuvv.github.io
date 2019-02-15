@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ssh on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/ssh/</link>
+    <description>Recent content in Ssh on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 22 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>linux 关闭SSH 连接用户</title>
+      <link>https://b.qqbb.app/post/linux-close-ssh-connection-user/</link>
+      <pubDate>Tue, 22 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/linux-close-ssh-connection-user/</guid>
+      <description>1.查明登陆端口； 1 2 3 $ who root pts/1 Apr 8 00:06 (172.29.0.29) root pts/2 Apr 8 04:15 (172.29.0.21) 2.通知该用户将要关闭他： 1 $ echo &amp;#34;I will close your connection&amp;#34; &amp;gt; /dev/pts/2 这样他的终端将显示该信息。 3.关闭用户连接</description>
+    </item>
+    
+    <item>
+      <title>ssh登录时如何直接在参数中加入登录密码</title>
+      <link>https://b.qqbb.app/post/sshpass-let-ssh-login-with-password/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/sshpass-let-ssh-login-with-password/</guid>
+      <description>sshpass: 用于非交互的ssh 密码验证 ssh登陆不能在命令行中指定密码，也不能以shell中随处可见的，sshpass 的出现，解决了这一问题。它允许你</description>
+    </item>
+    
+    <item>
+      <title>Ssh Login</title>
+      <link>https://b.qqbb.app/post/ssh-login/</link>
+      <pubDate>Thu, 24 May 2018 15:22:36 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ssh-login/</guid>
+      <description>faq 报错：Too many authentication failures 1 2 3 4 5 tom@tom-w10vbud16:~/ztom/bits/pem$ ssh -i vachain_competition.pem ubuntu@ec2-13-125-197-97.ap-northeast-2.compute.amazonaws.com Received disconnect from 13.125.197.97 port 22:2: Too many authentication failures Connection to ec2-13-125-197-97.ap-northeast-2.compute.amazonaws.com closed by remote host. Connection to ec2-13-125-197-97.ap-northeast-2.compute.amazonaws.com closed. tom@tom-w10vbud16:~/ztom/bits/pem$ If you are not using any ssh hosts configuration, you have to explicitly specify the correct key in the ssh command like so: 1 ssh -i some_id_rsa -o</description>
+    </item>
+    
+    <item>
+      <title>Ngrok Ssh</title>
+      <link>https://b.qqbb.app/post/ngrok-ssh/</link>
+      <pubDate>Mon, 23 Apr 2018 00:05:45 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ngrok-ssh/</guid>
+      <description>远程登录家里的Ubuntu电脑(命令行模式) env 服务端 机器: 腾讯云主机一台 IP: 111.230.153.251 OS: ubuntu server 16.04.1 客户端 机器: 腾讯云主机一台 IP: 192.168.31.106 OS: ubuntu desktop 16.04.3 step 服务端建立一个 n</description>
+    </item>
+    
+    <item>
+      <title>Mac上SSH-Key对应多个github账号</title>
+      <link>https://b.qqbb.app/post/mac-ssh-github/</link>
+      <pubDate>Sat, 07 Apr 2018 22:30:59 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mac-ssh-github/</guid>
+      <description>Mac 上SSH-Key对应多个github账号 当然, 也不单是github帐号, gitlab或者其它账号都是可以的哟&amp;hellip; 前言 因为最近在</description>
+    </item>
+    
+  </channel>
+</rss>

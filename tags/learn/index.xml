@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Learn on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/learn/</link>
+    <description>Recent content in Learn on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 02 Jul 2018 18:54:49 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/learn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Qor Doc Get Started</title>
+      <link>https://b.qqbb.app/post/qor-doc-get-started/</link>
+      <pubDate>Mon, 02 Jul 2018 18:54:49 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-doc-get-started/</guid>
+      <description>qor step by step Qor Doc中的Get Started Env os: ubuntu16 go: 1.10.2 Step 1 2 3 4 5 6 root@tom-w10vbud16:/home/tom/test# cd /home/tom/golang/ root@tom-w10vbud16:/home/tom/golang# mkdir qor/src -p root@tom-w10vbud16:/home/tom/golang# cd qor/src/ root@tom-w10vbud16:/home/tom/golang/qor/src# git clone https://github.com/qor/qor root@tom-w10vbud16:/home/tom/golang/qor/src# ls qor/ bower.json config.go context.go errors.go gulpfile.js LICENSE.txt package.json README.md resource test test_all.sh update_all_qor_repos.sh utils yarn.lock get_started https://doc.getqor.com/get_started.html 配置 GOPATH 把 /home/tom/golang/qor 加入 GOPATH 1 2 3</description>
+    </item>
+    
+    <item>
+      <title>Blockchain</title>
+      <link>https://b.qqbb.app/post/learn/blockchain/</link>
+      <pubDate>Wed, 13 Jun 2018 15:43:40 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/learn/blockchain/</guid>
+      <description>记录我的blockchain学习过程 区块链浏览器 区块链学习笔记-如何使用区块链浏览器 三分钟了解区块链浏览器 区块链浏览器是什么？ 常识 浏览器都可</description>
+    </item>
+    
+    <item>
+      <title>Today Learn</title>
+      <link>https://b.qqbb.app/post/today-learn/</link>
+      <pubDate>Fri, 23 Feb 2018 17:27:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/today-learn/</guid>
+      <description>20180223 Hugo 集成 Algolia 搜索 20180302 telegram 客户端都是开源的，源代码放在官方网站上供人下载，以及修改（遵循 GPL v3 许可协议）。从比特币投资者变成天使投资人的李笑来，最近就</description>
+    </item>
+    
+    <item>
+      <title>Go Learn</title>
+      <link>https://b.qqbb.app/post/learn/golang/</link>
+      <pubDate>Mon, 05 Feb 2018 14:25:08 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/learn/golang/</guid>
+      <description>资料导航 http://www.geeker8.com/go/41 菜鸟教程 已完成 优 比较易读 缺点 没介绍 通道，go协程，等并发概念和原理 Go语言第一课 代码 已完成 优 比较易读 有代码测试 Go简易教程 代码 学习</description>
+    </item>
+    
+  </channel>
+</rss>

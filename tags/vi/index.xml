@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vi on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/vi/</link>
+    <description>Recent content in Vi on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 12 Nov 2018 18:31:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/vi/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>vi撤销与恢复撤销</title>
+      <link>https://b.qqbb.app/post/vim-redo/</link>
+      <pubDate>Mon, 12 Nov 2018 18:31:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/vim-redo/</guid>
+      <description>Step 在vi中按u可以撤销一次操作 1 2 u 撤销上一步的操作 Ctrl+r 恢复上一步被撤销的操作 注意： 如果你输入“u”两次，你的文本恢复原样，那应该是你的Vim</description>
+    </item>
+    
+  </channel>
+</rss>

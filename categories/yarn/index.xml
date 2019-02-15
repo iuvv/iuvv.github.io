@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Yarn on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/yarn/</link>
+    <description>Recent content in Yarn on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 24 Feb 2018 09:20:55 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/yarn/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Yarn Install</title>
+      <link>https://b.qqbb.app/post/yarn-install/</link>
+      <pubDate>Sat, 24 Feb 2018 09:20:55 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/yarn-install/</guid>
+      <description>env mac book air step 安装 yarn 1 2 3 4 5 6 7 8 9 10 11 12 13 ➜ tomtsang-rootsongjc-cheatsheet git:(master) brew install yarn Updating Homebrew... ==&amp;gt; Auto-updated Homebrew! Updated 2 taps (caskroom/cask, homebrew/core). ==&amp;gt; Updated Formulae abcmidi braid cryptopp exiftool fdroidserver glbinding haxe pwntools x265 alot cgrep erlang fbi-servefiles freexl graphene miniupnpc ranger ==&amp;gt; Downloading https://yarnpkg.com/downloads/1.3.2/yarn-v1.3.2.tar.gz ==&amp;gt; Downloading from https://github.com/yarnpkg/yarn/releases/download/v1.3.2/yarn-v1.3.2.tar.gz ######################################################################## 100.0% 🍺 /usr/local/Cellar/yarn/1.3.2: 14 files,</description>
+    </item>
+    
+  </channel>
+</rss>

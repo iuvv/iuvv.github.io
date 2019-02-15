@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Charts on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/charts/</link>
+    <description>Recent content in Charts on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 14 Jun 2018 16:30:19 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/charts/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Charts</title>
+      <link>https://b.qqbb.app/post/charts/</link>
+      <pubDate>Thu, 14 Jun 2018 16:30:19 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/charts/</guid>
+      <description>tradingview，一个免费股票，数字货币图表网站 tradingview-cn</description>
+    </item>
+    
+  </channel>
+</rss>

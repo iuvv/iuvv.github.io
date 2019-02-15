@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Update on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/update/</link>
+    <description>Recent content in Update on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 19 Mar 2018 09:56:39 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/update/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Fix Users Vip</title>
+      <link>https://b.qqbb.app/jlch/mongodb/fix-users-vip/</link>
+      <pubDate>Mon, 19 Mar 2018 09:56:39 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/jlch/mongodb/fix-users-vip/</guid>
+      <description>手工修改 VIP 用户数 修改某一天 1 2 testrs:PRIMARY&amp;gt; db.user.update({&amp;#34;vip.level&amp;#34;:0, &amp;#34;registerTime&amp;#34; : /20180317/}, {$set: {&amp;#34;vip&amp;#34; : { &amp;#34;level&amp;#34; : 1, &amp;#34;value&amp;#34; : &amp;#34;会员&amp;#34;, &amp;#34;createTime&amp;#34; : &amp;#34;20180317010101&amp;#34;, &amp;#34;endTime&amp;#34; : &amp;#34;20180417235959&amp;#34; }}}, { multi: 1}) WriteResult({ &amp;#34;nMatched&amp;#34; : 8, &amp;#34;nUpserted&amp;#34; : 0, &amp;#34;nModified&amp;#34; : 8 }) 修改小于某个指</description>
+    </item>
+    
+    <item>
+      <title>Mongodb Update</title>
+      <link>https://b.qqbb.app/post/mongodb-update/</link>
+      <pubDate>Fri, 02 Mar 2018 11:52:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mongodb-update/</guid>
+      <description>mongodb系列之update 只要是批量，后头加 {multi: true} 吧。 批量，新增一个k-v db.Signals_Day.update({TrdDt:20161129}, {$set: {&amp;ldquo;Real&amp;rdquo;: true}}, {multi: true}) 1 2 3 4 5 6 7 testrs:PRIMARY&amp;gt; db.Signals_Day.update({TrdDt:20161129}, {$set: {&amp;#34;Real&amp;#34;: true}}, {multi: true}) WriteResult({ &amp;#34;nMatched&amp;#34; : 8935, &amp;#34;nUpserted&amp;#34; : 0, &amp;#34;nModified&amp;#34; : 8933 })</description>
+    </item>
+    
+    <item>
+      <title>Kubernetes Deployment Rollingupdate</title>
+      <link>https://b.qqbb.app/post/kubernetes-deployment-rollingupdate/</link>
+      <pubDate>Sun, 04 Feb 2018 13:21:25 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubernetes-deployment-rollingupdate/</guid>
+      <description>使用kubernetes的deployment进行RollingUpdate</description>
+    </item>
+    
+  </channel>
+</rss>

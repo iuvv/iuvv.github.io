@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? 本文整理自 https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? Jul 2, 2015 | Tags: account, admin, configuring, enable, enabling, how, keystone, management, object, openstack, reseller, reseller_admin, reselleradmin, scale, spectrum, swift, to, v3 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? The purpose" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/jwl/swift-not-org/how-to-enable-reseller-admin-for-openstack-swift-object-storage-and-keystone-v3/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="" />
+<meta property="og:description" content="How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? 本文整理自 https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? Jul 2, 2015 | Tags: account, admin, configuring, enable, enabling, how, keystone, management, object, openstack, reseller, reseller_admin, reselleradmin, scale, spectrum, swift, to, v3 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? The purpose" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/jwl/swift-not-org/how-to-enable-reseller-admin-for-openstack-swift-object-storage-and-keystone-v3/" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="">
+<meta itemprop="description" content="How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? 本文整理自 https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? Jul 2, 2015 | Tags: account, admin, configuring, enable, enabling, how, keystone, management, object, openstack, reseller, reseller_admin, reselleradmin, scale, spectrum, swift, to, v3 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? The purpose">
+
+
+
+<meta itemprop="wordCount" content="1621">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content=""/>
+<meta name="twitter:description" content="How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? 本文整理自 https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? Jul 2, 2015 | Tags: account, admin, configuring, enable, enabling, how, keystone, management, object, openstack, reseller, reseller_admin, reselleradmin, scale, spectrum, swift, to, v3 How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3? The purpose"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title"></h1>
+      
+      <div class="post-meta">
+        <time datetime="0001-01-01" class="post-time">
+          0001-01-01
+        </time>
+        
+        <span class="more-meta"> 约 1621 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      <p>How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3?</p>
+
+<p>本文整理自 <a href="https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72">https://www.ibm.com/developerworks/community/forums/html/topic?id=813eb4fd-c0c6-43a5-9317-a35e4081ef72</a></p>
+
+<p>How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3?</p>
+
+<p>Jul 2, 2015 | Tags: account, admin, configuring, enable, enabling, how, keystone, management, object, openstack, reseller, reseller_admin, reselleradmin, scale, spectrum, swift, to, v3</p>
+
+<p>How to enable Reseller Admin for OpenStack Swift Object Storage and KeyStone V3?</p>
+
+<p>The purpose of the article is to leverage the Reseller Admin concept in Swift to query account statistics from a single admin level user.  As per OpenStack Swift documentation, Users with the Keystone role defined in reseller_admin_role (ResellerAdmin by default) can operate on any account. The auth system sets the request environ reseller_request to True if a request is coming from a user with this role.</p>
+
+<p>This article explains how this can be configured. In this sample exercise, our goal is to enable Reseller Admin access to &lsquo;admin&rsquo; user belonging to &lsquo;admin&rsquo; project.  You can also create other users and enable ResellerAdmin access.</p>
+
+<p>Assumptions:</p>
+
+<p>KeyStone V3 is setup and Swift is configured.
+Python openstack client command line interface is available.
+By default, &lsquo;admin&rsquo; user and &lsquo;admin&rsquo; project is created and assigned to &lsquo;default&rsquo; Domain.  We will use this in this exercise, however you can configure different user, project and domain to accomplish ResellerAdmin setup.
+Openrc file is available to work with openstack CLI client.</p>
+
+<p>Initially, you will see something like this</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"> <span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># cat openrc
+</span><span class="c1"># Mon Jun 29 03:34:36 EDT 2015
+</span><span class="c1"></span><span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span><span class="s2">&#34;http://127.0.0.1:35357/v3&#34;</span>
+<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_AUTH_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span><span class="s2">&#34;admin&#34;</span>
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span><span class="s2">&#34;password&#34;</span>
+<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>admin
+<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>Default
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack domain list
+</span><span class="c1"></span>+---------+---------+---------+----------------------------------------------------------------------+
+<span class="p">|</span> ID      <span class="p">|</span> Name    <span class="p">|</span> Enabled <span class="p">|</span> Description                                                          
++---------+---------+---------+----------------------------------------------------------------------+
+<span class="p">|</span> default <span class="p">|</span> Default <span class="p">|</span> True    <span class="p">|</span> Owns users and tenants <span class="o">(</span>i.e. projects<span class="o">)</span> available on Identity API v2. <span class="p">|</span>
++---------+---------+---------+----------------------------------------------------------------------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Now, create a new Domain</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack domain create Domain1
+</span><span class="c1"></span>+---------+----------------------------------+
+<span class="p">|</span> Field   <span class="p">|</span> Value                            <span class="p">|</span>
++---------+----------------------------------+
+<span class="p">|</span> enabled <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id      <span class="p">|</span> 193bed5ba5a5481c8676bb5e06cf6125 <span class="p">|</span>
+<span class="p">|</span> name    <span class="p">|</span> Domain1                          <span class="p">|</span>
++---------+----------------------------------+
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack domain list
+</span><span class="c1"></span>+----------------------------------+---------+---------+----------------------------------------------------------------------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name    <span class="p">|</span> Enabled <span class="p">|</span> Description                                                          
++----------------------------------+---------+---------+----------------------------------------------------------------------+
+<span class="p">|</span> default                          <span class="p">|</span> Default <span class="p">|</span> True    <span class="p">|</span> Owns users and tenants <span class="o">(</span>i.e. projects<span class="o">)</span> available on Identity API v2. <span class="p">|</span>
+<span class="p">|</span> 193bed5ba5a5481c8676bb5e06cf6125 <span class="p">|</span> Domain1 <span class="p">|</span> True    <span class="p">|</span>                                                                      <span class="p">|</span>
++----------------------------------+---------+---------+----------------------------------------------------------------------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Next, create a new project, lets call it &lsquo;Project1&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack project list
+</span><span class="c1"></span>+----------------------------------+---------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name    <span class="p">|</span>
++----------------------------------+---------+
+<span class="p">|</span> 534bca56aca443e889036ab52cfe40ec <span class="p">|</span> admin   <span class="p">|</span>
+<span class="p">|</span> 4c03ae000dd54860a4f9645d75272f5e <span class="p">|</span> service <span class="p">|</span>
++----------------------------------+---------+
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack project create Project1 --domain Domain1
+</span><span class="c1"></span>+-------------+----------------------------------+
+<span class="p">|</span> Field       <span class="p">|</span> Value                            <span class="p">|</span>
++-------------+----------------------------------+
+<span class="p">|</span> description <span class="p">|</span>                                  <span class="p">|</span>
+<span class="p">|</span> domain_id   <span class="p">|</span> 193bed5ba5a5481c8676bb5e06cf6125 <span class="p">|</span>
+<span class="p">|</span> enabled     <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id          <span class="p">|</span> e597d73f169444a1bb55a1e3a4adb29d <span class="p">|</span>
+<span class="p">|</span> name        <span class="p">|</span> Project1                         <span class="p">|</span>
++-------------+----------------------------------+
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack project list
+</span><span class="c1"></span>+----------------------------------+----------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name     <span class="p">|</span>
++----------------------------------+----------+
+<span class="p">|</span> 534bca56aca443e889036ab52cfe40ec <span class="p">|</span> admin    <span class="p">|</span>
+<span class="p">|</span> 4c03ae000dd54860a4f9645d75272f5e <span class="p">|</span> service  <span class="p">|</span>
+<span class="p">|</span> e597d73f169444a1bb55a1e3a4adb29d <span class="p">|</span> Project1 <span class="p">|</span>
++----------------------------------+----------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Next, create a new user &lsquo;User1&rsquo; and assign him to &lsquo;Project1&rsquo; as part of &lsquo;Domain1&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1">#  openstack user create --domain Domain1 --project Project1 --password User1 User1
+</span><span class="c1"></span>+--------------------+----------------------------------+
+<span class="p">|</span> Field              <span class="p">|</span> Value                            <span class="p">|</span>
++--------------------+----------------------------------+
+<span class="p">|</span> default_project_id <span class="p">|</span> e597d73f169444a1bb55a1e3a4adb29d <span class="p">|</span>
+<span class="p">|</span> domain_id          <span class="p">|</span> 193bed5ba5a5481c8676bb5e06cf6125 <span class="p">|</span>
+<span class="p">|</span> enabled            <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id                 <span class="p">|</span> d82e44a986234ad9bbac48d58cd2d18c <span class="p">|</span>
+<span class="p">|</span> name               <span class="p">|</span> User1                            <span class="p">|</span>
++--------------------+----------------------------------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>In KeyStone V3, by default, you will see  &lsquo;admin&rsquo; role is being configured and available</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack role list
+</span><span class="c1"></span>+----------------------------------+-------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name  <span class="p">|</span>
++----------------------------------+-------+
+<span class="p">|</span> 4fbfdce0a56b47dd8d29907f534d4b52 <span class="p">|</span> admin <span class="p">|</span>
++----------------------------------+-------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Lets add the newly created &lsquo;User1&rsquo; to &lsquo;Project1&rsquo; as part of &lsquo;Domain1&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack role add --project Project1 --user User1 admin
+</span><span class="c1"></span><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># echo $?
+</span><span class="c1"></span><span class="m">0</span>
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack role add --domain Domain1 --user User1 admin
+</span><span class="c1"></span><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># echo $?
+</span><span class="c1"></span><span class="m">0</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>Copy openrc and modify it to create  a testrc (sample below)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># cat testrc
+</span><span class="c1"># Mon Jun 29 03:34:36 EDT 2015
+</span><span class="c1"></span><span class="nb">export</span> <span class="nv">OS_AUTH_URL</span><span class="o">=</span><span class="s2">&#34;http://127.0.0.1:35357/v3&#34;</span>
+<span class="nb">export</span> <span class="nv">OS_IDENTITY_API_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_AUTH_VERSION</span><span class="o">=</span><span class="m">3</span>
+<span class="nb">export</span> <span class="nv">OS_USERNAME</span><span class="o">=</span><span class="s2">&#34;User1&#34;</span>
+<span class="nb">export</span> <span class="nv">OS_PASSWORD</span><span class="o">=</span><span class="s2">&#34;User1&#34;</span>
+<span class="nb">export</span> <span class="nv">OS_USER_DOMAIN_NAME</span><span class="o">=</span>Domain1
+<span class="nb">export</span> <span class="nv">OS_PROJECT_NAME</span><span class="o">=</span>Project1
+<span class="nb">export</span> <span class="nv">OS_PROJECT_DOMAIN_NAME</span><span class="o">=</span>Domain1</code></pre></td></tr></table>
+</div>
+</div>
+<p>Source the &lsquo;testrc&rsquo;, we will try and create a swift container and upload a sample object and get account level statistics.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span># <span class="nb">source</span> testrc</code></pre></td></tr></table>
+</div>
+</div>
+<p>Intially, &lsquo;swift list&rsquo; shows nothing.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift list
+</span><span class="c1"></span><span class="o">[</span>root@host ~<span class="o">]</span>#</code></pre></td></tr></table>
+</div>
+</div>
+<p>Now, create a container</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span># swift post testcontainer1</code></pre></td></tr></table>
+</div>
+</div>
+<p>We can upload an object to the &lsquo;testcontainer1&rsquo;</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift upload testcontainer1 file1
+</span><span class="c1"></span>file1
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift list
+</span><span class="c1"></span>testcontainer1</code></pre></td></tr></table>
+</div>
+</div>
+<p>Now, ensure swift stat shows</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift stat
+</span><span class="c1"></span>                        Account: AUTH_e597d73f169444a1bb55a1e3a4adb29d
+                     Containers: <span class="m">1</span>
+                        Objects: <span class="m">1</span>
+                          Bytes: <span class="m">166978</span>
+Containers in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">1</span>
+   Objects in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">1</span>
+     Bytes in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">166978</span>
+    X-Account-Project-Domain-Id: 193bed5ba5a5481c8676bb5e06cf6125
+                    X-Timestamp: <span class="m">1435818271</span>.19603
+                     X-Trans-Id: txa197a1317218450c8a734-005594e2ec
+                   Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+                  Accept-Ranges: bytes
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift list testcontainer1
+</span><span class="c1"></span>file1</code></pre></td></tr></table>
+</div>
+</div>
+<p>Now, source &lsquo;openrc&rsquo; to &lsquo;admin&rsquo; user of &lsquo;admin&rsquo; project with &lsquo;Default&rsquo; domain</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span># <span class="nb">source</span> openrc</code></pre></td></tr></table>
+</div>
+</div>
+<p>As &lsquo;admin&rsquo; user, If you try to list the container created by &lsquo;User1&rsquo; of &lsquo;Project1&rsquo; and &lsquo;Domain1&rsquo;, you will not be able to do this.  This requires ResellerAdmin level access, which is what we are going to configure now.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift list testcontainer1
+</span><span class="c1"></span>Container <span class="s1">&#39;testcontainer1&#39;</span> not found</code></pre></td></tr></table>
+</div>
+</div>
+<p>Swift proxy-server.conf needs to be edited to add &lsquo;reseller_admin_role&rsquo; and &lsquo;reseller_prefix&rsquo;.</p>
+
+<p>As per KeyStone V3 documentation, the name &lsquo;ResellerAdmin&rsquo; is not hardcoded and can be user defined.<br />
+&lsquo;reseller<em>prefix&rsquo; can be set to a user defined prefix.  We will use &lsquo;AUTH</em>&rsquo;, but you can use something else as well.</p>
+
+<p>By default, on /etc/swift/proxy-server.conf, you will see something like this</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[filter:keystone]
+use = egg:swift#keystoneauth
+operator_roles = admin, SwiftOperator
+is_admin = true
+cache = swift.cache</pre></td></tr></table>
+</div>
+</div>
+<p>Edit the  proxy-server.conf (filter:keystone section) and add the lines highlighted in bold.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[filter:keystone]
+use = egg:swift#keystoneauth
+operator_roles = admin, SwiftOperator
+reseller_admin_role = ResellerAdmin
+reseller_prefix = AUTH_
+is_admin = true
+cache = swift.cache</pre></td></tr></table>
+</div>
+</div>
+<p>Now, create ResellerAdmin role.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack role create ResellerAdmin
+</span><span class="c1"></span>+-------+----------------------------------+
+<span class="p">|</span> Field <span class="p">|</span> Value                            <span class="p">|</span>
++-------+----------------------------------+
+<span class="p">|</span> id    <span class="p">|</span> 9658c423949a460bbb6ed04b19fae672 <span class="p">|</span>
+<span class="p">|</span> name  <span class="p">|</span> ResellerAdmin                    <span class="p">|</span>
++-------+----------------------------------+
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack role list
+</span><span class="c1"></span>+----------------------------------+---------------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name          <span class="p">|</span>
++----------------------------------+---------------+
+<span class="p">|</span> 4fbfdce0a56b47dd8d29907f534d4b52 <span class="p">|</span> admin         <span class="p">|</span>
+<span class="p">|</span> 9658c423949a460bbb6ed04b19fae672 <span class="p">|</span> ResellerAdmin <span class="p">|</span>
++----------------------------------+---------------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Add &lsquo;ResellerAdmin&rsquo; role to &lsquo;admin&rsquo; user of &lsquo;admin&rsquo; project with &lsquo;Default&rsquo; domain.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack role add --domain Default --user admin ResellerAdmin
+</span><span class="c1"></span><span class="o">[</span>root@host ~<span class="o">]</span># openstack role add  --project admin --user admin ResellerAdmin</code></pre></td></tr></table>
+</div>
+</div>
+<p>The following command confirms, that &lsquo;ResellerAdmin&rsquo; role is assigned to &lsquo;admin&rsquo; user.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack role assignment list --role ResellerAdmin
+</span><span class="c1"></span>+----------------------------------+----------------------------------+-------+----------------------------------+---------+
+<span class="p">|</span> Role                             <span class="p">|</span> User                             <span class="p">|</span> Group <span class="p">|</span> Project                          <span class="p">|</span> Domain  <span class="p">|</span>
++----------------------------------+----------------------------------+-------+----------------------------------+---------+
+<span class="p">|</span> 9658c423949a460bbb6ed04b19fae672 <span class="p">|</span> 56dbaf1aa80247c7a4834c0fea604926 <span class="p">|</span>       <span class="p">|</span>                                 <span class="p">|</span> default <span class="p">|</span>
+<span class="p">|</span> 9658c423949a460bbb6ed04b19fae672 <span class="p">|</span> 56dbaf1aa80247c7a4834c0fea604926 <span class="p">|</span>       <span class="p">|</span> 534bca56aca443e889036ab52cfe40ec <span class="p">|</span>         <span class="p">|</span>
++----------------------------------+----------------------------------+-------+----------------------------------+---------+
+
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack user show 56dbaf1aa80247c7a4834c0fea604926
+</span><span class="c1"></span>+--------------------+----------------------------------+
+<span class="p">|</span> Field              <span class="p">|</span> Value                            <span class="p">|</span>
++--------------------+----------------------------------+
+<span class="p">|</span> default_project_id <span class="p">|</span> 534bca56aca443e889036ab52cfe40ec <span class="p">|</span>
+<span class="p">|</span> domain_id          <span class="p">|</span> default                          <span class="p">|</span>
+<span class="p">|</span> enabled            <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id                 <span class="p">|</span> 56dbaf1aa80247c7a4834c0fea604926 <span class="p">|</span>
+<span class="p">|</span> name               <span class="p">|</span> admin                            <span class="p">|</span>
++--------------------+----------------------------------+
+
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack project show 534bca56aca443e889036ab52cfe40ec
+</span><span class="c1"></span>+-------------+----------------------------------+
+<span class="p">|</span> Field       <span class="p">|</span> Value                            <span class="p">|</span>
++-------------+----------------------------------+
+<span class="p">|</span> description <span class="p">|</span>                                  <span class="p">|</span>
+<span class="p">|</span> domain_id   <span class="p">|</span> default                          <span class="p">|</span>
+<span class="p">|</span> enabled     <span class="p">|</span> True                             <span class="p">|</span>
+<span class="p">|</span> id          <span class="p">|</span> 534bca56aca443e889036ab52cfe40ec <span class="p">|</span>
+<span class="p">|</span> name        <span class="p">|</span> admin                            <span class="p">|</span>
++-------------+----------------------------------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>As &lsquo;admin&rsquo; user, invoke keystone to get a new token.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># export TOKEN=`openstack --os-username admin --os-project-name admin  token issue | grep id | head -n 1 | awk &#39;{print $4}&#39; `
+</span><span class="c1"></span><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># echo $TOKEN
+</span><span class="c1"></span>a5957db94c3e4fb6aa2f118cbdf63896</code></pre></td></tr></table>
+</div>
+</div>
+<p>You have provided &lsquo;ResellerAdmin&rsquo; access to user &lsquo;admin&rsquo;.  Find, the project Id that you want to access using &lsquo;ResellerAdmin&rsquo; access.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># openstack project list
+</span><span class="c1"></span>+----------------------------------+----------+
+<span class="p">|</span> ID                               <span class="p">|</span> Name     <span class="p">|</span>
++----------------------------------+----------+
+<span class="p">|</span> 534bca56aca443e889036ab52cfe40ec <span class="p">|</span> admin    <span class="p">|</span>
+<span class="p">|</span> 4c03ae000dd54860a4f9645d75272f5e <span class="p">|</span> service  <span class="p">|</span>
+<span class="p">|</span> e597d73f169444a1bb55a1e3a4adb29d <span class="p">|</span> Project1 <span class="p">|</span>
++----------------------------------+----------+</code></pre></td></tr></table>
+</div>
+</div>
+<p>Now, as &lsquo;admin&rsquo; user from &lsquo;admin&rsquo; project of &lsquo;Default&rsquo; domain, get the account stat for Project1.</p>
+
+<p>Remember, we added &lsquo;AUTH<em>&rsquo; as the reseller prefix in proxy-server.conf.  So append the project id to &lsquo;AUTH</em>&rsquo; and issue the following openstack command.   The following swift command line shows how to invoke the account stats using the reseller prefix.</p>
+
+<p>Note, the swift endpoint URI can be obtained via &lsquo;openstack endpoint list&rsquo;.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift --os-auth-token $TOKEN --os-storage-url http://localhost:8080/v1/AUTH_e597d73f169444a1bb55a1e3a4adb29d stat
+</span><span class="c1"></span>                        Account: AUTH_e597d73f169444a1bb55a1e3a4adb29d
+                     Containers: <span class="m">1</span>
+                        Objects: <span class="m">1</span>
+                          Bytes: <span class="m">166978</span>
+Containers in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">1</span>
+   Objects in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">1</span>
+     Bytes in policy <span class="s2">&#34;policy-0&#34;</span>: <span class="m">166978</span>
+    X-Account-Project-Domain-Id: 193bed5ba5a5481c8676bb5e06cf6125
+                    X-Timestamp: <span class="m">1435818271</span>.19603
+                     X-Trans-Id: tx2d07e74417ca4e0abea68-005594dda2
+                   Content-Type: text/plain<span class="p">;</span> <span class="nv">charset</span><span class="o">=</span>utf-8
+                  Accept-Ranges: bytes
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift --os-auth-token $TOKEN --os-storage-url http://localhost:8080/v1/AUTH_e597d73f169444a1bb55a1e3a4adb29d list
+</span><span class="c1"></span>testcontainer1
+<span class="o">[</span>root@host ~<span class="o">]</span><span class="c1"># swift --os-auth-token $TOKEN --os-storage-url http://localhost:8080/v1/AUTH_e597d73f169444a1bb55a1e3a4adb29d list testcontainer1
+</span><span class="c1"></span>file1</code></pre></td></tr></table>
+</div>
+</div>
+<p>Now, you are able to query any account using a single user using &lsquo;ResellerAdmin&rsquo; level access, without requiring password of those accounts.</p>
+
+<p>Happy OpenStack Swift!!!</p>
+
+<p>Note: The information in this blog is provided &ldquo;AS IS&rdquo;.  The opinions expressed on this blog represent my own and not those of my employer.</p>
+
+<p>Log in to reply.
+Updated on Jul 2, 2015 at 11:21 PM by manbazha</p>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">0001-01-01</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/jwl/jinweilai-not-org/vscode-git-integrated-terminal/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default"></span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/jwl/swift-not-org/openstack-swift-analysis-partition/">
+            <span class="next-text nav-default"></span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

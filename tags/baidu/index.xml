@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Baidu on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/baidu/</link>
+    <description>Recent content in Baidu on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 09 Oct 2018 10:10:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/baidu/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>jane主题中安装百度统计</title>
+      <link>https://b.qqbb.app/post/hugo-jane-add-baidu-tongji/</link>
+      <pubDate>Tue, 09 Oct 2018 10:10:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hugo-jane-add-baidu-tongji/</guid>
+      <description>获取百度统计代码 登陆百度统计/管理/自有网站/获取代码, 得到形如 1 2 3 4 5 6 7 8 9 &amp;lt;script&amp;gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&amp;#34;script&amp;#34;); hm.src = &amp;#34;https://hm.baidu.com/hm.js?9dd8aaaaaaaaaaa7a8bde80b13fe8eaf&amp;#34;; var s = document.getElementsByTagName(&amp;#34;script&amp;#34;)[0]; s.parentNode.insertBefore(hm, s); })(); &amp;lt;/script&amp;gt; 我们要的就</description>
+    </item>
+    
+  </channel>
+</rss>

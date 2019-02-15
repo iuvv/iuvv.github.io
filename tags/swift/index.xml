@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swift on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/swift/</link>
+    <description>Recent content in Swift on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 21 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/swift/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>官方中文文档 openstack swift overview policies</title>
+      <link>https://b.qqbb.app/post/jwl/swift-not-org/translation-openstack-swift-overview-policies/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/swift-not-org/translation-openstack-swift-overview-policies/</guid>
+      <description>https://docs.openstack.org/swift/queens/overview%5Fpolicies.html 存储策略 更新时间：2019-01-15 02:30 存储策略允许通过创建多个对象环来为各种目的对集群进行某种程度的分段。存储策略功能在整个代码库中实现</description>
+    </item>
+    
+    <item>
+      <title>官方中文文档 openstack swift overview policies</title>
+      <link>https://b.qqbb.app/post/translation-openstack-swift-overview-policies/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/translation-openstack-swift-overview-policies/</guid>
+      <description>https://docs.openstack.org/swift/queens/overview%5Fpolicies.html 存储策略 更新时间：2019-01-15 02:30 存储策略允许通过创建多个对象环来为各种目的对集群进行某种程度的分段。存储策略功能在整个代码库中实现</description>
+    </item>
+    
+    <item>
+      <title>官方中文文档 openstack swift overview reaper</title>
+      <link>https://b.qqbb.app/post/translation-openstack-swift-overview-reaper/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/translation-openstack-swift-overview-reaper/</guid>
+      <description>https://docs.openstack.org/swift/queens/overview%5Freaper.html 账户收割者 更新时间：2019-01-15 02:30 帐户收割者在后台删除已删除帐户中的数据。 如果reseller在帐户的存储URL上发出DELETE</description>
+    </item>
+    
+    <item>
+      <title>官方中文文档 openstack swift overview rings</title>
+      <link>https://b.qqbb.app/post/jwl/swift-not-org/translation-openstack-swift-overview-rings/</link>
+      <pubDate>Mon, 21 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/swift-not-org/translation-openstack-swift-overview-rings/</guid>
+      <description>https://docs.openstack.org/swift/queens/overview_ring.html OpenStack Docs: The Rings The Rings updated: 2019-01-15 02:30 The Rings¶ The rings determine where data should reside in the cluster. There is a separate ring for account databases, container databases, and individual object storage policies but each ring works in the same way. These rings are externally managed. The server processes themselves do not modify the rings; they are instead given new rings</description>
+    </item>
+    
+    <item>
+      <title>openstack swift(笔记)</title>
+      <link>https://b.qqbb.app/post/note-about-openstack-swift/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-openstack-swift/</guid>
+      <description>replication 默认为3 每次上传的文件，会经过ring选择3个硬盘存储。 可以看下面这个图的倒数3行命令的结果 eventually consistent Eventually Consistent：最终一致性 看一下 http://duanple.blog.163.com/blog/static/7097176720114733211308/</description>
+    </item>
+    
+    <item>
+      <title>swift with overview-erasure-code</title>
+      <link>https://b.qqbb.app/post/analysis-openstack-swift-overview_erasure_code/</link>
+      <pubDate>Fri, 18 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/analysis-openstack-swift-overview_erasure_code/</guid>
+      <description>本文记录一下，关于 swift 与 erasure-code 相关的内容。 关于 erasure code 可以优先看一下 https://blog.csdn.net/chdhust/article/details/78311494 Ref https://docs.openstack.org/swift/queens/overview%5Ferasure%5Fcode.html</description>
+    </item>
+    
+    <item>
+      <title>swift 安装过程（queen）</title>
+      <link>https://b.qqbb.app/post/swift-queens-install/</link>
+      <pubDate>Tue, 08 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/swift-queens-install/</guid>
+      <description>主要记录一下根据官方文档安装过程中遇到的一些小的问题。 env os: 均为 ubuntu server 16.04 controller node: 192.168.100.50 网络适配器 3 个： VMnet0 VMnet1 VMnet8(NAT) storage node: 192.168.100.105 192.168.100.106 192.168.100.107 各节点网络适配器相同，2个： VMnet0 VMnet1 注</description>
+    </item>
+    
+    <item>
+      <title>SWIFt 通过 keystone 认证，并实现调用swift接口</title>
+      <link>https://b.qqbb.app/post/analysis-openstack-swift-keystone-authentication/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/analysis-openstack-swift-keystone-authentication/</guid>
+      <description>总体 安装 keystone 认证 调用swift接口 向keystone发送请求。得到X-Auth-Token 带X-Auth-Token向swift服务发出请求 env</description>
+    </item>
+    
+    <item>
+      <title>openstack swift overvice ring</title>
+      <link>https://b.qqbb.app/post/jwl/analysis-openstack-swift-overview-ring/</link>
+      <pubDate>Sun, 20 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/analysis-openstack-swift-overview-ring/</guid>
+      <description>list of devices https://docs.openstack.org/swift/queens/overview%5Fring.html#list-of-devices 这里的 list of devices 可以通过下面方式，查看得到。 1 2 3 4 5 6 root@controller:~/tmp2# cp /etc/swift/account.ring.gz . root@controller:~/tmp2# gzip -d ./account.ring.gz gzip: ./account.ring already exists; do you wish to overwrite (y or n)? y root@controller:~/tmp2# tail account.ring R1NG&amp;#34;byteorder&amp;#34;: &amp;#34;little&amp;#34;, &amp;#34;devs&amp;#34;: [{&amp;#34;device&amp;#34;: &amp;#34;sdb&amp;#34;, &amp;#34;id&amp;#34;: 0, &amp;#34;ip&amp;#34;: &amp;#34;192.168.0.134&amp;#34;, &amp;#34;meta&amp;#34;: &amp;#34;&amp;#34;, &amp;#34;port&amp;#34;: 6202, &amp;#34;region&amp;#34;: 1, &amp;#34;replication_ip&amp;#34;:</description>
+    </item>
+    
+    <item>
+      <title>swift storage node 出现 xfs 错误</title>
+      <link>https://b.qqbb.app/post/swift-problem-with-xfs-file-system/</link>
+      <pubDate>Wed, 09 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/swift-problem-with-xfs-file-system/</guid>
+      <description>env 在安装 swift storage node 过程中，把storage node关机，再开机时，开机登陆页面，出现如下的错误： 错误中，主要是包含 &amp;ldquo;XFS(sdb): Internal error xfs_trans_cancel&amp;rdquo;, &amp;ldquo;XFS(sdb): Corruption of in -memory data detected&amp;rdquo; 等字样，</description>
+    </item>
+    
+  </channel>
+</rss>

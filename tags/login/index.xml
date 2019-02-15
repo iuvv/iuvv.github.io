@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Login on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/login/</link>
+    <description>Recent content in Login on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 15 Dec 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/login/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>docker login failure,  unauthorized: incorrect username or password</title>
+      <link>https://b.qqbb.app/post/docker-login-faq/</link>
+      <pubDate>Sat, 15 Dec 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-login-faq/</guid>
+      <description>报错中出现类似“unauthorized: incorrect username or password”的话。 1 2 3 4 5 6 7 8 ➜ saleor git:(master) docker-compose run web python3 manage.py migrate Pulling db (library/postgres:latest)... latest: Pulling from library/postgres a5a6f2f73cd8: Already exists e50fbea8af5a: Pull complete 73b4855ad326: Pull complete ERROR:</description>
+    </item>
+    
+    <item>
+      <title>docker 登陆失败</title>
+      <link>https://b.qqbb.app/post/docker-login-failure/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-login-failure/</guid>
+      <description>login failure - 代理问题 1 2 3 4 5 root@km:~/dockerRegistry# docker login reg.jlch.com:5000 Username (zimug): Password: Error response from daemon: Get https://reg.jlch.com:5000/v1/users/: EOF root@km:~/dockerRegistry# vi /lib/systemd/system/docker.service 重点把 reg.jlch.com 加入 Environment 中。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32</description>
+    </item>
+    
+  </channel>
+</rss>

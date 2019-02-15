@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Enterprise on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/enterprise/</link>
+    <description>Recent content in Enterprise on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Tue, 13 Feb 2018 21:12:06 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/enterprise/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Enterprise Idea</title>
+      <link>https://b.qqbb.app/post/enterprise-idea/</link>
+      <pubDate>Tue, 13 Feb 2018 21:12:06 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/enterprise-idea/</guid>
+      <description>有时候,组织需要一些新鲜血液进入,改善环境.比如,2018骑士队的去6来4</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mirrors on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/mirrors/</link>
+    <description>Recent content in Mirrors on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 22 Jun 2018 16:38:30 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/mirrors/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Docker Registry Mirrors Base Ubuntu</title>
+      <link>https://b.qqbb.app/post/docker-registry-mirrors-base-ubuntu/</link>
+      <pubDate>Fri, 22 Jun 2018 16:38:30 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-registry-mirrors-base-ubuntu/</guid>
+      <description>如何配置镜像加速器 Env docker: 17.03.2+ os: ubuntu16.04 Step 打开 https://cr.console.aliyun.com/#/imageList 找到 镜像加速器 可以根据自己OS选择，下面的是ubuntu, registry-mirrors中的内容已失效</description>
+    </item>
+    
+  </channel>
+</rss>

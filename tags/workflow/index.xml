@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Workflow on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/workflow/</link>
+    <description>Recent content in Workflow on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 29 Jun 2018 09:08:02 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/workflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitlab Workflow</title>
+      <link>https://b.qqbb.app/post/gitlab-workflow/</link>
+      <pubDate>Fri, 29 Jun 2018 09:08:02 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-workflow/</guid>
+      <description>gitlab流程 Env Step Ref https://www.cnblogs.com/coderzl/p/7491143.html https://blog.csdn.net/liumiaocn/article/details/79256312</description>
+    </item>
+    
+    <item>
+      <title>Git Workflow</title>
+      <link>https://b.qqbb.app/post/git-workflow/</link>
+      <pubDate>Fri, 02 Mar 2018 11:42:26 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/git-workflow/</guid>
+      <description>gitlab系列之workflow 本文是 官方 workflow 的中文翻译 参考 https://docs.gitlab.com/ee/workflow/gitlab_flow.html 中文 介绍 使用git进行版本管理使得分支和合并比旧版本系统（如SVN）容易得多。</description>
+    </item>
+    
+  </channel>
+</rss>

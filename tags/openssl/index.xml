@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Openssl on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/openssl/</link>
+    <description>Recent content in Openssl on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 13 Jun 2018 13:00:01 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/openssl/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Python Faq Openssl</title>
+      <link>https://b.qqbb.app/post/python-faq-openssl/</link>
+      <pubDate>Wed, 13 Jun 2018 13:00:01 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/python-faq-openssl/</guid>
+      <description>Env os: ubuntu16 出错 1 2 3 4 5 6 7 8 /alg -Iscrypt-1.2.1/libcperciva/util -Iscrypt-1.2.1/libcperciva/crypto -I/usr/local/include -I/usr/include -I/usr/include/python2.7 -c scrypt-1.2.1/libcperciva/crypto/crypto_aes.c -o build/temp.linux-x86_64-2.7/scrypt-1.2.1/libcperciva/crypto/crypto_aes.o -O2 scrypt-1.2.1/libcperciva/crypto/crypto_aes.c:6:25: fatal error: openssl/aes.h: No such file or directory compilation terminated. error: command &amp;#39;x86_64-linux-gnu-gcc&amp;#39; failed with exit status 1 ---------------------------------------- Command &amp;#34;/usr/bin/python -u -c &amp;#34;import setuptools, tokenize;__file__=&amp;#39;/tmp/pip-install-qN0XHo/scrypt/setup.py&amp;#39;;f=getattr(tokenize, &amp;#39;open&amp;#39;, open)(__file__);code=f.read().replace(&amp;#39;\r\n&amp;#39;, &amp;#39;\n&amp;#39;);f.close();exec(compile(code, __file__, &amp;#39;exec&amp;#39;))&amp;#34; install --record /tmp/pip-record-8LxwEK/install-record.txt --single-version-externally-managed --compile&amp;#34; failed with error code 1 in /tmp/pip-install-qN0XHo/scrypt/ root@ip-172-31-23-102:/home/ubuntu/rpc# Step</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,83 @@
+
+## create
+swift-ring-builder object.builder create 10 3 1
+swift-ring-builder container.builder create 10 3 1
+swift-ring-builder account.builder create 10 3 1
+
+## remove 
+swift-ring-builder object.builder
+swift-ring-builder object.builder remove --id=0 
+swift-ring-builder object.builder remove --id=2 
+swift-ring-builder object.builder remove --id=3 
+swift-ring-builder container.builder
+swift-ring-builder container.builder  remove --id=0
+swift-ring-builder container.builder  remove --id=1
+swift-ring-builder container.builder  remove --id=2
+swift-ring-builder account.builder 
+swift-ring-builder account.builder remove --id=0 
+swift-ring-builder account.builder remove --id=1 
+swift-ring-builder account.builder remove --id=2 
+
+## check
+swift-ring-builder object.builder
+swift-ring-builder container.builder
+swift-ring-builder account.builder 
+
+## add 
+swift-ring-builder object.builder add   --region 1 --zone 1 --ip 192.168.0.198 --port 6200 --device sdb --weight 100
+swift-ring-builder container.builder add   --region 1 --zone 1 --ip 192.168.0.198 --port 6201 --device sdb --weight 100
+swift-ring-builder account.builder   add --region 1 --zone 1 --ip 192.168.0.198 --port 6202   --device sdb --weight 100
+swift-ring-builder object.builder add   --region 1 --zone 1 --ip 192.168.0.180 --port 6200 --device sdb --weight 100
+swift-ring-builder container.builder add   --region 1 --zone 1 --ip 192.168.0.180 --port 6201 --device sdb --weight 100
+swift-ring-builder account.builder   add --region 1 --zone 1 --ip 192.168.0.180 --port 6202   --device sdb --weight 100
+swift-ring-builder object.builder add   --region 1 --zone 1 --ip 192.168.0.135 --port 6200 --device sdb --weight 100
+swift-ring-builder container.builder add   --region 1 --zone 1 --ip 192.168.0.135 --port 6201 --device sdb --weight 100
+swift-ring-builder account.builder   add --region 1 --zone 1 --ip 192.168.0.135 --port 6202   --device sdb --weight 100
+
+## check
+swift-ring-builder object.builder
+swift-ring-builder container.builder
+swift-ring-builder account.builder 
+
+## rebalance
+swift-ring-builder object.builder rebalance
+swift-ring-builder account.builder rebalance
+swift-ring-builder container.builder rebalance
+
+## check
+swift-ring-builder object.builder
+swift-ring-builder container.builder
+swift-ring-builder account.builder 
+
+## scp 
+scp *.ring.gz swift.conf admin@192.168.0.198:/tmp/
+scp *.ring.gz swift.conf admin@192.168.0.180:/tmp/
+scp *.ring.gz swift.conf admin@192.168.0.135:/tmp/
+
+### cp 
+
+cp *.ring.gz /tmp/107sdc/
+
+### on the storage node, scp
+scp admin@192.168.0.198:/tmp/object.ring.gz .
+scp ubuntu@192.168.0.180:/tmp/container.ring.gz .  
+scp ubuntu@192.168.0.135:/tmp/account.ring.gz .
+chown -R root:swift /etc/swift
+
+## On the controller node 
+service memcached restart
+service swift-proxy restart
+service memcached status
+service swift-proxy status
+
+## On the storage nodes, start the Object Storage services:
+swift-init all start
+
+## upload
+http://192.168.100.50/horizon/project/containers/container/test3
+
+## check
+du -sh /srv/node/sd*/
+
+
+

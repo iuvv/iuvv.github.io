@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tmux on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/tmux/</link>
+    <description>Recent content in Tmux on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 28 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/tmux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>tmuxinator（笔记）</title>
+      <link>https://b.qqbb.app/post/note-about-tmuxinator/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-tmuxinator/</guid>
+      <description>tmux进阶之tmuxinator 在Tmuxinator中配置layout https://blog.suisuijiang.com/tmux-course-terminal-manage/ 我们可能会需要指定窗格的排班规则，tmuxinator支持设置t</description>
+    </item>
+    
+    <item>
+      <title>tmux（笔记）</title>
+      <link>https://b.qqbb.app/post/note-about-tmux/</link>
+      <pubDate>Mon, 28 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-tmux/</guid>
+      <description>基础 http://blog.jobbole.com/87584/ 高效的结对编程 在Tmux 中使用 Tmate 在文本间快速移动光标，复制文本 将复制下来的文本发送到系统的剪贴板中 Select and copy text 调整 Tmux 以增强其同 Vim 的集成度 调</description>
+    </item>
+    
+    <item>
+      <title>wemux (笔记)</title>
+      <link>https://b.qqbb.app/post/note-about-wemux/</link>
+      <pubDate>Tue, 29 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-wemux/</guid>
+      <description>https://github.com/zolrath/wemux</description>
+    </item>
+    
+  </channel>
+</rss>

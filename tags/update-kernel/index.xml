@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Update Kernel on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/update-kernel/</link>
+    <description>Recent content in Update Kernel on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 23 Nov 2018 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/update-kernel/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ubuntu16.04升级内核至 4.10 以上</title>
+      <link>https://b.qqbb.app/post/ubuntu16-update-kernel/</link>
+      <pubDate>Fri, 23 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ubuntu16-update-kernel/</guid>
+      <description>ubuntu16.04 update-kernel env 1 2 192.168.31.118 192.168.31.119 step 浏览器打开 http://kernel.ubuntu.com/~kernel-ppa/mainline/ 找到适合的 内核版本（这时v4.12), 进入， 找到合适的内核文件(linux-image-4.12.0-04120</description>
+    </item>
+    
+  </channel>
+</rss>

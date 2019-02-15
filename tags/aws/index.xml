@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Aws on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/aws/</link>
+    <description>Recent content in Aws on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 07 Jun 2018 17:22:31 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Aws Get Access Key Secret Key</title>
+      <link>https://b.qqbb.app/post/aws-get-access-key-secret-key/</link>
+      <pubDate>Thu, 07 Jun 2018 17:22:31 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/aws-get-access-key-secret-key/</guid>
+      <description>教你如何找到AWS Access Key ID and Secret Access Key Env aws Step 按照 教你如何找到AWS Access Key ID and Secret Access Key 完成 1-5 1 2 3 4 5 6 7 8 9 Step 1. Visit the Amazon Web Services web console. Step 2. Click My Account/Console at the top right corner of the</description>
+    </item>
+    
+    <item>
+      <title>Rancher2 Install Base Aws Ubuntu</title>
+      <link>https://b.qqbb.app/post/rancher2-install-base-aws-ubuntu/</link>
+      <pubDate>Wed, 06 Jun 2018 17:08:28 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/rancher2-install-base-aws-ubuntu/</guid>
+      <description>aws中ubuntu安装rancher2.0 Env Env-a cloud: aws os: ubuntu 16.04 docker: 17.03.2-ce Env-b cloud: aws os: Amazon Linux AMI 2018.03 docker: 17.12.1-ce 这里的env-b可以不看, 因为效果与env-a相同 Rancher versions: rancher/server or</description>
+    </item>
+    
+  </channel>
+</rss>

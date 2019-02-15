@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Html on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/html/</link>
+    <description>Recent content in Html on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 08 Mar 2018 15:51:23 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/html/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Html Decoder</title>
+      <link>https://b.qqbb.app/post/html-decoder/</link>
+      <pubDate>Thu, 08 Mar 2018 15:51:23 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/html-decoder/</guid>
+      <description>在线解码 http://www.ofmonkey.com/encode/unicode html-decoder 包的使用 install 1 2 3 4 [jlch@check gen]$ sudo npm install -g html-decoder [jlch@check gen]$ cd /usr/local/lib/node_modules/html-decoder/ [jlch@check html-decoder]$ ls bin data dist Gruntfile.js LICENSE package.json README.md src tests 测试 1 2 3 4 5 6 7 8 [jlch@check html-decoder]$ sudo vi data/entities.json ## 把想decoder的内容放进去 [jlch@check</description>
+    </item>
+    
+  </channel>
+</rss>

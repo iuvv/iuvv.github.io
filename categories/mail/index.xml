@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mail on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/mail/</link>
+    <description>Recent content in Mail on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 09 Aug 2018 15:44:37 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/mail/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gamil Mail Server Domain</title>
+      <link>https://b.qqbb.app/post/gamil-mail-server-domain/</link>
+      <pubDate>Thu, 09 Aug 2018 15:44:37 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gamil-mail-server-domain/</guid>
+      <description>Env Step 因为我们 bitspace.link 的域名，注册国家为香港，因此您无法使用中国电话进行验证。 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 owen 您好， 感谢您接听我的电话。很</description>
+    </item>
+    
+  </channel>
+</rss>

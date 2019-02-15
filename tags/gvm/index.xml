@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gvm on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/gvm/</link>
+    <description>Recent content in Gvm on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 15 Jul 2018 14:09:03 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/gvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Golang Gvm</title>
+      <link>https://b.qqbb.app/post/golang-gvm/</link>
+      <pubDate>Sun, 15 Jul 2018 14:09:03 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/golang-gvm/</guid>
+      <description>Go 语言多版本安装及管理利器 - GVM Env golang Step ### 安装指定版本 golang 这里要科学上网 通过 gvm 安装指定 go版本 1 2 ➜ ~ gvm install go1.10 Downloading Go source... 但是这个时候，没有指定你会使用哪</description>
+    </item>
+    
+  </channel>
+</rss>

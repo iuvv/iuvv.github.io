@@ -1,0 +1,56 @@
+
+
+root@controller:~# netstat -ntlp
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:8774            0.0.0.0:*               LISTEN      2675/python2    
+tcp        0      0 0.0.0.0:8775            0.0.0.0:*               LISTEN      2675/python2    
+tcp        0      0 0.0.0.0:9191            0.0.0.0:*               LISTEN      2651/python2    
+tcp        0      0 0.0.0.0:25672           0.0.0.0:*               LISTEN      2296/beam.smp   
+tcp        0      0 192.168.100.50:3306     0.0.0.0:*               LISTEN      2272/mysqld     
+tcp        0      0 0.0.0.0:11211           0.0.0.0:*               LISTEN      1473/memcached  
+tcp        0      0 0.0.0.0:9292            0.0.0.0:*               LISTEN      2676/python2    
+tcp        0      0 0.0.0.0:8080            0.0.0.0:*               LISTEN      2295/python            ## swift
+tcp        0      0 0.0.0.0:4369            0.0.0.0:*               LISTEN      1787/epmd       
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      1741/sshd       
+tcp        0      0 127.0.0.1:6010          0.0.0.0:*               LISTEN      11041/1         
+tcp        0      0 0.0.0.0:9696            0.0.0.0:*               LISTEN      2646/python2    
+tcp        0      0 0.0.0.0:6080            0.0.0.0:*               LISTEN      2661/python2    
+tcp6       0      0 :::5672                 :::*                    LISTEN      2296/beam.smp   
+tcp6       0      0 :::5000                 :::*                    LISTEN      1989/apache2           ## keystone
+tcp6       0      0 :::8776                 :::*                    LISTEN      1989/apache2    
+tcp6       0      0 :::8778                 :::*                    LISTEN      1989/apache2    
+tcp6       0      0 :::11211                :::*                    LISTEN      1473/memcached  
+tcp6       0      0 :::80                   :::*                    LISTEN      1989/apache2    
+tcp6       0      0 :::4369                 :::*                    LISTEN      1787/epmd       
+tcp6       0      0 :::22                   :::*                    LISTEN      1741/sshd       
+tcp6       0      0 ::1:6010                :::*                    LISTEN      11041/1         
+root@controller:~# 
+
+
+
+https://docs.openstack.org/swift/queens/overview_auth.html#troubleshooting-tips-for-keystoneauth-deployment
+
+
+openstack --os-identity-api-version=3 --os-auth-url=http://keystonehost:5000/ \
+    --os-username=swift --os-user-domain-id=default \
+    --os-project-name=service --os-project-domain-id=default \
+    --os-password=password catalog show object-store
+	
+root@controller:~# openstack --os-identity-api-version=3 --os-auth-url=http://keystonehost:5000/     --os-username=swift --os-user-domain-id=default     --os-project-name=service --os-project-domain-id=default     --os-password=openstack catalog show object-store
++-----------+-----------------------------------------------------------------------------+
+| Field     | Value                                                                       |
++-----------+-----------------------------------------------------------------------------+
+| endpoints | RegionOne                                                                   |
+|           |   public: http://controller:8080/v1/AUTH_a640c74e595c44c4902d1c5ebc3afa8a   |
+|           | RegionOne                                                                   |
+|           |   admin: http://controller:8080/v1                                          |
+|           | RegionOne                                                                   |
+|           |   internal: http://controller:8080/v1/AUTH_a640c74e595c44c4902d1c5ebc3afa8a |
+|           |                                                                             |
+| id        | e929673efa1a4acb9adc4a06e4f56a31                                            |
+| name      | swift                                                                       |
+| type      | object-store                                                                |
++-----------+-----------------------------------------------------------------------------+
+root@controller:~# 
+

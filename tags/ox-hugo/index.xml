@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ox Hugo on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/ox-hugo/</link>
+    <description>Recent content in Ox Hugo on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Mon, 12 Nov 2018 10:20:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/ox-hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>关于 hugo, easy-hugo, ox-hugo, spacemacs 集成相关的问题</title>
+      <link>https://b.qqbb.app/post/easy-hugo-and-ox-hugo-qa/</link>
+      <pubDate>Mon, 12 Nov 2018 10:20:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/easy-hugo-and-ox-hugo-qa/</guid>
+      <description>ox-hugo，easy-hugo, spacemacs的集成 ox-hugo 写文档 这里，在写文档的时候，配置好就可以了,无需修改 spacemacs的配置。</description>
+    </item>
+    
+    <item>
+      <title>使用org-mode和ox-hugo写文档</title>
+      <link>https://b.qqbb.app/post/blogging-with-org-mode-and-ox-hugo/</link>
+      <pubDate>Mon, 12 Nov 2018 09:20:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blogging-with-org-mode-and-ox-hugo/</guid>
+      <description>Env os: mac Emacs: 26.1 Spacemacs: 0.300.0 Org: 9.1.2 Hugo: v0.41 ox-hugo: 20181106.2350 prodigy: 20180511.938 Step Part 1: Blog Setup Download Hugo 1 pacman -S hugo Initialize Project 1 2 3 hugo new site test-blog cd test-blog git init Download a Theme (YMMV) This seems like a clean, simple theme. You can use a submodule like this: 1 git submodule add https://github.com/goodroot/hugo-classic.git themes/hugo-classic Or you can just clone it 1</description>
+    </item>
+    
+    <item>
+      <title>shane sveller blog 笔记</title>
+      <link>https://b.qqbb.app/post/shane-sveller-blog-about-ox-hugo/</link>
+      <pubDate>Wed, 14 Nov 2018 23:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/shane-sveller-blog-about-ox-hugo/</guid>
+      <description>notes Blogging with org-mode and ox-hugo 这篇文章，写得很好，主要讲了下面几点。 install Global settings and metadatad STARTUP: content AUTHOR: Shane Sveller HUGO_BASE_DIR: . HUGO_AUTO_SET_LASTMOD: t Creating posts Setup hugo project category and tag. Excluding/heading sub-headings from export（it’s a :noexport: tag） Automatic export on</description>
+    </item>
+    
+    <item>
+      <title>quickly create a new draft post</title>
+      <link>https://b.qqbb.app/post/ox-hugo-quickly-create-a-draft-post/</link>
+      <pubDate>Mon, 12 Nov 2018 09:20:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ox-hugo-quickly-create-a-draft-post/</guid>
+      <description>Of course I’m using a handy capture template, as provided by the ox-hugo docs. This lets me type `C-c c h` to quickly create a new draft post. 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 (with-eval-after-load &amp;#39;org-capture (defun org-hugo-new-subtree-post-capture-template () &amp;#34;Returns `org-capture&amp;#39;template string for new Hugo post. See `org-capture-templates&amp;#39;for more</description>
+    </item>
+    
+  </channel>
+</rss>

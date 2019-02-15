@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cni on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/cni/</link>
+    <description>Recent content in Cni on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 25 Nov 2018 13:34:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/cni/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>kubeadm-kubelet-cni</title>
+      <link>https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/</link>
+      <pubDate>Sun, 25 Nov 2018 13:34:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/</guid>
+      <description>问题1 kubelet 没有初始化 cni 现场 1 2 3 4 5 6 7 8 9 10 root@km:~# cat k8.export.sh sudo cp /etc/kubernetes/admin.conf $HOME/ sudo chown $(id -u):$(id -g) $HOME/admin.conf export KUBECONFIG=$HOME/admin.conf root@km:~# export KUBECONFIG=$HOME/admin.conf root@km:~# k get nodes NAME STATUS ROLES AGE VERSION km NotReady master 18h v1.8.4 kn1 Ready &amp;lt;none&amp;gt; 29s v1.8.4 kn2 Ready &amp;lt;none&amp;gt; 29s v1.8.4 出错了。 descibe 1</description>
+    </item>
+    
+  </channel>
+</rss>

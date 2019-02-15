@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitlab on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/gitlab/</link>
+    <description>Recent content in Gitlab on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 12 Jul 2018 11:07:08 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/gitlab/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Gitlab Authority</title>
+      <link>https://b.qqbb.app/post/gitlab-authority/</link>
+      <pubDate>Thu, 12 Jul 2018 11:07:08 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-authority/</guid>
+      <description>Env gitlab: 10.0.8 Step 公司切入Gitlab来管理代码已经有一年多了，其中遇到很多权限问题，如没有权限clone、没有权限提交代码等等，这里做个总结. 权限分</description>
+    </item>
+    
+    <item>
+      <title>Gitlab CI Step by Step</title>
+      <link>https://b.qqbb.app/post/gitlab-ci-step-by-step/</link>
+      <pubDate>Tue, 10 Jul 2018 22:26:33 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-ci-step-by-step/</guid>
+      <description>gitlab-ci 一步一步学 Env os: ubuntu docker: 17.03.2 gitlab: 10.2.8(比特空间提供) gitlab-runner: Step 理论 了解 用 GitLab CI 进行持续集成, 这篇文章是写得我认为最合适入门的。 gitlab ci quick-st</description>
+    </item>
+    
+    <item>
+      <title>Gitlab Workflow</title>
+      <link>https://b.qqbb.app/post/gitlab-workflow/</link>
+      <pubDate>Fri, 29 Jun 2018 09:08:02 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-workflow/</guid>
+      <description>gitlab流程 Env Step Ref https://www.cnblogs.com/coderzl/p/7491143.html https://blog.csdn.net/liumiaocn/article/details/79256312</description>
+    </item>
+    
+    <item>
+      <title>gitlab修改密码</title>
+      <link>https://b.qqbb.app/post/gitlab-change-password/</link>
+      <pubDate>Tue, 17 Apr 2018 17:15:47 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-change-password/</guid>
+      <description>gitlab修改密码 env IP: 192.168.31.169 OS: ubuntu-16.04 gitlab: 10.6.4 step 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52</description>
+    </item>
+    
+    <item>
+      <title>Gitlab汉化</title>
+      <link>https://b.qqbb.app/post/gitlab-cn/</link>
+      <pubDate>Tue, 17 Apr 2018 09:50:03 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-cn/</guid>
+      <description>对gitlab进行汉化 env IP: 192.168.31.148 OS: ubuntu-14.04.5 gitlab: 10.6.4 step 1 2 3 4 5 6 7 8 9 10 11 12 13 mkdir xhang &amp;amp;&amp;amp; cd xhang git clone https://gitlab.com/xhang/gitlab.git cd gitlab/ git fetch gitlab_version=$(sudo cat /opt/gitlab/embedded/service/gitlab-rails/VERSION) echo ${gitlab_version} git diff v${gitlab_version} v${gitlab_version}-zh &amp;gt; ../${gitlab_version}-zh.diff cd .. sudo gitlab-ctl stop sudo patch -d /opt/gitlab/embedded/service/gitlab-rails -p1 &amp;lt; 10.6.4-zh.diff sudo gitlab-ctl start</description>
+    </item>
+    
+    <item>
+      <title>Gitlab Install Base Ubuntu14.04</title>
+      <link>https://b.qqbb.app/post/gitlab-install-base-ubuntu14.04/</link>
+      <pubDate>Mon, 16 Apr 2018 17:36:11 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-install-base-ubuntu14.04/</guid>
+      <description>gitlab在ubuntu14.04和ubuntu16.04上安装 env IP: 192.168.31.148 OS: ubuntu-14.04.5 gitlab: 10.6.4 env2 IP: 192.168.31.169 OS: ubuntu-16.04 gitlab: 10.6.4 step 按照 清华大学 Gitlab Community Edition 镜像使用帮助 安装就可以了.</description>
+    </item>
+    
+    <item>
+      <title>Git Workflow</title>
+      <link>https://b.qqbb.app/post/git-workflow/</link>
+      <pubDate>Fri, 02 Mar 2018 11:42:26 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/git-workflow/</guid>
+      <description>gitlab系列之workflow 本文是 官方 workflow 的中文翻译 参考 https://docs.gitlab.com/ee/workflow/gitlab_flow.html 中文 介绍 使用git进行版本管理使得分支和合并比旧版本系统（如SVN）容易得多。</description>
+    </item>
+    
+    <item>
+      <title>Gitlab Install</title>
+      <link>https://b.qqbb.app/post/gitlab-install/</link>
+      <pubDate>Fri, 02 Mar 2018 11:40:25 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gitlab-install/</guid>
+      <description>git系列之gitlab安装 env 阿里云 - IP: 120.25.204.216 - OS: centos7 step 1 2 sudo firewall-cmd --permanent --add-service=http sudo systemctl reload firewalld 注意这个写法 1 sudo EXTERNAL_URL=&amp;#34;http://gitlab.example.com&amp;#34; yum install -y gitlab-ee 修改成 下面这种 方式, 但是, 这样下载会比较慢了</description>
+    </item>
+    
+  </channel>
+</rss>

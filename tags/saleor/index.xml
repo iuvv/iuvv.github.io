@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Saleor on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/saleor/</link>
+    <description>Recent content in Saleor on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/saleor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>saleor 设置 templates base</title>
+      <link>https://b.qqbb.app/post/saleor-conf-templates-base/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/saleor-conf-templates-base/</guid>
+      <description>安装完了 saleor ，下一步，自然就是修改一些我们自己的Logo，页脚之类的东西了。 页脚COPYRIGHT 1 2 3 (saleor) ➜ saleor git:(master) ✗ grep &amp;#34;COPYRIGHT © 2009–2019 MIRUMEE SOFTWARE&amp;#34;</description>
+    </item>
+    
+    <item>
+      <title>docker 安装 saleor</title>
+      <link>https://b.qqbb.app/post/saleor-customization-docker/</link>
+      <pubDate>Thu, 31 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/saleor-customization-docker/</guid>
+      <description>https://docs.getsaleor.com/en/latest/customization/docker.html 安装后 完成步骤后的效果如下： 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 (saleor) ➜ saleor git:(master) ✗ docker ps CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 202bd2594ad9 saleor_web &amp;#34;python manage.py ru…&amp;#34; About a minute ago Up 33 seconds</description>
+    </item>
+    
+    <item>
+      <title>saleor 测试（笔记）</title>
+      <link>https://b.qqbb.app/post/saleor-customization-tests/</link>
+      <pubDate>Thu, 31 Jan 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/saleor-customization-tests/</guid>
+      <description>https://docs.getsaleor.com/en/latest/customization/tests.html 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 (saleor) ➜ saleor git:(master) pipenv install --dev Courtesy Notice: Pipenv found itself running within a virtual environment, so it will automatically use that environment, instead of creating its own for any project. You can set PIPENV_IGNORE_VIRTUALENVS =1 to force pipenv to</description>
+    </item>
+    
+  </channel>
+</rss>

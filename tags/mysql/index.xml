@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mysql on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/mysql/</link>
+    <description>Recent content in Mysql on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 13 Feb 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/mysql/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>To Completly remove Mysql from Ubuntu</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/remove-mysql-mariadb-from-ubuntu/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/remove-mysql-mariadb-from-ubuntu/</guid>
+      <description>To Completly remove Mysql from Ubuntu env os: ubuntu mysql: 5.7 mariadb: 10.3 step 1 2 3 sudo apt-get remove --purge mysql-server mysql-client mysql-common sudo apt-get autoremove sudo apt-get autoclean 如果有安装过 mariadb 1 2 3 sudo apt-get remove --purge mariadb* sudo apt-get autoremove sudo apt-get autoclean after this, if you are having issues with re installing, Try to remove Mysql files in : 1 sudo</description>
+    </item>
+    
+    <item>
+      <title>Unable to set password for the MariaDB ‘root’ user</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/cannot-setup-mysql-root-password-during-installation/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/cannot-setup-mysql-root-password-during-installation/</guid>
+      <description>env 在安装 mysql 或者 mariadb 过程中，设置完 root 密码后，报出类似下面错误： 1 2 3 4 5 6 7 Unable to set password for the MariaDB &amp;#34;root&amp;#34; user An error occurred while setting the password for the MariaDB administrative user. This may have happened because the account already has a password, or because</description>
+    </item>
+    
+    <item>
+      <title>mysql 常用用法</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/mysql-usage/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/mysql-usage/</guid>
+      <description>修改mysql用户密码 1 2 select User,Password from mysql.user; set password for keystone@localhost = password(&amp;#39;324dcdc2318be07d0300&amp;#39;);</description>
+    </item>
+    
+    <item>
+      <title>Mysql User Create</title>
+      <link>https://b.qqbb.app/post/mysql-user-create/</link>
+      <pubDate>Wed, 04 Jul 2018 14:40:22 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-user-create/</guid>
+      <description>mysql创建用户 Env mysql: 5.7 Step 1 2 3 4 5 6 7 8 9 10 MariaDB [(none)]&amp;gt; create user &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39; IDENTIFIED BY &amp;#39;password&amp;#39;; Query OK, 0 rows affected (0.00 sec) MariaDB [(none)]&amp;gt; grant all on *.* to &amp;#39;root&amp;#39;@&amp;#39;%&amp;#39; identified by &amp;#39;password&amp;#39;; Query OK, 0 rows affected (0.00 sec) MariaDB [(none)]&amp;gt; flush privileges; Query OK, 0 rows affected (0.00 sec) MariaDB [(none)]&amp;gt; Ref</description>
+    </item>
+    
+    <item>
+      <title>Qor Character Set Database Utf8</title>
+      <link>https://b.qqbb.app/post/qor-character-set-database-utf8/</link>
+      <pubDate>Wed, 04 Jul 2018 10:53:56 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-character-set-database-utf8/</guid>
+      <description>qor通过字符集解决输入中文报错 Env os: ubuntu16 go: 1.10.2 Step 输入中文会有 Error 1366: Incorrect string value: &#39;\xE4\xB8\xAD&#39; for column &#39;name&#39; at row 1这样的报错。 这个错误主要的原因，就是插入数据的时候，数据库不</description>
+    </item>
+    
+    <item>
+      <title>Mysql Command</title>
+      <link>https://b.qqbb.app/post/command/mysql/</link>
+      <pubDate>Mon, 26 Mar 2018 16:23:40 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/command/mysql/</guid>
+      <description>查看 MYSQL连接数 1 show processlist;</description>
+    </item>
+    
+    <item>
+      <title>Mysql Passwd</title>
+      <link>https://b.qqbb.app/post/mysql-passwd/</link>
+      <pubDate>Mon, 26 Mar 2018 16:18:39 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-passwd/</guid>
+      <description>mysql插入密码 1 2 &amp;gt; INSERT INTO `factor_administrator` (`id_admin`,`name`,`pwd`,`admin`) VALUES (1,&amp;#39;wuxuan&amp;#39;,md5(&amp;#39;gws20180129&amp;#39;),1); 那么, 这时, 用户与密码就是: wuxuan, gws20180129</description>
+    </item>
+    
+    <item>
+      <title>Mysql Install 2 Base Centos</title>
+      <link>https://b.qqbb.app/post/mysql-install-2-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 15:26:59 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-install-2-base-centos/</guid>
+      <description>主要参考： http://blog.csdn.net/renfufei/article/details/17616549 过程 说明: 首先必须能链接外网. 如果不能直接访问,那也可以设置代理,请参考: 在内网机器上设置yum代理 使用 yum 的权限要求是 root 用户,如</description>
+    </item>
+    
+    <item>
+      <title>Mysql Length</title>
+      <link>https://b.qqbb.app/post/mysql-length/</link>
+      <pubDate>Fri, 02 Mar 2018 15:14:11 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-length/</guid>
+      <description>转载自: http://yishouce.com/mysql/func/length 一句话说明: 获取字符串长度的mysql内置函数 length是mysql的一个用来来获取字符串长度的内置函数方法, 同样的获取字符串长</description>
+    </item>
+    
+    <item>
+      <title>Mysql Mysqlslap</title>
+      <link>https://b.qqbb.app/post/mysql-mysqlslap/</link>
+      <pubDate>Fri, 02 Mar 2018 12:51:05 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-mysqlslap/</guid>
+      <description>mysqlslap模拟并发测试数据库性能 安装：简单，装了mysql就有了 作用：模拟并发测试数据库性能。 reference 参考网址 命令主要参数, 示例与解析 示例</description>
+    </item>
+    
+    <item>
+      <title>Mysql User</title>
+      <link>https://b.qqbb.app/post/mysql-user/</link>
+      <pubDate>Fri, 02 Mar 2018 12:47:29 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-user/</guid>
+      <description>mysql系列之MySQL查看用户权限 reference http://www.oschina.net/code/snippet_222150_12541 ## show grants for 你的用户; show grants for root@&amp;lsquo;localhost&amp;rsquo;; show grants for webgametest@10.3.18.158; show create database dbname; 这个可以看到创建数据库时用到的一些参数。 show create table tickets; 可以看到</description>
+    </item>
+    
+    <item>
+      <title>Mysql Navicat</title>
+      <link>https://b.qqbb.app/post/mysql-navicat/</link>
+      <pubDate>Fri, 02 Mar 2018 12:46:45 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-navicat/</guid>
+      <description>mysql系列之navicat reference http://blog.csdn.net/lwei_998/article/details/45560483 http://blog.csdn.net/moneyshi/article/details/50906650 http://mt.sohu.com/20160324/n441844650.shtml 导出连接设置 Navicat 版本 8 1.选择文件 -&amp;gt; 导出登录数据文件。导出的文件（.reg）包含你的全部连接设置。 2.备</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Cluster Install Base Centos</title>
+      <link>https://b.qqbb.app/post/mariadb-cluster-install-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 12:45:19 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-cluster-install-base-centos/</guid>
+      <description>mysql系列之mysql-cluster 主要参考 http://mariadb.org/ 环境 centos7-amd64 mariadb10.1（IP:10.10.13.110） + mariadb5.5(IP:192.168.31.240) 步骤 准备2台机器 安装m</description>
+    </item>
+    
+    <item>
+      <title>Mysql Use</title>
+      <link>https://b.qqbb.app/post/mysql-use/</link>
+      <pubDate>Fri, 02 Mar 2018 12:41:58 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-use/</guid>
+      <description>mysql系列之mysql使用规范 mysql使用规范 级别说明 所有级别： 级别1，必须做到 级别2，优先做到 级别：1 库名，表名，字段名：使用小写 字</description>
+    </item>
+    
+    <item>
+      <title>Mysql Secure Installation</title>
+      <link>https://b.qqbb.app/post/mysql-secure-installation/</link>
+      <pubDate>Fri, 02 Mar 2018 12:41:05 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-secure-installation/</guid>
+      <description>mysql系列之mysql_secure_installation 参考 http://www.myexception.cn/mysql/1902013.html 过程 安装完mysql-server 会提示可以运行mysql_secu</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Cluster Base Centos</title>
+      <link>https://b.qqbb.app/post/mysql/mysql-cluster-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 12:15:19 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql/mysql-cluster-base-centos/</guid>
+      <description>mysql-cluster 主要参考 http://mariadb.org/ 环境 centos7-amd64 mariadb10.1（IP:10.10.13.110） + mariadb5.5(IP:192.168.31.240) 步骤 准备2台机器 安装mariadb10.1 参考这里 把 mariadb5.5 的数据，</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Cluster Infile Base Centos</title>
+      <link>https://b.qqbb.app/post/mysql/mysql-cluster-infile-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 12:15:19 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql/mysql-cluster-infile-base-centos/</guid>
+      <description>mysql-cluster 主要参考 http://mariadb.org/ 环境 centos7-amd64 mariadb10.1（IP:10.10.13.110） + mariadb5.5(IP:192.168.31.240) 步骤 准备2台机器 安装mariadb10.1 参考这里 把 mariadb5.5 的数据，</description>
+    </item>
+    
+    <item>
+      <title>Mysqldump Faq</title>
+      <link>https://b.qqbb.app/post/mysqldump-faq/</link>
+      <pubDate>Wed, 28 Feb 2018 14:31:43 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysqldump-faq/</guid>
+      <description>mysqldump中断的常见错误和解决措施</description>
+    </item>
+    
+    <item>
+      <title>Mysql Config Server.conf</title>
+      <link>https://b.qqbb.app/post/mysql-config-server.conf/</link>
+      <pubDate>Mon, 26 Feb 2018 17:25:30 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-config-server.conf/</guid>
+      <description>压缩binlog空间 在运行前, 先去数据目录文件夹下查看一下, mysql.000001的文件有多少,并看一下各文件的创建时间.也就是确认一下要</description>
+    </item>
+    
+    <item>
+      <title>Mysql Config</title>
+      <link>https://b.qqbb.app/post/mysql-config/</link>
+      <pubDate>Mon, 12 Feb 2018 10:05:24 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mysql-config/</guid>
+      <description>MySQL5.7初始密码查看及重置 1 2 3 [root@localhost jlch]# grep &amp;#39;temporary password&amp;#39; /var/log/mysqld.log 2018-02-12T07:28:21.362804Z 1 [Note] A temporary password is generated for root@localhost: Ngu97xLjPL(S [root@localhost jlch]# MySQL源码安装、配置、初始化及启动 1 mysql_secure_installation 配置mysql允许远</description>
+    </item>
+    
+  </channel>
+</rss>

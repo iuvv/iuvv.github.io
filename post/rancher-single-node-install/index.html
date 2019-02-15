@@ -1,0 +1,1421 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Rancher Single Node Install - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="rancher2.0单节点安装kubernetes Env 无论哪个环境 硬盘容量 空闲 &amp;gt; 20G 空闲 &amp;gt; 20% 有网络 Env-1(成功) cloud: aws os: ubuntu16.04 rancher: v2.0.2 docker: docker-ce=17.03.2~ce-0~ubuntu-xenial post: 8088, 4443 实际上" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/rancher-single-node-install/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="Rancher Single Node Install" />
+<meta property="og:description" content="rancher2.0单节点安装kubernetes Env 无论哪个环境 硬盘容量 空闲 &gt; 20G 空闲 &gt; 20% 有网络 Env-1(成功) cloud: aws os: ubuntu16.04 rancher: v2.0.2 docker: docker-ce=17.03.2~ce-0~ubuntu-xenial post: 8088, 4443 实际上" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/rancher-single-node-install/" />
+
+
+
+<meta property="article:published_time" content="2018-06-17T16:59:39&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-06-17T16:59:39&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Rancher Single Node Install">
+<meta itemprop="description" content="rancher2.0单节点安装kubernetes Env 无论哪个环境 硬盘容量 空闲 &gt; 20G 空闲 &gt; 20% 有网络 Env-1(成功) cloud: aws os: ubuntu16.04 rancher: v2.0.2 docker: docker-ce=17.03.2~ce-0~ubuntu-xenial post: 8088, 4443 实际上">
+
+
+<meta itemprop="datePublished" content="2018-06-17T16:59:39&#43;08:00" />
+<meta itemprop="dateModified" content="2018-06-17T16:59:39&#43;08:00" />
+<meta itemprop="wordCount" content="3391">
+
+
+
+<meta itemprop="keywords" content="rancher,kubernetes," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Rancher Single Node Install"/>
+<meta name="twitter:description" content="rancher2.0单节点安装kubernetes Env 无论哪个环境 硬盘容量 空闲 &gt; 20G 空闲 &gt; 20% 有网络 Env-1(成功) cloud: aws os: ubuntu16.04 rancher: v2.0.2 docker: docker-ce=17.03.2~ce-0~ubuntu-xenial post: 8088, 4443 实际上"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Rancher Single Node Install</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-06-17" class="post-time">
+          2018-06-17
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/rancher/"> rancher </a>
+            
+          </div>
+        <span class="more-meta"> 约 3391 字 </span>
+          <span class="more-meta"> 预计阅读 7 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">Env</a>
+<ul>
+<li><a href="#env-1-成功">Env-1(成功)</a></li>
+<li><a href="#env-2-没有成功-可略过">Env-2(没有成功)可略过。</a>
+<ul>
+<li><a href="#ip">IP</a></li>
+</ul></li>
+<li><a href="#env-3-成功">Env-3(成功)</a></li>
+</ul></li>
+<li><a href="#step">Step</a>
+<ul>
+<li><a href="#网络互通">网络互通</a></li>
+<li><a href="#科学上网">科学上网</a></li>
+<li><a href="#所有节点都安装了docker">所有节点都安装了docker</a></li>
+<li><a href="#准备基础镜像">准备基础镜像</a>
+<ul>
+<li><a href="#rancher-server节点">rancher-server节点</a></li>
+<li><a href="#worker节点">worker节点</a></li>
+</ul></li>
+<li><a href="#运行rancher-server节点">运行rancher-server节点</a></li>
+<li><a href="#浏览器设置">浏览器设置</a></li>
+<li><a href="#rancher-server-etcd-control-worker节点运行container">rancher-server, etcd, control, worker节点运行container</a></li>
+</ul></li>
+<li><a href="#命令汇总">命令汇总</a>
+<ul>
+<li>
+<ul>
+<li><a href="#查看一下基本信息-知道的-可以忽略">查看一下基本信息，知道的，可以忽略</a></li>
+<li><a href="#安装docker">安装docker</a></li>
+<li><a href="#安装准备镜像">安装准备镜像</a></li>
+<li><a href="#启动rancher-server">启动rancher-server</a></li>
+<li><a href="#打开浏览器">打开浏览器</a></li>
+<li><a href="#启动-etcd-controlplane-worker">启动，etcd，controlplane，worker</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#faq">FAQ</a>
+<ul>
+<li><a href="#cni-config-uninitialized">cni config uninitialized</a></li>
+<li><a href="#docker-images">docker images</a></li>
+<li><a href="#安装完成后">安装完成后</a></li>
+<li><a href="#kubectl-get-pods-all-namespaces">kubectl get pods &ndash;all-namespaces</a></li>
+<li><a href="#node出现-disk-pressure">node出现<code>Disk Pressure</code></a></li>
+<li><a href="#安装时可以使用加速器么">安装时可以使用加速器么？</a></li>
+<li><a href="#删除rancher">删除rancher</a></li>
+</ul></li>
+<li><a href="#ref">Ref</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>rancher2.0单节点安装kubernetes</p>
+
+<h2 id="env">Env</h2>
+
+<p>无论哪个环境</p>
+
+<ul>
+<li><p>硬盘容量</p>
+
+<ul>
+<li>空闲 &gt; 20G</li>
+<li>空闲 &gt; 20%</li>
+</ul></li>
+
+<li><p>有网络</p></li>
+</ul>
+
+<h3 id="env-1-成功">Env-1(成功)</h3>
+
+<ul>
+<li>cloud: aws</li>
+<li>os: ubuntu16.04</li>
+<li>rancher: v2.0.2</li>
+<li>docker: docker-ce=17.03.2~ce-0~ubuntu-xenial</li>
+<li>post: 8088, 4443</li>
+</ul>
+
+<p>实际上，我是直接把</p>
+
+<ul>
+<li>ufw: disable</li>
+</ul>
+
+<h3 id="env-2-没有成功-可略过">Env-2(没有成功)可略过。</h3>
+
+<p>实验环境</p>
+
+<p>4台vm，配置为2C，4G，100G
+一台安装Rancher
+一台作为Kubernets cted &amp; control
+两台作为Kubernets worker</p>
+
+<ul>
+<li>os: ubuntu16.04</li>
+<li>rancher: v2.0.2</li>
+</ul>
+
+<h4 id="ip">IP</h4>
+
+<ul>
+<li>ip: 192.168.31.189    rancher, win10（192.168.31.102）下的virtualbox</li>
+<li>ip: 192.168.31.188    k8s-etcd, ud-ssd（192.168.31.199）下的virtualbox</li>
+<li>ip: 192.168.31.187    k8s-worker, ud-ssd（192.168.31.199）下的virtualbox</li>
+<li>ip: 192.168.31.186    k8s-worker, ud-putong（192.168.31.112）下的virtualbox</li>
+</ul>
+
+<p>后来发现，192.168.31.186-188 ping不通192.168.31.189。(我三台宿主机全用桥接分配到的IP, 怎么会出现这个情况？）
+所以，调整IP如下。</p>
+
+<ul>
+<li>ip: 192.168.31.199    rancher, win10（192.168.31.102）下的virtualbox</li>
+<li>ip: 192.168.31.199    k8s-etcd, ud-ssd（192.168.31.199）</li>
+<li>ip: 192.168.31.112    k8s-worker, ud-ssd（192.168.31.199）下的virtualbox</li>
+<li>ip: 192.168.31.112    k8s-worker, ud-putong（192.168.31.112）下的virtualbox</li>
+</ul>
+
+<h3 id="env-3-成功">Env-3(成功)</h3>
+
+<ul>
+<li>cloud: 无</li>
+<li>os: ubuntu16.04</li>
+<li>rancher: v2.0.2</li>
+<li>docker: docker-ce=17.03.2~ce-0~ubuntu-xenial</li>
+<li>post: 8088, 4443</li>
+<li>单硬盘，裸机</li>
+<li>ip: 192.168.31.199</li>
+</ul>
+
+<p>实际上，我是直接把</p>
+
+<ul>
+<li>ufw: disable</li>
+</ul>
+
+<h2 id="step">Step</h2>
+
+<h3 id="网络互通">网络互通</h3>
+
+<p>所有节点相互之间连通。</p>
+
+<h3 id="科学上网">科学上网</h3>
+
+<p>aws下载镜像很快，所以不需要设置。</p>
+
+<p>参考 <a href="https://blog.finsoft.info/posts/docker-pull-with-proxy/">透过proxy进行docker pull</a></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@uda:/home/tom# tail  /etc/default/docker
+<span class="c1">#export http_proxy=&#34;http://127.0.0.1:3128/&#34;
+</span><span class="c1"></span>
+<span class="c1"># This is also a handy place to tweak where Docker&#39;s temporary files go.
+</span><span class="c1">#export DOCKER_TMPDIR=&#34;/mnt/bigdrive/docker-tmp&#34;
+</span><span class="c1"></span>
+<span class="nv">HTTP_PROXY</span><span class="o">=</span>http://192.168.31.112:8118
+<span class="nv">http_proxy</span><span class="o">=</span><span class="si">${</span><span class="nv">HTTP_PROXY</span><span class="si">}</span>
+<span class="nv">HTTPS_PROXY</span><span class="o">=</span><span class="si">${</span><span class="nv">HTTP_PROXY</span><span class="si">}</span>
+<span class="nv">https_proxy</span><span class="o">=</span><span class="si">${</span><span class="nv">HTTP_PROXY</span><span class="si">}</span>
+<span class="nb">export</span> HTTP_PROXY HTTPS_PROXY http_proxy https_proxy
+root@uda:/home/tom#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="所有节点都安装了docker">所有节点都安装了docker</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir .tom
+<span class="nb">cd</span> .tom/
+vi docker.sh
+chmod +x docker.sh
+./docker.sh</code></pre></td></tr></table>
+</div>
+</div>
+<p>具体 docker.sh 内容见下方。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@ripple01:~# cat .tom/docker.sh
+<span class="cp">#!/bin/bash
+</span><span class="cp"></span>lsb_release -a
+sudo apt-get install     apt-transport-https     ca-certificates     curl     software-properties-common -y
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg <span class="p">|</span> sudo apt-key add -
+sudo apt-key fingerprint 0EBFCD88
+sudo add-apt-repository    <span class="s2">&#34;deb [arch=amd64] https://download.docker.com/linux/ubuntu \
+</span><span class="s2">   </span><span class="k">$(</span>lsb_release -cs<span class="k">)</span><span class="s2"> \
+</span><span class="s2">   stable&#34;</span>
+sudo apt-get update
+apt-cache madison docker-ce
+sudo apt-get install docker-ce<span class="o">=</span><span class="m">17</span>.03.2~ce-0~ubuntu-xenial -y
+sudo docker run hello-world
+root@ripple01:~#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="准备基础镜像">准备基础镜像</h3>
+
+<p>这里只是为了加快安装速度，如果你觉得速度没问题，可跳过</p>
+
+<p>当然，如果是rancher版本不是2.0.2，而是其它，这里肯定有些镜像的版本就不是这个了。</p>
+
+<p>所以，如果不是安装2.0.2, 则不要提前准备下面镜像（因为版本不一定是这些嘛），让系统自动下载，只是时间久一点。</p>
+
+<h4 id="rancher-server节点">rancher-server节点</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull nginx:latest          
+docker pull rancher/rancher-agent:v2.0.2          
+docker pull rancher/rancher:v2.0.2          
+docker pull rancher/rke-tools:v0.1.8          
+docker pull rancher/rancher-agent:v2.0.0          
+docker pull rancher/rancher:v2.0.0          
+docker pull rancher/hyperkube:v1.10.1-rancher2
+docker pull rancher/rke-tools:v0.1.4          
+docker pull rancher/nginx-ingress-controller:0.10.2-rancher3 
+docker pull rancher/calico-node:v3.1.1          
+docker pull rancher/calico-cni:v3.1.1          
+docker pull hello-world:latest          
+docker pull rancher/coreos-etcd:v3.1.12         
+docker pull rancher/k8s-dns-dnsmasq-nanny-amd64:1.14.8          
+docker pull rancher/k8s-dns-sidecar-amd64:1.14.8          
+docker pull rancher/k8s-dns-kube-dns-amd64:1.14.8          
+docker pull rancher/pause-amd64:3.1
+docker pull rancher/coreos-flannel:v0.9.1          
+docker pull rancher/nginx-ingress-controller-defaultbackend:1.4
+docker pull rancher/cluster-proportional-autoscaler-amd64:1.0.0</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果不想安装这么多，那就至少把<code>rancher server安装ectd, worker之前</code>的镜像（下面这些）安装完吧。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull nginx:latest
+docker pull rancher/hyperkube:v1.10.1-rancher2
+docker pull rancher/coreos-etcd:v3.1.12
+docker pull rancher/rancher:v2.0.2
+docker pull rancher/rancher-agent:v2.0.2
+docker pull rancher/rke-tools:v0.1.8</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果是<code>racher2.0.0</code>则准备把相应镜像的版本号替换下，成下面基础镜像</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull nginx:latest
+docker pull rancher/hyperkube:v1.10.1-rancher2
+docker pull rancher/coreos-etcd:v3.1.12
+docker pull rancher/rancher:v2.0.0
+docker pull rancher/rancher-agent:v2.0.0
+docker pull rancher/rke-tools:v0.1.4</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="worker节点">worker节点</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull nginx:latest
+docker pull rancher/rancher-agent:v2.0.2
+docker pull rancher/pause-amd64:3.1
+docker pull rancher/rke-tools:v0.1.8
+docker pull rancher/hyperkube:v1.10.1-rancher2</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="运行rancher-server节点">运行rancher-server节点</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d --restart<span class="o">=</span>unless-stopped <span class="se">\
+</span><span class="se"></span>  -p <span class="m">80</span>:80 -p <span class="m">443</span>:443 <span class="se">\
+</span><span class="se"></span>  -v /host/rancher:/var/lib/rancher <span class="se">\
+</span><span class="se"></span>  rancher/rancher:v2.0.2</code></pre></td></tr></table>
+</div>
+</div>
+<p>示例如下</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@bogon:~# docker run -d --restart<span class="o">=</span>unless-stopped   -p <span class="m">80</span>:80 -p <span class="m">443</span>:443   -v /host/rancher:/var/lib/rancher   rancher/rancher:v2.0.2
+3aa4d8b39e61a178840196dcd8e05031a0cef56dbcc56b6a72117b7316d19918
+root@bogon:~# docker ps
+CONTAINER ID        IMAGE                    COMMAND                  CREATED             STATUS              PORTS                                      NAMES
+3aa4d8b39e61        rancher/rancher:v2.0.2   <span class="s2">&#34;rancher --http-li...&#34;</span>   <span class="m">3</span> seconds ago       Up <span class="m">2</span> seconds        <span class="m">0</span>.0.0.0:80-&gt;80/tcp, <span class="m">0</span>.0.0.0:443-&gt;443/tcp   distracted_stallman
+root@bogon:~# sudo docker run -d --privileged --restart<span class="o">=</span>unless-stopped --net<span class="o">=</span>host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.0.2 --server https://192.168.31.104 --token qt6xd2jg4mvx4qs94q8bqlfdqcdgr6p794cwzj5vhld2l62ds6l9lw --ca-checksum 1d2d1038b6e78cd0c4925bd5931629e6e6e0d9c97699cdbabe9eb59448154f85 --etcd --controlplane --worker
+Unable to find image <span class="s1">&#39;rancher/rancher-agent:v2.0.2&#39;</span> locally
+v2.0.2: Pulling from rancher/rancher-agent
+a48c500ed24e: Already exists
+1e1de00ff7e1: Already exists
+0330ca45a200: Already exists
+471db38bcfbf: Already exists
+0b4aba487617: Already exists
+b0300e97030b: Downloading <span class="o">[========</span>&gt;                                          <span class="o">]</span>  <span class="m">2</span>.87 MB/17.59 MB
+64b8ae7ae0d5: Download <span class="nb">complete</span>
+73facef3793d: Downloading <span class="o">[=============</span>&gt;                                     <span class="o">]</span> <span class="m">3</span>.521 MB/12.97 MB
+649b24d0dfef: Downloading <span class="o">[=================</span>&gt;                                 <span class="o">]</span>   <span class="m">3</span>.8 MB/10.86 MB</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="浏览器设置">浏览器设置</h3>
+
+<p>设置密码，拿到docker命令</p>
+
+<h3 id="rancher-server-etcd-control-worker节点运行container">rancher-server, etcd, control, worker节点运行container</h3>
+
+<p>注意：</p>
+
+<ul>
+<li>这里，每个人的 IP, port, token, 启动项目类型不同，以浏览器内容为准，不要复制下面的。</li>
+<li>如果后续要加work, 记得不要再启动 etcd, controlplane</li>
+</ul>
+
+<p>基本流程就是这样了。</p>
+
+<h2 id="命令汇总">命令汇总</h2>
+
+<p>下面可以看一下，我自己的实际操作的命令汇总吧。</p>
+
+<p>在 aws 环境下，成功安装了rancher，命令汇总如下</p>
+
+<h4 id="查看一下基本信息-知道的-可以忽略">查看一下基本信息，知道的，可以忽略</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo -i
+ufw status
+which docker
+lsb_release -a
+top
+cat /proc/cpuinfo
+df -h</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="安装docker">安装docker</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir .tom
+<span class="nb">cd</span> .tom/
+vi docker.sh
+chmod +x docker.sh
+./docker.sh</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="安装准备镜像">安装准备镜像</h4>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull nginx:latest
+docker pull rancher/hyperkube:v1.10.1-rancher2
+docker pull rancher/coreos-etcd:v3.1.12
+docker pull rancher/rancher:v2.0.2
+docker pull rancher/rancher-agent:v2.0.2
+docker pull rancher/rke-tools:v0.1.8
+<span class="c1">## 如果不安装v2.0.0则不需要下面2行
+</span><span class="c1"># docker pull rancher/rancher:v2.0.0
+</span><span class="c1"></span># docker pull rancher/rke-tools:v0.1.4</code></pre></td></tr></table>
+</div>
+</div>
+<p>备注：</p>
+
+<p>这个操作是只有这么几个镜像？实际上应该如下面这样的。但是，aws网络实在是好，其它的，都它自己下载了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull nginx:latest          
+docker pull rancher/rancher-agent:v2.0.2          
+docker pull rancher/rancher:v2.0.2          
+docker pull rancher/rke-tools:v0.1.8          
+docker pull rancher/rancher-agent:v2.0.0          
+docker pull rancher/rancher:v2.0.0          
+docker pull rancher/hyperkube:v1.10.1-rancher2
+docker pull rancher/rke-tools:v0.1.4          
+docker pull rancher/nginx-ingress-controller:0.10.2-rancher3 
+docker pull rancher/calico-node:v3.1.1          
+docker pull rancher/calico-cni:v3.1.1          
+docker pull hello-world:latest          
+docker pull rancher/coreos-etcd:v3.1.12         
+docker pull rancher/k8s-dns-dnsmasq-nanny-amd64:1.14.8          
+docker pull rancher/k8s-dns-sidecar-amd64:1.14.8          
+docker pull rancher/k8s-dns-kube-dns-amd64:1.14.8          
+docker pull rancher/pause-amd64:3.1
+docker pull rancher/coreos-flannel:v0.9.1          
+docker pull rancher/nginx-ingress-controller-defaultbackend:1.4
+docker pull rancher/cluster-proportional-autoscaler-amd64:1.0.0</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="启动rancher-server">启动rancher-server</h4>
+
+<p>把rancher-server持久化到本机 <code>/host/rancher</code>。</p>
+
+<p>注意设置port</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker run -d --restart<span class="o">=</span>unless-stopped -p <span class="m">8088</span>:80 -p <span class="m">4443</span>:443 -v /host/rancher:/var/lib/rancher   rancher/rancher:v2.0.2
+docker ps</code></pre></td></tr></table>
+</div>
+</div>
+<h4 id="打开浏览器">打开浏览器</h4>
+
+<p>设置admin密码，并拿到docker命令</p>
+
+<h4 id="启动-etcd-controlplane-worker">启动，etcd，controlplane，worker</h4>
+
+<p>注意：</p>
+
+<ul>
+<li>这里，每个人的 IP, port, token, 启动项目类型不同，以浏览器内容为准，不要复制下面的。</li>
+<li>如果后续要加work, 记得不要再启动 etcd, controlplane</li>
+</ul>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker images
+sudo docker run -d --privileged --restart<span class="o">=</span>unless-stopped --net<span class="o">=</span>host -v /etc/kubernetes:/etc/kubernetes -v /var/run:/var/run rancher/rancher-agent:v2.0.2 --server https://yourIP:4443 --token d82dc2g4qbhvxwssm95sf6mtl2plxgk4jmmx4xnj6zd2thsnjt9sq9 --ca-checksum c160ff8a67d540af15c3cf7299e65a81b99f476b9e06526d39ada649afbd1f67 --etcd --controlplane --worker
+docker ps</code></pre></td></tr></table>
+</div>
+</div>
+<p>回浏览器查看</p>
+
+<ul>
+<li>cluster状态: <code>Active</code></li>
+<li>node状态: <code>Active</code></li>
+<li>node下的<code>Disk Space</code>，<code>Disk Pressure</code>，<code>Memory Pressure</code>，<code>Kubelet</code>：绿色，打勾</li>
+<li>cluster下<code>Launch kubectl</code>正常可打开，且，运行<code>kubectl get all</code>返回正常</li>
+</ul>
+
+<p>至此，就知道了,所有成功了,完成了。</p>
+
+<h2 id="faq">FAQ</h2>
+
+<h3 id="cni-config-uninitialized">cni config uninitialized</h3>
+
+<p>Q: Env-2环境下，这个时候，会出现 <a href="https://github.com/rancher/rancher/issues/13484">https://github.com/rancher/rancher/issues/13484</a> 的报错信息
+A: 这个问题，因为在Env-1(aws)环境下，没有出现，也就意味着，很可能是网络下载环节出了问题（可能是下载cni相关镜像出错了，比如网络连接中断）
+</p>
+
+<h3 id="docker-images">docker images</h3>
+
+<p>Q: 准备阶段，为什么是那些镜像呢？</p>
+
+<p>A: 我这里主要是依据，在 aws 成功安装rancher server 并启动一个kubernetes后, 通过查看 <code>docker images</code> 得到。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@ripple01:~# docker images
+REPOSITORY                                        TAG                 IMAGE ID            CREATED             SIZE
+nginx                                             latest              cd5239a0906a        <span class="m">12</span> days ago         <span class="m">109</span> MB
+rancher/rancher-agent                             v2.0.2              df087865517d        <span class="m">3</span> weeks ago         <span class="m">228</span> MB
+rancher/rancher                                   v2.0.2              88526c7bea4e        <span class="m">3</span> weeks ago         <span class="m">521</span> MB
+rancher/rke-tools                                 v0.1.8              5df9ccc4e588        <span class="m">4</span> weeks ago         <span class="m">136</span> MB
+rancher/rancher-agent                             v2.0.0              8cfec7659f1d        <span class="m">6</span> weeks ago         <span class="m">248</span> MB
+rancher/rancher                                   v2.0.0              3141e5c66ee8        <span class="m">6</span> weeks ago         <span class="m">535</span> MB
+rancher/hyperkube                                 v1.10.1-rancher2    3e3f2ccada54        <span class="m">7</span> weeks ago         <span class="m">967</span> MB
+rancher/rke-tools                                 v0.1.4              d1a7302844b3        <span class="m">7</span> weeks ago         <span class="m">56</span>.9 MB
+rancher/nginx-ingress-controller                  <span class="m">0</span>.10.2-rancher3     66e10c24a484        <span class="m">7</span> weeks ago         <span class="m">203</span> MB
+rancher/calico-node                               v3.1.1              d94b64ac210d        <span class="m">8</span> weeks ago         <span class="m">248</span> MB
+rancher/calico-cni                                v3.1.1              482f47df27e2        <span class="m">8</span> weeks ago         <span class="m">68</span>.8 MB
+hello-world                                       latest              e38bc07ac18e        <span class="m">2</span> months ago        <span class="m">1</span>.85 kB
+rancher/coreos-etcd                               v3.1.12             02f30926cd60        <span class="m">3</span> months ago        <span class="m">34</span>.8 MB
+rancher/k8s-dns-dnsmasq-nanny-amd64               <span class="m">1</span>.14.8              c2ce1ffb51ed        <span class="m">5</span> months ago        <span class="m">41</span> MB
+rancher/k8s-dns-sidecar-amd64                     <span class="m">1</span>.14.8              6f7f2dc7fab5        <span class="m">5</span> months ago        <span class="m">42</span>.2 MB
+rancher/k8s-dns-kube-dns-amd64                    <span class="m">1</span>.14.8              80cc5ea4b547        <span class="m">5</span> months ago        <span class="m">50</span>.5 MB
+rancher/pause-amd64                               <span class="m">3</span>.1                 da86e6ba6ca1        <span class="m">5</span> months ago        <span class="m">742</span> kB
+rancher/coreos-flannel                            v0.9.1              2b736d06ca4c        <span class="m">7</span> months ago        <span class="m">51</span>.3 MB
+rancher/nginx-ingress-controller-defaultbackend   <span class="m">1</span>.4                 846921f0fe0e        <span class="m">7</span> months ago        <span class="m">4</span>.84 MB
+rancher/cluster-proportional-autoscaler-amd64     <span class="m">1</span>.0.0               e183460c484d        <span class="m">19</span> months ago       <span class="m">48</span>.2 MB
+root@ripple01:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>可知，我们真正要下载的images 有 下面这些images</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">docker pull nginx:latest          
+docker pull rancher/rancher-agent:v2.0.2          
+docker pull rancher/rancher:v2.0.2          
+docker pull rancher/rke-tools:v0.1.8          
+docker pull rancher/rancher-agent:v2.0.0          
+docker pull rancher/rancher:v2.0.0          
+docker pull rancher/hyperkube:v1.10.1-rancher2
+docker pull rancher/rke-tools:v0.1.4          
+docker pull rancher/nginx-ingress-controller:0.10.2-rancher3 
+docker pull rancher/calico-node:v3.1.1          
+docker pull rancher/calico-cni:v3.1.1          
+docker pull hello-world:latest          
+docker pull rancher/coreos-etcd:v3.1.12         
+docker pull rancher/k8s-dns-dnsmasq-nanny-amd64:1.14.8          
+docker pull rancher/k8s-dns-sidecar-amd64:1.14.8          
+docker pull rancher/k8s-dns-kube-dns-amd64:1.14.8          
+docker pull rancher/pause-amd64:3.1
+docker pull rancher/coreos-flannel:v0.9.1          
+docker pull rancher/nginx-ingress-controller-defaultbackend:1.4
+docker pull rancher/cluster-proportional-autoscaler-amd64:1.0.0</code></pre></td></tr></table>
+</div>
+</div>
+<p>当然，如果是rancher版本不是2.0.2，而是其它，这里肯定有些镜像的版本就不是这个了。</p>
+
+<p>所以，如果不是安装2.0.2, 则，不提前准备镜像，让系统，自动下载，只是时间久一点。</p>
+
+<h3 id="安装完成后">安装完成后</h3>
+
+<p>Q: 安装完成v2.0.2后，安装etcd, controlplane, worker, 共下载多少镜像？共启动多少container?</p>
+
+<p>A: 看下面</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@ud-b:~# docker images
+REPOSITORY                                        TAG                 IMAGE ID            CREATED             SIZE
+rancher/rancher-agent                             v2.0.2              df087865517d        <span class="m">3</span> weeks ago         <span class="m">228</span> MB
+rancher/rancher                                   v2.0.2              88526c7bea4e        <span class="m">3</span> weeks ago         <span class="m">521</span> MB
+rancher/rke-tools                                 v0.1.8              5df9ccc4e588        <span class="m">4</span> weeks ago         <span class="m">136</span> MB
+rancher/hyperkube                                 v1.10.1-rancher2    3e3f2ccada54        <span class="m">7</span> weeks ago         <span class="m">967</span> MB
+rancher/nginx-ingress-controller                  <span class="m">0</span>.10.2-rancher3     66e10c24a484        <span class="m">7</span> weeks ago         <span class="m">203</span> MB
+rancher/calico-node                               v3.1.1              d94b64ac210d        <span class="m">2</span> months ago        <span class="m">248</span> MB
+rancher/calico-cni                                v3.1.1              482f47df27e2        <span class="m">2</span> months ago        <span class="m">68</span>.8 MB
+rancher/coreos-etcd                               v3.1.12             02f30926cd60        <span class="m">3</span> months ago        <span class="m">34</span>.8 MB
+rancher/k8s-dns-dnsmasq-nanny-amd64               <span class="m">1</span>.14.8              c2ce1ffb51ed        <span class="m">5</span> months ago        <span class="m">41</span> MB
+rancher/k8s-dns-sidecar-amd64                     <span class="m">1</span>.14.8              6f7f2dc7fab5        <span class="m">5</span> months ago        <span class="m">42</span>.2 MB
+rancher/k8s-dns-kube-dns-amd64                    <span class="m">1</span>.14.8              80cc5ea4b547        <span class="m">5</span> months ago        <span class="m">50</span>.5 MB
+rancher/pause-amd64                               <span class="m">3</span>.1                 da86e6ba6ca1        <span class="m">6</span> months ago        <span class="m">742</span> kB
+rancher/coreos-flannel                            v0.9.1              2b736d06ca4c        <span class="m">7</span> months ago        <span class="m">51</span>.3 MB
+rancher/nginx-ingress-controller-defaultbackend   <span class="m">1</span>.4                 846921f0fe0e        <span class="m">7</span> months ago        <span class="m">4</span>.84 MB
+rancher/cluster-proportional-autoscaler-amd64     <span class="m">1</span>.0.0               e183460c484d        <span class="m">19</span> months ago       <span class="m">48</span>.2 MB
+root@ud-b:~# docker images <span class="p">|</span> wc -l
+<span class="m">16</span>
+root@ud-b:~# docker ps <span class="p">|</span> wc -l
+<span class="m">26</span>
+root@ud-b:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>所以，共下载16个镜像，启动26个容器。</p>
+
+<h3 id="kubectl-get-pods-all-namespaces">kubectl get pods &ndash;all-namespaces</h3>
+
+<p>Q: 为什么<code>kubectl get pods --all-namespaces</code>中的<code>ingress-nginx</code>是<code>CrashLoopBackOff</code>状态，具体如下？</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Run kubectl commands inside here
+</span><span class="c1"># e.g. kubectl get all
+</span><span class="c1"></span>&gt; kubectl get pods --all-namespaces
+NAMESPACE       NAME                                    READY     STATUS             RESTARTS   AGE
+cattle-system   cattle-cluster-agent-8d7c4cf9b-7f6jb    <span class="m">1</span>/1       Running            <span class="m">1</span>          4h
+cattle-system   cattle-node-agent-r29z4                 <span class="m">1</span>/1       Running            <span class="m">0</span>          4h
+ingress-nginx   default-http-backend-564b9b6c5b-4k2x6   <span class="m">1</span>/1       Running            <span class="m">0</span>          4h
+ingress-nginx   nginx-ingress-controller-jlcbt          <span class="m">0</span>/1       CrashLoopBackOff   <span class="m">60</span>         4h
+kube-system     canal-2k7qn                             <span class="m">3</span>/3       Running            <span class="m">0</span>          4h
+kube-system     kube-dns-5ccb66df65-d8qrb               <span class="m">3</span>/3       Running            <span class="m">0</span>          4h
+kube-system     kube-dns-autoscaler-6c4b786f5-xj7nj     <span class="m">1</span>/1       Running            <span class="m">0</span>          4h
+&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<p>A: 这个谁知道的？求留言。</p>
+
+<h3 id="node出现-disk-pressure">node出现<code>Disk Pressure</code></h3>
+
+<p>Q: 出现<code>Disk Pressure</code>, 是什么问题？</p>
+
+<p>A: 硬盘空间不够。最少要有20G或者总硬盘空间的20%。</p>
+
+<p>我有一次就是在硬盘空间这里卡住了，导致没有继续往下安装。</p>
+
+<h3 id="安装时可以使用加速器么">安装时可以使用加速器么？</h3>
+
+<p>Q: 安装时可以使用加速器么？</p>
+
+<p>A: 可以使用，且建议使用。</p>
+
+<p>具体如何使用，可以参考 <a href="https://yq.aliyun.com/articles/29941">https://yq.aliyun.com/articles/29941</a></p>
+
+<h3 id="删除rancher">删除rancher</h3>
+
+<p>Q: 如何删除rancher?</p>
+
+<p>A: 其实就是删除所有相关容器，那么直接参考<a href="https://gist.github.com/superseb/2cf186726807a012af59a027cb41270d">高人的sh</a>就行了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">root@uda:~# cat clean-up.sh
+<span class="cp">#!/bin/sh
+</span><span class="cp"></span>docker rm -f <span class="k">$(</span>docker ps -qa<span class="k">)</span>
+docker volume rm <span class="k">$(</span>docker volume ls -q<span class="k">)</span>
+<span class="nv">cleanupdirs</span><span class="o">=</span><span class="s2">&#34;/var/lib/etcd /etc/kubernetes /etc/cni /opt/cni /var/lib/cni /var/run/calico&#34;</span>
+<span class="k">for</span> dir in <span class="nv">$cleanupdirs</span><span class="p">;</span> <span class="k">do</span>
+  <span class="nb">echo</span> <span class="s2">&#34;Removing </span><span class="nv">$dir</span><span class="s2">&#34;</span>
+  rm -rf <span class="nv">$dir</span>
+<span class="k">done</span>
+root@uda:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>运行上面这个<code>clean-up.sh</code></p>
+
+<p>如果要连rancher的持久化数据也删除，则把当时创建的持久化数据文件 <code>/host/rancher/</code>也删除吧。</p>
+
+<h2 id="ref">Ref</h2>
+
+<ul>
+<li><a href="https://github.com/rancher/rancher/issues/13484">https://github.com/rancher/rancher/issues/13484</a></li>
+<li><a href="https://gist.github.com/superseb/2cf186726807a012af59a027cb41270d">https://gist.github.com/superseb/2cf186726807a012af59a027cb41270d</a></li>
+<li><a href="https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/">https://rancher.com/docs/rancher/v2.x/en/quick-start-guide/</a></li>
+<li><a href="https://rancher.com/docs/rancher/v2.x/en/installation/single-node-install/">https://rancher.com/docs/rancher/v2.x/en/installation/single-node-install/</a></li>
+<li><a href="https://yq.aliyun.com/articles/29941">https://yq.aliyun.com/articles/29941</a></li>
+<li><a href="https://www.cnblogs.com/xzkzzz/p/9106218.html">https://www.cnblogs.com/xzkzzz/p/9106218.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-06-17</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/rancher/">rancher</a>
+          <a href="https://b.qqbb.app/tags/kubernetes/">kubernetes</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/docker-pull-with-proxy/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Docker Pull With Proxy</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/markdown-comments/">
+            <span class="next-text nav-default">Markdown Comments</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

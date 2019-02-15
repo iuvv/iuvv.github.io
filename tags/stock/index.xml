@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Stock on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/stock/</link>
+    <description>Recent content in Stock on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 09 Mar 2018 11:22:53 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/stock/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Stock Iwencai Crawler</title>
+      <link>https://b.qqbb.app/post/stock-iwencai-crawler/</link>
+      <pubDate>Fri, 09 Mar 2018 11:22:53 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/stock-iwencai-crawler/</guid>
+      <description>iwencai爬虫 以下这几个, 记得回来, 找时间 coding github https://github.com/GraySilver/wencai-master https://github.com/zhangzheng88/iwencai_spider https://github.com/wuxiaoxiaoshen/WenCai https://github.com/HiddenStrawberry/iWencai 自写 base headless-chrome-crawler 这个部分的示例代码,请看 仓库 crawler, 这个是失败的, 不用再试了</description>
+    </item>
+    
+    <item>
+      <title>Stock Iwencai</title>
+      <link>https://b.qqbb.app/post/stock-iwencai/</link>
+      <pubDate>Thu, 08 Mar 2018 16:43:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/stock-iwencai/</guid>
+      <description>搜索股票 env 搜索 &amp;ldquo;昨日涨停,今天涨幅&amp;gt;5%&amp;ldquo;的股票 https://www.iwencai.com/stockpi</description>
+    </item>
+    
+    <item>
+      <title>Stock Trade Discipline</title>
+      <link>https://b.qqbb.app/post/stock-trade-discipline/</link>
+      <pubDate>Wed, 07 Feb 2018 10:15:52 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/stock-trade-discipline/</guid>
+      <description>不接飞刀 不买下跌股票 严格止损 盘前必读 敬畏市场. 坚持被动交易, 定式交易,永远把保住本金放在第一位 计划交易. 每天写复盘日记,静态阅读市场.每个买</description>
+    </item>
+    
+  </channel>
+</rss>

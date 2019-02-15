@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Resource on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/resource/</link>
+    <description>Recent content in Resource on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sun, 04 Feb 2018 21:59:07 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/resource/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Resource</title>
+      <link>https://b.qqbb.app/post/resource/resource/</link>
+      <pubDate>Sun, 04 Feb 2018 21:59:07 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/resource/resource/</guid>
+      <description>综合 21运维 程序员在线工具, 这个比较叼了, 好多有用的工具 RedHat Developers 发现用MkDocs来写教程也还挺爽的,还真心不错,示例有TDD开发容器化的Pyt</description>
+    </item>
+    
+  </channel>
+</rss>

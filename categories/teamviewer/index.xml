@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Teamviewer on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/teamviewer/</link>
+    <description>Recent content in Teamviewer on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 21 Jun 2018 16:48:05 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/teamviewer/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Teamviewer Install Base Ubuntu</title>
+      <link>https://b.qqbb.app/post/teamviewer-install-base-ubuntu/</link>
+      <pubDate>Thu, 21 Jun 2018 16:48:05 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/teamviewer-install-base-ubuntu/</guid>
+      <description>Ubuntu16.04 安装 Teamviewer 有时需要远程控制ubuntu系统的电脑，Teamviewer在linux下也可以进行安装，而且Teamviewer远程控制的流畅性一</description>
+    </item>
+    
+  </channel>
+</rss>

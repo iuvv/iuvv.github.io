@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/blog/</link>
+    <description>Recent content in Blog on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 09 Nov 2018 23:32:18 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用Org写Blog</title>
+      <link>https://b.qqbb.app/post/org-blog-why/</link>
+      <pubDate>Fri, 09 Nov 2018 23:32:18 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/org-blog-why/</guid>
+      <description> Env    Step why  http://ju.outofmemory.cn/entry/204743  Ref  http://ju.outofmemory.cn/entry/204743  </description>
+    </item>
+    
+    <item>
+      <title>Blog Change Cname</title>
+      <link>https://b.qqbb.app/post/blog/blog-change-cname/</link>
+      <pubDate>Sun, 07 Oct 2018 18:59:16 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blog/blog-change-cname/</guid>
+      <description>如果你想把网站的域名从A转成B,则你需要像下面这样做。 Env A: blog.finsoft.info B: b.qqbb.app Step CNAME 1 grep &amp;#34;blog.finsoft.info&amp;#34; -rl ./CNAME | xargs sed -i &amp;#34;s/blog.finsoft.info/b.qqbb.app/g&amp;#34; content 在 ./themes/beautifulhugo/layouts/partials/head_custom.html 中修改百度统计的代码。 baidu-tongji 在 ./themes/beautifulhugo/layouts/partials/head_custom.html 中修改百度统计的代</description>
+    </item>
+    
+    <item>
+      <title>Blog Dashen</title>
+      <link>https://b.qqbb.app/post/blog/blog-dashen/</link>
+      <pubDate>Wed, 01 Aug 2018 00:03:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blog/blog-dashen/</guid>
+      <description>一些优秀的大神博客地址 其中一些博客中，会有 友情链接 之类的，这里面往往就是一些超级有用的博客地址哟。 https://wuze.me/ 阮一峰 廖雪峰 是否开源 https://www.shanesveller.com https://mritd.me http://huangxuan.me 伪架构师 开源 源</description>
+    </item>
+    
+    <item>
+      <title>Comment With Livere City</title>
+      <link>https://b.qqbb.app/post/blog/comment-with-livere-city/</link>
+      <pubDate>Sat, 16 Jun 2018 22:18:01 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blog/comment-with-livere-city/</guid>
+      <description>使用来必力City版评论系统 Env site: https://blog.finsoft.info Step 打开https://livere.com/, 点右上角小人，登陆（变成了韩文，注册邮件也是韩文的，但是不影</description>
+    </item>
+    
+    <item>
+      <title>Blog Tom Hugo Init</title>
+      <link>https://b.qqbb.app/blog/blog-tom-hugo-init/</link>
+      <pubDate>Tue, 12 Jun 2018 00:19:44 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-tom-hugo-init/</guid>
+      <description>在新机器上初始化tomtsang-rootsongjc-hugo项目 Env os: macOS hugo: Step git clone git clone idrsa 因为这里的public涉及多个仓库，所以，这里我就拉</description>
+    </item>
+    
+    <item>
+      <title>Diff Rootsongjc</title>
+      <link>https://b.qqbb.app/blog/diff-rootsongjc/</link>
+      <pubDate>Wed, 04 Apr 2018 16:50:26 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/diff-rootsongjc/</guid>
+      <description>每一次,可以直接把rootsongjc博客中的themes/beautifulhugo直接拷贝过来, 然后修改下面的位置即可. 页脚 注释掉二维码</description>
+    </item>
+    
+    <item>
+      <title>Blog Hexo</title>
+      <link>https://b.qqbb.app/blog/blog-hexo/</link>
+      <pubDate>Fri, 02 Mar 2018 15:28:27 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-hexo/</guid>
+      <description>hexo创建个人博客 hexo + bitbucket 创建个人博客 此项目内容, 已合并至 hugo + bitbucket 中, 具体见工程 bitbucket 1 2 3 ➜ tomtsang git:(master) ✗ git remote -v originbit git@bitbucket.org:tomtsang/blogs.git (fetch) originbit git@bitbucket.org:tomtsang/blogs.git (push) hexo + github 创建个人博客(已废弃)</description>
+    </item>
+    
+    <item>
+      <title>blog date</title>
+      <link>https://b.qqbb.app/post/blog/blog-date/</link>
+      <pubDate>Wed, 31 Jan 2018 12:26:38 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blog/blog-date/</guid>
+      <description>blog 中 设置的 date 的内容要规范, 比如, 我写 2018-01-31T23:26:38+08:00 就错了, 写 2018-01-31T12:26:38+08:00 就对了&amp;hellip;具体是为什么呢? 自己思考吧&amp;hellip;</description>
+    </item>
+    
+    <item>
+      <title>tom&#39;s blog</title>
+      <link>https://b.qqbb.app/blog/blog-tom/</link>
+      <pubDate>Wed, 31 Jan 2018 12:26:38 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/blog/blog-tom/</guid>
+      <description>我们的网站会用到以下组件 内容管理 Hugo：用于静态html生成和进行内容管理 源码托管 GitHub：用于存储网站代码同时托管网站 gitee：用</description>
+    </item>
+    
+  </channel>
+</rss>

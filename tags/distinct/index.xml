@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distinct on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/distinct/</link>
+    <description>Recent content in Distinct on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 02 Mar 2018 11:51:48 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/distinct/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mongodb Distinct</title>
+      <link>https://b.qqbb.app/post/mongodb-distinct/</link>
+      <pubDate>Fri, 02 Mar 2018 11:51:48 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mongodb-distinct/</guid>
+      <description>mongodb系列之distinct reference https://docs.mongodb.com/manual/reference/method/db.collection.distinct/ http://www.jb51.net/article/65929.htm destinct MongoDB的destinct命令是获取特定字段中不同值列表。该命令适用于普通字段，数组字段和</description>
+    </item>
+    
+  </channel>
+</rss>

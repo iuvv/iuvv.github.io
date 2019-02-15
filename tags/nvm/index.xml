@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nvm on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/nvm/</link>
+    <description>Recent content in Nvm on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 13 Feb 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/nvm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>nodejs 一定要通过 nvm安装</title>
+      <link>https://b.qqbb.app/post/nodejs-install/</link>
+      <pubDate>Wed, 13 Feb 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/nodejs-install/</guid>
+      <description>使用 nvm 管理不同版本的 node 与 npm step 补充说明：Mac 下通过 brew install nvm 所安装的 nvm ，由于安装路径不同，无法正确启用。建议使用 brew uninstall nvm 卸载掉之后，通过本文的方案</description>
+    </item>
+    
+  </channel>
+</rss>

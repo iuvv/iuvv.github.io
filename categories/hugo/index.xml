@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/hugo/</link>
+    <description>Recent content in Hugo on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Thu, 04 Oct 2018 11:23:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>使用hugo的jane主题时，categories 书写不规范</title>
+      <link>https://b.qqbb.app/post/hugo-jane-transmitter-from-beautifulhugo/</link>
+      <pubDate>Thu, 04 Oct 2018 11:23:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hugo-jane-transmitter-from-beautifulhugo/</guid>
+      <description>&lt;p&gt;&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>hugo-server-faq</title>
+      <link>https://b.qqbb.app/post/hugo-server-faq/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hugo-server-faq/</guid>
+      <description>Error building site: EOF 1 2 3 4 5 ➜ tomtsang-rootsongjc-hugo git:(master) ✗ hugo server Building sites … ERROR 2018/11/17 15:50:31 EOF for org/aaaa.org Total in 108 ms Error: Error building site: EOF ➜ tomtsang-rootsongjc-hugo git:(master) ✗ 其实这个时候，查看一下 org/aaaa.org文件，没有内容，所以</description>
+    </item>
+    
+    <item>
+      <title>jane主题中安装百度统计</title>
+      <link>https://b.qqbb.app/post/hugo-jane-add-baidu-tongji/</link>
+      <pubDate>Tue, 09 Oct 2018 10:10:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hugo-jane-add-baidu-tongji/</guid>
+      <description>获取百度统计代码 登陆百度统计/管理/自有网站/获取代码, 得到形如 1 2 3 4 5 6 7 8 9 &amp;lt;script&amp;gt; var _hmt = _hmt || []; (function() { var hm = document.createElement(&amp;#34;script&amp;#34;); hm.src = &amp;#34;https://hm.baidu.com/hm.js?9dd8aaaaaaaaaaa7a8bde80b13fe8eaf&amp;#34;; var s = document.getElementsByTagName(&amp;#34;script&amp;#34;)[0]; s.parentNode.insertBefore(hm, s); })(); &amp;lt;/script&amp;gt; 我们要的就</description>
+    </item>
+    
+    <item>
+      <title>Hugo Install Base Win10</title>
+      <link>https://b.qqbb.app/post/hugo-install-base-win10/</link>
+      <pubDate>Wed, 11 Jul 2018 10:34:04 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hugo-install-base-win10/</guid>
+      <description>win10中安装hugo Env os: win10 sh: bash Step Chocolatey (Windows) If you are on a Windows machine and use Chocolatey for package management, you can install Hugo with the following one-liner: 1 choco install hugo -confirm 安装之后，很重要的一步，是重启 git shell或者是</description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://b.qqbb.app/post/blog/hugo/</link>
+      <pubDate>Thu, 14 Jun 2018 17:28:56 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/blog/hugo/</guid>
+      <description>大神 一位大神的线上deploy shell 1 2 3 4 5 [rooteblog hugo]# cat publish_hugo.sh #!/bin/bash # hugo server --theme=beautifulhugo --bind 0.0.0.0 --baseURL https://w.yangcs.net -p 443 -D -d public hugo --theme=beautifulhugo --baseURL https://www.yangcs.net -D -d public [rooteblog hugo]#</description>
+    </item>
+    
+    <item>
+      <title>Hugo Gitment</title>
+      <link>https://b.qqbb.app/post/hugo-gitment/</link>
+      <pubDate>Wed, 04 Apr 2018 16:44:09 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/hugo-gitment/</guid>
+      <description>Hugo 集成 Gitment 评论插件 ref Hugo 集成 Gitment 评论插件</description>
+    </item>
+    
+  </channel>
+</rss>

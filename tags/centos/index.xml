@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Centos on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/centos/</link>
+    <description>Recent content in Centos on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 30 Nov 2018 09:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/centos/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>centos更新内核</title>
+      <link>https://b.qqbb.app/post/centos-update-kernel/</link>
+      <pubDate>Fri, 30 Nov 2018 09:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos-update-kernel/</guid>
+      <description>https://linux.cn/article-8310-1.html</description>
+    </item>
+    
+    <item>
+      <title>Update Kernel Base Centos</title>
+      <link>https://b.qqbb.app/post/update-kernel-base-centos/</link>
+      <pubDate>Fri, 22 Jun 2018 11:34:39 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/update-kernel-base-centos/</guid>
+      <description>如何在 CentOS 7 中安装或升级最新的内核 请直接看 https://linux.cn/article-8310-1.html 下文只是记录 Env os: centos7 Step 虽然有些人使用 Linux 来表示整个操作系统，但要注意的是，严格地来说，Linux 只是个</description>
+    </item>
+    
+    <item>
+      <title>Mount Ntfs Base Centos</title>
+      <link>https://b.qqbb.app/post/mount-ntfs-base-centos/</link>
+      <pubDate>Wed, 06 Jun 2018 16:57:02 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mount-ntfs-base-centos/</guid>
+      <description>centos挂载ntfs硬盘 Env os: centos6.9 当前状态 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49</description>
+    </item>
+    
+    <item>
+      <title>Python Upgrade Version Base on Centos</title>
+      <link>https://b.qqbb.app/post/python-upgrade-version-base-on-centos/</link>
+      <pubDate>Mon, 04 Jun 2018 10:06:58 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/python-upgrade-version-base-on-centos/</guid>
+      <description>概要 CentOS 6.9中预安装了Python-2.6.6，其比较新的Python-2.7.9(CentOS 7预装版本)主要区别在于新版本的Python</description>
+    </item>
+    
+    <item>
+      <title>Ftp Cannot Chrome File Access</title>
+      <link>https://b.qqbb.app/post/ftp-cannot-chrome-file-access/</link>
+      <pubDate>Tue, 29 May 2018 15:11:41 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/ftp-cannot-chrome-file-access/</guid>
+      <description>为何客户端软件可以而浏览器则不能连接FTP服务器 env centos6.9 ftp: vsftpd step 这里主要的点就是理解主动模式与被动模式。 主动模式对服务器端有利，被动模式对客户端有</description>
+    </item>
+    
+    <item>
+      <title>Centos6 Install Ftp</title>
+      <link>https://b.qqbb.app/post/centos6-install-ftp/</link>
+      <pubDate>Tue, 29 May 2018 10:39:09 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos6-install-ftp/</guid>
+      <description>CentOS6上ftp服务器搭建实战 env centos6.9 IP: 10.88.88.22 IP: 172.16.55.6 step 1.安装程序包 1 2 [root@node1 ~]$ yum install -y vsftpd [root@node1 ~]$ yum install -y lftp # 安装测试软件 2.启动vsftpd服务 1 2 3 4 5</description>
+    </item>
+    
+    <item>
+      <title>Centos Iptable Open Port 21</title>
+      <link>https://b.qqbb.app/post/centos-iptable-open-port-21/</link>
+      <pubDate>Tue, 29 May 2018 10:30:36 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos-iptable-open-port-21/</guid>
+      <description>centos6.9开放ftp(vsftpd)的21端口 env centos6.9 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41</description>
+    </item>
+    
+    <item>
+      <title>Centos Release</title>
+      <link>https://b.qqbb.app/post/centos-release/</link>
+      <pubDate>Tue, 29 May 2018 10:11:05 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos-release/</guid>
+      <description>前言 记下CentOS 7查看系统版本及查看机器位数x86-64的方法，由于不经常使用Linux，每当使用的时候就是安装软件，安装软件的时候就要</description>
+    </item>
+    
+    <item>
+      <title>Gcc Rpm Install Offline</title>
+      <link>https://b.qqbb.app/post/gcc-rpm-install-offline/</link>
+      <pubDate>Fri, 02 Mar 2018 17:29:20 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/gcc-rpm-install-offline/</guid>
+      <description>gcc rpm 安装包下载 安装gcc, 下载 1 2 3 4 5 6 7 8 9 10 [root@localhost jlch]# rpm -ivh gcc-4.8.5-16.el7_4.1.x86_64.rpm warning: gcc-4.8.5-16.el7_4.1.x86_64.rpm: Header V3 RSA/SHA256 Signature, key ID f4a80eb5: NOKEY error: Failed dependencies: cpp = 4.8.5-16.el7_4.1 is needed by gcc-4.8.5-16.el7_4.1.x86_64 glibc-devel &amp;gt;= 2.2.90-12 is needed by gcc-4.8.5-16.el7_4.1.x86_64 libgcc &amp;gt;= 4.8.5-16.el7_4.1 is needed by gcc-4.8.5-16.el7_4.1.x86_64 libgomp = 4.8.5-16.el7_4.1 is needed by</description>
+    </item>
+    
+    <item>
+      <title>Mariadb Install Base Centos</title>
+      <link>https://b.qqbb.app/post/mariadb-install-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 11:55:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/mariadb-install-base-centos/</guid>
+      <description>mysql-0mysql系列之mariadb-install ref http://blog.csdn.net/renfufei/article/details/17616549 过程 说明: 首先必须能链接外网. 如果不能直接访问,那也可以设置代理,请参考: 在</description>
+    </item>
+    
+    <item>
+      <title>Centos Yum</title>
+      <link>https://b.qqbb.app/post/centos-yum/</link>
+      <pubDate>Fri, 02 Mar 2018 11:46:46 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/centos-yum/</guid>
+      <description>centos系列之yum yum安装的软件在哪? linux下如何查看某个软件 是否安装？安装路径在哪? linux下如何查看某个软件 是否安装？安装</description>
+    </item>
+    
+    <item>
+      <title>Docker Install Base Centos</title>
+      <link>https://b.qqbb.app/post/docker-install-base-centos/</link>
+      <pubDate>Fri, 02 Mar 2018 10:28:57 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/docker-install-base-centos/</guid>
+      <description>practice 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50 51 52 53 54 55 56 [tom@mysql1 ~]$ sudo tee /etc/yum.repos.d/docker.repo &amp;lt;&amp;lt;-&amp;#39;EOF&amp;#39; &amp;gt; [dockerrepo] &amp;gt; name=Docker Repository &amp;gt; baseurl=https://yum.dockerproject.org/repo/main/centos/7/</description>
+    </item>
+    
+  </channel>
+</rss>

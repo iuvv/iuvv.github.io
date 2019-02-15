@@ -1,0 +1,906 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Centos6 Install Ftp - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="CentOS6上ftp服务器搭建实战 env centos6.9 IP: 10.88.88.22 IP: 172.16.55.6 step 1.安装程序包 1 2 [root@node1 ~]$ yum install -y vsftpd [root@node1 ~]$ yum install -y lftp # 安装测试软件 2.启动vsftpd服务 1 2 3 4 5" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/centos6-install-ftp/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="Centos6 Install Ftp" />
+<meta property="og:description" content="CentOS6上ftp服务器搭建实战 env centos6.9 IP: 10.88.88.22 IP: 172.16.55.6 step 1.安装程序包 1 2 [root@node1 ~]$ yum install -y vsftpd [root@node1 ~]$ yum install -y lftp # 安装测试软件 2.启动vsftpd服务 1 2 3 4 5" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/centos6-install-ftp/" />
+
+
+
+<meta property="article:published_time" content="2018-05-29T10:39:09&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-05-29T10:39:09&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Centos6 Install Ftp">
+<meta itemprop="description" content="CentOS6上ftp服务器搭建实战 env centos6.9 IP: 10.88.88.22 IP: 172.16.55.6 step 1.安装程序包 1 2 [root@node1 ~]$ yum install -y vsftpd [root@node1 ~]$ yum install -y lftp # 安装测试软件 2.启动vsftpd服务 1 2 3 4 5">
+
+
+<meta itemprop="datePublished" content="2018-05-29T10:39:09&#43;08:00" />
+<meta itemprop="dateModified" content="2018-05-29T10:39:09&#43;08:00" />
+<meta itemprop="wordCount" content="1030">
+
+
+
+<meta itemprop="keywords" content="centos,install,ftp," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Centos6 Install Ftp"/>
+<meta name="twitter:description" content="CentOS6上ftp服务器搭建实战 env centos6.9 IP: 10.88.88.22 IP: 172.16.55.6 step 1.安装程序包 1 2 [root@node1 ~]$ yum install -y vsftpd [root@node1 ~]$ yum install -y lftp # 安装测试软件 2.启动vsftpd服务 1 2 3 4 5"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Centos6 Install Ftp</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-05-29" class="post-time">
+          2018-05-29
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/centos/"> centos </a>
+            
+          </div>
+        <span class="more-meta"> 约 1030 字 </span>
+          <span class="more-meta"> 预计阅读 3 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#env">env</a></li>
+<li><a href="#step">step</a>
+<ul>
+<li><a href="#1-安装程序包">1.安装程序包</a></li>
+<li><a href="#2-启动vsftpd服务">2.启动vsftpd服务</a></li>
+<li><a href="#3-访问vsftpd服务器">3.访问vsftpd服务器</a></li>
+<li><a href="#4-创建本地用户admin">4.创建本地用户admin</a></li>
+<li><a href="#5-修改配置文件vsftpf-conf">5.修改配置文件vsftpf.conf</a></li>
+<li><a href="#6-添加白名单">6.添加白名单</a></li>
+<li><a href="#测试登录用户">测试登录用户</a></li>
+<li><a href="#vstfpd服务常见文件目录">vstfpd服务常见文件目录</a></li>
+</ul></li>
+<li><a href="#ref">Ref</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>CentOS6上ftp服务器搭建实战</p>
+
+<h2 id="env">env</h2>
+
+<ul>
+<li>centos6.9</li>
+<li>IP: 10.88.88.22</li>
+<li>IP: 172.16.55.6</li>
+</ul>
+
+<h2 id="step">step</h2>
+
+<h3 id="1-安装程序包">1.安装程序包</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@node1 ~<span class="o">]</span>$ yum install -y vsftpd
+<span class="o">[</span>root@node1 ~<span class="o">]</span>$ yum install -y lftp                   # 安装测试软件</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="2-启动vsftpd服务">2.启动vsftpd服务</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@node1 ~<span class="o">]</span>$ setenforce <span class="m">0</span>　　　　　　　　　　　　　　　　　　　　　　　<span class="c1">#关闭selinux
+</span><span class="c1"></span>setenforce: SELinux is disabled　　　　　　　　　　　　　　　　　　　　　
+<span class="o">[</span>root@node1 ~<span class="o">]</span>$ service iptables stop　　　　　　　　　　　　　　　　　　<span class="c1">#关闭防火墙　　
+</span><span class="c1"></span><span class="o">[</span>root@node1 ~<span class="o">]</span>$ service vsftpd start　　　　　　　　　　　　　　　　　　<span class="c1"># 启动服务
+</span><span class="c1"></span>为 vsftpd 启动 vsftpd：                                    <span class="o">[</span>确定<span class="o">]</span>
+<span class="o">[</span>root@node1 ~<span class="o">]</span>$ service vsftpd status
+vsftpd <span class="o">(</span>pid <span class="m">6473</span><span class="o">)</span> 正在运行...
+<span class="o">[</span>root@node1 ~<span class="o">]</span>$ ss -tnl <span class="p">|</span> grep <span class="m">21</span>　　　　　　　　　　　　　　　　　　　　<span class="c1">#默认监听21号端口 
+</span><span class="c1"></span>LISTEN     <span class="m">0</span>      <span class="m">32</span>                        *:21                       *:*
+<span class="o">[</span>root@bitspace ~<span class="o">]</span><span class="c1"># service vsftpd start
+</span><span class="c1"></span>Starting vsftpd <span class="k">for</span> vsftpd:                                <span class="o">[</span>  OK  <span class="o">]</span>
+<span class="o">[</span>root@bitspace ~<span class="o">]</span><span class="c1"># netstat -anltp | grep 21
+</span><span class="c1"></span>tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">0</span>.0.0.0:21                  <span class="m">0</span>.0.0.0:*                   LISTEN      <span class="m">4411</span>/vsftpd         
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">10</span>.88.88.22:60614           <span class="m">183</span>.61.241.214:80           TIME_WAIT   -                   
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">10</span>.88.88.22:40278           <span class="m">121</span>.9.244.94:80             TIME_WAIT   -                   
+tcp        <span class="m">0</span>      <span class="m">0</span> <span class="m">10</span>.88.88.22:51054           <span class="m">121</span>.9.244.91:80             TIME_WAIT   -                   
+<span class="o">[</span>root@bitspace ~<span class="o">]</span># </code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="3-访问vsftpd服务器">3.访问vsftpd服务器</h3>
+
+<p>然后把相应端口（21）打开。让其它机器可访问。</p>
+
+<p>在本机或者其他主机，在其他主机上测试，需要先确认两台主机能进行网络通信ping，telnet</p>
+
+<p>在linux上访问测试</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1">#lftp 172.16.55.6
+</span><span class="c1"></span>lftp <span class="m">172</span>.16.55.6:~&gt; ls              
+drwxr-xr-x    <span class="m">2</span> <span class="m">0</span>        <span class="m">0</span>            <span class="m">4096</span> May <span class="m">11</span>  <span class="m">2016</span> pub
+lftp <span class="m">172</span>.16.55.6:/&gt; </code></pre></td></tr></table>
+</div>
+</div>
+<p>windows上访问测试</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">C:<span class="se">\U</span>sers<span class="se">\V</span>athe&gt;ftp <span class="m">172</span>.16.55.6       　　　　　　　　　　<span class="c1">#连接
+</span><span class="c1"></span>Connected to <span class="m">172</span>.16.55.6.　　　　　　
+<span class="o">(</span>vsFTPd <span class="m">2</span>.2.2<span class="o">)</span>
+Always in UTF8 mode.
+User <span class="o">(</span><span class="m">172</span>.16.55.6:<span class="o">(</span>none<span class="o">))</span>: ftp　　　　　　　　　　　　　　<span class="c1">#输入用户名
+</span><span class="c1"></span>Please specify the password.
+Password:　　　　　　　　　　　　　　　　　　　　　　　　　　<span class="c1">#密码为空
+</span><span class="c1"></span>Login successful.
+ftp&gt; ls　　　　　　　　　　　　　　　　　　　　　　　　　　　<span class="c1">#显示文件　
+</span><span class="c1"></span>PORT <span class="nb">command</span> successful. Consider using PASV.
+Here comes the directory listing.
+pub
+Directory send OK.
+ftp: <span class="m">8</span> bytes received in <span class="m">0</span>.00Seconds <span class="m">8000</span>.00Kbytes/sec.
+ftp&gt; <span class="nb">pwd</span>　　　　　　　　　　　　　　　　　　　　　　　　　　　<span class="c1">#显示当前目录
+</span><span class="c1"></span><span class="s2">&#34;/&#34;</span>
+ftp&gt; <span class="nb">cd</span> pub
+Directory successfully changed.</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="4-创建本地用户admin">4.创建本地用户admin</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ useradd admin
+<span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ <span class="nb">echo</span> <span class="s2">&#34;admin&#34;</span> <span class="p">|</span> passwd --stdin admin
+更改用户 admin 的密码 。
+passwd： 所有的身份验证令牌已经成功更新。</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="5-修改配置文件vsftpf-conf">5.修改配置文件vsftpf.conf</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ cp vsftp.conf<span class="o">{</span>,.bak<span class="o">}</span>　　　　　　　　　　<span class="c1">#备份操作
+</span><span class="c1"></span><span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ vim vsftpd.conf
+    <span class="nv">chroot_local_user</span><span class="o">=</span>YES                                 <span class="c1">#禁锢所有本地用户至家目录
+</span><span class="c1"></span>    <span class="nv">chroot_list_enable</span><span class="o">=</span>YES                                <span class="c1">#指定需要禁锢的本地用户
+</span><span class="c1"></span>    <span class="nv">chroot_list_file</span><span class="o">=</span>/etc/vsftpd/chroot_list          <span class="c1">#禁锢的用户文件
+</span><span class="c1"></span>
+<span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ <span class="nb">pwd</span>                       
+/etc/vsftpd
+<span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ vim chroot_list               <span class="c1">#添加admin用户
+</span><span class="c1"></span>    admin
+<span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ !ser                               <span class="c1">#重启vsftpd服务
+</span><span class="c1"></span>service vsftpd reload
+关闭 vsftpd：                                              <span class="o">[</span>确定<span class="o">]</span>
+为 vsftpd 启动 vsftpd：                                    <span class="o">[</span>确定<span class="o">]</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="6-添加白名单">6.添加白名单</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ <span class="nb">cd</span> /etc/pam.d/
+<span class="o">[</span>root@node1 pam.d<span class="o">]</span>$ vim vsftpd                             <span class="c1">#修改pam的配置文件为白名单
+</span><span class="c1"></span>    auth  required pam_listfile.so <span class="nv">item</span><span class="o">=</span>user <span class="nv">sense</span><span class="o">=</span>allow <span class="nv">file</span><span class="o">=</span>/etc/vsftpd/ftpusers <span class="nv">onerr</span><span class="o">=</span>succeed
+
+<span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ cp ftpusers<span class="o">{</span>,.bak<span class="o">}</span>                    <span class="c1">#备份
+</span><span class="c1"></span><span class="o">[</span>root@node1 vsftpd<span class="o">]</span>$ vim ftpusers                          <span class="c1">#修改白名单列表
+</span><span class="c1"></span>    <span class="c1"># Users that are not allowed to login via ftp
+</span><span class="c1"></span>    admin
+    ftp</code></pre></td></tr></table>
+</div>
+</div>
+<p>注：也可以使用vsftpd自身的配置文件/etc/vsftpd/user_list进行配置</p>
+
+<h3 id="测试登录用户">测试登录用户</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1">#ftp 172.16.55.6                # 连接
+</span><span class="c1"></span>Connected to <span class="m">172</span>.16.55.6 <span class="o">(</span><span class="m">172</span>.16.55.6<span class="o">)</span>.
+<span class="o">(</span>vsFTPd <span class="m">2</span>.2.2<span class="o">)</span>
+Name <span class="o">(</span><span class="m">172</span>.16.55.6:root<span class="o">)</span>: ftp　　　　　　　　　　　　　<span class="c1"># ftp用户登录成功
+</span><span class="c1"></span>Please specify the password.
+Password:                                         <span class="c1"># 不需要密码登录
+</span><span class="c1"></span>Login successful.
+Remote system <span class="nb">type</span> is UNIX.
+Using binary mode to transfer files.
+ftp&gt; <span class="nb">exit</span>
+Goodbye.
+
+<span class="o">[</span>root@localhost ~<span class="o">]</span><span class="c1">#ftp 172.16.55.6
+</span><span class="c1"></span>Connected to <span class="m">172</span>.16.55.6 <span class="o">(</span><span class="m">172</span>.16.55.6<span class="o">)</span>.
+<span class="o">(</span>vsFTPd <span class="m">2</span>.2.2<span class="o">)</span>
+Name <span class="o">(</span><span class="m">172</span>.16.55.6:root<span class="o">)</span>: vathe                    <span class="c1"># 其他用户（非白名单用户）登录
+</span><span class="c1"></span>Please specify the password.
+Password:
+Login incorrect. 　　　　　　　　　　　　　　　　　
+Login failed.                                     <span class="c1"># 登录失败
+</span><span class="c1"></span>ftp&gt;</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="vstfpd服务常见文件目录">vstfpd服务常见文件目录</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>root@node1 ~<span class="o">]</span>$ rpm -ql vsftpd                          <span class="c1">#查看程序包相关文件
+</span><span class="c1"></span>/etc/logrotate.d/vsftpd　　　　　　　　　　　　　　　　　　　
+/etc/pam.d/vsftpd     
+/etc/rc.d/init.d/vsftpd                                 <span class="c1">#主程序文件
+</span><span class="c1"></span>/etc/vsftpd/ftpusers                                    <span class="c1">#pam模块默认的黑名单配置文件
+</span><span class="c1"></span>/etc/vsftpd/user_list                                   <span class="c1">#黑名单或白名单配置文件
+</span><span class="c1"></span>/etc/vsftpd/vsftpd.conf                                 <span class="c1">#主配置文件
+</span><span class="c1"></span>...
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/INTERNET_SITE       <span class="c1">#示例文档 
+</span><span class="c1"></span><span class="m">2</span>.2.2/EXAMPLE/INTERNET_SITE/vsftpd.xinetd
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/INTERNET_SITE_NOINETD
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/INTERNET_SITE_NOINETD/README
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/INTERNET_SITE_NOINETD/README.configuration
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/INTERNET_SITE_NOINETD/vsftpd.conf
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/PER_IP_CONFIG/hosts.allow  
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/VIRTUAL_USERS/vsftpd.conf
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/VIRTUAL_USERS_2
+/usr/share/doc/vsftpd-2.2.2/EXAMPLE/VIRTUAL_USERS_2/README
+/usr/share/doc/vsftpd-2.2.2/FAQ
+...
+/usr/share/man/man8/vsftpd.8.gz
+/var/ftp                                                <span class="c1">#匿名用户共享资源路径
+</span><span class="c1"></span>/var/ftp/pub</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="ref">Ref</h2>
+
+<ul>
+<li><a href="https://www.cnblogs.com/vathe/p/6950325.html">https://www.cnblogs.com/vathe/p/6950325.html</a></li>
+</ul>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-05-29</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/centos/">centos</a>
+          <a href="https://b.qqbb.app/tags/install/">install</a>
+          <a href="https://b.qqbb.app/tags/ftp/">ftp</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/ftp-cannot-chrome-file-access/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Ftp Cannot Chrome File Access</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/centos-iptable-open-port-21/">
+            <span class="next-text nav-default">Centos Iptable Open Port 21</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

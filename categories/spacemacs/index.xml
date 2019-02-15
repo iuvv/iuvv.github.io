@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spacemacs on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/spacemacs/</link>
+    <description>Recent content in Spacemacs on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Sat, 19 Jan 2019 00:00:00 -0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/spacemacs/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>spacemacs(笔记)</title>
+      <link>https://b.qqbb.app/post/note-about-spacemacs/</link>
+      <pubDate>Sat, 19 Jan 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-spacemacs/</guid>
+      <description>load-themes(SPC T s) org-cycle(TAB) spacemacs打开org文件时默认没有自动折行。想要自动折行，则运行： M-x spacemacs/toggle-visual-line-navigation-on 现在发现下面这个也可以自动折行： M-x toggle-truncate-lines M-x toggle-truncate-lines-on M-x toggle-truncate-lines-off 最后，其实</description>
+    </item>
+    
+    <item>
+      <title>spacemacs key binding</title>
+      <link>https://b.qqbb.app/post/spacemacs-key-binding/</link>
+      <pubDate>Fri, 16 Nov 2018 00:20:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-key-binding/</guid>
+      <description>Table | Key | Function | 中文解释 | 其它 | |&amp;mdash;&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;-|&amp;mdash;&amp;mdash;|&amp;mdash;&amp;mdash;&amp;mdash;&amp;mdash;| | SPC t n | linum-mode | 显示行号 | | | SPC j l | goto-line | 跳转到行号 | | | C-c &amp;gt; | python-indent-region | 代码块右移 | python leyer | | C-c &amp;lt; | python-indent-region | 代码块左移 | python</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 0, Intro</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-0-notes/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-0-notes/</guid>
+      <description>本spacemacs rocks day系列是针对子龙山人的 spacemacs rocks season 1 的 11个优酷视频教程而整理的笔记。 相应的子龙山人的本人对教程的介绍，请看：https</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 1, Features &amp; Workflow</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-1-notes/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-1-notes/</guid>
+      <description>spacemacs-rocks(1) 跳到函数定义，并返回 , g g 然后 C-o Navigation functions in current file SPC s l （已经失效，因为没有找到这个快捷键） 替换成 M-x helm-jump-in-buffer 这样，就可以把它们绑定一下。</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 3, Emacs as a C/C&#43;&#43; IDE</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-3-notes/</link>
+      <pubDate>Thu, 15 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-3-notes/</guid>
+      <description>emacs-as-c-ide(youku) 先看 github的 README.org 因为我并没有开发C/C++, 所以我这里只记录一下。 代码跳转 tag 跳转 , g d 精确 跳转 , g g 还有一个 , g a 返回到跳转前 C-o 生成 .ycm_extra_conf.py</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 4, Magit workflow</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-4-notes/</link>
+      <pubDate>Thu, 15 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-4-notes/</guid>
+      <description>如果magit状态下，不知道按键，则 SPC g s 后按 ? 号，查看。 Magit init, commit and commit messages SPC g i(magit-init) SPC u S(所有文件加入版本库) 按TAB查看文件的修改 SPC g s(magit-status) s-1 (goto unstaged section)</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 5, Find, Search and replace</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-5-notes/</link>
+      <pubDate>Thu, 15 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-5-notes/</guid>
+      <description>Evil search Use / and * to start search. Use n &amp;amp; N to search forward and backward 进入 iedit 批量修改 * e 修改的时候，按S则删除原单词，修改完成后，按ESC，2次，退出iedit模式回到Nor</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 6, Org-mode as a blogging engine</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-6-notes/</link>
+      <pubDate>Fri, 16 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-6-notes/</guid>
+      <description>youku Start to blogging any place and any time. Press F1 to launch a menu and type blog to choose. Navigation all the blog posts https://github.com/CodeFalling/blog-admin 这里的配置，主要是针对 hexo Press W to new post Enter the title of your new post 快速生成一个draft blog 下面这个在另一篇</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 7, Spacemacs buffer, file, project and layout management</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-7-notes/</link>
+      <pubDate>Sat, 17 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-7-notes/</guid>
+      <description>youku SPC f &amp;mdash;&amp;gt; file related operations 1 2 3 4 5 6 7 SPC f f --&amp;gt; helm-find-fileSPC f r --&amp;gt; open recent fileSPC f R --&amp;gt; rename fileSPC f c --&amp;gt; copy fileSPC f j --&amp;gt; jump to diredSPC f t --&amp;gt; open neo treeSPC f o --&amp;gt; open in external application 在 SPC f f的时候，可以通过 TAB 和 C-h 补</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 8, Spacemacs as a JavaScript/Node.js IDE</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-8-notes/</link>
+      <pubDate>Sat, 17 Nov 2018 11:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-8-notes/</guid>
+      <description>Autocompletion company-etags vs company-tern hippie-expand M-x hippie-expand 或者 M-/ Jump to definition SPC s l to jump to function definitions. ctags. SPC m g d/ etags-select SPC s p / SPC o s to search keywords SPC m g g if use tern.js jump to function definitions. ctags&amp;gt; SPC s l 已经失效了 etags-select etags, 基于正则表达式的补全 &amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 9, spacemacs as a life style</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-9-notes/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-9-notes/</guid>
+      <description>spacemacs as a life style 视频中的命令，还没有找到 进入不同的项目，使用layer切换： SPC l l 一般先进入 @org 查看当天的任务 只有单你，确切地需要功能时，才去写el</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 10, spacemacs tutor</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-10-notes/</link>
+      <pubDate>Wed, 21 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-10-notes/</guid>
+      <description>youku spacemacs tutor 安装 各文件夹功能 core 方便加载layer的配置 使用 proxychains4 打开 emacs 1 $ proxychains4 open /Applications/Emacs.app 这样的话，就会让emacs翻墙，这样下载melpa.org中的pack</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 11, spacemacs use daily</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-11-notes/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-11-notes/</guid>
+      <description>youku spacemacs 开启 org-pomodoro M-x org-pomodoro 或者 , C p 插入chrome tab 且有title 无title可以使用 C-c l 但是视频中的是有title的，命令 C-c G c 已经失效。 记笔记主要</description>
+    </item>
+    
+    <item>
+      <title>emacs中启动markdown preview</title>
+      <link>https://b.qqbb.app/post/emacs-markdown-preview/</link>
+      <pubDate>Tue, 20 Nov 2018 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/emacs-markdown-preview/</guid>
+      <description>zilongshanren/markdown-to-html 开启 , p 使用 grip 程序preview markdown-to-html 文件。子龙说，这里的预览效果与 github上的md文件的效果是一模一样的。 grip安装 https://github.com/joeyespo/grip 1 brew install grip Ref https://emacs-china.org/t/topic/1549/17</description>
+    </item>
+    
+    <item>
+      <title>在win10上安装spacemacs</title>
+      <link>https://b.qqbb.app/post/jwl/jinweilai-not-org/spacemacs-install-with-win10/</link>
+      <pubDate>Tue, 12 Feb 2019 00:00:00 -0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/jwl/jinweilai-not-org/spacemacs-install-with-win10/</guid>
+      <description>在win10上安装spacemacs env os: win10 emacs: 26.1 spacemacs: develop分支 step 安装 emacs 参考这里 备份 1 2 3 cd ~ mv .emacs.d .emacs.d.bak mv .emacs .emacs.bak 官网下载 spacemacs 包 1 git clone https://github.com/syl20bnr/spacemacs -b devlop ~/.emacs.d Launch Emacs Spacemacs</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Use Zilongshanren Spacemacs Private</title>
+      <link>https://b.qqbb.app/post/spacemacs-use-zilongshanren-spacemacs-private/</link>
+      <pubDate>Tue, 28 Aug 2018 23:53:02 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-use-zilongshanren-spacemacs-private/</guid>
+      <description>想直接使用，zilongshanren的 配置 Env os: mac os 10.13.3 emacs: 26.1 spacemacs： 0.200.13@26.1 prepare 在使用前，我们可以安装一些软件 1 2 3 4 5 brew install emacs brew install ispell brew install trash</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Qa 1</title>
+      <link>https://b.qqbb.app/post/spacemacs-qa-1/</link>
+      <pubDate>Sat, 25 Aug 2018 12:33:47 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-qa-1/</guid>
+      <description>Env os: mac os 10.13.3 emacs: 26.1 spacemacs： 0.200.13@26.1 Step QA Q: Description 1 Error (use-package): org-projectile :config: Symbol&amp;#39;s function definition is void: org-projectile-per-project A: 参考 https://github.com/syl20bnr/spacemacs/issues/9374 知道 I also faced this issue today after updating all packages. find ~/.emacs.d/elpa/org-projectile-20180601.242/ -name &amp;quot;*elc&amp;quot; -delete and restarting fixed it. Ref https://github.com/syl20bnr/spacemacs/issues/9374</description>
+    </item>
+    
+    <item>
+      <title>Spacemacs Rocks Day 2, Use Org-mode to Management Your Time</title>
+      <link>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-2-notes/</link>
+      <pubDate>Tue, 19 Dec 2017 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/spacemacs-rocks-season-1-day-2-notes/</guid>
+      <description>进入 agenda C-c a 进入天，再进入周，再返回至天 C-c a a 选中项目 Rtn w d 这样，就可以把它们绑定一下。那怎么绑定呢？ 子龙山人的 `org-agenda-dir` 相关配置，在`~/.spac</description>
+    </item>
+    
+  </channel>
+</rss>

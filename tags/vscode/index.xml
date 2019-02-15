@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vscode on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/vscode/</link>
+    <description>Recent content in Vscode on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 11 Jul 2018 11:21:21 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/vscode/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Vscode Change File Eol</title>
+      <link>https://b.qqbb.app/post/vscode-change-file-eol/</link>
+      <pubDate>Wed, 11 Jul 2018 11:21:21 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/vscode-change-file-eol/</guid>
+      <description>vscode 编辑器如何在用户配置文件里修改 行尾序列 Env vscode Step 文件，首选项，设置，搜索“files.eol”，然后编辑，然后就保存在用户设置或者工作区设置。</description>
+    </item>
+    
+    <item>
+      <title>Vscode Extensions</title>
+      <link>https://b.qqbb.app/post/vscode-extensions/</link>
+      <pubDate>Fri, 02 Mar 2018 11:22:22 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/vscode-extensions/</guid>
+      <description>用VS Code打造最佳Markdown编辑器</description>
+    </item>
+    
+  </channel>
+</rss>

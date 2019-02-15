@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Gitbook on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/gitbook/</link>
+    <description>Recent content in Gitbook on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 15 Feb 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/gitbook/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>gitbook（笔记）</title>
+      <link>https://b.qqbb.app/post/note-about-gitbook/</link>
+      <pubDate>Fri, 15 Feb 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-gitbook/</guid>
+      <description>入门 https://www.jianshu.com/p/fa38ef97431d https://segmentfault.com/a/1190000011440899 https://www.jianshu.com/p/b0a11b9b8725 https://www.jianshu.com/p/09a1cac0a0d0 初步 http://www.ituring.com.cn/article/127744 进阶 http://www.chengweiyang.cn/gitbook/github-pages/README.html Ref https://www.imooc.com/article/details/id/30528</description>
+    </item>
+    
+  </channel>
+</rss>

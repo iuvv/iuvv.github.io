@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Mariadb Galera Cluster Install Base Centos - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="mysql系列之集群 MariaDB Galera Cluster 部署 参考 How To Setup MariaDB Galera Cluster 10.0 On CentOS http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/ 安装 过程 MariaDB is a relational database management system (RDBMS) and MariaDB Galera Cluster is a synchronous multi-master cluster for MariaDB. It is available on Linux only, and only supports the XtraDB/InnoDB storage engines. This article explains how to setup MariaDB" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/mariadb-galera-cluster-install-base-centos/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="Mariadb Galera Cluster Install Base Centos" />
+<meta property="og:description" content="mysql系列之集群 MariaDB Galera Cluster 部署 参考 How To Setup MariaDB Galera Cluster 10.0 On CentOS http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/ 安装 过程 MariaDB is a relational database management system (RDBMS) and MariaDB Galera Cluster is a synchronous multi-master cluster for MariaDB. It is available on Linux only, and only supports the XtraDB/InnoDB storage engines. This article explains how to setup MariaDB" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/mariadb-galera-cluster-install-base-centos/" />
+
+
+
+<meta property="article:published_time" content="2018-03-02T12:43:16&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-03-02T12:43:16&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Mariadb Galera Cluster Install Base Centos">
+<meta itemprop="description" content="mysql系列之集群 MariaDB Galera Cluster 部署 参考 How To Setup MariaDB Galera Cluster 10.0 On CentOS http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/ 安装 过程 MariaDB is a relational database management system (RDBMS) and MariaDB Galera Cluster is a synchronous multi-master cluster for MariaDB. It is available on Linux only, and only supports the XtraDB/InnoDB storage engines. This article explains how to setup MariaDB">
+
+
+<meta itemprop="datePublished" content="2018-03-02T12:43:16&#43;08:00" />
+<meta itemprop="dateModified" content="2018-03-02T12:43:16&#43;08:00" />
+<meta itemprop="wordCount" content="1763">
+
+
+
+<meta itemprop="keywords" content="mariadb,galera," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mariadb Galera Cluster Install Base Centos"/>
+<meta name="twitter:description" content="mysql系列之集群 MariaDB Galera Cluster 部署 参考 How To Setup MariaDB Galera Cluster 10.0 On CentOS http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/ 安装 过程 MariaDB is a relational database management system (RDBMS) and MariaDB Galera Cluster is a synchronous multi-master cluster for MariaDB. It is available on Linux only, and only supports the XtraDB/InnoDB storage engines. This article explains how to setup MariaDB"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">Mariadb Galera Cluster Install Base Centos</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-03-02" class="post-time">
+          2018-03-02
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/mariadb/"> mariadb </a>
+            
+          </div>
+        <span class="more-meta"> 约 1763 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#参考">参考</a></li>
+<li><a href="#安装-过程">安装 过程</a>
+<ul>
+<li>
+<ul>
+<li><a href="#cluster-details">CLUSTER DETAILS</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#step-1-add-mariadb-repositories">Step 1: Add MariaDB Repositories</a></li>
+<li><a href="#step-2-set-selinux-in-permissive-mode">Step 2 – Set SELinux in permissive mode</a></li>
+<li><a href="#step-3-install-mariadb-galera-cluster-10-0-software">Step 3 – Install MariaDB Galera Cluster 10.0 software</a></li>
+<li><a href="#step-4-setup-mariadb-security">Step 4:  Setup MariaDB security</a></li>
+<li><a href="#step-5-create-mariadb-galera-cluster-users">Step 5 – Create MariaDB Galera Cluster users</a></li>
+<li><a href="#step-6-create-the-mariadb-galera-cluster-config">Step 6 – Create the MariaDB Galera Cluster config</a></li>
+<li><a href="#step-7-initialize-the-first-cluster-node">Step 7– Initialize the first cluster node</a></li>
+<li><a href="#step-8-add-the-other-cluster-nodes">Step 8– Add the other cluster nodes</a></li>
+<li><a href="#step-9-verify-replication">Step 9 – Verify replication</a></li>
+<li><a href="#ctrl-v-吧">ctrl + v 吧</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<p>mysql系列之集群 MariaDB Galera Cluster 部署</p>
+
+<h2 id="参考">参考</h2>
+
+<p><a href="http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/">How To Setup MariaDB Galera Cluster 10.0 On CentOS</a>
+<a href="http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/">http://www.unixmen.com/setup-mariadb-galera-cluster-10-0-centos/</a></p>
+
+<h2 id="安装-过程">安装 过程</h2>
+
+<p><em>MariaDB</em> is a relational database management system (RDBMS) and  <a href="https://mariadb.com/kb/en/mariadb/what-is-mariadb-galera-cluster/">MariaDB Galera Cluster</a> is a synchronous multi-master cluster for MariaDB. It is available on Linux only, and only supports the <em>XtraDB/InnoDB</em> storage engines. This article explains how to setup MariaDB Galera Cluster 10.0 with 3 nodes running on CentOS 6.5(tom注：在CentOS 7.0上也成功) x86_64 resulting in a HA (high-availability) database cluster.</p>
+
+<h4 id="cluster-details">CLUSTER DETAILS</h4>
+
+<p>We using 3 freshly deployed VMs running a minimal install of CentOS 6.5 x86_64.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Cluster node 1 has hostname db1 and IP address 1.1.1.1
+Cluster node 2 has hostname db2 and IP address 1.1.1.2
+Cluster node 3 has hostname db3 and IP address 1.1.1.3</pre></td></tr></table>
+</div>
+</div>
+<h2 id="step-1-add-mariadb-repositories">Step 1: Add MariaDB Repositories</h2>
+
+<p>Create a mariadb repository <code>/etc/yum.repos.d/mariadb.repo</code> using following content in your system.</p>
+
+<p>For CentOS 7 – 64bit:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.0/centos7-amd64
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1</pre></td></tr></table>
+</div>
+</div>
+<p>For CentOS 7 – 32bit:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[mariadb]
+name = MariaDB
+baseurl = http://yum.mariadb.org/10.0/centos7-x86
+gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+gpgcheck=1</pre></td></tr></table>
+</div>
+</div>
+<h2 id="step-2-set-selinux-in-permissive-mode">Step 2 – Set SELinux in permissive mode</h2>
+
+<p>Before starting the setup put SELinux into permissive mode on all nodes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo setenforce 0</pre></td></tr></table>
+</div>
+</div>
+<h2 id="step-3-install-mariadb-galera-cluster-10-0-software">Step 3 – Install MariaDB Galera Cluster 10.0 software</h2>
+
+<p>If you did a CentOS 6 minimal installation then make sure you install the socat package from the EPEL repository before proceeding with installing the MariaDB Galera Cluster 10.0 software.</p>
+
+<p>You can install socat package directly from EPEL with the following command (for x86_64):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo yum install http://dl.fedoraproject.org/pub/epel/6/x86_64/socat-1.7.2.3-1.el6.x86_64.rpm</pre></td></tr></table>
+</div>
+</div>
+<p>On CentOS 7 you can install socat package with following command.</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo yum install socat -y</pre></td></tr></table>
+</div>
+</div>
+<p>Install the MariaDB Galera Cluster 10.0 software by executing the following command on all nodes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo yum install MariaDB-Galera-server MariaDB-client rsync galera -y</pre></td></tr></table>
+</div>
+</div>
+<p>如果说，这一步没有安装成功，请参考之前的那一篇<a href="tomtsang.github.io/2016/11/15/mysql-1/">mysql系列之集群 MariaDB-Galera-server 安装</a></p>
+
+<h2 id="step-4-setup-mariadb-security">Step 4:  Setup MariaDB security</h2>
+
+<p>Start the mysql ( init script in MariaDB 10.0 is still called mysql)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo service mysql start</pre></td></tr></table>
+</div>
+</div>
+<p>Run the <code>mysql_secure_installation</code> script so we can improve the security. Run the following command on all nodes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo /usr/bin/mysql_secure_installation</pre></td></tr></table>
+</div>
+</div>
+<p>I choose password as ‘<code>dbpass</code>’ and accepted all defaults (so answered <code>yes</code> to all questions).</p>
+
+<h2 id="step-5-create-mariadb-galera-cluster-users">Step 5 – Create MariaDB Galera Cluster users</h2>
+
+<p>Now, we have to create some users that must be able to access the database. The ‘sst_user’ is the user which a database node will use for authenticating to another database node in the State Transfer Snapshot (SST) phase. Run the following command on all nodes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p
+mysql&gt; DELETE FROM mysql.user WHERE user=&#39;&#39;;
+mysql&gt; GRANT ALL ON *.* TO &#39;root&#39;@&#39;%&#39; IDENTIFIED BY &#39;dbpass&#39;;
+mysql&gt; GRANT USAGE ON *.* to sst_user@&#39;%&#39; IDENTIFIED BY &#39;dbpass&#39;;
+mysql&gt; GRANT ALL PRIVILEGES on *.* to sst_user@&#39;%&#39;;
+mysql&gt; FLUSH PRIVILEGES;
+mysql&gt; quit</pre></td></tr></table>
+</div>
+</div>
+<p>You are suggested to change ‘<code>%</code>’ to hostname(s) or IP addresses from which those users can access the database. Because ‘<code>%</code>’ means that the <code>root</code> or <code>sst_user</code> is allowed to access the database from any host, So less security.</p>
+
+<h2 id="step-6-create-the-mariadb-galera-cluster-config">Step 6 – Create the MariaDB Galera Cluster config</h2>
+
+<p>First stop the mysql services on all nodes:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo service mysql stop</pre></td></tr></table>
+</div>
+</div>
+<p>Next, We are going to create the MariaDB Galera Cluster configuration by the following command on all nodes (go through the IMPORTANT NOTE after the config and make required changes for db2, and db3):</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo cat &gt;&gt; /etc/my.cnf.d/server.cnf &lt;&lt; EOF
+
+[mariadb-10.0]
+binlog_format=ROW
+default-storage-engine=innodb
+innodb_autoinc_lock_mode=2
+innodb_locks_unsafe_for_binlog=1
+query_cache_size=0
+query_cache_type=0
+bind-address=0.0.0.0
+datadir=/var/lib/mysql
+innodb_log_file_size=100M
+innodb_file_per_table
+innodb_flush_log_at_trx_commit=2
+wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+wsrep_cluster_address=&#34;gcomm://1.1.1.1,1.1.1.2,1.1.1.3&#34;
+wsrep_cluster_name=&#39;galera_cluster&#39;
+wsrep_node_address=&#39;1.1.1.1&#39;
+wsrep_node_name=&#39;db1&#39;
+wsrep_sst_method=rsync
+wsrep_sst_auth=sst_user:dbpass
+EOF</pre></td></tr></table>
+</div>
+</div>
+<p><em>IMPORTANT NOTE</em>: when executing this command on db2 and db3 do not forget to adjust the <code>wsrep_node_address</code> and <code>wsrep_node_name</code> variables.</p>
+
+<p>On db2 :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">wsrep_node_address=1.1.1.2
+wsrep_node_name=&#39;db2&#39;</pre></td></tr></table>
+</div>
+</div>
+<p>On db3 :</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">wsrep_node_address=&#39;1.1.1.3&#39;
+wsrep_node_name=&#39;db3&#39;</pre></td></tr></table>
+</div>
+</div>
+<h2 id="step-7-initialize-the-first-cluster-node">Step 7– Initialize the first cluster node</h2>
+
+<p>Start MariaDB with the special ‘<code>‐‐wsrep-new-cluster</code>’ option , Do it on node <code>db1</code> only so the primary node of the cluster is initialized:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo /etc/init.d/mysql start --wsrep-new-cluster</pre></td></tr></table>
+</div>
+</div>
+<p>Check status by run the following command on node db1 only:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p -e &#34;show status like &#39;wsrep%&#39;;&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>Some important information in the output are the following lines:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">wsrep_local_state_comment | Synced &lt;-- cluster is synced
+wsrep_incoming_addresses  | 1.1.1.1:3306 &lt;-- node db1 is a provider
+wsrep_cluster_size        | 1 &lt;-- cluster consists of 1 node
+wsrep_ready               | ON &lt;-- good :)</pre></td></tr></table>
+</div>
+</div>
+<p>如果说这里报错了，请参考<a href="tomtsang.github.io/">mysql系列之集群 MariaDB-Galera-cluster 报错</a></p>
+
+<h2 id="step-8-add-the-other-cluster-nodes">Step 8– Add the other cluster nodes</h2>
+
+<p>Check and confirm nodes db2 and db3 have the correct configuration in <code>/etc/my.cnf.d/server.cnf</code> under the [<code>mariadb-10.0</code>] as described in step 6.</p>
+
+<p>With the correct configuration in place, all that is required to make db2 and db3 a member of the cluster is to start them like you would start any regular service. On db2 issue the following command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo service mysql start</pre></td></tr></table>
+</div>
+</div>
+<p>Check what has changed in the cluster status by executing the following command on db1 or db2:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p -e &#34;show status like &#39;wsrep%&#39;;&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>And you will see that node db2 is now known as the cluster size is ‘2’ and the IP address of node db2 is listed:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">| wsrep_local_state_comment | Synced                    |
+| wsrep_incoming_addre sses | 1.1.1.1:3306,1.1.1.2:3306 |
+| wsrep_cluster_size        | 2                         |
+| wsrep_connected           | ON                        |
+| wsrep_ready               | ON                        |</pre></td></tr></table>
+</div>
+</div>
+<p>Repeat the same step for node db3. On node db3 only execute the following command</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo service mysql start</pre></td></tr></table>
+</div>
+</div>
+<p>Check what has changed in the cluster status by executing the following command on for example db1:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p -e &#34;show status like &#39;wsrep%&#39;;&#34;</pre></td></tr></table>
+</div>
+</div>
+<p>And you should see that node db3 is now known as the cluster size is ‘3’ and the IP address of node db3 is listed:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">| wsrep_local_state_comment | Synced                                 |
+| wsrep_incoming_addresses  | 1.1.1.3:3306,1.1.1.1:3306,1.1.1.2:3306 |
+| wsrep_cluster_size        | 3                                      |
+| wsrep_connected           | ON                                     |
+| wsrep_ready               | ON                                     |</pre></td></tr></table>
+</div>
+</div>
+<h2 id="step-9-verify-replication">Step 9 – Verify replication</h2>
+
+<p>Now the cluster is running. Let’s test whether it is working. On db1 create a database ‘clustertest’ by run the following command:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p -e &#39;CREATE DATABASE clustertest;&#39;
+
+mysql -u root -p -e &#39;CREATE TABLE clustertest.mycluster ( id INT NOT NULL AUTO_INCREMENT, name VARCHAR(50), ipaddress VARCHAR(20), PRIMARY KEY(id));&#39;
+
+mysql -u root -p -e &#39;INSERT INTO clustertest.mycluster (name, ipaddress) VALUES (&#34;db1&#34;, &#34;1.1.1.1&#34;);&#39;</pre></td></tr></table>
+</div>
+</div>
+<p>Check if the database, table and data exists:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p -e &#39;SELECT * FROM clustertest.mycluster;&#39;
+Enter password:
++----+------+-----------+
+| id | name | ipaddress |
++----+------+-----------+
+| 2  | db1  | 1.1.1.1   |
++----+------+-----------+</pre></td></tr></table>
+</div>
+</div>
+<p>Now do the check on node db2:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p -e &#39;SELECT * FROM clustertest.mycluster;&#39;
+Enter password:
++----+------+-----------+
+| id | name | ipaddress |
++----+------+-----------+
+| 2  | db1  | 1.1.1.1   |
++----+------+-----------+</pre></td></tr></table>
+</div>
+</div>
+<p>Now do the same check on node db3:</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">mysql -u root -p -e &#39;SELECT * FROM clustertest.mycluster;&#39;
+Enter password:
++----+------+-----------+
+| id | name | ipaddress |
++----+------+-----------+
+| 2  | db1  | 1.1.1.1   |
++----+------+-----------+</pre></td></tr></table>
+</div>
+</div>
+<p>From these outputs we can confirm that everything was successfully replicated by node db1 across all other nodes.</p>
+
+<p>That’s it.</p>
+
+<p>Cheers!</p>
+
+<h2 id="ctrl-v-吧">ctrl + v 吧</h2>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span><span class="lnt">58
+</span><span class="lnt">59
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">sudo vi /etc/hosts
+    10.10.162.11    db1
+    10.10.162.12    db2
+    10.10.162.13    db3
+sudo vi /etc/yum.repos.d/mariadb.repo
+    # MariaDB 10.1 CentOS repository list - created 2016-11-15 02:38 UTC
+    # http://downloads.mariadb.org/mariadb/repositories/
+    [mariadb]
+    name = MariaDB
+    baseurl = http://yum.mariadb.org/10.0/centos7-amd64
+    gpgkey=https://yum.mariadb.org/RPM-GPG-KEY-MariaDB
+    gpgcheck=1
+sudo setenforce 0
+sudo yum install socat -y
+sudo yum install socat MariaDB-Galera-server MariaDB-client rsync galera -y
+sudo service mysql start
+sudo /usr/bin/mysql_secure_installation
+mysql -u root -p
+sudo service mysql stop
+sudo cat &gt;&gt; /etc/my.cnf.d/server.cnf &lt;&lt; EOF
+    binlog_format=ROW
+    default-storage-engine=innodb
+    innodb_autoinc_lock_mode=2
+    innodb_locks_unsafe_for_binlog=1
+    query_cache_size=0
+    query_cache_type=0
+    bind-address=0.0.0.0
+    datadir=/var/lib/mysql
+    innodb_log_file_size=100M
+    innodb_file_per_table
+    innodb_flush_log_at_trx_commit=2
+    wsrep_provider=/usr/lib64/galera/libgalera_smm.so
+    wsrep_cluster_address=&#34;gcomm://1.1.1.1,1.1.1.2,1.1.1.3&#34;
+    wsrep_cluster_name=&#39;galera_cluster&#39;
+    wsrep_node_address=&#39;1.1.1.1&#39;
+    wsrep_node_name=&#39;db1&#39;
+    wsrep_sst_method=rsync
+    wsrep_sst_auth=sst_user:dbpass
+    EOF
+# 上面这个好像会出错，算了，我们 sudo vi 吧
+sudo vi /etc/my.cnf.d/server.cnf
+sudo cp -a /etc/my.cnf.d/server.cnf .
+ls
+sudo cp -a server.cnf server.cnf.12
+sudo cp -a server.cnf server.cnf.13
+sudo vi server.cnf.12
+sudo vi server.cnf.13
+scp server.cnf.12 spa@s12:/home/spa/  # 之后在spa@s12中改一改吧。
+scp server.cnf.13 spa@s13:/home/spa/
+# 好了，现在三台机器的配置都完成啦！
+sudo /etc/init.d/mysql start --wsrep-new-cluster
+mysql -u root -p -e &#34;show status like &#39;wsrep%&#39;;&#34;
+# 好了，如果没有问题，我们把其它2台机器也启动下。 sudo service mysql start; sudo service mysql status;
+mysql -u root -p -e &#39;CREATE DATABASE clustertest;&#39;
+mysql -u root -p -e &#39;CREATE TABLE clustertest.mycluster ( id INT NOT NULL AUTO_INCREMENT, name VARCHAR(50), ipaddress VARCHAR(20), PRIMARY KEY(id));&#39;
+mysql -u root -p -e &#39;INSERT INTO clustertest.mycluster (name, ipaddress) VALUES (&#34;db1&#34;, &#34;1.1.1.1&#34;);&#39;
+mysql -u root -p -e &#39;SELECT * FROM clustertest.mycluster;&#39;
+# 到其它2台机器上也查一下吧。 mysql -u root -p -e &#39;SELECT * FROM clustertest.mycluster;&#39;
+# 如果其它机器也显示出来了，那就Cheers!</pre></td></tr></table>
+</div>
+</div>
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-03-02</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/mariadb/">mariadb</a>
+          <a href="https://b.qqbb.app/tags/galera/">galera</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/mariadb-galera-cluster-install-faq-base-centos/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">Mariadb Galera Cluster Install Faq Base Centos</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/mysql-use/">
+            <span class="next-text nav-default">Mysql Use</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

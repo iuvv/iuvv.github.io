@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Qor on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/qor/</link>
+    <description>Recent content in Qor on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 04 Jul 2018 10:53:56 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/qor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Qor Character Set Database Utf8</title>
+      <link>https://b.qqbb.app/post/qor-character-set-database-utf8/</link>
+      <pubDate>Wed, 04 Jul 2018 10:53:56 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-character-set-database-utf8/</guid>
+      <description>qor通过字符集解决输入中文报错 Env os: ubuntu16 go: 1.10.2 Step 输入中文会有 Error 1366: Incorrect string value: &#39;\xE4\xB8\xAD&#39; for column &#39;name&#39; at row 1这样的报错。 这个错误主要的原因，就是插入数据的时候，数据库不</description>
+    </item>
+    
+    <item>
+      <title>Qor Admin Test Change Sidebar</title>
+      <link>https://b.qqbb.app/post/qor-admin-test-change-sidebar/</link>
+      <pubDate>Tue, 03 Jul 2018 19:02:41 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-admin-test-change-sidebar/</guid>
+      <description>qor/admin 项目的个性化配置(sidebar) 这里使用 qor/admin 项目的 test 文件夹中的用例，启动。 Env os: ubuntu16 go: 1.10.2 Step 总共修改3个文件 dummy/admin.go dummy/models.go main.go 1 2 3 4 5 6 7 8 9 10 11 12 13 tom@tom-w10vbud16:~/golang/qor/src/qor/tom/admin/admin/tests$ git</description>
+    </item>
+    
+    <item>
+      <title>Qor Admin Test Change Title</title>
+      <link>https://b.qqbb.app/post/qor-admin-test-change-title/</link>
+      <pubDate>Tue, 03 Jul 2018 18:45:58 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-admin-test-change-title/</guid>
+      <description>qor/admin 项目的个性化配置(依赖包) 这里使用 qor/admin 项目的 test 文件夹中的用例，启动。 Env os: ubuntu16 go: 1.10.2 Step 现在我们启动项目后，会先安装依赖，再配置依赖包。 安装依赖 查看</description>
+    </item>
+    
+    <item>
+      <title>Qor Admin Test</title>
+      <link>https://b.qqbb.app/post/qor-admin-test/</link>
+      <pubDate>Tue, 03 Jul 2018 18:16:42 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-admin-test/</guid>
+      <description>qor/admin 项目的 test 文件夹中的用例 Env os: ubuntu16 go: 1.10.2 Step 安装依赖 查看 test文件夹下的文件，找出依赖包，整理一下，安装 1 2 3 4 go get github.com/qor/media go get github.com/jinzhu/gorm go get github.com/qor/admin go get github.com/qor/qor 配置mys</description>
+    </item>
+    
+    <item>
+      <title>Qor Doc Get Started</title>
+      <link>https://b.qqbb.app/post/qor-doc-get-started/</link>
+      <pubDate>Mon, 02 Jul 2018 18:54:49 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/qor-doc-get-started/</guid>
+      <description>qor step by step Qor Doc中的Get Started Env os: ubuntu16 go: 1.10.2 Step 1 2 3 4 5 6 root@tom-w10vbud16:/home/tom/test# cd /home/tom/golang/ root@tom-w10vbud16:/home/tom/golang# mkdir qor/src -p root@tom-w10vbud16:/home/tom/golang# cd qor/src/ root@tom-w10vbud16:/home/tom/golang/qor/src# git clone https://github.com/qor/qor root@tom-w10vbud16:/home/tom/golang/qor/src# ls qor/ bower.json config.go context.go errors.go gulpfile.js LICENSE.txt package.json README.md resource test test_all.sh update_all_qor_repos.sh utils yarn.lock get_started https://doc.getqor.com/get_started.html 配置 GOPATH 把 /home/tom/golang/qor 加入 GOPATH 1 2 3</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="zh-cn" itemscope itemtype="http://schema.org/WebPage">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>kubeadm-kubelet-cni - 小楼一夜听春雨</title>
+  
+
+<meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta name="MobileOptimized" content="width"/>
+<meta name="HandheldFriendly" content="true"/>
+
+
+<meta name="applicable-device" content="pc,mobile">
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+<meta name="mobile-web-app-capable" content="yes">
+
+<meta name="author" content="龙哥" />
+  <meta name="description" content="问题1 kubelet 没有初始化 cni 现场 1 2 3 4 5 6 7 8 9 10 root@km:~# cat k8.export.sh sudo cp /etc/kubernetes/admin.conf $HOME/ sudo chown $(id -u):$(id -g) $HOME/admin.conf export KUBECONFIG=$HOME/admin.conf root@km:~# export KUBECONFIG=$HOME/admin.conf root@km:~# k get nodes NAME STATUS ROLES AGE VERSION km NotReady master 18h v1.8.4 kn1 Ready &amp;lt;none&amp;gt; 29s v1.8.4 kn2 Ready &amp;lt;none&amp;gt; 29s v1.8.4 出错了。 descibe 1" />
+
+  <meta name="keywords" content="小楼一夜听春雨, devops, trader, cloud-native" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.46" />
+
+
+<link rel="canonical" href="https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/" />
+
+
+
+<link rel="icon" href="/favicon.ico" />
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/sass/jane.min.aaf3394fc81ccb6f6fe3fe458d1f5b61c39f151e44df83baaf1d7b3775a8b98d.css" integrity="sha256-qvM5T8gcy29v4/5FjR9bYcOfFR5E34O6rx17N3WouY0=" media="screen">
+
+
+
+
+
+<meta property="og:title" content="kubeadm-kubelet-cni" />
+<meta property="og:description" content="问题1 kubelet 没有初始化 cni 现场 1 2 3 4 5 6 7 8 9 10 root@km:~# cat k8.export.sh sudo cp /etc/kubernetes/admin.conf $HOME/ sudo chown $(id -u):$(id -g) $HOME/admin.conf export KUBECONFIG=$HOME/admin.conf root@km:~# export KUBECONFIG=$HOME/admin.conf root@km:~# k get nodes NAME STATUS ROLES AGE VERSION km NotReady master 18h v1.8.4 kn1 Ready &lt;none&gt; 29s v1.8.4 kn2 Ready &lt;none&gt; 29s v1.8.4 出错了。 descibe 1" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://b.qqbb.app/post/kubeadm-install-faq-kubelet-cni/" />
+
+
+
+<meta property="article:published_time" content="2018-11-25T13:34:00&#43;08:00"/>
+
+<meta property="article:modified_time" content="2018-11-25T13:59:56&#43;08:00"/>
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="kubeadm-kubelet-cni">
+<meta itemprop="description" content="问题1 kubelet 没有初始化 cni 现场 1 2 3 4 5 6 7 8 9 10 root@km:~# cat k8.export.sh sudo cp /etc/kubernetes/admin.conf $HOME/ sudo chown $(id -u):$(id -g) $HOME/admin.conf export KUBECONFIG=$HOME/admin.conf root@km:~# export KUBECONFIG=$HOME/admin.conf root@km:~# k get nodes NAME STATUS ROLES AGE VERSION km NotReady master 18h v1.8.4 kn1 Ready &lt;none&gt; 29s v1.8.4 kn2 Ready &lt;none&gt; 29s v1.8.4 出错了。 descibe 1">
+
+
+<meta itemprop="datePublished" content="2018-11-25T13:34:00&#43;08:00" />
+<meta itemprop="dateModified" content="2018-11-25T13:34:00&#43;08:00" />
+<meta itemprop="wordCount" content="1589">
+
+
+
+<meta itemprop="keywords" content="kubernetes,install,faq,cni," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="kubeadm-kubelet-cni"/>
+<meta name="twitter:description" content="问题1 kubelet 没有初始化 cni 现场 1 2 3 4 5 6 7 8 9 10 root@km:~# cat k8.export.sh sudo cp /etc/kubernetes/admin.conf $HOME/ sudo chown $(id -u):$(id -g) $HOME/admin.conf export KUBECONFIG=$HOME/admin.conf root@km:~# export KUBECONFIG=$HOME/admin.conf root@km:~# k get nodes NAME STATUS ROLES AGE VERSION km NotReady master 18h v1.8.4 kn1 Ready &lt;none&gt; 29s v1.8.4 kn2 Ready &lt;none&gt; 29s v1.8.4 出错了。 descibe 1"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">小楼一夜听春雨</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+        
+      </li><li class="mobile-menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+        
+      </li>
+    
+  </ul>
+</nav>
+
+
+  
+    
+
+
+
+
+
+
+  <link rel="stylesheet" href="/lib/photoswipe/photoswipe.min.css" />
+  <link rel="stylesheet" href="/lib/photoswipe/default-skin/default-skin.min.css" />
+
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+  
+
+  
+
+  <header id="header" class="header container">
+    <div class="logo-wrapper">
+  <a href="/" class="logo">
+    
+      小楼一夜听春雨
+    
+  </a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/">首页</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/">归档</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/tags/">标签</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/categories/">分类</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/about/">关于</a>
+          
+
+        
+
+      </li>
+    
+        <li class="menu-item">
+        
+          
+          
+            <a class="menu-item-link" href="https://b.qqbb.app/post/works/">作品</a>
+          
+
+        
+
+      </li>
+    
+    
+  </ul>
+</nav>
+
+  </header>
+
+  <div id="mobile-panel">
+    <main id="main" class="main bg-llight">
+      <div class="content-wrapper">
+        <div id="content" class="content container">
+          <article class="post bg-white">
+    
+    <header class="post-header">
+      <h1 class="post-title">kubeadm-kubelet-cni</h1>
+      
+      <div class="post-meta">
+        <time datetime="2018-11-25" class="post-time">
+          2018-11-25
+        </time>
+        <div class="post-category">
+            <a href="https://b.qqbb.app/categories/kubernetes/"> kubernetes </a>
+            
+          </div>
+        <span class="more-meta"> 约 1589 字 </span>
+          <span class="more-meta"> 预计阅读 4 分钟 </span>
+
+        
+        
+          <span id="busuanzi_container_page_pv">
+            | 阅读 <span id="busuanzi_value_page_pv"></span>
+          </span>
+        
+
+        
+        
+      </div>
+    </header>
+
+    
+    
+<div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#问题1-kubelet-没有初如化-cni">问题1 kubelet 没有初始化 cni</a>
+<ul>
+<li><a href="#现场">现场</a></li>
+<li><a href="#descibe">descibe</a></li>
+<li><a href="#找-kubeadm-哪里-与-cni-相关">找 kubeadm 哪里 与 cni 相关</a></li>
+<li><a href="#看-kubelet">看 kubelet</a></li>
+<li><a href="#加-10-flannel.conf-文件">加 10-flannel.conf 文件</a></li>
+<li><a href="#重启-kubelet">重启 kubelet</a></li>
+<li><a href="#再查-node状态">再查 node状态</a></li>
+<li><a href="#检查网络">检查网络</a></li>
+<li><a href="#game-over">game over</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+
+    
+    <div class="post-content">
+      
+
+<h2 id="问题1-kubelet-没有初如化-cni">问题1 kubelet 没有初始化 cni</h2>
+
+<h3 id="现场">现场</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~# cat k8.export.sh
+sudo cp /etc/kubernetes/admin.conf <span class="nv">$HOME</span>/
+sudo chown <span class="k">$(</span>id -u<span class="k">)</span>:<span class="k">$(</span>id -g<span class="k">)</span> <span class="nv">$HOME</span>/admin.conf
+<span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$HOME</span>/admin.conf
+root@km:~# <span class="nb">export</span> <span class="nv">KUBECONFIG</span><span class="o">=</span><span class="nv">$HOME</span>/admin.conf
+root@km:~# k get nodes
+NAME      STATUS     ROLES     AGE       VERSION
+km        NotReady   master    18h       v1.8.4
+kn1       Ready      &lt;none&gt;    29s       v1.8.4
+kn2       Ready      &lt;none&gt;    29s       v1.8.4</code></pre></td></tr></table>
+</div>
+</div>
+<p>出错了。</p>
+
+<h3 id="descibe">descibe</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span><span class="lnt">52
+</span><span class="lnt">53
+</span><span class="lnt">54
+</span><span class="lnt">55
+</span><span class="lnt">56
+</span><span class="lnt">57
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# k describe node km
+Name:               km
+Roles:              master
+Labels:             beta.kubernetes.io/arch=amd64
+                    beta.kubernetes.io/os=linux
+                    kubernetes.io/hostname=km
+                    node-role.kubernetes.io/master=
+Annotations:        node.alpha.kubernetes.io/ttl=0
+                    volumes.kubernetes.io/controller-managed-attach-detach=true
+Taints:             node-role.kubernetes.io/master:NoSchedule
+CreationTimestamp:  Tue, 21 Nov 2017 17:36:14 +0800
+Conditions:
+Type             Status  LastHeartbeatTime                 LastTransitionTime                Reason                       Message
+----             ------  -----------------                 ------------------                ------                       -------
+OutOfDisk        False   Wed, 22 Nov 2017 11:58:45 +0800   Tue, 21 Nov 2017 17:36:14 +0800   KubeletHasSufficientDisk     kubelet has sufficient disk space available
+MemoryPressure   False   Wed, 22 Nov 2017 11:58:45 +0800   Tue, 21 Nov 2017 17:36:14 +0800   KubeletHasSufficientMemory   kubelet has sufficient memory available
+DiskPressure     False   Wed, 22 Nov 2017 11:58:45 +0800   Tue, 21 Nov 2017 17:36:14 +0800   KubeletHasNoDiskPressure     kubelet has no disk pressure
+Ready            False   Wed, 22 Nov 2017 11:58:45 +0800   Tue, 21 Nov 2017 17:36:14 +0800   KubeletNotReady              runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Addresses:
+InternalIP:  192.168.31.120
+Hostname:    km
+Capacity:
+cpu:     4
+memory:  8175088Ki
+pods:    110
+Allocatable:
+cpu:     4
+memory:  8072688Ki
+pods:    110
+System Info:
+Machine ID:                 78cb13728eba6f6c819e6dea599a5db9
+System UUID:                564D7A67-BDF7-E109-61AC-DDC9929A346F
+Boot ID:                    8f8d7bb3-abb6-4d6a-b1ee-261cd1a2cc74
+Kernel Version:             4.4.0-62-generic
+OS Image:                   Ubuntu 16.04.3 LTS
+Operating System:           linux
+Architecture:               amd64
+Container Runtime Version:  docker://Unknown
+Kubelet Version:            v1.8.4
+Kube-Proxy Version:         v1.8.4
+PodCIDR:                     10.244.0.0/24
+ExternalID:                  km
+Non-terminated Pods:         (5 in total)
+Namespace                  Name                          CPU Requests  CPU Limits  Memory Requests  Memory Limits
+---------                  ----                          ------------  ----------  ---------------  -------------
+kube-system                etcd-km                       0 (0%)        0 (0%)      0 (0%)           0 (0%)
+kube-system                kube-apiserver-km             250m (6%)     0 (0%)      0 (0%)           0 (0%)
+kube-system                kube-controller-manager-km    200m (5%)     0 (0%)      0 (0%)           0 (0%)
+kube-system                kube-proxy-v24fg              0 (0%)        0 (0%)      0 (0%)           0 (0%)
+kube-system                kube-scheduler-km             100m (2%)     0 (0%)      0 (0%)           0 (0%)
+Allocated resources:
+(Total limits may be over 100 percent, i.e., overcommitted.)
+CPU Requests  CPU Limits  Memory Requests  Memory Limits
+------------  ----------  ---------------  -------------
+550m (13%)    0 (0%)      0 (0%)           0 (0%)
+Events:         &lt;none&gt;
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>重点是这一句： runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker  network plugin is not ready: cni config uninitialized</p>
+
+<p>那明显是 cni 插件 出错了。</p>
+
+<h3 id="找-kubeadm-哪里-与-cni-相关">找 kubeadm 哪里 与 cni 相关</h3>
+
+<p>看 /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+也可以知道，这个地方是 &ndash;cni-conf-dir=/etc/cni/net.d 与
+KUBELET_NETWORK_ARGS 相关</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell">root@km:~# cat /etc/systemd/system/kubelet.service.d/10-kubeadm.conf
+<span class="o">[</span>Service<span class="o">]</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_KUBECONFIG_ARGS=--bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf&#34;</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_SYSTEM_PODS_ARGS=--pod-manifest-path=/etc/kubernetes/manifests --allow-privileged=true&#34;</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_NETWORK_ARGS=--network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin-dir=/opt/cni/bin&#34;</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_DNS_ARGS=--cluster-dns=10.96.0.10 --cluster-domain=cluster.local&#34;</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_AUTHZ_ARGS=--authorization-mode=Webhook --client-ca-file=/etc/kubernetes/pki/ca.crt&#34;</span>
+<span class="c1"># Value should match Docker daemon settings.
+</span><span class="c1"># Defaults are &#34;cgroupfs&#34; for Debian/Ubuntu/OpenSUSE and &#34;systemd&#34; for Fedora/CentOS/RHEL
+</span><span class="c1"></span><span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_CGROUP_ARGS=--cgroup-driver=cgroupfs&#34;</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_CADVISOR_ARGS=--cadvisor-port=0&#34;</span>
+<span class="nv">Environment</span><span class="o">=</span><span class="s2">&#34;KUBELET_CERTIFICATE_ARGS=--rotate-certificates=true&#34;</span>
+<span class="c1">#ExecStart=
+</span><span class="c1"></span><span class="nv">ExecStart</span><span class="o">=</span>/usr/bin/kubelet <span class="nv">$KUBELET_KUBECONFIG_ARGS</span> <span class="nv">$KUBELET_SYSTEM_PODS_ARGS</span> <span class="nv">$KUBELET_NETWORK_ARGS</span> <span class="nv">$KUBELET_DNS_ARGS</span> <span class="nv">$KUBELET_AUTHZ_ARGS</span> <span class="nv">$KUBELET_CGROUP_ARGS</span> <span class="nv">$KUBELET_CADVISOR_ARGS</span> <span class="nv">$KUBELET_CERTIFICATE_ARGS</span>
+root@km:~#</code></pre></td></tr></table>
+</div>
+</div>
+<p>之前，只有 Kubelet 与 cni 相关，去找 kubelet</p>
+
+<h3 id="看-kubelet">看 kubelet</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:/opt/cni/bin# systemctl status kubelet -l
+● kubelet.service - kubelet: The Kubernetes Node Agent
+Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+Drop-In: /etc/systemd/system/kubelet.service.d
+        └─10-kubeadm.conf
+Active: active (running) since Tue 2017-11-21 17:32:53 CST; 18h ago
+    Docs: http://kubernetes.io/docs/
+Main PID: 12169 (kubelet)
+    Tasks: 18
+Memory: 53.0M
+    CPU: 37min 39.889s
+CGroup: /system.slice/kubelet.service
+        └─12169 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --pod-manifest-path=/etc/kubernetes/manifests --allow-privileged=true --network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin
+
+Nov 22 12:06:47 km kubelet[12169]: E1122 12:06:47.325019   12169 kubelet.go:2095] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Nov 22 12:06:48 km kubelet[12169]: E1122 12:06:48.015039   12169 fs.go:418] Stat fs failed. Error: no such file or directory
+Nov 22 12:06:52 km kubelet[12169]: W1122 12:06:52.326529   12169 cni.go:196] Unable to update cni config: No networks found in /etc/cni/net.d
+Nov 22 12:06:52 km kubelet[12169]: E1122 12:06:52.326863   12169 kubelet.go:2095] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Nov 22 12:06:56 km kubelet[12169]: W1122 12:06:56.240582   12169 helpers.go:847] eviction manager: no observation found for eviction signal allocatableNodeFs.available
+Nov 22 12:06:57 km kubelet[12169]: W1122 12:06:57.328311   12169 cni.go:196] Unable to update cni config: No networks found in /etc/cni/net.d
+Nov 22 12:06:57 km kubelet[12169]: E1122 12:06:57.328571   12169 kubelet.go:2095] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+Nov 22 12:07:00 km kubelet[12169]: E1122 12:07:00.897325   12169 fs.go:418] Stat fs failed. Error: no such file or directory
+Nov 22 12:07:02 km kubelet[12169]: W1122 12:07:02.329909   12169 cni.go:196] Unable to update cni config: No networks found in /etc/cni/net.d
+Nov 22 12:07:02 km kubelet[12169]: E1122 12:07:02.330121   12169 kubelet.go:2095] Container runtime network not ready: NetworkReady=false reason:NetworkPluginNotReady message:docker: network plugin is not ready: cni config uninitialized
+root@km:/opt/cni/bin#
+root@km:/opt/cni/bin# ls /etc/cni/net.d
+root@km:/opt/cni/bin#</code></pre></td></tr></table>
+</div>
+</div>
+<p>Unable to update cni config: No networks found in /etc/cni/net.d,
+说明这下面少了文件嘛。</p>
+
+<h3 id="加-10-flannel.conf-文件">加 10-flannel.conf 文件</h3>
+
+<p>那到 kn1，kn2 下看这个地方的文件是什么，copy过来试一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:/opt/cni/bin# cat &lt;&lt;EOF &gt;/etc/cni/net.d/10-flannel.conf
+{
+&#34;name&#34;: &#34;cbr0&#34;,
+&#34;type&#34;: &#34;flannel&#34;,
+&#34;delegate&#34;: {
+    &#34;isDefaultGateway&#34;: true
+}
+}
+root@km:/opt/cni/bin# cat /etc/cni/net.d/10-flannel.conf
+{
+&#34;name&#34;: &#34;cbr0&#34;,
+&#34;type&#34;: &#34;flannel&#34;,
+&#34;delegate&#34;: {
+    &#34;isDefaultGateway&#34;: true
+}
+}
+root@km:/opt/cni/bin#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="重启-kubelet">重启 kubelet</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:/opt/cni/bin# sudo systemctl restart kubelet.service
+root@km:/opt/cni/bin# sudo systemctl status kubelet.service
+● kubelet.service - kubelet: The Kubernetes Node Agent
+Loaded: loaded (/lib/systemd/system/kubelet.service; enabled; vendor preset: enabled)
+Drop-In: /etc/systemd/system/kubelet.service.d
+        └─10-kubeadm.conf
+Active: active (running) since Wed 2017-11-22 12:13:17 CST; 6s ago
+    Docs: http://kubernetes.io/docs/
+Main PID: 20922 (kubelet)
+    Tasks: 16
+Memory: 30.3M
+    CPU: 1.433s
+CGroup: /system.slice/kubelet.service
+        └─20922 /usr/bin/kubelet --bootstrap-kubeconfig=/etc/kubernetes/bootstrap-kubelet.conf --kubeconfig=/etc/kubernetes/kubelet.conf --pod-manifest-path=/etc/kubernetes/manifests --allow-privileged=true --network-plugin=cni --cni-conf-dir=/etc/cni/net.d --cni-bin
+
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.194931   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;lib-modules&#34; (UniqueName: &#34;kubernetes.io/host-path/60948ce8-cea3-11e7-b022-000c299a346f-lib-modules&#34;) pod &#34;kube-proxy
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195034   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;kube-proxy-token-x4p78&#34; (UniqueName: &#34;kubernetes.io/secret/60948ce8-cea3-11e7-b022-000c299a346f-kube-proxy-token-x4p7
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195100   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;kubeconfig&#34; (UniqueName: &#34;kubernetes.io/host-path/bfaf9b679f8fe6133395d353696bb6a8-kubeconfig&#34;) pod &#34;kube-scheduler-k
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195162   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;etcd&#34; (UniqueName: &#34;kubernetes.io/host-path/d76e26fba3bf2bfd215eb29011d55250-etcd&#34;) pod &#34;etcd-km&#34; (UID: &#34;d76e26fba3bf
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195223   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;k8s-certs&#34; (UniqueName: &#34;kubernetes.io/host-path/05a0699921507cc649967b80b3386902-k8s-certs&#34;) pod &#34;kube-apiserver-km&#34;
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195278   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;ca-certs&#34; (UniqueName: &#34;kubernetes.io/host-path/05a0699921507cc649967b80b3386902-ca-certs&#34;) pod &#34;kube-apiserver-km&#34; (
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195337   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;k8s-certs&#34; (UniqueName: &#34;kubernetes.io/host-path/f561b959c5fd24759a4bcc1002f17d77-k8s-certs&#34;) pod &#34;kube-controller-ma
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195394   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;ca-certs&#34; (UniqueName: &#34;kubernetes.io/host-path/f561b959c5fd24759a4bcc1002f17d77-ca-certs&#34;) pod &#34;kube-controller-mana
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195481   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;kubeconfig&#34; (UniqueName: &#34;kubernetes.io/host-path/f561b959c5fd24759a4bcc1002f17d77-kubeconfig&#34;) pod &#34;kube-controller-
+Nov 22 12:13:23 km kubelet[20922]: I1122 12:13:23.195556   20922 reconciler.go:212] operationExecutor.VerifyControllerAttachedVolume started for volume &#34;flexvolume-dir&#34; (UniqueName: &#34;kubernetes.io/host-path/f561b959c5fd24759a4bcc1002f17d77-flexvolume-dir&#34;) pod &#34;kube-con
+root@km:/opt/cni/bin#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="再查-node状态">再查 node状态</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:/opt/cni/bin# k get nodes
+NAME      STATUS    ROLES     AGE       VERSION
+km        Ready     master    18h       v1.8.4
+kn1       Ready     &lt;none&gt;    16m       v1.8.4
+kn2       Ready     &lt;none&gt;    16m       v1.8.4
+root@km:/opt/cni/bin#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="检查网络">检查网络</h3>
+
+<p>事后发现，flannel 与 docker无关，与 ps 无关。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:~# docker ps | grep flannel
+root@km:/opt/cni/bin# ps -ef | grep flannel
+root     22240 16316  0 12:32 pts/0    00:00:00 grep --color=auto flannel
+root@km:/opt/cni/bin#</code></pre></td></tr></table>
+</div>
+</div>
+<p>但是 ip a 可查看有这个网络</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-text" data-lang="text">root@km:/opt/cni/bin# ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+    valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+    valid_lft forever preferred_lft forever
+2: ens160: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP group default qlen 1000
+    link/ether 00:0c:29:9a:34:6f brd ff:ff:ff:ff:ff:ff
+    inet 192.168.31.120/24 brd 192.168.31.255 scope global ens160
+    valid_lft forever preferred_lft forever
+    inet6 fe80::20c:29ff:fe9a:346f/64 scope link
+    valid_lft forever preferred_lft forever
+3: docker0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default
+    link/ether 02:42:05:cf:43:c1 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.0.1/16 scope global docker0
+    valid_lft forever preferred_lft forever
+    inet6 fe80::42:5ff:fecf:43c1/64 scope link
+    valid_lft forever preferred_lft forever
+4: flannel.1: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1450 qdisc noqueue state UNKNOWN group default
+    link/ether b2:6d:04:a9:38:8d brd ff:ff:ff:ff:ff:ff
+    inet 10.244.0.0/32 scope global flannel.1
+    valid_lft forever preferred_lft forever
+    inet6 fe80::b06d:4ff:fea9:388d/64 scope link
+    valid_lft forever preferred_lft forever
+5: cni0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN group default qlen 1000
+    link/ether 0a:58:0a:f4:00:01 brd ff:ff:ff:ff:ff:ff
+    inet 10.244.0.1/24 scope global cni0
+    valid_lft forever preferred_lft forever
+    inet6 fe80::2827:4dff:fe51:9390/64 scope link
+    valid_lft forever preferred_lft forever
+root@km:/opt/cni/bin#</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="game-over">game over</h3>
+
+    </div>
+
+    
+    
+<div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">龙哥</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">2018-11-25</span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+
+
+    
+    
+
+    <footer class="post-footer">
+      <div class="post-tags">
+          <a href="https://b.qqbb.app/tags/kubernetes/">kubernetes</a>
+          <a href="https://b.qqbb.app/tags/install/">install</a>
+          <a href="https://b.qqbb.app/tags/faq/">faq</a>
+          <a href="https://b.qqbb.app/tags/cni/">cni</a>
+          
+        </div>
+
+      
+      <nav class="post-nav">
+        
+          <a class="prev" href="/post/kubeadm-clusters-upgrade-from-v173-to-v183/">
+            
+            <i class="iconfont">
+              <svg  class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M691.908486 949.511495l75.369571-89.491197c10.963703-12.998035 10.285251-32.864502-1.499144-44.378743L479.499795 515.267417 757.434875 204.940602c11.338233-12.190647 11.035334-32.285311-0.638543-44.850487l-80.46666-86.564541c-11.680017-12.583596-30.356378-12.893658-41.662889-0.716314L257.233596 494.235404c-11.332093 12.183484-11.041474 32.266891 0.657986 44.844348l80.46666 86.564541c1.772366 1.910513 3.706415 3.533476 5.750981 4.877077l306.620399 321.703933C662.505829 963.726242 680.945807 962.528973 691.908486 949.511495z"></path>
+</svg>
+
+            </i>
+            <span class="prev-text nav-default">更新kubeadm clusters 从v1.7.3至v1.8.3</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        
+          <a class="next" href="/post/analysis-openstack-swift-keystone-authentication/">
+            <span class="next-text nav-default">SWIFt 通过 keystone 认证，并实现调用swift接口</span>
+            <span class="prev-text nav-mobile">下一篇</span>
+            
+            <i class="iconfont">
+              <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="18" height="18">
+  <path d="M332.091514 74.487481l-75.369571 89.491197c-10.963703 12.998035-10.285251 32.864502 1.499144 44.378743l286.278095 300.375162L266.565125 819.058374c-11.338233 12.190647-11.035334 32.285311 0.638543 44.850487l80.46666 86.564541c11.680017 12.583596 30.356378 12.893658 41.662889 0.716314l377.434212-421.426145c11.332093-12.183484 11.041474-32.266891-0.657986-44.844348l-80.46666-86.564541c-1.772366-1.910513-3.706415-3.533476-5.750981-4.877077L373.270379 71.774697C361.493148 60.273758 343.054193 61.470003 332.091514 74.487481z"></path>
+</svg>
+
+            </i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+
+  
+  
+
+  
+  
+
+  
+  
+
+  
+
+  
+
+  
+  
+    
+
+
+
+        </div>
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+  
+  
+    <a href="mailto:273412935@qq.com" rel="me noopener" class="iconfont"
+      title="email" >
+      <svg class="icon" viewBox="0 0 1451 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="36" height="36">
+  <path d="M664.781909 681.472759 0 97.881301C0 3.997201 71.046997 0 71.046997 0L474.477909 0 961.649408 0 1361.641813 0C1361.641813 0 1432.688811 3.997201 1432.688811 97.881301L771.345323 681.472759C771.345323 681.472759 764.482731 685.154773 753.594283 688.65053L753.594283 688.664858C741.602731 693.493018 729.424896 695.068979 718.077952 694.839748 706.731093 695.068979 694.553173 693.493018 682.561621 688.664858L682.561621 688.65053C671.644501 685.140446 664.781909 681.472759 664.781909 681.472759L664.781909 681.472759ZM718.063616 811.603883C693.779541 811.016482 658.879232 802.205449 619.10784 767.734955 542.989056 701.759633 0 212.052267 0 212.052267L0 942.809523C0 942.809523 0 1024 83.726336 1024L682.532949 1024 753.579947 1024 1348.948139 1024C1432.688811 1024 1432.688811 942.809523 1432.688811 942.809523L1432.688811 212.052267C1432.688811 212.052267 893.138176 701.759633 817.019477 767.734955 777.248 802.205449 742.347691 811.03081 718.063616 811.603883L718.063616 811.603883Z"></path>
+</svg>
+
+    </a>
+
+
+<a href="https://b.qqbb.app/index.xml" rel="noopener alternate" type="application/rss&#43;xml"
+    class="iconfont" title="rss" target="_blank">
+    <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="30" height="30">
+  <path d="M819.157333 1024C819.157333 574.592 449.408 204.8 0 204.8V0c561.706667 0 1024 462.293333 1024 1024h-204.842667zM140.416 743.04a140.8 140.8 0 0 1 140.501333 140.586667A140.928 140.928 0 0 1 140.074667 1024C62.72 1024 0 961.109333 0 883.626667s62.933333-140.544 140.416-140.586667zM678.784 1024h-199.04c0-263.210667-216.533333-479.786667-479.744-479.786667V345.173333c372.352 0 678.784 306.517333 678.784 678.826667z"></path>
+</svg>
+
+  </a>
+  
+</div>
+
+<div class="copyright">
+  
+  
+  
+  
+  
+  
+  
+
+  <span class="copyright-year">
+    &copy;
+    
+      2017 -
+    2019
+    <span class="heart">
+      
+      <i class="iconfont">
+        <svg class="icon" viewBox="0 0 1025 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="14" height="14">
+  <path d="M1000.1 247.9c-15.5-37.3-37.6-70.6-65.7-98.9-54.4-54.8-125.8-85-201-85-85.7 0-166 39-221.4 107.4C456.6 103 376.3 64 290.6 64c-75.1 0-146.5 30.4-201.1 85.6-28.2 28.5-50.4 61.9-65.8 99.3-16 38.8-24 79.9-23.6 122.2 0.7 91.7 40.1 177.2 108.1 234.8 3.1 2.6 6 5.1 8.9 7.8 14.9 13.4 58 52.8 112.6 102.7 93.5 85.5 209.9 191.9 257.5 234.2 7 6.1 15.8 9.5 24.9 9.5 9.2 0 18.1-3.4 24.9-9.5 34.5-30.7 105.8-95.9 181.4-165 74.2-67.8 150.9-138 195.8-178.2 69.5-57.9 109.6-144.4 109.9-237.3 0.1-42.5-8-83.6-24-122.2z"
+   fill="#8a8a8a"></path>
+</svg>
+
+      </i>
+    </span><span class="author">
+        圆月弯刀
+        
+      </span></span>
+
+  
+  
+    <span id="busuanzi_container">
+      访客数/访问量：<span id="busuanzi_value_site_uv"></span>/<span id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont">
+        
+        <svg class="icon" viewBox="0 0 1024 1024" version="1.1"
+  xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+  width="35" height="35">
+  <path d="M510.866688 227.694839 95.449397 629.218702l235.761562 0-2.057869 328.796468 362.40389 0L691.55698 628.188232l241.942331-3.089361L510.866688 227.694839zM63.840492 63.962777l894.052392 0 0 131.813095L63.840492 195.775872 63.840492 63.962777 63.840492 63.962777zM63.840492 63.962777"></path>
+</svg>
+
+      </i>
+    </div>
+  </div>
+  
+<script type="text/javascript" src="/lib/jquery/jquery-3.2.1.min.js"></script>
+  <script type="text/javascript" src="/lib/slideout/slideout-1.0.1.min.js"></script>
+
+
+
+
+<script type="text/javascript" src="/js/main.638251f4230630f0335d8c6748e53a96f94b72670920b60c09a56fdc8bece214.js" integrity="sha256-Y4JR9CMGMPAzXYxnSOU6lvlLcmcJILYMCaVv3Ivs4hQ="></script>
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?9dd8f468d36a07a7a8bde80b13fe8eaf";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+
+
+
+
+  
+    <script type="text/javascript" src="/js/load-photoswipe.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe.min.js"></script>
+    <script type="text/javascript" src="/lib/photoswipe/photoswipe-ui-default.min.js"></script>
+  
+
+
+
+
+  <script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>

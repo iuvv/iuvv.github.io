@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Iterm2 on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/categories/iterm2/</link>
+    <description>Recent content in Iterm2 on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Wed, 13 Jun 2018 16:15:59 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/categories/iterm2/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Iterm2 Hotkey</title>
+      <link>https://b.qqbb.app/post/iterm2-hotkey/</link>
+      <pubDate>Wed, 13 Jun 2018 16:15:59 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/iterm2-hotkey/</guid>
+      <description>Env os: macOS Content 标签 1 2 3 4 5 6 7 8 9 新建标签：command + t 关闭标签：command + w 切换标签：command + 数字 command + 左右方向键 切换全屏：</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Conf on 小楼一夜听春雨</title>
+    <link>https://b.qqbb.app/tags/conf/</link>
+    <description>Recent content in Conf on 小楼一夜听春雨</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh-cn</language>
+    <managingEditor>273412935@qq.com (龙哥)</managingEditor>
+    <webMaster>273412935@qq.com (龙哥)</webMaster>
+    <copyright>圆月弯刀</copyright>
+    <lastBuildDate>Fri, 01 Feb 2019 00:00:00 +0800</lastBuildDate>
+    
+	<atom:link href="https://b.qqbb.app/tags/conf/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>saleor 设置 templates base</title>
+      <link>https://b.qqbb.app/post/saleor-conf-templates-base/</link>
+      <pubDate>Fri, 01 Feb 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/saleor-conf-templates-base/</guid>
+      <description>安装完了 saleor ，下一步，自然就是修改一些我们自己的Logo，页脚之类的东西了。 页脚COPYRIGHT 1 2 3 (saleor) ➜ saleor git:(master) ✗ grep &amp;#34;COPYRIGHT © 2009–2019 MIRUMEE SOFTWARE&amp;#34;</description>
+    </item>
+    
+  </channel>
+</rss>
