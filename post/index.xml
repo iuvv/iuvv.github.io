@@ -9,10 +9,19 @@
     <managingEditor>273412935@qq.com (龙哥)</managingEditor>
     <webMaster>273412935@qq.com (龙哥)</webMaster>
     <copyright>圆月弯刀</copyright>
-    <lastBuildDate>Fri, 15 Feb 2019 00:00:00 +0800</lastBuildDate>
+    <lastBuildDate>Sat, 16 Feb 2019 00:00:00 +0800</lastBuildDate>
     
 	<atom:link href="https://b.qqbb.app/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>health</title>
+      <link>https://b.qqbb.app/post/note-about-health/</link>
+      <pubDate>Sat, 16 Feb 2019 00:00:00 +0800</pubDate>
+      <author>273412935@qq.com (龙哥)</author>
+      <guid>https://b.qqbb.app/post/note-about-health/</guid>
+      <description>健身前 热身 充分热身，如：拉伸身体各部位。 部分运动，请找好队友。如：卧推。 心态 告诉自己：自我感觉身体不适，请停止运动。 健康是一个长期的过程。 这</description>
+    </item>
     
     <item>
       <title>gitbook（笔记）</title>
@@ -185,15 +194,6 @@
       <description>Can scp create a directory if it doesn&amp;rsquo;t exist?
 As far as I know, scp itself cannot do that, no. However, you could just ssh to the target machine, create the directory and then copy. Something like:
 1 2  ssh user@host &amp;#34;mkdir -p /target/path/&amp;#34; &amp;amp;&amp;amp; scp /path/to/source user@host:/target/path/   Note that if you are copying entire directories, the above is not needed. For example, to copy the directory ~/foo to the remote host, you could use the -r (recursive) flag:</description>
-    </item>
-    
-    <item>
-      <title>openstack swift(笔记)</title>
-      <link>https://b.qqbb.app/post/note-about-openstack-swift/</link>
-      <pubDate>Sat, 19 Jan 2019 00:00:00 -0800</pubDate>
-      <author>273412935@qq.com (龙哥)</author>
-      <guid>https://b.qqbb.app/post/note-about-openstack-swift/</guid>
-      <description>replication 默认为3 每次上传的文件，会经过ring选择3个硬盘存储。 可以看下面这个图的倒数3行命令的结果 eventually consistent Eventually Consistent：最终一致性 看一下 http://duanple.blog.163.com/blog/static/7097176720114733211308/</description>
     </item>
     
   </channel>

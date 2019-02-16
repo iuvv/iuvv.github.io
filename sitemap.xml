@@ -3,8 +3,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://b.qqbb.app/post/note-about-health/</loc>
+    <lastmod>2019-02-16T22:21:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://b.qqbb.app/post/note-about-gitbook/</loc>
-    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <lastmod>2019-02-16T21:40:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -2832,7 +2839,7 @@
   
   <url>
     <loc>https://b.qqbb.app/</loc>
-    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <lastmod>2019-02-16T22:21:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -3799,14 +3806,14 @@
   
   <url>
     <loc>https://b.qqbb.app/tags/gitbook/</loc>
-    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <lastmod>2019-02-16T21:40:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
   
   <url>
     <loc>https://b.qqbb.app/categories/gitbook/</loc>
-    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <lastmod>2019-02-16T21:40:02+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -3898,6 +3905,20 @@
   <url>
     <loc>https://b.qqbb.app/tags/gvm/</loc>
     <lastmod>2018-07-15T14:09:03+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/tags/health/</loc>
+    <lastmod>2019-02-16T22:21:16+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://b.qqbb.app/categories/health/</loc>
+    <lastmod>2019-02-16T22:21:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -4534,7 +4555,7 @@
   
   <url>
     <loc>https://b.qqbb.app/tags/note/</loc>
-    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <lastmod>2019-02-16T22:21:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>
@@ -4695,7 +4716,7 @@
   
   <url>
     <loc>https://b.qqbb.app/post/</loc>
-    <lastmod>2019-02-16T00:26:30+08:00</lastmod>
+    <lastmod>2019-02-16T22:21:16+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0</priority>
   </url>

@@ -64,7 +64,7 @@
 
 
 
-<meta property="og:updated_time" content="2018-06-28T14:16:58&#43;08:00"/>
+<meta property="og:updated_time" content="2018-06-28T17:42:24&#43;08:00"/>
 
 
 
@@ -311,6 +311,39 @@
   <section id="posts" class="posts">
     
     
+    
+      <article class="post bg-white">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/post/svn-permission-configuration/">Svn Permission Configuration</a></h1>
+    
+    <div class="post-meta">
+      <time datetime="2018-06-28" class="post-time">
+        2018-06-28
+      </time>
+      <div class="post-category">
+          <a href="https://b.qqbb.app/categories/svn/"> svn </a>
+          
+        </div>
+      <span class="more-meta"> 约 172 字 </span>
+      <span class="more-meta"> 预计阅读 1 分钟 </span>
+      
+      
+      
+    </div>
+  </header>
+  
+  <div class="post-content">
+    
+    <div class="post-summary">
+      svn 修改权限 Env os: ubuntu16 svn: 1.9.7 目录： /application/ Step 修改权限文件 authz 1 2 3 [root@vachain application]# pwd /application [root@vachain application]# vi svnpasswd/authz 配置组及组员 1 2 3 4 5 6 7 8 9 10 11 12 13 [groups] # harry_and_sally = harry,sally # harry_sally_and_joe = harry,sally,&amp;joe # [/foo/bar] # harry = rw # &amp;joe =
+    </div>
+    <div class="read-more">
+      <a href="/post/svn-permission-configuration/" class="read-more-link">阅读全文</a>
+    </div>
+    
+  </div>
+</article>
+
     
       <article class="post bg-white">
   <header class="post-header">
@@ -603,39 +636,6 @@
     </div>
     <div class="read-more">
       <a href="/post/how-to-install-certificates-for-command-line/" class="read-more-link">阅读全文</a>
-    </div>
-    
-  </div>
-</article>
-
-    
-      <article class="post bg-white">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/post/convert-rst-to-gfm-document-style/">Convert Rst to Gfm Document Style</a></h1>
-    
-    <div class="post-meta">
-      <time datetime="2018-06-21" class="post-time">
-        2018-06-21
-      </time>
-      <div class="post-category">
-          <a href="https://b.qqbb.app/categories/markdown/"> markdown </a>
-          
-        </div>
-      <span class="more-meta"> 约 215 字 </span>
-      <span class="more-meta"> 预计阅读 1 分钟 </span>
-      
-      
-      
-    </div>
-  </header>
-  
-  <div class="post-content">
-    
-    <div class="post-summary">
-      RST(reStructuredText) 转换为 MD(Markdown) Env os: ubuntu16.04 ip: 192.168.31.199 Step 准备 安装 restbuilder https://pythonhosted.org/sphinxcontrib-restbuilder/ 1 pip install sphinxcontrib-restbuilder 安装 pandoc https://pandoc.org/installing.html https://github.com/jgm/pandoc/releases/latest 我这里选择二进制安装包 1 2 wget https://github.com/jgm/pandoc/releases/download/2.2.1/pandoc-2.2.1-1-amd64.deb dpkg -i ./pandoc-2.2.1-1-amd64.deb 操作 生成 rst 文件： 1 make -e SPHINXOPTS=&#34;-D language=&#39;zh_CN&#39;&#34; rst 转换 rst 到 gfm或mark
-    </div>
-    <div class="read-more">
-      <a href="/post/convert-rst-to-gfm-document-style/" class="read-more-link">阅读全文</a>
     </div>
     
   </div>
